@@ -9,10 +9,10 @@ import UIKit
 
 class ANoteTableView : UITableView {
     
-    var items : [String]!;      //Table Main-text contents (note - this grows in complexity later. for now, just a string)
+    @objc var items : [String]!;      //Table Main-text contents (note - this grows in complexity later. for now, just a string)
     
     
-    init(frame: CGRect, style: UITableViewStyle, items: [String]) {
+    @objc init(frame: CGRect, style: UITableViewStyle, items: [String]) {
         
         print("ANoteTableView.init():              Currently Configured to UITableViewCell usage");
 

@@ -10,25 +10,25 @@ import UIKit
 class UICheckbox: UIView {
     
     //state
-    var checkBoxImg : UIImageView!;
-    var parentCell  : ANoteTableViewCell!;
-    var state       : Bool = false;
+    @objc var checkBoxImg : UIImageView!;
+    @objc var parentCell  : ANoteTableViewCell!;
+    @objc var state       : Bool = false;
 
     //images
-    var uncheckedImage  :UIImage = UIImage(named:"anote_unchecked")!;
-    var checkedImage    :UIImage = UIImage(named:"anote_checked")!;
+    @objc var uncheckedImage  :UIImage = UIImage(named:"anote_unchecked")!;
+    @objc var checkedImage    :UIImage = UIImage(named:"anote_checked")!;
     
     //threads
-    let loadDelay_s : Double = 0.070;
+    @objc let loadDelay_s : Double = 0.070;
     
-    var loadThread : Timer!;
-    var fadeThread : Timer!;
+    @objc var loadThread : Timer!;
+    @objc var fadeThread : Timer!;
     
     /************************************************************************************************************************************/
     /* @fcn       init(view:UIView, parentCell: ANoteTableViewCell, xCoord:CGFloat, yCoord:CGFloat)                                     */
     /* @brief                                                                                                                           */
     /************************************************************************************************************************************/
-    init(view:UIView, parentCell: ANoteTableViewCell, xCoord:CGFloat, yCoord:CGFloat) {
+    @objc init(view:UIView, parentCell: ANoteTableViewCell, xCoord:CGFloat, yCoord:CGFloat) {
 
         super.init(frame:CGRect(x: 0, y: 0, width: globals.cellOffs_Left(), height: globals.aNoteRowHeight()));  //make it to the tap size you want
 
@@ -59,7 +59,7 @@ class UICheckbox: UIView {
     /* @fcn       addTapRecognizer()                                                                                                    */
     /* @details   handle taps, img change and fade                                                                                      */
     /************************************************************************************************************************************/
-    func addTapRecognizer() {
+    @objc func addTapRecognizer() {
         
         //Base Handle
         let tapRecognizer : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UICheckbox.handleTap(_:)));
@@ -80,7 +80,7 @@ class UICheckbox: UIView {
     /* @fcn       handleTap(recognizer:UITapGestureRecognizer)                                                                          */
     /* @details   the self->UITapGestureRecognizer is set to call this on a tap                                                         */
     /************************************************************************************************************************************/
-    func handleTap(_ recognizer:UITapGestureRecognizer) {
+    @objc func handleTap(_ recognizer:UITapGestureRecognizer) {
         
         //Swap w/Fade
         let fadeAnim:CABasicAnimation = CABasicAnimation(keyPath: "contents");
@@ -112,7 +112,7 @@ class UICheckbox: UIView {
     /* @fcn       buttonClicked()                                                                                                       */
     /* @details   called in self.handleTap(), when this checkBox is tapped!                                                             */
     /************************************************************************************************************************************/
-    func buttonClicked() {
+    @objc func buttonClicked() {
         
         if(verbose) { print("UICheckbox.buttonClicked():    entry"); }
         

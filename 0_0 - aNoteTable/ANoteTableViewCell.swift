@@ -9,18 +9,18 @@ class ANoteTableViewCell: UITableViewCell {
     
     //State
     var tableIndex   : Int!;
-    var mainText     : String!;
-    let numLines     : Int = 2;
+    @objc var mainText     : String!;
+    @objc let numLines     : Int = 2;
     
-    var checkBox     : UICheckbox!;
-    var subjectField : UILabel!;
-    var descripField : UILabel!;
-    var bottField    : UILabel!;
+    @objc var checkBox     : UICheckbox!;
+    @objc var subjectField : UILabel!;
+    @objc var descripField : UILabel!;
+    @objc var bottField    : UILabel!;
 
     //Config
-    let aNoteRowHeight : CGFloat = globals.aNoteRowHeight();  //emperically chosen
-    let checkBoxDim    : CGFloat = globals.checkBoxDim();     //all values
-    let checkBox_xOffs : CGFloat = globals.checkBox_xOffs();
+    @objc let aNoteRowHeight : CGFloat = globals.aNoteRowHeight();  //emperically chosen
+    @objc let checkBoxDim    : CGFloat = globals.checkBoxDim();     //all values
+    @objc let checkBox_xOffs : CGFloat = globals.checkBox_xOffs();
     
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -38,7 +38,7 @@ class ANoteTableViewCell: UITableViewCell {
     /* @fcn       initialize(indexPath : NSIndexPath, aNoteTable : aNoteTableView)                                                      */
     /* @details   initialize the cell, after creation                                                                                   */
     /************************************************************************************************************************************/
-    func initialize(_ indexPath : IndexPath, aNoteTable : ANoteTableView) {
+    @objc func initialize(_ indexPath : IndexPath, aNoteTable : ANoteTableView) {
         
         if(verbose){print("UITableViewCell.initialize():          adding: '\(aNoteTable.items[indexPath.item])'");}
 
@@ -165,7 +165,7 @@ class ANoteTableViewCell: UITableViewCell {
     /* @fcn       clickResponse()                                                                                                       */
     /* @details   set the main text to the new color and state. Called in response to cell click (typ by checkbox)                      */
     /************************************************************************************************************************************/
-    func clickResponse() {
+    @objc func clickResponse() {
         
         //Color
         subjectField.textColor = (self.checkBox.state) ? UIColor.gray : UIColor.black;
@@ -176,7 +176,7 @@ class ANoteTableViewCell: UITableViewCell {
         
         let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: self.subjectField.text!);
         
-        attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: newFontState, range: NSMakeRange(0, attributeString.length))
+        attributeString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: newFontState, range: NSMakeRange(0, attributeString.length))
         
         subjectField.attributedText = attributeString;
         
@@ -192,7 +192,7 @@ class ANoteTableViewCell: UITableViewCell {
     }
     
     
-    func numberOfLinesInLabel(_ yourString: NSString, labelWidth: CGFloat, labelHeight: CGFloat, font: UIFont) -> Int {
+    @objc func numberOfLinesInLabel(_ yourString: NSString, labelWidth: CGFloat, labelHeight: CGFloat, font: UIFont) -> Int {
         
         let paragraphStyle = NSMutableParagraphStyle()
     
@@ -200,8 +200,9 @@ class ANoteTableViewCell: UITableViewCell {
         paragraphStyle.maximumLineHeight = labelHeight;
         paragraphStyle.lineBreakMode = .byWordWrapping;
         
-        let attributes  : [String: AnyObject] = [NSFontAttributeName: font, NSParagraphStyleAttributeName: paragraphStyle];
-        let size        :  CGSize  = yourString.size(attributes: attributes);
+//!     let attributes  : [String: AnyObject] = [NSAttributedStringKey.font.rawValue: font, NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle];
+//!     let size        :  CGSize  = yourString.size(withAttributes: attributes);
+        let size        :  CGSize  = CGSize(width: 1, height: 2);
         let stringWidth :  CGFloat = size.width;
 
         let constrain   :  CGSize  = CGSize(width: labelWidth, height: labelHeight);

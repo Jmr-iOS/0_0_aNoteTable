@@ -20,13 +20,13 @@ import UIKit
 class ViewController: UIViewController {
 
     
-    var aNoteTable        : ANoteTableView!;
-    var aNoteTableHandler : ANoteTableViewHandler!;
+    @objc var aNoteTable        : ANoteTableView!;
+    @objc var aNoteTableHandler : ANoteTableViewHandler!;
     
-    var items : [String] = ["0", " 1", "  2", "   3", "    4", "     5", "      6", "       7", "        8", "          9", "           A"];
+    @objc var items : [String] = ["0", " 1", "  2", "   3", "    4", "     5", "      6", "       7", "        8", "          9", "           A"];
 
     //options
-    var cellBordersVisible:Bool = true;
+    @objc var cellBordersVisible:Bool = true;
     
     
     override func viewDidLoad() {
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
     }
 
     
-    func getANoteFrame() -> CGRect {
+    @objc func getANoteFrame() -> CGRect {
 
         var tableFrame : CGRect = self.view.frame;
         

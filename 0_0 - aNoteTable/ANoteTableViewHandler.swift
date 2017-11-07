@@ -8,19 +8,19 @@ import UIKit
 
 class ANoteTableViewHandler : NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    var aNoteTable : ANoteTableView!;
+    @objc var aNoteTable : ANoteTableView!;
     
-    var items : [String]!;
+    @objc var items : [String]!;
     
-    let nearColor:UIColor = UIColor(red: 255/255, green:  60/255, blue:  60/255, alpha: 1);
-    let farColor :UIColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1);
+    @objc let nearColor:UIColor = UIColor(red: 255/255, green:  60/255, blue:  60/255, alpha: 1);
+    @objc let farColor :UIColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1);
 
 
     /************************************************************************************************************************************/
     /* @fcn       init()                                                                                                                */
     /* @details                                                                                                                         */
     /************************************************************************************************************************************/
-    init(items: [String], ANoteTable : ANoteTableView) {
+    @objc init(items: [String], ANoteTable : ANoteTableView) {
 
         self.items = items;
         
@@ -120,7 +120,7 @@ class ANoteTableViewHandler : NSObject, UITableViewDataSource, UITableViewDelega
     /* @fcn       getCell(indexPath: NSIndexPath) -> aNoteTableViewCell                                                                 */
     /* @details   acquire a cell from the table                                                                                         */
     /************************************************************************************************************************************/
-    func getCell(_ indexPath: IndexPath) -> ANoteTableViewCell {
+    @objc func getCell(_ indexPath: IndexPath) -> ANoteTableViewCell {
         
         if(verbose){ print("ANoteTableViewHandler.getCell():       returning cell \(indexPath.item)"); }
         
