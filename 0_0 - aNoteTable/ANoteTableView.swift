@@ -25,17 +25,17 @@ class ANoteTableView : UITableView {
         /****************************************************/
         super.init(frame: frame, style: style);
         
-        self.registerClass(ANoteTableViewCell.self, forCellReuseIdentifier: "cell");
+        self.register(ANoteTableViewCell.self, forCellReuseIdentifier: "cell");
         self.translatesAutoresizingMaskIntoConstraints = false;
         
-        self.backgroundColor = UIColor.blackColor();   //cleanliness
+        self.backgroundColor = UIColor.black;   //cleanliness
         
         
         /****************************************************/
         /*                  aNote cell-styles               */
         /****************************************************/
-        self.separatorColor = .grayColor();
-        self.separatorStyle = .SingleLine;
+        self.separatorColor = .gray;
+        self.separatorStyle = .singleLine;
         
         self.separatorInset = UIEdgeInsetsMake(0, globals.cellOffs_Left(), 0, 0);
 

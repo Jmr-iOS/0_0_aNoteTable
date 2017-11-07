@@ -36,7 +36,7 @@ class ANoteTableViewHandler : NSObject, UITableViewDataSource, UITableViewDelega
     /* @fcn       tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int                                          */
     /* @details   get how many rows in specified section                                                                                */
     /************************************************************************************************************************************/
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if(verbose){ print("ANoteTableViewHandler.tableView():  The table will now have \(items.count), cause I just said so..."); }
         
@@ -48,14 +48,14 @@ class ANoteTableViewHandler : NSObject, UITableViewDataSource, UITableViewDelega
     /* @fcn       tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> ANoteTableViewCell                 */
     /* @details   add a cell to the table                                                                                               */
     /************************************************************************************************************************************/
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let  cellId  :String = "Cell"+String(indexPath.row);
         
-        var cell : ANoteTableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellId) as! ANoteTableViewCell?;
+        var cell : ANoteTableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellId) as! ANoteTableViewCell?;
         
         if (cell == nil){
-            cell = ANoteTableViewCell(style: .Default, reuseIdentifier:cellId);
+            cell = ANoteTableViewCell(style: .default, reuseIdentifier:cellId);
         }
 
         cell?.initialize(indexPath, aNoteTable: aNoteTable);
@@ -69,11 +69,11 @@ class ANoteTableViewHandler : NSObject, UITableViewDataSource, UITableViewDelega
     /* @fcn       tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)                                     */
     /* @details   handle cell tap                                                                                                       */
     /************************************************************************************************************************************/
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
         
-        tableView.deselectRowAtIndexPath(indexPath, animated:true);
+        tableView.deselectRow(at: indexPath, animated:true);
         
         let cell : ANoteTableViewCell = self.getCell(indexPath);
 
@@ -85,27 +85,27 @@ class ANoteTableViewHandler : NSObject, UITableViewDataSource, UITableViewDelega
         switch(indexPath.row) {
         case (0):
             print("    top selected. Scrolling to the bottom!");
-            tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: items.count-1, inSection: 0), atScrollPosition: UITableViewScrollPosition.Bottom, animated: true);
+            tableView.scrollToRow(at: IndexPath(row: items.count-1, section: 0), at: UITableViewScrollPosition.bottom, animated: true);
             break;
         case (items.count-5):
             print("    swapped the seperator color to red");
-            tableView.separatorColor = UIColor.redColor();
+            tableView.separatorColor = UIColor.red;
             break;
         case (items.count-4):
             print("    swapped the seperator color to blue");
-            tableView.separatorColor = UIColor.blueColor();
+            tableView.separatorColor = UIColor.blue;
             break;
         case (items.count-3):
             print("    scrolling to the top with a Rect and fade");
-            tableView.scrollRectToVisible(CGRectMake(0,0,1,1), animated:true);           //slow scroll to top
+            tableView.scrollRectToVisible(CGRect(x: 0,y: 0,width: 1,height: 1), animated:true);           //slow scroll to top
             break;
         case (items.count-2):
             print("    scrolling to the top with a Rect and no fade");
-            tableView.scrollRectToVisible(CGRectMake(0,0,1,1), animated:false);          //immediate scroll to top
+            tableView.scrollRectToVisible(CGRect(x: 0,y: 0,width: 1,height: 1), animated:false);          //immediate scroll to top
             break;
         case (items.count-1):
             print("    scrolling to the top with scrollToRowAtIndexPath");
-            tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: true);
+            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true);
             break;
         default:
             print("    no response");
@@ -120,11 +120,11 @@ class ANoteTableViewHandler : NSObject, UITableViewDataSource, UITableViewDelega
     /* @fcn       getCell(indexPath: NSIndexPath) -> aNoteTableViewCell                                                                 */
     /* @details   acquire a cell from the table                                                                                         */
     /************************************************************************************************************************************/
-    func getCell(indexPath: NSIndexPath) -> ANoteTableViewCell {
+    func getCell(_ indexPath: IndexPath) -> ANoteTableViewCell {
         
         if(verbose){ print("ANoteTableViewHandler.getCell():       returning cell \(indexPath.item)"); }
         
-        return aNoteTable.cellForRowAtIndexPath(indexPath) as! ANoteTableViewCell!;
+        return aNoteTable.cellForRow(at: indexPath) as! ANoteTableViewCell!;
     }
 }
 

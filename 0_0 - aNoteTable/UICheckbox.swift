@@ -21,8 +21,8 @@ class UICheckbox: UIView {
     //threads
     let loadDelay_s : Double = 0.070;
     
-    var loadThread : NSTimer!;
-    var fadeThread : NSTimer!;
+    var loadThread : Timer!;
+    var fadeThread : Timer!;
     
     /************************************************************************************************************************************/
     /* @fcn       init(view:UIView, parentCell: ANoteTableViewCell, xCoord:CGFloat, yCoord:CGFloat)                                     */
@@ -30,14 +30,14 @@ class UICheckbox: UIView {
     /************************************************************************************************************************************/
     init(view:UIView, parentCell: ANoteTableViewCell, xCoord:CGFloat, yCoord:CGFloat) {
 
-        super.init(frame:CGRectMake(0, 0, globals.cellOffs_Left(), globals.aNoteRowHeight()));  //make it to the tap size you want
+        super.init(frame:CGRect(x: 0, y: 0, width: globals.cellOffs_Left(), height: globals.aNoteRowHeight()));  //make it to the tap size you want
 
         //store
         self.parentCell = parentCell;
         
         //image init
         checkBoxImg       = UIImageView(image: uncheckedImage);
-        checkBoxImg.frame = CGRectMake(xCoord/*0*/, yCoord/*0*/, globals.checkBoxDim(), globals.checkBoxDim());
+        checkBoxImg.frame = CGRect(x: xCoord/*0*/, y: yCoord/*0*/, width: globals.checkBoxDim(), height: globals.checkBoxDim());
         
         //handle taps
         self.addTapRecognizer();
@@ -46,7 +46,7 @@ class UICheckbox: UIView {
         self.addSubview(checkBoxImg);
         view.addSubview(self);
         
-        if(coloredViews){self.backgroundColor = UIColor.blueColor();}
+        if(coloredViews){self.backgroundColor = UIColor.blue;}
         
         
         if(verbose){print("UICheckbox.init():                      complete");}
@@ -62,7 +62,7 @@ class UICheckbox: UIView {
     func addTapRecognizer() {
         
         //Base Handle
-        let tapRecognizer : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleTap:");
+        let tapRecognizer : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UICheckbox.handleTap(_:)));
 
         //Tap Config
         tapRecognizer.numberOfTapsRequired    = 1;
@@ -70,7 +70,7 @@ class UICheckbox: UIView {
         
         //Gesture Config
         self.addGestureRecognizer(tapRecognizer);
-        self.userInteractionEnabled = true;
+        self.isUserInteractionEnabled = true;
         
         return;
     }
@@ -80,7 +80,7 @@ class UICheckbox: UIView {
     /* @fcn       handleTap(recognizer:UITapGestureRecognizer)                                                                          */
     /* @details   the self->UITapGestureRecognizer is set to call this on a tap                                                         */
     /************************************************************************************************************************************/
-    func handleTap(recognizer:UITapGestureRecognizer) {
+    func handleTap(_ recognizer:UITapGestureRecognizer) {
         
         //Swap w/Fade
         let fadeAnim:CABasicAnimation = CABasicAnimation(keyPath: "contents");
@@ -90,7 +90,7 @@ class UICheckbox: UIView {
         
         fadeAnim.duration = loadDelay_s;
         
-        fadeAnim.delegate = self;
+        fadeAnim.delegate = self as? CAAnimationDelegate;
         
         
         //Update ImageView & State
@@ -98,7 +98,7 @@ class UICheckbox: UIView {
 
         checkBoxImg.image = (self.checkBoxImg.image == uncheckedImage) ? checkedImage:uncheckedImage;
         
-        checkBoxImg.layer.addAnimation(fadeAnim, forKey: "contents");
+        checkBoxImg.layer.add(fadeAnim, forKey: "contents");
 
         
         //Handle the Click
@@ -126,8 +126,8 @@ class UICheckbox: UIView {
         return;
     }
     
-    override func animationDidStop (anim: CAAnimation, finished flag: Bool) { return; }
-    override func animationDidStart(anim: CAAnimation) { return; }
+//? override func animationDidStop (_ anim: CAAnimation, finished flag: Bool) { return; }
+//? override func animationDidStart(_ anim: CAAnimation) { return; }
     
     required init?(coder aDecoder: NSCoder) { super.init(coder:aDecoder); }
 }

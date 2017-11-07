@@ -38,7 +38,7 @@ class ANoteTableViewCell: UITableViewCell {
     /* @fcn       initialize(indexPath : NSIndexPath, aNoteTable : aNoteTableView)                                                      */
     /* @details   initialize the cell, after creation                                                                                   */
     /************************************************************************************************************************************/
-    func initialize(indexPath : NSIndexPath, aNoteTable : ANoteTableView) {
+    func initialize(_ indexPath : IndexPath, aNoteTable : ANoteTableView) {
         
         if(verbose){print("UITableViewCell.initialize():          adding: '\(aNoteTable.items[indexPath.item])'");}
 
@@ -58,9 +58,9 @@ class ANoteTableViewCell: UITableViewCell {
         /*******************************************************/
         /* Main(Subject) Text                                  */
         /*******************************************************/
-        let rightScreenChunk_Width = UIScreen.mainScreen().bounds.width - globals.timeView_xOffs() - globals.timeView_Width();
+        let rightScreenChunk_Width = UIScreen.main.bounds.width - globals.timeView_xOffs() - globals.timeView_Width();
         
-        let subjFieldWidth : CGFloat = UIScreen.mainScreen().bounds.width - globals.cellOffs_Left() - rightScreenChunk_Width - globals.timeView_Width();
+        let subjFieldWidth : CGFloat = UIScreen.main.bounds.width - globals.cellOffs_Left() - rightScreenChunk_Width - globals.timeView_Width();
         
         if(indexPath.item == 0) {
             self.mainText = "Example aNote Subject Field And Your Momma's House, and why I think this is clear. It is because";
@@ -74,12 +74,12 @@ class ANoteTableViewCell: UITableViewCell {
                                               height: globals.subjFont.pointSize*CGFloat(self.numLines+1))); //'+1', I  //have no idea why... emperically works
         subjectField.text = self.mainText;
         subjectField.font = globals.subjFont;
-        subjectField.textAlignment = NSTextAlignment.Left;
+        subjectField.textAlignment = NSTextAlignment.left;
 
 
         //text-wrap
         subjectField.numberOfLines = 0; //set to 0 for auto-wrap
-        subjectField.lineBreakMode = .ByWordWrapping;
+        subjectField.lineBreakMode = .byWordWrapping;
         
         self.addSubview(subjectField);
         
@@ -90,7 +90,7 @@ class ANoteTableViewCell: UITableViewCell {
         /*******************************************************/
          /* Description Text                                    */
          /*******************************************************/
-        let descrFieldWidth : CGFloat = UIScreen.mainScreen().bounds.width - globals.cellOffs_Left() - rightScreenChunk_Width;
+        let descrFieldWidth : CGFloat = UIScreen.main.bounds.width - globals.cellOffs_Left() - rightScreenChunk_Width;
         
         descripField = UILabel(frame: CGRect(x:globals.cellOffs_Left(), y: globals.descripYOffs(), width: descrFieldWidth, height:  globals.descripHeight()));
         
@@ -101,8 +101,8 @@ class ANoteTableViewCell: UITableViewCell {
         }
 
         descripField.font = UIFont(name: self.textLabel!.font.fontName, size: 14);
-        descripField.textAlignment = NSTextAlignment.Left;
-        descripField.textColor = UIColor.grayColor();
+        descripField.textAlignment = NSTextAlignment.left;
+        descripField.textColor = UIColor.gray;
         
         self.addSubview(descripField);
         
@@ -110,7 +110,7 @@ class ANoteTableViewCell: UITableViewCell {
         /*******************************************************/
          /* Bott Text                                    */
          /*******************************************************/
-        let bottFieldWidth : CGFloat = UIScreen.mainScreen().bounds.width - globals.cellOffs_Left() - rightScreenChunk_Width;
+        let bottFieldWidth : CGFloat = UIScreen.main.bounds.width - globals.cellOffs_Left() - rightScreenChunk_Width;
         
         bottField = UILabel(frame: CGRect(x:globals.cellOffs_Left(), y: globals.bottYOffs(), width: bottFieldWidth, height:  20));
         
@@ -121,8 +121,8 @@ class ANoteTableViewCell: UITableViewCell {
         }
         
         bottField.font = UIFont(name: self.textLabel!.font.fontName, size: 12);
-        bottField.textAlignment = NSTextAlignment.Left;
-        bottField.textColor = UIColor.grayColor();
+        bottField.textAlignment = NSTextAlignment.left;
+        bottField.textColor = UIColor.gray;
         
         self.addSubview(bottField);
         
@@ -142,16 +142,16 @@ class ANoteTableViewCell: UITableViewCell {
         
         timeLabel.font  =   UIFont(name: "HelveticaNeue", size: 10);
         timeLabel.text  =   "4:30 PM";
-        timeLabel.textColor     = UIColor.whiteColor();
-        timeLabel.textAlignment = NSTextAlignment.Left;
+        timeLabel.textColor     = UIColor.white;
+        timeLabel.textAlignment = NSTextAlignment.left;
         
         timeView.addSubview(timeLabel);
 
         
         //color it!
-        if(coloredViews){subjectField.backgroundColor = UIColor.redColor();}
-        if(coloredViews){descripField.backgroundColor = UIColor.grayColor();}
-        if(coloredViews){   bottField.backgroundColor = UIColor.yellowColor();}
+        if(coloredViews){subjectField.backgroundColor = UIColor.red;}
+        if(coloredViews){descripField.backgroundColor = UIColor.gray;}
+        if(coloredViews){   bottField.backgroundColor = UIColor.yellow;}
 
         
         //add it
@@ -168,7 +168,7 @@ class ANoteTableViewCell: UITableViewCell {
     func clickResponse() {
         
         //Color
-        subjectField.textColor = (self.checkBox.state) ? UIColor.grayColor() : UIColor.blackColor();
+        subjectField.textColor = (self.checkBox.state) ? UIColor.gray : UIColor.black;
         
 
         //Font & Strikethrough
@@ -192,19 +192,19 @@ class ANoteTableViewCell: UITableViewCell {
     }
     
     
-    func numberOfLinesInLabel(yourString: NSString, labelWidth: CGFloat, labelHeight: CGFloat, font: UIFont) -> Int {
+    func numberOfLinesInLabel(_ yourString: NSString, labelWidth: CGFloat, labelHeight: CGFloat, font: UIFont) -> Int {
         
         let paragraphStyle = NSMutableParagraphStyle()
     
         paragraphStyle.minimumLineHeight = labelHeight;
         paragraphStyle.maximumLineHeight = labelHeight;
-        paragraphStyle.lineBreakMode = .ByWordWrapping;
+        paragraphStyle.lineBreakMode = .byWordWrapping;
         
         let attributes  : [String: AnyObject] = [NSFontAttributeName: font, NSParagraphStyleAttributeName: paragraphStyle];
-        let size        :  CGSize  = yourString.sizeWithAttributes(attributes);
+        let size        :  CGSize  = yourString.size(attributes: attributes);
         let stringWidth :  CGFloat = size.width;
 
-        let constrain   :  CGSize  = CGSizeMake(labelWidth, labelHeight);
+        let constrain   :  CGSize  = CGSize(width: labelWidth, height: labelHeight);
         
         let numberOfLines = ceil(Double(stringWidth/constrain.width))
         

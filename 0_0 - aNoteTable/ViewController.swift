@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     
         let tableFrame : CGRect = self.getANoteFrame();
         
-        aNoteTable = ANoteTableView(frame:tableFrame, style:UITableViewStyle.Plain, items:items);
+        aNoteTable = ANoteTableView(frame:tableFrame, style:UITableViewStyle.plain, items:items);
 
         
         /****************************************************/
