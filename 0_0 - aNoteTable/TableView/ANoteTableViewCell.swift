@@ -1,28 +1,46 @@
-//
-//  ANoteTableViewCell.swift
-//  0_0 - newNoteTable
-//
-
+/************************************************************************************************************************************/
+/** @file       ANoteTableViewCell.swift
+ *  @brief      x
+ *  @details    x
+ *
+ *  @section    Opens
+ *      x
+ *
+ *  @section    Legal Disclaimer
+ *       All contents of this source file and/or any other Vioteq related source files are the explicit property on Jaostech
+ *       Corporation. Do not distribute. Do not copy.
+ */
+/************************************************************************************************************************************/
 import UIKit
 
 class ANoteTableViewCell: UITableViewCell {
     
     //State
     var tableIndex   : Int!;
-    @objc var mainText     : String!;
-    @objc let numLines     : Int = 2;
+    var mainText     : String!;
+    let numLines     : Int = 2;
     
-    @objc var checkBox     : UICheckbox!;
-    @objc var subjectField : UILabel!;
-    @objc var descripField : UILabel!;
-    @objc var bottField    : UILabel!;
+    var checkBox     : UICheckbox!;
+    var subjectField : UILabel!;
+    var descripField : UILabel!;
+    var bottField    : UILabel!;
 
     //Config
-    @objc let aNoteRowHeight : CGFloat = globals.aNoteRowHeight();  //emperically chosen
-    @objc let checkBoxDim    : CGFloat = globals.checkBoxDim();     //all values
-    @objc let checkBox_xOffs : CGFloat = globals.checkBox_xOffs();
+    let aNoteRowHeight : CGFloat = globals.aNoteRowHeight();  //emperically chosen
+    let checkBoxDim    : CGFloat = globals.checkBoxDim();     //all values
+    let checkBox_xOffs : CGFloat = globals.checkBox_xOffs();
     
     
+    /********************************************************************************************************************************/
+    /** @fcn        override init(style: UITableViewCellStyle, reuseIdentifier: String?)
+     *  @brief      x
+     *  @details    x
+     *
+     *  @param      [in] (UITableViewCellStyle) style - x
+     *  @param      [in] (String?) reuseIdentifier - x
+     *
+     */
+    /********************************************************************************************************************************/
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     
         super.init(style:style, reuseIdentifier:reuseIdentifier);
@@ -34,20 +52,20 @@ class ANoteTableViewCell: UITableViewCell {
     
     
 
-    /************************************************************************************************************************************/
-    /* @fcn       initialize(indexPath : NSIndexPath, aNoteTable : aNoteTableView)                                                      */
-    /* @details   initialize the cell, after creation                                                                                   */
-    /************************************************************************************************************************************/
-    @objc func initialize(_ indexPath : IndexPath, aNoteTable : ANoteTableView) {
+    /********************************************************************************************************************************/
+    /* @fcn       initialize(indexPath : NSIndexPath, aNoteTable : aNoteTableView)                                                  */
+    /* @details   initialize the cell, after creation                                                                               */
+    /********************************************************************************************************************************/
+    func initialize(_ indexPath : IndexPath, aNoteTable : ANoteTableView) {
         
         if(verbose){print("UITableViewCell.initialize():          adding: '\(aNoteTable.items[indexPath.item])'");}
 
         self.tableIndex = indexPath.item;
         
         
-        /********************************************************/
-        /* Checkbox                                             */
-        /********************************************************/
+        /****************************************************************************************************************************/
+        /*                                                      Checkbox                                                            */
+        /****************************************************************************************************************************/
         checkBox = UICheckbox(view:       self,
                               parentCell: self,
                               xCoord:     checkBox_xOffs,
@@ -55,9 +73,10 @@ class ANoteTableViewCell: UITableViewCell {
         
         self.addSubview(checkBox);
         
-        /*******************************************************/
-        /* Main(Subject) Text                                  */
-        /*******************************************************/
+        
+        /****************************************************************************************************************************/
+        /*                                                  Main(Subject) Text                                                      */
+        /****************************************************************************************************************************/
         let rightScreenChunk_Width = UIScreen.main.bounds.width - globals.timeView_xOffs() - globals.timeView_Width();
         
         let subjFieldWidth : CGFloat = UIScreen.main.bounds.width - globals.cellOffs_Left() - rightScreenChunk_Width - globals.timeView_Width();
@@ -87,9 +106,9 @@ class ANoteTableViewCell: UITableViewCell {
         
         
         
-        /*******************************************************/
-         /* Description Text                                    */
-         /*******************************************************/
+        /****************************************************************************************************************************/
+        /*                                                  Description Text                                                        */
+        /****************************************************************************************************************************/
         let descrFieldWidth : CGFloat = UIScreen.main.bounds.width - globals.cellOffs_Left() - rightScreenChunk_Width;
         
         descripField = UILabel(frame: CGRect(x:globals.cellOffs_Left(), y: globals.descripYOffs(), width: descrFieldWidth, height:  globals.descripHeight()));
@@ -107,9 +126,9 @@ class ANoteTableViewCell: UITableViewCell {
         self.addSubview(descripField);
         
         
-        /*******************************************************/
-         /* Bott Text                                    */
-         /*******************************************************/
+        /****************************************************************************************************************************/
+        /*                                                      Bott Text                                                           */
+        /****************************************************************************************************************************/
         let bottFieldWidth : CGFloat = UIScreen.main.bounds.width - globals.cellOffs_Left() - rightScreenChunk_Width;
         
         bottField = UILabel(frame: CGRect(x:globals.cellOffs_Left(), y: globals.bottYOffs(), width: bottFieldWidth, height:  20));
@@ -127,9 +146,9 @@ class ANoteTableViewCell: UITableViewCell {
         self.addSubview(bottField);
         
         
-        /********************************************************/
-         /* Time Label                                           */
-         /********************************************************/
+        /****************************************************************************************************************************/
+        /*                                                      Time Label                                                          */
+        /****************************************************************************************************************************/
         let timeView : UIView = UIView(frame: CGRect(x:      globals.timeView_xOffs(),
                                                      y:      globals.timeView_yOffs(),
                                                      width:  globals.timeView_Width(),
@@ -161,11 +180,11 @@ class ANoteTableViewCell: UITableViewCell {
     }
 
     
-    /************************************************************************************************************************************/
-    /* @fcn       clickResponse()                                                                                                       */
-    /* @details   set the main text to the new color and state. Called in response to cell click (typ by checkbox)                      */
-    /************************************************************************************************************************************/
-    @objc func clickResponse() {
+    /********************************************************************************************************************************/
+    /* @fcn       clickResponse()                                                                                                   */
+    /* @details   set the main text to the new color and state. Called in response to cell click (typ by checkbox)                  */
+    /********************************************************************************************************************************/
+    func clickResponse() {
         
         //Color
         subjectField.textColor = (self.checkBox.state) ? UIColor.gray : UIColor.black;
@@ -186,13 +205,37 @@ class ANoteTableViewCell: UITableViewCell {
         return;
     }
     
+    
+    /********************************************************************************************************************************/
+    /** @fcn        required init?(coder aDecoder: NSCoder)
+     *  @brief      x
+     *  @details    x
+     *
+     *  @param      [in] (NSCoder) coder aDecoder - x
+     *
+     */
+    /********************************************************************************************************************************/
     required init?(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder);
         fatalError("init(coder:) has not been implemented");
     }
     
     
-    @objc func numberOfLinesInLabel(_ yourString: NSString, labelWidth: CGFloat, labelHeight: CGFloat, font: UIFont) -> Int {
+    /********************************************************************************************************************************/
+    /** @fcn        func numberOfLinesInLabel(_ yourString: NSString, labelWidth: CGFloat, labelHeight: CGFloat, font: UIFont) -> Int
+     *  @brief      x
+     *  @details    x
+     *
+     *  @param      [in] (NSString) yourString - x
+     *  @param      [in] (CGFloat) labelWidth - x
+     *  @param      [in] (CGFloat) labelHeight - x
+     *  @param      [in] (UIFont) font - x
+     *
+     *  @return     (Int) descrip
+     *
+     */
+    /********************************************************************************************************************************/
+    func numberOfLinesInLabel(_ yourString: NSString, labelWidth: CGFloat, labelHeight: CGFloat, font: UIFont) -> Int {
         
         let paragraphStyle = NSMutableParagraphStyle()
     

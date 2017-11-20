@@ -1,26 +1,34 @@
-//
-//  aNoteTableViewHandler.swift
-//  0_0 - newNoteTable
-//
-//
-
+/************************************************************************************************************************************/
+/** @file       ANoteTableViewHandler.swift
+ *  @brief      x
+ *  @details    x
+ *
+ *  @section    Opens
+ *      x
+ *
+ *  @section    Legal Disclaimer
+ *       All contents of this source file and/or any other Vioteq related source files are the explicit property on Jaostech
+ *       Corporation. Do not distribute. Do not copy.
+ */
+/************************************************************************************************************************************/
 import UIKit
+
 
 class ANoteTableViewHandler : NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    @objc var aNoteTable : ANoteTableView!;
+    var aNoteTable : ANoteTableView!;
     
-    @objc var items : [String]!;
+    var items : [String]!;
     
-    @objc let nearColor:UIColor = UIColor(red: 255/255, green:  60/255, blue:  60/255, alpha: 1);
-    @objc let farColor :UIColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1);
+    let nearColor:UIColor = UIColor(red: 255/255, green:  60/255, blue:  60/255, alpha: 1);
+    let farColor :UIColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1);
 
 
-    /************************************************************************************************************************************/
-    /* @fcn       init()                                                                                                                */
-    /* @details                                                                                                                         */
-    /************************************************************************************************************************************/
-    @objc init(items: [String], ANoteTable : ANoteTableView) {
+    /********************************************************************************************************************************/
+    /* @fcn       init()                                                                                                            */
+    /* @details                                                                                                                     */
+    /********************************************************************************************************************************/
+    init(items: [String], ANoteTable : ANoteTableView) {
 
         self.items = items;
         
@@ -32,22 +40,22 @@ class ANoteTableViewHandler : NSObject, UITableViewDataSource, UITableViewDelega
     }
     
     
-    /************************************************************************************************************************************/
-    /* @fcn       tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int                                          */
-    /* @details   get how many rows in specified section                                                                                */
-    /************************************************************************************************************************************/
+    /********************************************************************************************************************************/
+    /* @fcn       tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int                                      */
+    /* @details   get how many rows in specified section                                                                            */
+    /********************************************************************************************************************************/
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if(verbose){ print("ANoteTableViewHandler.tableView():  The table will now have \(items.count), cause I just said so..."); }
         
-        return items.count;                                                                 //return how many rows you want printed....!
+        return items.count;                                                     /* return how many rows you want printed....!       */
     }
 
     
-    /************************************************************************************************************************************/
-    /* @fcn       tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> ANoteTableViewCell                 */
-    /* @details   add a cell to the table                                                                                               */
-    /************************************************************************************************************************************/
+    /********************************************************************************************************************************/
+    /* @fcn       tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> ANoteTableViewCell             */
+    /* @details   add a cell to the table                                                                                           */
+    /********************************************************************************************************************************/
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let  cellId  :String = "Cell"+String(indexPath.row);
@@ -65,13 +73,11 @@ class ANoteTableViewHandler : NSObject, UITableViewDataSource, UITableViewDelega
 
 
     
-    /************************************************************************************************************************************/
-    /* @fcn       tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)                                     */
-    /* @details   handle cell tap                                                                                                       */
-    /************************************************************************************************************************************/
+    /********************************************************************************************************************************/
+    /* @fcn       tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)                                 */
+    /* @details   handle cell tap                                                                                                   */
+    /********************************************************************************************************************************/
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
         
         tableView.deselectRow(at: indexPath, animated:true);
         
@@ -79,9 +85,9 @@ class ANoteTableViewHandler : NSObject, UITableViewDataSource, UITableViewDelega
 
         if(verbose){ print("ANoteTableViewHandler.tableView():         handling a cell tap of \(cell.tableIndex)"); }
         
-        /********************************************************************************************************************************/
-        /* scroll to the top or change the bar color                                                                                    */
-        /********************************************************************************************************************************/
+        /****************************************************************************************************************************/
+        /* scroll to the top or change the bar color                                                                                */
+        /****************************************************************************************************************************/
         switch(indexPath.row) {
         case (0):
             print("    top selected. Scrolling to the bottom!");
@@ -116,11 +122,11 @@ class ANoteTableViewHandler : NSObject, UITableViewDataSource, UITableViewDelega
     }
     
 
-    /************************************************************************************************************************************/
-    /* @fcn       getCell(indexPath: NSIndexPath) -> aNoteTableViewCell                                                                 */
-    /* @details   acquire a cell from the table                                                                                         */
-    /************************************************************************************************************************************/
-    @objc func getCell(_ indexPath: IndexPath) -> ANoteTableViewCell {
+    /********************************************************************************************************************************/
+    /* @fcn       getCell(indexPath: NSIndexPath) -> aNoteTableViewCell                                                             */
+    /* @details   acquire a cell from the table                                                                                     */
+    /********************************************************************************************************************************/
+    func getCell(_ indexPath: IndexPath) -> ANoteTableViewCell {
         
         if(verbose){ print("ANoteTableViewHandler.getCell():       returning cell \(indexPath.item)"); }
         

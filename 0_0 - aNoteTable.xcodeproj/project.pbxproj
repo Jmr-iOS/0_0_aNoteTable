@@ -12,7 +12,6 @@
 		D0694D761FC27D1C00602DF2 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0694D751FC27D1C00602DF2 /* Globals.swift */; };
 		D0694D7D1FC27D3F00602DF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0694D791FC27D3E00602DF2 /* Assets.xcassets */; };
 		D0694D7E1FC27D3F00602DF2 /* Stdcomments.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0694D7A1FC27D3F00602DF2 /* Stdcomments.swift */; };
-		D0694D801FC27D3F00602DF2 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = D0694D7C1FC27D3F00602DF2 /* Base.lproj */; };
 		D0694D851FC27DAE00602DF2 /* UICheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0694D811FC27DAE00602DF2 /* UICheckbox.swift */; };
 		D0694D861FC27DAE00602DF2 /* ANoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0694D821FC27DAE00602DF2 /* ANoteTableViewCell.swift */; };
 		D0694D871FC27DAE00602DF2 /* ANoteTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0694D831FC27DAE00602DF2 /* ANoteTableViewHandler.swift */; };
@@ -27,7 +26,6 @@
 		D0694D791FC27D3E00602DF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Base/Assets.xcassets; sourceTree = "<group>"; };
 		D0694D7A1FC27D3F00602DF2 /* Stdcomments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stdcomments.swift; path = Base/Stdcomments.swift; sourceTree = "<group>"; };
 		D0694D7B1FC27D3F00602DF2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Base/Info.plist; sourceTree = "<group>"; };
-		D0694D7C1FC27D3F00602DF2 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = Base/Base.lproj; sourceTree = "<group>"; };
 		D0694D811FC27DAE00602DF2 /* UICheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICheckbox.swift; path = TableView/UICheckbox.swift; sourceTree = "<group>"; };
 		D0694D821FC27DAE00602DF2 /* ANoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANoteTableViewCell.swift; path = TableView/ANoteTableViewCell.swift; sourceTree = "<group>"; };
 		D0694D831FC27DAE00602DF2 /* ANoteTableViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANoteTableViewHandler.swift; path = TableView/ANoteTableViewHandler.swift; sourceTree = "<group>"; };
@@ -45,7 +43,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D01F62B01C2A584F00C9622B /* aNote */ = {
+		D01F62B01C2A584F00C9622B /* TableView */ = {
 			isa = PBXGroup;
 			children = (
 				D0694D841FC27DAE00602DF2 /* ANoteTableView.swift */,
@@ -53,7 +51,7 @@
 				D0694D831FC27DAE00602DF2 /* ANoteTableViewHandler.swift */,
 				D0694D811FC27DAE00602DF2 /* UICheckbox.swift */,
 			);
-			name = aNote;
+			name = TableView;
 			sourceTree = "<group>";
 		};
 		D039B4AD1BF4D7950024005F = {
@@ -77,7 +75,7 @@
 			children = (
 				D0694D781FC27D3500602DF2 /* Base */,
 				D0694D741FC27D0E00602DF2 /* Data */,
-				D01F62B01C2A584F00C9622B /* aNote */,
+				D01F62B01C2A584F00C9622B /* TableView */,
 				D039B4B91BF4D7950024005F /* AppDelegate.swift */,
 				D039B4BB1BF4D7950024005F /* ViewController.swift */,
 			);
@@ -96,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				D0694D791FC27D3E00602DF2 /* Assets.xcassets */,
-				D0694D7C1FC27D3F00602DF2 /* Base.lproj */,
 				D0694D7B1FC27D3F00602DF2 /* Info.plist */,
 				D0694D7A1FC27D3F00602DF2 /* Stdcomments.swift */,
 			);
@@ -164,7 +161,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0694D7D1FC27D3F00602DF2 /* Assets.xcassets in Resources */,
-				D0694D801FC27D3F00602DF2 /* Base.lproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

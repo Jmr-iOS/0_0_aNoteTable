@@ -1,34 +1,44 @@
-//
-//  UICheckBox.swift
-//  0_0 - newNoteTable
-//
-//  URL: http://stackoverflow.com/questions/2599451/cabasicanimation-delegate-for-animationdidstop
-//
-
+/************************************************************************************************************************************/
+/** @file       UICheckBox.swift
+ *  @brief      x
+ *  @details    x
+ *
+ *  @section    Opens
+ *      x
+ *
+ *  @section    Reference
+ *      http://stackoverflow.com/questions/2599451/cabasicanimation-delegate-for-animationdidstop
+ *
+ *  @section    Legal Disclaimer
+ *       All contents of this source file and/or any other Vioteq related source files are the explicit property on Jaostech
+ *       Corporation. Do not distribute. Do not copy.
+ */
+/************************************************************************************************************************************/
 import UIKit
+
 
 class UICheckbox: UIView {
     
     //state
-    @objc var checkBoxImg : UIImageView!;
-    @objc var parentCell  : ANoteTableViewCell!;
-    @objc var state       : Bool = false;
+    var checkBoxImg : UIImageView!;
+    var parentCell  : ANoteTableViewCell!;
+    var state       : Bool = false;
 
     //images
-    @objc var uncheckedImage  :UIImage = UIImage(named:"anote_unchecked")!;
-    @objc var checkedImage    :UIImage = UIImage(named:"anote_checked")!;
+    var uncheckedImage  :UIImage = UIImage(named:"anote_unchecked")!;
+    var checkedImage    :UIImage = UIImage(named:"anote_checked")!;
     
     //threads
-    @objc let loadDelay_s : Double = 0.070;
+    let loadDelay_s : Double = 0.070;
     
-    @objc var loadThread : Timer!;
-    @objc var fadeThread : Timer!;
+    var loadThread : Timer!;
+    var fadeThread : Timer!;
     
-    /************************************************************************************************************************************/
-    /* @fcn       init(view:UIView, parentCell: ANoteTableViewCell, xCoord:CGFloat, yCoord:CGFloat)                                     */
-    /* @brief                                                                                                                           */
-    /************************************************************************************************************************************/
-    @objc init(view:UIView, parentCell: ANoteTableViewCell, xCoord:CGFloat, yCoord:CGFloat) {
+    /********************************************************************************************************************************/
+    /* @fcn       init(view:UIView, parentCell: ANoteTableViewCell, xCoord:CGFloat, yCoord:CGFloat)                                 */
+    /* @brief                                                                                                                       */
+    /********************************************************************************************************************************/
+    init(view:UIView, parentCell: ANoteTableViewCell, xCoord:CGFloat, yCoord:CGFloat) {
 
         super.init(frame:CGRect(x: 0, y: 0, width: globals.cellOffs_Left(), height: globals.aNoteRowHeight()));  //make it to the tap size you want
 
@@ -55,10 +65,11 @@ class UICheckbox: UIView {
     }
 
     
-    /************************************************************************************************************************************/
-    /* @fcn       addTapRecognizer()                                                                                                    */
-    /* @details   handle taps, img change and fade                                                                                      */
-    /************************************************************************************************************************************/
+    /*********************************************************************************************************************************/
+    /* @fcn       addTapRecognizer()                                                                                                */
+    /* @details   handle taps, img change and fade                                                                                  */
+    /* @note      @objc exposed to enabled handleTap() access, not sure why                                                         */
+    /********************************************************************************************************************************/
     @objc func addTapRecognizer() {
         
         //Base Handle
@@ -76,10 +87,10 @@ class UICheckbox: UIView {
     }
     
 
-    /************************************************************************************************************************************/
-    /* @fcn       handleTap(recognizer:UITapGestureRecognizer)                                                                          */
-    /* @details   the self->UITapGestureRecognizer is set to call this on a tap                                                         */
-    /************************************************************************************************************************************/
+    /********************************************************************************************************************************/
+    /* @fcn       handleTap(recognizer:UITapGestureRecognizer)                                                                      */
+    /* @details   the self->UITapGestureRecognizer is set to call this on a tap                                                     */
+    /********************************************************************************************************************************/
     @objc func handleTap(_ recognizer:UITapGestureRecognizer) {
         
         //Swap w/Fade
@@ -108,11 +119,11 @@ class UICheckbox: UIView {
     }
     
 
-    /************************************************************************************************************************************/
-    /* @fcn       buttonClicked()                                                                                                       */
-    /* @details   called in self.handleTap(), when this checkBox is tapped!                                                             */
-    /************************************************************************************************************************************/
-    @objc func buttonClicked() {
+    /********************************************************************************************************************************/
+    /* @fcn       buttonClicked()                                                                                                   */
+    /* @details   called in self.handleTap(), when this checkBox is tapped!                                                         */
+    /********************************************************************************************************************************/
+    func buttonClicked() {
         
         if(verbose) { print("UICheckbox.buttonClicked():    entry"); }
         

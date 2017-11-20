@@ -1,44 +1,63 @@
-//
-//  ViewController.swift
-//  0_0 - newNoteTable
-//
-//  /------OLD TODOS-----/
-//  @todo   pass delegate
-//  @todo   pass datasource
-//  @todo   make it be able to input N rows
-//  @todo   set a row's background
-//  @todo   set a row's text
-//  @todo   make the clickability to a larger area!!! add 50% in -x, +x, -y, +y!
-//  @todo   add a fade to the toggle of row text(s)!
-//  @todo   toggle cell content on time or tap (color, text, etc). Takes a bit of work... :)
-//  @todo   handle clicks! (e.g. UICheckBox.buttonClicked())
-//              *You're going to need to store var access by fcn call
-//
-// @section     Opens
-//      File Headers (proj)
-//      File Headers (lib)
-//      Fcn Headers (proj)
-//      Fcn Headers (lib)
+/************************************************************************************************************************************/
+/** @file       ViewController.swift
+ *  @proj       0_0 - newNoteTable
+ *  @brief      generation of aNote styled table of notes
+ *  @details    x
+ *
+ *  @author     Justin Reina, Firmware Engineer, Vioteq
+ *  @created    11/19/17
+ *  @last rev   11/19/17
+ *
+ *  @section    Opens
+ *      Fcn Headers (proj)
+ *      Upper Bar to Match aNote        (in size)
+ *      Upper Text bar to Match aNote   (in size)
+ *      Lower Bar to Match aNote        (in size)
+ *
+ *  @section    Previous Opens
+ *      pass delegate
+ *      pass datasource
+ *      make it be able to input N rows
+ *      set a row's background
+ *      set a row's text
+ *      make the clickability to a larger area!!! add 50% in -x, +x, -y, +y!
+ *      add a fade to the toggle of row text(s)!
+ *      toggle cell content on time or tap (color, text, etc). Takes a bit of work... :)
+ *      handle clicks! (e.g. UICheckBox.buttonClicked())
+ *          *You're going to need to store var access by fcn call
+ *
+ *  @section    Legal Disclaimer
+ *       All contents of this source file and/or any other Vioteq related source files are the explicit property on Vioteq
+ *       Corporation. Do not distribute. Do not copy.
+ */
+/************************************************************************************************************************************/
 import UIKit
+
 
 class ViewController: UIViewController {
 
     
-    @objc var aNoteTable        : ANoteTableView!;
-    @objc var aNoteTableHandler : ANoteTableViewHandler!;
+    var aNoteTable        : ANoteTableView!;
+    var aNoteTableHandler : ANoteTableViewHandler!;
     
-    @objc var items : [String] = ["0", " 1", "  2", "   3", "    4", "     5", "      6", "       7", "        8", "          9", "           A"];
-
+    var items : [String] = ["0", " 1", "  2", "   3", "    4", "     5", "      6","       7", "        8", "          9", "           A"];
+    
     //options
-    @objc var cellBordersVisible:Bool = true;
+    var cellBordersVisible:Bool = true;
     
     
+    /********************************************************************************************************************************/
+    /** @fcn        override func viewDidLoad()
+     *  @brief      x
+     *  @details    x
+     */
+    /********************************************************************************************************************************/
     override func viewDidLoad() {
         super.viewDidLoad();
 
-        /****************************************************/
-        /*                 Table                            */
-        /****************************************************/
+        /****************************************************************************************************************************/
+        /*                                                      Table                                                               */
+        /****************************************************************************************************************************/
         self.view.translatesAutoresizingMaskIntoConstraints = false;
     
         let tableFrame : CGRect = self.getANoteFrame();
@@ -46,12 +65,12 @@ class ViewController: UIViewController {
         aNoteTable = ANoteTableView(frame:tableFrame, style:UITableViewStyle.plain, items:items);
 
         
-        /****************************************************/
-        /*                 Handler                          */
-        /****************************************************/
+        /****************************************************************************************************************************/
+        /*                                                      Handler                                                             */
+        /****************************************************************************************************************************/
         aNoteTableHandler = ANoteTableViewHandler(items: items, ANoteTable: aNoteTable);
         
-        aNoteTable.delegate   = aNoteTableHandler;                                            //Set both to handle clicks & provide data
+        aNoteTable.delegate   = aNoteTableHandler;                                      /* Set both to handle clicks & provide data */
         aNoteTable.dataSource = aNoteTableHandler;        
         
         //Add it!
@@ -63,7 +82,16 @@ class ViewController: UIViewController {
     }
 
     
-    @objc func getANoteFrame() -> CGRect {
+    /********************************************************************************************************************************/
+    /** @fcn        func getANoteFrame() -> CGRect
+     *  @brief      x
+     *  @details    x
+     *
+     *  @return     (CGRect) frame
+     *
+     */
+    /********************************************************************************************************************************/
+    func getANoteFrame() -> CGRect {
 
         var tableFrame : CGRect = self.view.frame;
         
@@ -73,6 +101,12 @@ class ViewController: UIViewController {
     }
     
     
+    /********************************************************************************************************************************/
+    /** @fcn        override func didReceiveMemoryWarning()
+     *  @brief      x
+     *  @details    x
+     */
+    /********************************************************************************************************************************/
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning();
         return;

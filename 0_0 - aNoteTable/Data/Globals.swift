@@ -1,11 +1,20 @@
-//
-//  Globals.swift
-//  0_0 - newNoteTable
-//
-
+/************************************************************************************************************************************/
+/** @file       Globals.swift
+ *  @brief      x
+ *  @details    x
+ *
+ *  @section    Opens
+ *      x
+ *
+ *  @section    Legal Disclaimer
+ *       All contents of this source file and/or any other Vioteq related source files are the explicit property on Jaostech
+ *       Corporation. Do not distribute. Do not copy.
+ */
+/************************************************************************************************************************************/
 import UIKit
 
 var globals : Globals = Globals();
+
 
 class Globals {
     let aNoteRowHeight_val : CGFloat = 175/2;  //all vals emperically chosen
@@ -77,22 +86,18 @@ class Globals {
     }
 
     func descripYOffs() -> CGFloat {
-        
         return subjYOffs_val + subjHeight_val;
     }
     
     func bottYOffs() -> CGFloat {
-        
         return descripYOffs() + descripHeight_val;
     }
 
     func nearColor() -> UIColor {
-        
         return UIColor(red: 255/255, green:  60/255, blue:  60/255, alpha: 1);
     }
     
     func farColor() -> UIColor {
-
         return UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1);
     }
 }

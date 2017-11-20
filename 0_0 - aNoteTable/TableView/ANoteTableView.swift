@@ -1,18 +1,38 @@
-//
-//  ANoteTableView.swift
-//  0_0 - newNoteTable
-//
-//
-
+/************************************************************************************************************************************/
+/** @file       ANoteTableView.swift
+ *  @brief      x
+ *  @details    x
+ *
+ *  @section    Opens
+ *      x
+ *
+ *  @section    Legal Disclaimer
+ *       All contents of this source file and/or any other Vioteq related source files are the explicit property on Jaostech
+ *       Corporation. Do not distribute. Do not copy.
+ */
+/************************************************************************************************************************************/
 import UIKit
 
 
 class ANoteTableView : UITableView {
     
-    @objc var items : [String]!;      //Table Main-text contents (note - this grows in complexity later. for now, just a string)
+    var items : [String]!;      //Table Main-text contents (note - this grows in complexity later. for now, just a string)
     
     
-    @objc init(frame: CGRect, style: UITableViewStyle, items: [String]) {
+    /********************************************************************************************************************************/
+    /** @fcn        init(frame: CGRect, style: UITableViewStyle, items: [String])
+     *  @brief      x
+     *  @details    x
+     *
+     *  @param      [in] (CGRect) frame - x
+     *  @param      [in] (UITableViewStyle) style - x
+     *  @param      [in] ([String]) items - x
+     *
+     *  @section    Opens
+     *      x
+     */
+    /********************************************************************************************************************************/
+    init(frame: CGRect, style: UITableViewStyle, items: [String]) {
         
         print("ANoteTableView.init():              Currently Configured to UITableViewCell usage");
 
@@ -20,9 +40,9 @@ class ANoteTableView : UITableView {
         self.items = items;
         
         
-        /****************************************************/
-        /*                  UITableView                     */
-        /****************************************************/
+        /****************************************************************************************************************************/
+        /*                                                  UITableView                                                             */
+        /****************************************************************************************************************************/
         super.init(frame: frame, style: style);
         
         self.register(ANoteTableViewCell.self, forCellReuseIdentifier: "cell");
@@ -31,9 +51,9 @@ class ANoteTableView : UITableView {
         self.backgroundColor = UIColor.black;   //cleanliness
         
         
-        /****************************************************/
-        /*                  aNote cell-styles               */
-        /****************************************************/
+        /****************************************************************************************************************************/
+        /*                                              aNote cell-styles                                                           */
+        /****************************************************************************************************************************/
         self.separatorColor = .gray;
         self.separatorStyle = .singleLine;
         
@@ -50,5 +70,11 @@ class ANoteTableView : UITableView {
     }
     
     
+    /********************************************************************************************************************************/
+    /** @fcn        required init?(coder aDecoder: NSCoder)
+     *  @brief      x
+     */
+    /********************************************************************************************************************************/
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 }
+
