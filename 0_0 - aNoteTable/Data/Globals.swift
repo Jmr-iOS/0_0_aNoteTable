@@ -38,6 +38,11 @@ class Globals {
     let nearColor_val:UIColor = UIColor(red: 255/255, green:  60/255, blue:  60/255, alpha: 1);
     let farColor_val :UIColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1);
 
+    let upper_bar_height : CGFloat = 65;
+    let text_bar_height  : CGFloat = 40;
+    let lower_bar_height : CGFloat = 55;
+    
+    
     func subjFieldYOffs() -> CGFloat {
         return subjFieldYOffs_val;
     }

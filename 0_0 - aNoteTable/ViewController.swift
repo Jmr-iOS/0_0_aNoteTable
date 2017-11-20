@@ -9,10 +9,11 @@
  *  @last rev   11/19/17
  *
  *  @section    Opens
- *      Fcn Headers (proj)
  *      Upper Bar to Match aNote        (in size)
  *      Upper Text bar to Match aNote   (in size)
  *      Lower Bar to Match aNote        (in size)
+ *      all are to header
+ *      use lib
  *
  *  @section    Previous Opens
  *      pass delegate
@@ -36,6 +37,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var upperBar : UIView!;
+    var textBar  : UIView!;
+    var bottBar  : UIView!;
     
     var aNoteTable        : ANoteTableView!;
     var aNoteTableHandler : ANoteTableViewHandler!;
@@ -55,15 +59,62 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad();
 
+        var yOffs : CGFloat = 0;                                        /* y-offset to place next ui item                           */
+        
+        /****************************************************************************************************************************/
+        /*                                                     Upper Bar                                                            */
+        /****************************************************************************************************************************/
+        upperBar = UIView();
+        upperBar.backgroundColor = UIColor.blue;
+        upperBar.frame = CGRect(x: 0, y: yOffs, width: view.frame.width, height:globals.upper_bar_height);
+        view.addSubview(upperBar);
+        
+        //Store offset
+        yOffs += upperBar.frame.height;
+
+        
+        /****************************************************************************************************************************/
+        /*                                                     Text Bar                                                             */
+        /****************************************************************************************************************************/
+        textBar = UIView();
+        textBar.backgroundColor = UIColor.gray;
+        textBar.frame = CGRect(x: 0, y: yOffs, width: view.frame.width, height: globals.text_bar_height);
+        view.addSubview(textBar);
+       
+        //Store offset
+        yOffs += globals.text_bar_height;
+
+        
         /****************************************************************************************************************************/
         /*                                                      Table                                                               */
         /****************************************************************************************************************************/
-        self.view.translatesAutoresizingMaskIntoConstraints = false;
-    
-        let tableFrame : CGRect = self.getANoteFrame();
-        
+        view.translatesAutoresizingMaskIntoConstraints = false;
+        let tableFrame : CGRect = getANoteFrame(y: yOffs, bottHeight: globals.lower_bar_height);
         aNoteTable = ANoteTableView(frame:tableFrame, style:UITableViewStyle.plain, items:items);
-
+        view.addSubview(aNoteTable);
+        
+        //Store offset
+        yOffs += aNoteTable.frame.height;
+        
+        
+        /****************************************************************************************************************************/
+        /*                                                    Bottom Bar                                                            */
+        /****************************************************************************************************************************/
+        bottBar = UIView();
+        bottBar.backgroundColor = UIColor.gray;
+        bottBar.frame = CGRect(x: 0,
+                               y: (view.frame.height - globals.lower_bar_height),
+                               width: view.frame.width,
+                               height: globals.lower_bar_height);
+        view.addSubview(bottBar);
+        
+        print(yOffs);
+        print(tableFrame.height);
+        print(aNoteTable.frame.height);
+        print(bottBar.frame.origin.y);
+        print(" ");
+        print(view.frame.height);
+        
         
         /****************************************************************************************************************************/
         /*                                                      Handler                                                             */
@@ -73,8 +124,6 @@ class ViewController: UIViewController {
         aNoteTable.delegate   = aNoteTableHandler;                                      /* Set both to handle clicks & provide data */
         aNoteTable.dataSource = aNoteTableHandler;        
         
-        //Add it!
-        self.view.addSubview(aNoteTable);
         
         print("ViewController.viewDidLoad():       viewDidLoad() complete");
         
@@ -87,15 +136,20 @@ class ViewController: UIViewController {
      *  @brief      x
      *  @details    x
      *
+     *  @param  [in] (CGFloat) y - x
+     *  @param  [in] (CGFloat) bottHeight - x
+     *
      *  @return     (CGRect) frame
      *
      */
     /********************************************************************************************************************************/
-    func getANoteFrame() -> CGRect {
+    func getANoteFrame(y : CGFloat, bottHeight : CGFloat) -> CGRect {
 
         var tableFrame : CGRect = self.view.frame;
         
-        tableFrame.origin.y = tableFrame.origin.y + 15;     //@todo why???
+        tableFrame.origin.y = y;
+        
+        tableFrame.size.height = view.frame.height - y - bottHeight;
 
         return tableFrame;
     }

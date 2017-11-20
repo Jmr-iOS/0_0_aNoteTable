@@ -48,7 +48,7 @@ class ANoteTableView : UITableView {
         self.register(ANoteTableViewCell.self, forCellReuseIdentifier: "cell");
         self.translatesAutoresizingMaskIntoConstraints = false;
         
-        self.backgroundColor = UIColor.black;   //cleanliness
+        self.backgroundColor = UIColor.yellow;                          /* cleanliness                                              */
         
         
         /****************************************************************************************************************************/
