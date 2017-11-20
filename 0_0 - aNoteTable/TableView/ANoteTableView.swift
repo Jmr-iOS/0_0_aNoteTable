@@ -7,14 +7,14 @@
  *      x
  *
  *  @section    Legal Disclaimer
- *       All contents of this source file and/or any other Vioteq related source files are the explicit property on Jaostech
+ *       All contents of this source file and/or any other Jaostech related source files are the explicit property on Jaostech
  *       Corporation. Do not distribute. Do not copy.
  */
 /************************************************************************************************************************************/
 import UIKit
 
 
-class ANoteTableView : UITableView {
+class ANoteTableView : UICustomTableView {        //...
     
     var items : [String]!;      //Table Main-text contents (note - this grows in complexity later. for now, just a string)
     
@@ -32,7 +32,7 @@ class ANoteTableView : UITableView {
      *      x
      */
     /********************************************************************************************************************************/
-    init(frame: CGRect, style: UITableViewStyle, items: [String]) {
+    override init(frame: CGRect, style: UITableViewStyle, items: [String]) {
         
         print("ANoteTableView.init():              Currently Configured to UITableViewCell usage");
 
@@ -43,7 +43,7 @@ class ANoteTableView : UITableView {
         /****************************************************************************************************************************/
         /*                                                  UITableView                                                             */
         /****************************************************************************************************************************/
-        super.init(frame: frame, style: style);
+        super.init(frame: frame, style: style, items: items);       
         
         self.register(ANoteTableViewCell.self, forCellReuseIdentifier: "cell");
         self.translatesAutoresizingMaskIntoConstraints = false;

@@ -7,7 +7,7 @@
  *      x
  *
  *  @section    Legal Disclaimer
- *       All contents of this source file and/or any other Vioteq related source files are the explicit property on Jaostech
+ *       All contents of this source file and/or any other Jaostech related source files are the explicit property on Jaostech
  *       Corporation. Do not distribute. Do not copy.
  */
 /************************************************************************************************************************************/

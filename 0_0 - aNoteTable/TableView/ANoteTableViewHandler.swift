@@ -7,14 +7,14 @@
  *      x
  *
  *  @section    Legal Disclaimer
- *       All contents of this source file and/or any other Vioteq related source files are the explicit property on Jaostech
+ *       All contents of this source file and/or any other Jaostech related source files are the explicit property on Jaostech
  *       Corporation. Do not distribute. Do not copy.
  */
 /************************************************************************************************************************************/
 import UIKit
 
 
-class ANoteTableViewHandler : NSObject, UITableViewDataSource, UITableViewDelegate {
+class ANoteTableViewHandler : UICustomTableViewHandler {
     
     var aNoteTable : ANoteTableView!;
     
@@ -29,7 +29,9 @@ class ANoteTableViewHandler : NSObject, UITableViewDataSource, UITableViewDelega
     /* @details                                                                                                                     */
     /********************************************************************************************************************************/
     init(items: [String], ANoteTable : ANoteTableView) {
-
+        
+        super.init(items: items, timerTable: ANoteTable);
+        
         self.items = items;
         
         self.aNoteTable = ANoteTable;
@@ -44,7 +46,7 @@ class ANoteTableViewHandler : NSObject, UITableViewDataSource, UITableViewDelega
     /* @fcn       tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int                                      */
     /* @details   get how many rows in specified section                                                                            */
     /********************************************************************************************************************************/
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if(verbose){ print("ANoteTableViewHandler.tableView():  The table will now have \(items.count), cause I just said so..."); }
         
@@ -56,7 +58,7 @@ class ANoteTableViewHandler : NSObject, UITableViewDataSource, UITableViewDelega
     /* @fcn       tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> ANoteTableViewCell             */
     /* @details   add a cell to the table                                                                                           */
     /********************************************************************************************************************************/
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let  cellId  :String = "Cell"+String(indexPath.row);
         
@@ -77,7 +79,7 @@ class ANoteTableViewHandler : NSObject, UITableViewDataSource, UITableViewDelega
     /* @fcn       tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)                                 */
     /* @details   handle cell tap                                                                                                   */
     /********************************************************************************************************************************/
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated:true);
         

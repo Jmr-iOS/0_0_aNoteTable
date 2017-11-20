@@ -7,13 +7,13 @@
  *      x
  *
  *  @section    Legal Disclaimer
- *       All contents of this source file and/or any other Vioteq related source files are the explicit property on Jaostech
+ *       All contents of this source file and/or any other Jaostech related source files are the explicit property on Jaostech
  *       Corporation. Do not distribute. Do not copy.
  */
 /************************************************************************************************************************************/
 import UIKit
 
-class ANoteTableViewCell: UITableViewCell {
+class ANoteTableViewCell: UICustomTableViewCell {
     
     //State
     var tableIndex   : Int!;
@@ -26,8 +26,8 @@ class ANoteTableViewCell: UITableViewCell {
     var bottField    : UILabel!;
 
     //Config
-    let aNoteRowHeight : CGFloat = globals.aNoteRowHeight();  //emperically chosen
-    let checkBoxDim    : CGFloat = globals.checkBoxDim();     //all values
+    let aNoteRowHeight : CGFloat = globals.aNoteRowHeight();                /* emperically chosen                                   */
+    let checkBoxDim    : CGFloat = globals.checkBoxDim();                   /* all values                                           */
     let checkBox_xOffs : CGFloat = globals.checkBox_xOffs();
     
     
@@ -51,7 +51,6 @@ class ANoteTableViewCell: UITableViewCell {
     }
     
     
-
     /********************************************************************************************************************************/
     /* @fcn       initialize(indexPath : NSIndexPath, aNoteTable : aNoteTableView)                                                  */
     /* @details   initialize the cell, after creation                                                                               */
@@ -101,9 +100,6 @@ class ANoteTableViewCell: UITableViewCell {
         subjectField.lineBreakMode = .byWordWrapping;
         
         self.addSubview(subjectField);
-        
-        
-        
         
         
         /****************************************************************************************************************************/
@@ -171,7 +167,6 @@ class ANoteTableViewCell: UITableViewCell {
         if(coloredViews){subjectField.backgroundColor = UIColor.red;}
         if(coloredViews){descripField.backgroundColor = UIColor.gray;}
         if(coloredViews){   bottField.backgroundColor = UIColor.yellow;}
-
         
         //add it
         self.addSubview(timeView);

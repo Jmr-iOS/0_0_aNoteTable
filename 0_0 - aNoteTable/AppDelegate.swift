@@ -7,7 +7,7 @@
  *      x
  *
  *  @section    Legal Disclaimer
- *       All contents of this source file and/or any other Vioteq related source files are the explicit property on Jaostech
+ *       All contents of this source file and/or any other Jaostech related source files are the explicit property on Jaostech
  *       Corporation. Do not distribute. Do not copy.
  */
 /************************************************************************************************************************************/
@@ -23,39 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     /********************************************************************************************************************************/
-    /** @fcn        int main(void)
+    /** @fcn        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
      *  @brief      x
      *  @details    x
      *
      *  @section    Purpose
      *      x
      *
-     *  @param      [in] name - descrip
+     *  @param      [in] (UIApplication) application - descrip
+     *  @param      [in] ([UIApplicationLaunchOptionsKey: Any]?) didFinishLaunchingWithOptions launchOptions - descrip
      *
-     *  @param      [out] name - descrip
-     *
-     *  @return     (type) descrip
-     *
-     *  @pre        x
-     *
-     *  @post       x
-     *
-     *  @section    Operation
-     *      x
-     *
-     *  @section    Opens
-     *      x
-     *
-     *  @section    Hazards & Risks
-     *      x
-     *
-     *  @section    Todo
-     *      x
-     *
-     *  @section    Timing
-     *      x
-     *
-     *  @note        x
      */
     /********************************************************************************************************************************/
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

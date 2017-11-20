@@ -4,16 +4,12 @@
  *  @brief      generation of aNote styled table of notes
  *  @details    x
  *
- *  @author     Justin Reina, Firmware Engineer, Vioteq
+ *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
  *  @last rev   11/19/17
  *
  *  @section    Opens
- *      Upper Bar to Match aNote        (in size)
- *      Upper Text bar to Match aNote   (in size)
- *      Lower Bar to Match aNote        (in size)
- *      all are to header
- *      use lib
+ *      x
  *
  *  @section    Previous Opens
  *      pass delegate
@@ -28,7 +24,7 @@
  *          *You're going to need to store var access by fcn call
  *
  *  @section    Legal Disclaimer
- *       All contents of this source file and/or any other Vioteq related source files are the explicit property on Vioteq
+ *       All contents of this source file and/or any other Jaostech related source files are the explicit property on Jaostech
  *       Corporation. Do not distribute. Do not copy.
  */
 /************************************************************************************************************************************/
