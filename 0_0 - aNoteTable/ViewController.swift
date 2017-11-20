@@ -12,9 +12,9 @@
  *      x
  *
  *  @section    Previous Opens
+ *      make it's aesthetic equal to aNote
  *      pass delegate
  *      pass datasource
- *      make it be able to input N rows
  *      set a row's background
  *      set a row's text
  *      make the clickability to a larger area!!! add 50% in -x, +x, -y, +y!
@@ -22,9 +22,10 @@
  *      toggle cell content on time or tap (color, text, etc). Takes a bit of work... :)
  *      handle clicks! (e.g. UICheckBox.buttonClicked())
  *          *You're going to need to store var access by fcn call
+ *      resolve Globals.swift (clean this up)
  *
  *  @section    Legal Disclaimer
- *       All contents of this source file and/or any other Jaostech related source files are the explicit property on Jaostech
+ *       All contents of this source file and/or any other Jaostech related source files are the explicit property of Jaostech
  *       Corporation. Do not distribute. Do not copy.
  */
 /************************************************************************************************************************************/
@@ -85,7 +86,9 @@ class ViewController: UIViewController {
         /*                                                      Table                                                               */
         /****************************************************************************************************************************/
         view.translatesAutoresizingMaskIntoConstraints = false;
-        let tableFrame : CGRect = getANoteFrame(y: yOffs, bottHeight: globals.lower_bar_height);
+        let tableFrame : CGRect = getANoteFrame(y: yOffs,
+                                                bottHeight: globals.lower_bar_height,
+                                                items:items);
         aNoteTable = ANoteTableView(frame:tableFrame, style:UITableViewStyle.plain, items:items);
         view.addSubview(aNoteTable);
         
@@ -134,19 +137,31 @@ class ViewController: UIViewController {
      *
      *  @param  [in] (CGFloat) y - x
      *  @param  [in] (CGFloat) bottHeight - x
+     *  @param  [in] ([String]) items - x
      *
      *  @return     (CGRect) frame
      *
      */
     /********************************************************************************************************************************/
-    func getANoteFrame(y : CGFloat, bottHeight : CGFloat) -> CGRect {
+    func getANoteFrame(y : CGFloat, bottHeight : CGFloat, items: [String]) -> CGRect {
 
         var tableFrame : CGRect = self.view.frame;
         
         tableFrame.origin.y = y;
-        
-        tableFrame.size.height = view.frame.height - y - bottHeight;
 
+        let numRows   : CGFloat = CGFloat(items.count);
+        let rowHeight : CGFloat = globals.aNoteRowHeight();
+        
+        //Max Height
+        let maxHeight   : CGFloat = (view.frame.height - y - bottHeight);
+        let tableHeight : CGFloat = (numRows * rowHeight);
+
+        if(tableHeight < maxHeight) {
+            tableFrame.size.height = tableHeight;
+        } else {
+            tableFrame.size.height = maxHeight;
+        }
+        
         return tableFrame;
     }
     

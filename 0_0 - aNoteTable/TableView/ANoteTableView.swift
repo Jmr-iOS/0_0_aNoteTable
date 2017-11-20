@@ -21,12 +21,12 @@ class ANoteTableView : UICustomTableView {        //...
     
     /********************************************************************************************************************************/
     /** @fcn        init(frame: CGRect, style: UITableViewStyle, items: [String])
-     *  @brief      x
-     *  @details    x
+     *  @brief      init table with items contents
+     *  @details    table sized to items.count & populated with items values
      *
-     *  @param      [in] (CGRect) frame - x
-     *  @param      [in] (UITableViewStyle) style - x
-     *  @param      [in] ([String]) items - x
+     *  @param      [in] (CGRect) frame - view frame for insertion
+     *  @param      [in] (UITableViewStyle) style - style to apply to table
+     *  @param      [in] ([String]) items - table items
      *
      *  @section    Opens
      *      x
