@@ -16,7 +16,8 @@ import UIKit
 
 class ANoteTableView : UICustomTableView {        //...
     
-    var items : [String]!;      //Table Main-text contents (note - this grows in complexity later. for now, just a string)
+    var rows : [aNoteDemoApp.Row];
+    var items : [String]!;
     
     
     /********************************************************************************************************************************/
@@ -26,24 +27,24 @@ class ANoteTableView : UICustomTableView {        //...
      *
      *  @param      [in] (CGRect) frame - view frame for insertion
      *  @param      [in] (UITableViewStyle) style - style to apply to table
-     *  @param      [in] ([String]) items - table items
      *
      *  @section    Opens
      *      x
      */
     /********************************************************************************************************************************/
-    override init(frame: CGRect, style: UITableViewStyle, items: [String]) {
+    init(frame: CGRect, style: UITableViewStyle, i : Int) {
         
         print("ANoteTableView.init():              Currently Configured to UITableViewCell usage");
 
         //Store the table-values
-        self.items = items;
+        rows = aNoteDemoApp().getRows();
         
         
         /****************************************************************************************************************************/
         /*                                                  UITableView                                                             */
         /****************************************************************************************************************************/
-        super.init(frame: frame, style: style, items: items);       
+        super.init(frame: frame, style: style, items: getItems(rows: rows));
+        items = getItems(rows: rows);
         
         self.register(ANoteTableViewCell.self, forCellReuseIdentifier: "cell");
         self.translatesAutoresizingMaskIntoConstraints = false;
@@ -76,5 +77,27 @@ class ANoteTableView : UICustomTableView {        //...
      */
     /********************************************************************************************************************************/
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
+    
+    
+    /********************************************************************************************************************************/
+    /** @fcn        func getItems(rows :[Row]) -> [String]
+     *  @brief      x
+     *
+     *  @param  [in] ([Row]) row - rows for table
+     *
+     *  @return     ([String]) items - items to se in tableview initialization
+     */
+    /********************************************************************************************************************************/
+    func getItems(rows :[aNoteDemoApp.Row]) -> [String]{
+        
+        var  items : [String] = [String]();
+        
+        for r in rows {
+            items.append(r.main);
+        }
+        
+        return items;
+    }
 }
 

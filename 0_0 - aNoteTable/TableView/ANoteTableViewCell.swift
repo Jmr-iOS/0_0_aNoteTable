@@ -80,16 +80,16 @@ class ANoteTableViewCell: UICustomTableViewCell {
         
         let subjFieldWidth : CGFloat = UIScreen.main.bounds.width - globals.cellOffs_Left() - rightScreenChunk_Width - globals.timeView_Width();
         
-        if(indexPath.item == 0) {
-            self.mainText = "Example aNote Subject Field And Your Momma's House, and why I think this is clear. It is because";
-        } else {
+        print("Grabbing \(indexPath.item)");
+        
+        if(indexPath.item < 10) {
             self.mainText = aNoteTable.items[indexPath.item];
         }
 
         subjectField = UILabel(frame:  CGRect(x:      globals.cellOffs_Left(),
                                               y:      globals.subjFieldYOffs(),
                                               width:  subjFieldWidth,
-                                              height: globals.subjFont.pointSize*CGFloat(self.numLines+1))); //'+1', I  //have no idea why... emperically works
+                                              height: globals.subjFont.pointSize*CGFloat(self.numLines+1))); //'+1', I have no idea why... emperically works
         subjectField.text = self.mainText;
         subjectField.font = globals.subjFont;
         subjectField.textAlignment = NSTextAlignment.left;
@@ -110,9 +110,9 @@ class ANoteTableViewCell: UICustomTableViewCell {
         descripField = UILabel(frame: CGRect(x:globals.cellOffs_Left(), y: globals.descripYOffs(), width: descrFieldWidth, height:  globals.descripHeight()));
         
         if(indexPath.item == 0) {
-            descripField.text = "Some description of the item";
-        } else {
-            descripField.text = aNoteTable.items[indexPath.item];
+            descripField.text = globals.firstRowText;
+        } else if(indexPath.item < 10) {
+            descripField.text = globals.descriptionText;
         }
 
         descripField.font = UIFont(name: self.textLabel!.font.fontName, size: 14);
@@ -132,8 +132,12 @@ class ANoteTableViewCell: UICustomTableViewCell {
         if(indexPath.item == 0) {
             bottField.text = "bott date text";
         } else {
-            bottField.text = aNoteTable.items[indexPath.item];
+            if(indexPath.item < 10) {
+                bottField.text = "";
+            }
         }
+        
+        
         
         bottField.font = UIFont(name: self.textLabel!.font.fontName, size: 12);
         bottField.textAlignment = NSTextAlignment.left;

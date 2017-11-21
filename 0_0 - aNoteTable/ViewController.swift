@@ -6,13 +6,19 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   11/19/17
+ *  @last rev   11/20/17
  *
  *  @section    Opens
  *      x
  *
  *  @section    Previous Opens
  *      make it's aesthetic equal to aNote
+ *          make cells match the example aNote screen
+ *              text sizing
+ *              text layout
+ *              number sizing
+ *      subview for each row
+ *      table shows N+1 rows, erase extra row (B)
  *      pass delegate
  *      pass datasource
  *      set a row's background
@@ -84,12 +90,12 @@ class ViewController: UIViewController {
         
         /****************************************************************************************************************************/
         /*                                                      Table                                                               */
+        /*  @open       replace items with aNoteDemoApp().getRows()                                                                 */
+        /*  @note       table supports >5 rows                                                                                      */
         /****************************************************************************************************************************/
         view.translatesAutoresizingMaskIntoConstraints = false;
-        let tableFrame : CGRect = getANoteFrame(y: yOffs,
-                                                bottHeight: globals.lower_bar_height,
-                                                items:items);
-        aNoteTable = ANoteTableView(frame:tableFrame, style:UITableViewStyle.plain, items:items);
+        let tableFrame : CGRect = getANoteFrame(y: yOffs, bottHeight: globals.lower_bar_height);
+        aNoteTable = ANoteTableView(frame:tableFrame, style:UITableViewStyle.plain, i: 1);
         view.addSubview(aNoteTable);
         
         //Store offset
@@ -123,6 +129,12 @@ class ViewController: UIViewController {
         aNoteTable.delegate   = aNoteTableHandler;                                      /* Set both to handle clicks & provide data */
         aNoteTable.dataSource = aNoteTableHandler;        
         
+        //<temp>
+        let rows : [aNoteDemoApp.Row] = aNoteDemoApp().getRows();
+        for _ in rows {
+            //print(r.main);
+        }
+        //</temp>
         
         print("ViewController.viewDidLoad():       viewDidLoad() complete");
         
@@ -137,19 +149,21 @@ class ViewController: UIViewController {
      *
      *  @param  [in] (CGFloat) y - x
      *  @param  [in] (CGFloat) bottHeight - x
-     *  @param  [in] ([String]) items - x
      *
      *  @return     (CGRect) frame
      *
      */
     /********************************************************************************************************************************/
-    func getANoteFrame(y : CGFloat, bottHeight : CGFloat, items: [String]) -> CGRect {
+    func getANoteFrame(y : CGFloat, bottHeight : CGFloat) -> CGRect {
 
         var tableFrame : CGRect = self.view.frame;
         
+        //Get Data
+        let rows : [aNoteDemoApp.Row] = aNoteDemoApp().getRows();
+        
         tableFrame.origin.y = y;
 
-        let numRows   : CGFloat = CGFloat(items.count);
+        let numRows   : CGFloat = CGFloat(rows.count);
         let rowHeight : CGFloat = globals.aNoteRowHeight();
         
         //Max Height
