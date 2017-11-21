@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "0_0 - aNoteTable/ViewController.swift"
-            timestampString = "532924381.486144"
+            timestampString = "532936191.844757"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "getANoteFrame(y:bottHeight:)"
             landmarkType = "7">
          </BreakpointContent>

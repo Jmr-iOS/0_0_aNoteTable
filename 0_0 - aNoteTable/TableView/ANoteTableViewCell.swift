@@ -29,6 +29,7 @@ class ANoteTableViewCell: UICustomTableViewCell {
     let aNoteRowHeight : CGFloat = globals.aNoteRowHeight();                /* emperically chosen                                   */
     let checkBoxDim    : CGFloat = globals.checkBoxDim();                   /* all values                                           */
     let checkBox_xOffs : CGFloat = globals.checkBox_xOffs();
+    let checkBox_yOffs : CGFloat = globals.checkBox_yOffs();
     
     
     /********************************************************************************************************************************/
@@ -68,7 +69,7 @@ class ANoteTableViewCell: UICustomTableViewCell {
         checkBox = UICheckbox(view:       self,
                               parentCell: self,
                               xCoord:     checkBox_xOffs,
-                              yCoord:     ((aNoteRowHeight-checkBoxDim)/2)/2 - 9); //why div 2, div 2? hell if I know, emperically found!!!!
+                              yCoord:     checkBox_yOffs);
         
         self.addSubview(checkBox);
         

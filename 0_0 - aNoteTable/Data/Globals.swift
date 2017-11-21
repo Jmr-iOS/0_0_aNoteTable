@@ -17,9 +17,10 @@ var globals : Globals = Globals();
 
 
 class Globals {
-    let aNoteRowHeight_val : CGFloat = 175/2;  //all vals emperically chosen
-    let checkBoxDim_val    : CGFloat = 40/2;   //why div-2?
-    let checkBox_xOffs_val : CGFloat = 20;
+    let aNoteRowHeight_val : CGFloat = 85;                      /* all vals emperically chosen to match                             */
+    let checkBoxDim_val    : CGFloat = 20;
+    let checkBox_xOffs_val : CGFloat = 16;
+    var checkBox_yOffs_val : CGFloat = 15;
     
     let cellOffs_Left_val  : CGFloat = 55;
     
@@ -45,9 +46,17 @@ class Globals {
     let firstRowText : String = "Some text below that is short";
     let descriptionText : String = "Some misc. text";
     
+    
+    init() {
+        print("Globals initialized.");
+        return;
+    }
+    
+    
     func subjFieldYOffs() -> CGFloat {
         return subjFieldYOffs_val;
     }
+    
     func aNoteRowHeight() -> CGFloat {
         return aNoteRowHeight_val;
     }
@@ -58,6 +67,10 @@ class Globals {
 
     func checkBox_xOffs() -> CGFloat {
         return checkBox_xOffs_val;
+    }
+
+    func checkBox_yOffs() -> CGFloat {
+        return checkBox_yOffs_val;
     }
 
     func cellOffs_Left() -> CGFloat {

@@ -9,16 +9,14 @@
  *  @last rev   11/20/17
  *
  *  @section    Opens
- *      x
- *
- *  @section    Previous Opens
+ *      table shows N+1 rows, erase extra row (B)
  *      make it's aesthetic equal to aNote
+ *          move number text a little upwards
+ *          subview for each row
  *          make cells match the example aNote screen
  *              text sizing
  *              text layout
  *              number sizing
- *      subview for each row
- *      table shows N+1 rows, erase extra row (B)
  *      pass delegate
  *      pass datasource
  *      set a row's background
