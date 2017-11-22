@@ -30,7 +30,7 @@ class ANoteTableViewCell: UICustomTableViewCell {
     let checkBoxDim    : CGFloat = globals.checkBoxDim();                   /* all values                                           */
     let checkBox_xOffs : CGFloat = globals.checkBox_xOffs();
     let checkBox_yOffs : CGFloat = globals.checkBox_yOffs();
-    
+
     
     /********************************************************************************************************************************/
     /** @fcn        override init(style: UITableViewCellStyle, reuseIdentifier: String?)
@@ -156,11 +156,11 @@ class ANoteTableViewCell: UICustomTableViewCell {
                                                      height: globals.timeView_Height()));
         
         timeView.backgroundColor = globals.nearColor();
-        timeView.layer.cornerRadius = 12;
+        timeView.layer.cornerRadius = 10;
         
         let timeLabel : UILabel = UILabel(frame: CGRect(x:9, y: 0, width: timeView.frame.width, height:  timeView.frame.height));
         
-        timeLabel.font  =   UIFont(name: "HelveticaNeue", size: 10);
+        timeLabel.font  =   UIFont(name: "HelveticaNeue", size: 9);
         timeLabel.text  =   "4:30 PM";
         timeLabel.textColor     = UIColor.white;
         timeLabel.textAlignment = NSTextAlignment.left;

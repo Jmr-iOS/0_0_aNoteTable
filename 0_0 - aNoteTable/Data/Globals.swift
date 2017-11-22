@@ -24,10 +24,10 @@ class Globals {
     
     let cellOffs_Left_val  : CGFloat = 55;
     
-    let timeView_xOffs_val  : CGFloat = 255;
-    let timeView_yOffs_val  : CGFloat = 20;
-    let timeView_Width_val  : CGFloat = 58;
-    let timeView_Height_val : CGFloat = 20;
+    let timeView_xOffs_val  : CGFloat = 258;
+    let timeView_yOffs_val  : CGFloat = 14;
+    let timeView_Width_val  : CGFloat = 52;
+    let timeView_Height_val : CGFloat = 18;
     
     let subjHeight_val : CGFloat = 25;
     let subjYOffs_val  : CGFloat = 25;

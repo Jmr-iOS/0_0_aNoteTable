@@ -9,7 +9,6 @@
  *  @last rev   11/20/17
  *
  *  @section    Opens
- *      table shows N+1 rows, erase extra row (B)
  *      make it's aesthetic equal to aNote
  *          move number text a little upwards
  *          subview for each row
