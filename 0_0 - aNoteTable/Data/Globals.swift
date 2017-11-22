@@ -17,6 +17,10 @@ var globals : Globals = Globals();
 
 
 class Globals {
+    
+    let cellFont_val : String = "Arial";                        /* todo: apply to all three and confirm                             */
+    
+    
     let aNoteRowHeight_val : CGFloat = 85;                      /* all vals emperically chosen to match                             */
     let checkBoxDim_val    : CGFloat = 20;
     let checkBox_xOffs_val : CGFloat = 16;
@@ -31,7 +35,6 @@ class Globals {
     
     let subjHeight_val : CGFloat = 25;
     let subjYOffs_val  : CGFloat = 25;
-    let subjFont       : UIFont  = UIFont(name:"Helvetica", size: 14)!;
     
     let descripHeight_val  : CGFloat = 20;
     let subjFieldYOffs_val : CGFloat = 5;
@@ -42,16 +45,17 @@ class Globals {
     let upper_bar_height : CGFloat = 64;
     let text_bar_height  : CGFloat = 40;
     let lower_bar_height : CGFloat = 50;
-    
-    let firstRowText : String = "Some text below that is short";
-    let descriptionText : String = "Some misc. text";
-    
+
     
     init() {
         print("Globals initialized.");
         return;
     }
+
     
+    func cell_fontName() -> String {
+        return cellFont_val;
+    }
     
     func subjFieldYOffs() -> CGFloat {
         return subjFieldYOffs_val;

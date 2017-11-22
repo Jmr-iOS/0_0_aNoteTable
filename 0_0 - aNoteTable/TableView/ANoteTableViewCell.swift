@@ -30,7 +30,9 @@ class ANoteTableViewCell: UICustomTableViewCell {
     let checkBoxDim    : CGFloat = globals.checkBoxDim();                   /* all values                                           */
     let checkBox_xOffs : CGFloat = globals.checkBox_xOffs();
     let checkBox_yOffs : CGFloat = globals.checkBox_yOffs();
-
+    
+    let cell_fontName : String = globals.cell_fontName();
+    //font sizes here too!
     
     /********************************************************************************************************************************/
     /** @fcn        override init(style: UITableViewCellStyle, reuseIdentifier: String?)
@@ -63,6 +65,11 @@ class ANoteTableViewCell: UICustomTableViewCell {
         self.tableIndex = indexPath.item;
         
         
+        //Get Current Cell's Info
+        let demoApp : aNoteDemoApp = aNoteDemoApp();
+        let currRow : aNoteDemoApp.Row = demoApp.getRows()[indexPath.item];
+        
+        
         /****************************************************************************************************************************/
         /*                                                      Checkbox                                                            */
         /****************************************************************************************************************************/
@@ -87,12 +94,14 @@ class ANoteTableViewCell: UICustomTableViewCell {
             self.mainText = aNoteTable.items[indexPath.item];
         }
 
-        subjectField = UILabel(frame:  CGRect(x:      globals.cellOffs_Left(),
+        let font : UIFont = UIFont(name: cell_fontName, size: 16)!;
+        
+        subjectField = UILabel(frame:  CGRect(x:      globals.cellOffs_Left()-4,
                                               y:      globals.subjFieldYOffs(),
-                                              width:  subjFieldWidth,
-                                              height: globals.subjFont.pointSize*CGFloat(self.numLines+1))); //'+1', I have no idea why... emperically works
-        subjectField.text = self.mainText;
-        subjectField.font = globals.subjFont;
+                                              width:  subjFieldWidth,                               /* '+1' not sure why            */
+                                              height: font.pointSize*CGFloat(self.numLines+1)));
+        subjectField.font = font;
+        subjectField.text = currRow.main;
         subjectField.textAlignment = NSTextAlignment.left;
 
 
@@ -110,13 +119,9 @@ class ANoteTableViewCell: UICustomTableViewCell {
         
         descripField = UILabel(frame: CGRect(x:globals.cellOffs_Left(), y: globals.descripYOffs(), width: descrFieldWidth, height:  globals.descripHeight()));
         
-        if(indexPath.item == 0) {
-            descripField.text = globals.firstRowText;
-        } else if(indexPath.item < 10) {
-            descripField.text = globals.descriptionText;
-        }
+        descripField.text = currRow.body;
 
-        descripField.font = UIFont(name: self.textLabel!.font.fontName, size: 14);
+        descripField.font = UIFont(name: cell_fontName, size: 14);
         descripField.textAlignment = NSTextAlignment.left;
         descripField.textColor = UIColor.gray;
         
@@ -129,18 +134,10 @@ class ANoteTableViewCell: UICustomTableViewCell {
         let bottFieldWidth : CGFloat = UIScreen.main.bounds.width - globals.cellOffs_Left() - rightScreenChunk_Width;
         
         bottField = UILabel(frame: CGRect(x:globals.cellOffs_Left(), y: globals.bottYOffs(), width: bottFieldWidth, height:  20));
+
+        bottField.text = currRow.bott;
         
-        if(indexPath.item == 0) {
-            bottField.text = "bott date text";
-        } else {
-            if(indexPath.item < 10) {
-                bottField.text = "";
-            }
-        }
-        
-        
-        
-        bottField.font = UIFont(name: self.textLabel!.font.fontName, size: 12);
+        bottField.font = UIFont(name: cell_fontName, size: 12);
         bottField.textAlignment = NSTextAlignment.left;
         bottField.textColor = UIColor.gray;
         
@@ -160,7 +157,7 @@ class ANoteTableViewCell: UICustomTableViewCell {
         
         let timeLabel : UILabel = UILabel(frame: CGRect(x:9, y: 0, width: timeView.frame.width, height:  timeView.frame.height));
         
-        timeLabel.font  =   UIFont(name: "HelveticaNeue", size: 9);
+        timeLabel.font  =   UIFont(name: cell_fontName, size: 9);
         timeLabel.text  =   "4:30 PM";
         timeLabel.textColor     = UIColor.white;
         timeLabel.textAlignment = NSTextAlignment.left;

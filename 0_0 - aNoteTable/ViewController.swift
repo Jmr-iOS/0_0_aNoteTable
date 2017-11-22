@@ -6,12 +6,20 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   11/20/17
+ *  @last rev   11/21/17
+ *
+ *  @section    Current Opens
+ *      placement of upper icons (loc & size)
+ *      upper bar color
+ *      text bar to white with border
+ *      font sizes matching
+ *      font colors matching
+ *      font locations matching
  *
  *  @section    Opens
  *      make it's aesthetic equal to aNote
  *          move number text a little upwards
- *          subview for each row
+ *          subview for each row (lists all contents and fields of aNote row subview)
  *          make cells match the example aNote screen
  *              text sizing
  *              text layout
@@ -65,12 +73,18 @@ class ViewController: UIViewController {
         /*                                                     Upper Bar                                                            */
         /****************************************************************************************************************************/
         upperBar = UIView();
-        upperBar.backgroundColor = UIColor.blue;
+        upperBar.backgroundColor = UIColor.blue;            //<todo!>
         upperBar.frame = CGRect(x: 0, y: yOffs, width: view.frame.width, height:globals.upper_bar_height);
+        
+        //Load Icon
+        //<todo>
+        
         view.addSubview(upperBar);
         
         //Store offset
         yOffs += upperBar.frame.height;
+        
+        
 
         
         /****************************************************************************************************************************/
@@ -79,6 +93,16 @@ class ViewController: UIViewController {
         textBar = UIView();
         textBar.backgroundColor = UIColor.gray;
         textBar.frame = CGRect(x: 0, y: yOffs, width: view.frame.width, height: globals.text_bar_height);
+
+        //Load Icon
+        var textIcon : UIImageView;
+        textIcon  = UIImageView();
+        textIcon.frame = CGRect(x: 5, y: 5, width: 30, height: 30);
+        textIcon.image = UIImage(named:"clock");
+        textBar.addSubview(textIcon);
+
+        //<todo>
+        
         view.addSubview(textBar);
        
         //Store offset

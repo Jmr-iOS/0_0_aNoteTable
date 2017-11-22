@@ -1,3 +1,0 @@
-Main: Sebino Regular
-Body: Saral Devanagari Std Light
-Lower: Paul Grotesk Soft Regular

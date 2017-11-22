@@ -24,6 +24,7 @@ class aNoteDemoApp : NSObject {
     struct Row {
         var main : String!;                                     /* primary text to display                                          */
         var body : String!;                                     /* sub text displayed below main and smaller                        */
+        var bott : String!;                                     /* text for time label                                              */
         var time : Int!;                                        /* minutes of day since 12:00 am                                    */
     }
     
@@ -43,20 +44,31 @@ class aNoteDemoApp : NSObject {
         //Nice and simple, make rows to match Images/Ref:aNoteRef.jpg
         for i in 0...(N-1) {
             
+            var mainText : String;
+            var bodyText : String;
+            var bottText : String;
+            
+            
             //Main Text
-            let mainText : String = String(format: "Item #%i", (i+1));
+            mainText = String(format: "Item #%i", (i+1));                               /* e.g "Item #1"                            */
             
             //Body Text
-            var bodyText : String = "Some misc. text";
-            
             if(i == 0) {
                 bodyText = "Some text below that is short";
+            } else {
+                bodyText = "Some misc. text";
+            }
+            
+            if(i < 2) {
+                bottText = "Today \(i+2):00 PM";                                        /* e.g. "2:00 PM"                           */
+            } else {
+                bottText = "Today \(i+3):00 PM";                                        /* e.g. "3:00 PM"                           */
             }
             
             //Time Val
             let newTime : Int = ((i+3+12)*60);                      /* minutes since 12:00am today                                  */
             
-            rows.append(Row(main: mainText, body: bodyText, time: newTime));
+            rows.append(Row(main: mainText, body: bodyText, bott: bottText, time: newTime));
         }
 
         return;

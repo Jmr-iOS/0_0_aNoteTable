@@ -1,0 +1,10 @@
+
+@section 	Choices
+	Main:  Arial!
+	Body:  Arial
+	Lower: Avenir Light
+	
+@section 	WhatFont Selection
+	Main: Sebino Regular
+	Body: Saral Devanagari Std Light
+	Lower: Paul Grotesk Soft Regular
