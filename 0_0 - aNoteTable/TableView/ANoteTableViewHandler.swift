@@ -30,7 +30,7 @@ class ANoteTableViewHandler : UICustomTableViewHandler {
     /********************************************************************************************************************************/
     init(items: [String], ANoteTable : ANoteTableView) {
         
-        super.init(items: items, timerTable: ANoteTable);
+        super.init(items: items, table: ANoteTable);
         
         self.items = items;
         

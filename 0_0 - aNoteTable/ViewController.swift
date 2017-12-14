@@ -6,7 +6,7 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   11/21/17
+ *  @last rev   12/13/17
  *
  *  @section    Current Opens
  *      placement of upper icons (loc & size)
