@@ -37,7 +37,7 @@ class Globals {
     let subjYOffs_val  : CGFloat = 25;
     
     let descripHeight_val  : CGFloat = 20;
-    let subjFieldYOffs_val : CGFloat = 5;
+    let subjFieldYOffs_val : CGFloat = 3;
 
     let nearColor_val:UIColor = UIColor(red: 255/255, green:  60/255, blue:  60/255, alpha: 1);
     let farColor_val :UIColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1);

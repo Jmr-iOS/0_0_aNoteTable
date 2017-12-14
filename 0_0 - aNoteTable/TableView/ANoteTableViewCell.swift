@@ -45,6 +45,8 @@ class ANoteTableViewCell: UICustomTableViewCell {
      *  @param      [in] (UITableViewCellStyle) style - x
      *  @param      [in] (String?) reuseIdentifier - x
      *
+     *  @section    Opens
+     *      subjectField var defs to Globals
      */
     /********************************************************************************************************************************/
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -99,8 +101,8 @@ class ANoteTableViewCell: UICustomTableViewCell {
 
         let font : UIFont = UIFont(name: cell_fontName, size: 16)!;
         
-        subjectField = UILabel(frame:  CGRect(x:      globals.cellOffs_Left()-4,
-                                              y:      globals.subjFieldYOffs(),
+        subjectField = UILabel(frame:  CGRect(x:      46,
+                                              y:      2,
                                               width:  subjFieldWidth,                               /* '+1' not sure why            */
                                               height: font.pointSize*CGFloat(self.numLines+1)));
         subjectField.font = font;
