@@ -4,7 +4,10 @@
  *  @details    x
  *
  *  @section    Opens
- *      x
+ *      add images for checkboxes as demo. post as demo to SE
+ *
+ *  @section    Notes
+ *      Color changing is not exposed for the checkbox and the solution is instead to use pictures to apply color
  *
  *  @section    Legal Disclaimer
  *       All contents of this source file and/or any other Jaostech related source files are the explicit property on Jaostech
@@ -77,9 +80,9 @@ class ANoteTableViewCell: UICustomTableViewCell {
                               parentCell: self,
                               xCoord:     checkBox_xOffs,
                               yCoord:     checkBox_yOffs);
-        
+  
         self.addSubview(checkBox);
-        
+
         
         /****************************************************************************************************************************/
         /*                                                  Main(Subject) Text                                                      */

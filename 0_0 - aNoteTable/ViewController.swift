@@ -15,6 +15,7 @@
  *      font sizes matching
  *      font colors matching
  *      font locations matching
+ *      remove cross-out of selected text in cell 
  *
  *  @section    Opens
  *      make it's aesthetic equal to aNote
