@@ -122,7 +122,7 @@ class ANoteTableViewCell: UICustomTableViewCell {
         /****************************************************************************************************************************/
         let descrFieldWidth : CGFloat = UIScreen.main.bounds.width - globals.cellOffs_Left() - rightScreenChunk_Width;
         
-        descripField = UILabel(frame: CGRect(x:globals.cellOffs_Left(), y: globals.descripYOffs(), width: descrFieldWidth, height:  globals.descripHeight()));
+        descripField = UILabel(frame: CGRect(x:globals.cellOffs_Left()-10, y: globals.descripYOffs()-10, width: descrFieldWidth, height:  globals.descripHeight()));
         
         descripField.text = currRow.body;
 
@@ -138,7 +138,7 @@ class ANoteTableViewCell: UICustomTableViewCell {
         /****************************************************************************************************************************/
         let bottFieldWidth : CGFloat = UIScreen.main.bounds.width - globals.cellOffs_Left() - rightScreenChunk_Width;
         
-        bottField = UILabel(frame: CGRect(x:globals.cellOffs_Left(), y: globals.bottYOffs(), width: bottFieldWidth, height:  20));
+        bottField = UILabel(frame: CGRect(x:globals.cellOffs_Left(), y: globals.bottYOffs()-10, width: bottFieldWidth, height:  20));
 
         bottField.text = currRow.bott;
         
@@ -175,8 +175,15 @@ class ANoteTableViewCell: UICustomTableViewCell {
         if(coloredViews){descripField.backgroundColor = UIColor.gray;}
         if(coloredViews){   bottField.backgroundColor = UIColor.yellow;}
         
+        //load bell icon
+        var bellIcon : UIImageView;
+        bellIcon  = UIImageView();
+        bellIcon.frame = CGRect(x: 36, y: 62, width: 13.2, height: 15.0);
+        bellIcon.image = UIImage(named:"bell");
+        
         //add it
         self.addSubview(timeView);
+        self.addSubview(bellIcon);
         
         return;
     }

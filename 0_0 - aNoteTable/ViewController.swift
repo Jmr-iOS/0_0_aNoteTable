@@ -9,6 +9,7 @@
  *  @last rev   12/13/17
  *
  *  @section    Current Opens
+ *      Table Cell correct
  *      placement of upper icons (loc & size)
  *      upper bar color
  *      text bar to white with border
@@ -35,6 +36,7 @@
  *      handle clicks! (e.g. UICheckBox.buttonClicked())
  *          *You're going to need to store var access by fcn call
  *      resolve Globals.swift (clean this up)
+ *      Cell height changes when description text &/or time is added
  *
  *  @section    Legal Disclaimer
  *       All contents of this source file and/or any other Jaostech related source files are the explicit property of Jaostech
