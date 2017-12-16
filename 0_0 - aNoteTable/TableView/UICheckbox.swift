@@ -40,14 +40,14 @@ class UICheckbox: UIView {
     /********************************************************************************************************************************/
     init(view:UIView, parentCell: ANoteTableViewCell, xCoord:CGFloat, yCoord:CGFloat) {
 
-        super.init(frame:CGRect(x: 0, y: 0, width: globals.cellOffs_Left(), height: globals.aNoteRowHeight()));  //make it to the tap size you want
+        super.init(frame:CGRect(x: 0, y: 0, width: cellOffs_Left_val, height: aNoteRowHeight_val));  //make it to the tap size you want
 
         //store
         self.parentCell = parentCell;
         
         //image init
         checkBoxImg       = UIImageView(image: uncheckedImage);
-        checkBoxImg.frame = CGRect(x: xCoord/*0*/, y: yCoord/*0*/, width: globals.checkBoxDim(), height: globals.checkBoxDim());
+        checkBoxImg.frame = CGRect(x: xCoord, y: yCoord, width: checkBoxDim_val, height: checkBoxDim_val);
         
         //handle taps
         self.addTapRecognizer();

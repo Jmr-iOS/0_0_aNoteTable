@@ -57,12 +57,10 @@ class ANoteTableView : UICustomTableView {        //...
         /****************************************************************************************************************************/
         self.separatorColor = .gray;
         self.separatorStyle = .singleLine;
-        
-        self.separatorInset = UIEdgeInsetsMake(0, globals.cellOffs_Left(), 0, 0);
+        self.separatorInset = UIEdgeInsetsMake(0, 43, 0, 0);
 
         //Set the row height
-        self.rowHeight = (globals.aNoteRowHeight());
-        
+        self.rowHeight = (aNoteRowHeight_val);
         
         //Exit
         if(verbose){print("ANoteTableView.init():              initialized"); }

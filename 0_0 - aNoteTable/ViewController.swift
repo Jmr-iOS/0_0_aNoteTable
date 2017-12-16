@@ -77,7 +77,7 @@ class ViewController: UIViewController {
         /****************************************************************************************************************************/
         upperBar = UIView();
         upperBar.backgroundColor = UIColor.blue;            //<todo!>
-        upperBar.frame = CGRect(x: 0, y: yOffs, width: view.frame.width, height:globals.upper_bar_height);
+        upperBar.frame = CGRect(x: 0, y: yOffs, width: view.frame.width, height: upper_bar_height);
         
         //Load Icon
         //<todo>
@@ -95,7 +95,7 @@ class ViewController: UIViewController {
         /****************************************************************************************************************************/
         textBar = UIView();
         textBar.backgroundColor = UIColor.gray;
-        textBar.frame = CGRect(x: 0, y: yOffs, width: view.frame.width, height: globals.text_bar_height);
+        textBar.frame = CGRect(x: 0, y: yOffs, width: view.frame.width, height:  text_bar_height);
 
         //Load Icon
         var textIcon : UIImageView;
@@ -109,7 +109,7 @@ class ViewController: UIViewController {
         view.addSubview(textBar);
        
         //Store offset
-        yOffs += globals.text_bar_height;
+        yOffs += text_bar_height;
 
         
         /****************************************************************************************************************************/
@@ -118,7 +118,7 @@ class ViewController: UIViewController {
         /*  @note       table supports >5 rows                                                                                      */
         /****************************************************************************************************************************/
         view.translatesAutoresizingMaskIntoConstraints = false;
-        let tableFrame : CGRect = getANoteFrame(y: yOffs, bottHeight: globals.lower_bar_height);
+        let tableFrame : CGRect = getANoteFrame(y: yOffs, bottHeight: lower_bar_height);
         aNoteTable = ANoteTableView(frame:tableFrame, style:UITableViewStyle.plain, i: 1);
         view.addSubview(aNoteTable);
         
@@ -132,9 +132,9 @@ class ViewController: UIViewController {
         bottBar = UIView();
         bottBar.backgroundColor = UIColor.gray;
         bottBar.frame = CGRect(x: 0,
-                               y: (view.frame.height - globals.lower_bar_height),
+                               y: (view.frame.height - lower_bar_height),
                                width: view.frame.width,
-                               height: globals.lower_bar_height);
+                               height: lower_bar_height);
         view.addSubview(bottBar);
         
         print(yOffs);
@@ -188,7 +188,7 @@ class ViewController: UIViewController {
         tableFrame.origin.y = y;
 
         let numRows   : CGFloat = CGFloat(rows.count);
-        let rowHeight : CGFloat = globals.aNoteRowHeight();
+        let rowHeight : CGFloat = aNoteRowHeight_val;
         
         //Max Height
         let maxHeight   : CGFloat = (view.frame.height - y - bottHeight);

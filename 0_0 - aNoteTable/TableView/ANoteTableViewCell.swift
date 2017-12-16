@@ -29,14 +29,9 @@ class ANoteTableViewCell: UICustomTableViewCell {
     var bottField    : UILabel!;
 
     //Config
-    let aNoteRowHeight : CGFloat = globals.aNoteRowHeight();                /* emperically chosen                                   */
-    let checkBoxDim    : CGFloat = globals.checkBoxDim();                   /* all values                                           */
-    let checkBox_xOffs : CGFloat = globals.checkBox_xOffs();
-    let checkBox_yOffs : CGFloat = globals.checkBox_yOffs();
-    
-    let cell_fontName : String = globals.cell_fontName();
-    //font sizes here too!
-    
+    let cell_fontName : String = cellFont_val;
+
+
     /********************************************************************************************************************************/
     /** @fcn        override init(style: UITableViewCellStyle, reuseIdentifier: String?)
      *  @brief      x
@@ -46,13 +41,13 @@ class ANoteTableViewCell: UICustomTableViewCell {
      *  @param      [in] (String?) reuseIdentifier - x
      *
      *  @section    Opens
-     *      subjectField var defs to Globals
+     *      make row border thinner & set to lighter color
      */
     /********************************************************************************************************************************/
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     
         super.init(style:style, reuseIdentifier:reuseIdentifier);
-        
+    
         if(verbose){ print("aNoteTableViewCell.init():          cell was initialized"); }
     
         return;
@@ -80,8 +75,8 @@ class ANoteTableViewCell: UICustomTableViewCell {
         /****************************************************************************************************************************/
         checkBox = UICheckbox(view:       self,
                               parentCell: self,
-                              xCoord:     checkBox_xOffs,
-                              yCoord:     checkBox_yOffs);
+                              xCoord:     checkBox_xOffs_val,
+                              yCoord:     checkBox_yOffs_val);
   
         self.addSubview(checkBox);
 
@@ -89,9 +84,9 @@ class ANoteTableViewCell: UICustomTableViewCell {
         /****************************************************************************************************************************/
         /*                                                  Main(Subject) Text                                                      */
         /****************************************************************************************************************************/
-        let rightScreenChunk_Width = UIScreen.main.bounds.width - globals.timeView_xOffs() - globals.timeView_Width();
+        let rightScreenChunk_Width = UIScreen.main.bounds.width - timeView_xOffs_val - timeView_Width_val;
         
-        let subjFieldWidth : CGFloat = UIScreen.main.bounds.width - globals.cellOffs_Left() - rightScreenChunk_Width - globals.timeView_Width();
+        let subjFieldWidth : CGFloat = UIScreen.main.bounds.width - cellOffs_Left_val - rightScreenChunk_Width - timeView_Width_val;
         
         print("Grabbing \(indexPath.item)");
         
@@ -119,14 +114,22 @@ class ANoteTableViewCell: UICustomTableViewCell {
         
         /****************************************************************************************************************************/
         /*                                                  Description Text                                                        */
+        /* 1a - divider color lighter                                                                                               */
+        /* 1b - time & icon over a bit                                                                                              */
+        /* 2a - globals -> 'g'                                                                                                      */
+        /* 2b - all vars to globals w/clean names (seperate commit)                                                                 */
+        /* 3  - cell touchups, see if you can finalize all dims & colors                                                            */
         /****************************************************************************************************************************/
-        let descrFieldWidth : CGFloat = UIScreen.main.bounds.width - globals.cellOffs_Left() - rightScreenChunk_Width;
+        let descrFieldWidth : CGFloat = UIScreen.main.bounds.width - cellOffs_Left_val - rightScreenChunk_Width;
         
-        descripField = UILabel(frame: CGRect(x:globals.cellOffs_Left()-10, y: globals.descripYOffs()-10, width: descrFieldWidth, height:  globals.descripHeight()));
+        descripField = UILabel(frame: CGRect(x: cellOffs_Left_val-10,
+                                             y: g.descripYOffs()-10,
+                                             width: descrFieldWidth,
+                                             height: descripHeight_val));
         
         descripField.text = currRow.body;
 
-        descripField.font = UIFont(name: cell_fontName, size: 14);
+        descripField.font = UIFont(name: cell_fontName, size: 12);
         descripField.textAlignment = NSTextAlignment.left;
         descripField.textColor = UIColor.gray;
         
@@ -136,28 +139,39 @@ class ANoteTableViewCell: UICustomTableViewCell {
         /****************************************************************************************************************************/
         /*                                                      Bott Text                                                           */
         /****************************************************************************************************************************/
-        let bottFieldWidth : CGFloat = UIScreen.main.bounds.width - globals.cellOffs_Left() - rightScreenChunk_Width;
+        let xNewVal : CGFloat = 3+5;
+
+        let bottFieldWidth : CGFloat = UIScreen.main.bounds.width - cellOffs_Left_val - rightScreenChunk_Width;
         
-        bottField = UILabel(frame: CGRect(x:globals.cellOffs_Left(), y: globals.bottYOffs()-10, width: bottFieldWidth, height:  20));
+        bottField = UILabel(frame: CGRect(x:cellOffs_Left_val+xNewVal-1, y: g.bottYOffs()-10, width: bottFieldWidth, height:  20));
 
         bottField.text = currRow.bott;
         
         bottField.font = UIFont(name: cell_fontName, size: 12);
         bottField.textAlignment = NSTextAlignment.left;
         bottField.textColor = UIColor.gray;
+
         
+        //load bell icon
+        var bellIcon : UIImageView;
+        bellIcon  = UIImageView();
+        bellIcon.frame = CGRect(x: 36+xNewVal+1, y: 62, width: 13.2, height: 15.0);
+        bellIcon.image = UIImage(named:"bell");
+        
+        //add it
         self.addSubview(bottField);
+        self.addSubview(bellIcon);
         
         
         /****************************************************************************************************************************/
         /*                                                      Time Label                                                          */
         /****************************************************************************************************************************/
-        let timeView : UIView = UIView(frame: CGRect(x:      globals.timeView_xOffs(),
-                                                     y:      globals.timeView_yOffs(),
-                                                     width:  globals.timeView_Width(),
-                                                     height: globals.timeView_Height()));
+        let timeView : UIView = UIView(frame: CGRect(x:      timeView_xOffs_val,
+                                                     y:      timeView_yOffs_val,
+                                                     width:  timeView_Width_val,
+                                                     height: timeView_Height_val));
         
-        timeView.backgroundColor = globals.nearColor();
+        timeView.backgroundColor = nearColor_val;
         timeView.layer.cornerRadius = 10;
         
         let timeLabel : UILabel = UILabel(frame: CGRect(x:9, y: 0, width: timeView.frame.width, height:  timeView.frame.height));
@@ -175,15 +189,9 @@ class ANoteTableViewCell: UICustomTableViewCell {
         if(coloredViews){descripField.backgroundColor = UIColor.gray;}
         if(coloredViews){   bottField.backgroundColor = UIColor.yellow;}
         
-        //load bell icon
-        var bellIcon : UIImageView;
-        bellIcon  = UIImageView();
-        bellIcon.frame = CGRect(x: 36, y: 62, width: 13.2, height: 15.0);
-        bellIcon.image = UIImage(named:"bell");
-        
         //add it
         self.addSubview(timeView);
-        self.addSubview(bellIcon);
+
         
         return;
     }
