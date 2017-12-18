@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D039B4BA1BF4D7950024005F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D039B4B91BF4D7950024005F /* AppDelegate.swift */; };
 		D039B4BC1BF4D7950024005F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D039B4BB1BF4D7950024005F /* ViewController.swift */; };
+		D0658EA51FE87C5E00B8D768 /* CellSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0658EA41FE87C5E00B8D768 /* CellSubview.swift */; };
 		D0694D761FC27D1C00602DF2 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0694D751FC27D1C00602DF2 /* Globals.swift */; };
 		D0694D7D1FC27D3F00602DF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0694D791FC27D3E00602DF2 /* Assets.xcassets */; };
 		D0694D7E1FC27D3F00602DF2 /* Stdcomments.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0694D7A1FC27D3F00602DF2 /* Stdcomments.swift */; };
@@ -26,6 +27,7 @@
 		D039B4B61BF4D7950024005F /* 0_0 - aNoteTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "0_0 - aNoteTable.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D039B4B91BF4D7950024005F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D039B4BB1BF4D7950024005F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D0658EA41FE87C5E00B8D768 /* CellSubview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellSubview.swift; path = TableView/CellSubview.swift; sourceTree = "<group>"; };
 		D0694D751FC27D1C00602DF2 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Globals.swift; path = Data/Globals.swift; sourceTree = "<group>"; };
 		D0694D791FC27D3E00602DF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Base/Assets.xcassets; sourceTree = "<group>"; };
 		D0694D7A1FC27D3F00602DF2 /* Stdcomments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stdcomments.swift; path = Base/Stdcomments.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				D0694D841FC27DAE00602DF2 /* ANoteTableView.swift */,
 				D0694D821FC27DAE00602DF2 /* ANoteTableViewCell.swift */,
 				D0694D831FC27DAE00602DF2 /* ANoteTableViewHandler.swift */,
+				D0658EA41FE87C5E00B8D768 /* CellSubview.swift */,
 				D0694D811FC27DAE00602DF2 /* UICheckbox.swift */,
 			);
 			name = TableView;
@@ -196,6 +199,7 @@
 				D0694D7E1FC27D3F00602DF2 /* Stdcomments.swift in Sources */,
 				D0E795931FE57460008A46D1 /* UICustomTableViewHandler.swift in Sources */,
 				D092B0AE1FC3B3BB00CEE5D4 /* aNoteDemoApp.swift in Sources */,
+				D0658EA51FE87C5E00B8D768 /* CellSubview.swift in Sources */,
 				D039B4BC1BF4D7950024005F /* ViewController.swift in Sources */,
 				D0E795911FE57460008A46D1 /* UICustomTableView.swift in Sources */,
 				D0694D881FC27DAE00602DF2 /* ANoteTableView.swift in Sources */,

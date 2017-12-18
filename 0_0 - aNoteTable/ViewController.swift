@@ -6,9 +6,13 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   12/13/17
+ *  @last rev   12/18/17
  *
  *  @section    Current Opens
+ *      Populate SubView
+ *      Make SubView match aNote
+ *      Make Parent View match aNote
+ *      ...
  *      Table Cell correct
  *      placement of upper icons (loc & size)
  *      upper bar color
@@ -148,7 +152,7 @@ class ViewController: UIViewController {
         /****************************************************************************************************************************/
         /*                                                      Handler                                                             */
         /****************************************************************************************************************************/
-        aNoteTableHandler = ANoteTableViewHandler(items: items, ANoteTable: aNoteTable);
+        aNoteTableHandler = ANoteTableViewHandler(items: items, mainView: self.view, ANoteTable: aNoteTable);
         
         aNoteTable.delegate   = aNoteTableHandler;                                      /* Set both to handle clicks & provide data */
         aNoteTable.dataSource = aNoteTableHandler;        

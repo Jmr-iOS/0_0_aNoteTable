@@ -16,6 +16,7 @@ import UIKit
 
 class ANoteTableViewHandler : UICustomTableViewHandler {
     
+    var mainView   : UIView!;
     var aNoteTable : ANoteTableView!;
     
     var items : [String]!;
@@ -28,12 +29,13 @@ class ANoteTableViewHandler : UICustomTableViewHandler {
     /* @fcn       init()                                                                                                            */
     /* @details                                                                                                                     */
     /********************************************************************************************************************************/
-    init(items: [String], ANoteTable : ANoteTableView) {
+    init(items: [String], mainView : UIView, ANoteTable : ANoteTableView) {
         
         super.init(items: items, table: ANoteTable);
         
         self.items = items;
         
+        self.mainView = mainView;
         self.aNoteTable = ANoteTable;
         
         if(verbose){ print("ANoteTableViewHandler.init():       initialized"); }
@@ -85,7 +87,7 @@ class ANoteTableViewHandler : UICustomTableViewHandler {
         
         let cell : ANoteTableViewCell = self.getCell(indexPath);
 
-        if(verbose){ print("ANoteTableViewHandler.tableView():         handling a cell tap of \(cell.tableIndex)"); }
+        if(verbose){ print("ANoteTableViewHandler.tableView():     handling a cell tap of \(cell.tableIndex)"); }
         
         /****************************************************************************************************************************/
         /* scroll to the top or change the bar color                                                                                */
@@ -94,6 +96,15 @@ class ANoteTableViewHandler : UICustomTableViewHandler {
         case (0):
             print("    top selected. Scrolling to the bottom!");
             tableView.scrollToRow(at: IndexPath(row: items.count-1, section: 0), at: UITableViewScrollPosition.bottom, animated: true);
+            break;
+        case (1):
+            print("    launching subview");
+            
+            var newSubView : CellSubview = CellSubview();
+            
+            self.mainView.addSubview(newSubView);
+            self.mainView.reloadInputViews();
+            
             break;
         case (items.count-5):
             print("    swapped the seperator color to red");
