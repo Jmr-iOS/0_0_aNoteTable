@@ -6,11 +6,10 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   12/18/17
+ *  @last rev   12/19/17
  *
  *  @section    Current Opens
- *      Subview slides in
- *      Return Slides out
+ *      Checkbox selection crosses out main text and changes color
  *      Add Data Struct or Org to Cell
  *      Able to select same cell twice
  *      ...
@@ -95,8 +94,6 @@ class ViewController: UIViewController {
         
         //Store offset
         yOffs += upperBar.frame.height;
-        
-        
 
         
         /****************************************************************************************************************************/

@@ -18,23 +18,27 @@ import UIKit
 
 class CellSubview : UIView {
     
+    var parentCell   : ANoteTableViewCell!;
     
+    var nameLabel    : UILabel!;
     var returnButton : UIButton!;                                   /* return button of the subview                                 */
     var mainView     : UIView!;                                     /* main view of app                                             */
     
     
     /********************************************************************************************************************************/
-	/**	@fcn		init(mainView : UIView)
+	/**	@fcn		init(mainView : UIView, parentCell : ANoteTableViewCell)
 	 *  @brief		x
      *
      *  @param      [in] (UIView) mainView - main view of app
+     *  @param      [in] (ANoteTableViewCell) - parent cell for subview
      */
 	/********************************************************************************************************************************/
-    init(mainView : UIView) {
+    init(mainView : UIView, parentCell : ANoteTableViewCell) {
         super.init(frame: UIScreen.main.bounds);
         
         //Store
         self.mainView = mainView;
+        self.parentCell = parentCell;
         
         //Init Vars
         let windowHeight : CGFloat = 150;
@@ -72,10 +76,27 @@ class CellSubview : UIView {
         rightBorder.backgroundColor = borderColor;
  
         //Add border
-        self.layer.addSublayer(upperBorder);          /* note - it could be added to self.view.layer instead if desired   */
+        self.layer.addSublayer(upperBorder);                    /* note - it could be added to self.view.layer instead if desired   */
         self.layer.addSublayer(bottomBorder);
         self.layer.addSublayer(leftBorder);
         self.layer.addSublayer(rightBorder);
+
+		//Add name label
+        self.nameLabel = UILabel();
+        
+        self.nameLabel.text = "Item #\(self.parentCell.getNumber()) Subview";
+        self.nameLabel.font = UIFont(name: "MarkerFelt-Thin", size: 15);
+        self.nameLabel.textColor = UIColor.black;        
+        self.nameLabel.numberOfLines = 1;
+
+        self.nameLabel.numberOfLines = 0
+        self.nameLabel.sizeToFit();
+        self.nameLabel.textAlignment = .center;
+        self.nameLabel.center = CGPoint(x: UIScreen.main.bounds.width/2, y: 15);
+        self.nameLabel.translatesAutoresizingMaskIntoConstraints = true;
+        
+        self.mainView.reloadInputViews();
+        self.addSubview(self.nameLabel);
 
 
         //**************************************************************************************************************************//

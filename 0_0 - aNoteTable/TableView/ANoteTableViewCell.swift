@@ -54,10 +54,6 @@ class ANoteTableViewCell: UICustomTableViewCell {
         super.init(style:style, reuseIdentifier:reuseIdentifier);
     
         self.mainView = mainView;
-
-        self.cellSubView = CellSubview(mainView: self.mainView);
-        
-        self.mainView.addSubview(self.cellSubView);
         
         if(verbose){ print("aNoteTableViewCell.init():          cell was initialized"); }
     
@@ -75,7 +71,10 @@ class ANoteTableViewCell: UICustomTableViewCell {
 
         self.tableIndex = indexPath.item;
         
+        self.cellSubView = CellSubview(mainView: self.mainView, parentCell: self);
         
+        self.mainView.addSubview(self.cellSubView);
+
         //Get Current Cell's Info
         let demoApp : aNoteDemoApp = aNoteDemoApp();
         let currRow : aNoteDemoApp.Row = demoApp.getRows()[indexPath.item];
@@ -229,7 +228,20 @@ class ANoteTableViewCell: UICustomTableViewCell {
         
         return;
     }
+
     
+    /********************************************************************************************************************************/
+    /** @fcn        getNumber() -> Int
+     *  @brief      x
+     *  @details    x
+     *
+     *  @return     (Int) number of active cell (e.g. '2' for Item #2)
+     */
+    /********************************************************************************************************************************/
+    func getNumber() -> Int {
+        return (tableIndex+1);
+    }
+
     
     /********************************************************************************************************************************/
     /** @fcn        required init?(coder aDecoder: NSCoder)
