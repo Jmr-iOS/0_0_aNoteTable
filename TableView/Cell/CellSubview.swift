@@ -8,6 +8,10 @@
  * 	@section	Opens
  * 		none current
  *
+ *  @section    Data Architecture
+ *      each row represents a data entry whose data is captured in completion by the row's cell subview, presented here. all data
+ *      fields are thus represented as fields of the cell subview (e.g. nameLabel, etc.)
+ *
  * 	@section	Legal Disclaimer
  * 			All contents of this source file and/or any other Jaostech related source files are the explicit property on Jaostech
  * 			Corporation. Do not distribute. Do not copy.
@@ -18,11 +22,15 @@ import UIKit
 
 class CellSubview : UIView {
     
+    //Ref
+    var mainView     : UIView!;                                     /* main view of app                                             */
     var parentCell   : ANoteTableViewCell!;
     
-    var nameLabel    : UILabel!;
+    //UI
     var returnButton : UIButton!;                                   /* return button of the subview                                 */
-    var mainView     : UIView!;                                     /* main view of app                                             */
+
+    //Data
+    var nameLabel    : UILabel!;
     
     
     /********************************************************************************************************************************/
