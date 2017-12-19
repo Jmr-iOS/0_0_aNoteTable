@@ -37,11 +37,11 @@ class ANoteTableViewCell: UICustomTableViewCell {
 
 
     /********************************************************************************************************************************/
-    /** @fcn        override init(style: UITableViewCellStyle, reuseIdentifier: String?)
+    /** @fcn        init(style: UITableViewCellStyle, reuseIdentifier: String?)
      *  @brief      x
      *  @details    x
      *
-     *  @param
+     *  @param      [in] (UIView) mainView - x
      *  @param      [in] (UITableViewCellStyle) style - x
      *  @param      [in] (String?) reuseIdentifier - x
      *
@@ -56,8 +56,6 @@ class ANoteTableViewCell: UICustomTableViewCell {
         self.mainView = mainView;
 
         self.cellSubView = CellSubview(mainView: self.mainView);
-        
-        print("[2]Cell Subview - X:\(self.cellSubView.frame.origin.x) Y:\(self.cellSubView.frame.origin.y) H:\(self.cellSubView.bounds.height) W:\(self.cellSubView.bounds.width)");
         
         self.mainView.addSubview(self.cellSubView);
         
@@ -204,7 +202,6 @@ class ANoteTableViewCell: UICustomTableViewCell {
         
         //add it
         self.addSubview(timeView);
-
         
         return;
     }
@@ -218,9 +215,18 @@ class ANoteTableViewCell: UICustomTableViewCell {
     /********************************************************************************************************************************/
     func launchSubView() {
 
-        //Set new frame onscreen
-        self.cellSubView.frame = CGRect(x: 0, y: 50, width: self.cellSubView.frame.width, height: self.cellSubView.frame.height);
+         self.cellSubView.frame = CGRect(x: 10, y: UIScreen.main.bounds.height, width: 360, height: 150);
         
+        //Slide in View
+        UIView.animate(withDuration: 1.0, delay: 0.5, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
+                print("sliding view in!");
+                self.cellSubView.alpha = 1.0;
+                self.cellSubView.frame = CGRect(x: 10, y: 350, width: 360, height: 150);
+        }, completion: { (finished: Bool) -> Void in
+                print("sliding view in completion!");
+                self.cellSubView.frame = CGRect(x: 10, y: 350, width: 360, height: 150);
+        });
+
         self.mainView.reloadInputViews();
         
         return;
