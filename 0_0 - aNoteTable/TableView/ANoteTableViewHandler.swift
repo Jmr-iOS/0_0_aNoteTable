@@ -87,7 +87,7 @@ class ANoteTableViewHandler : UICustomTableViewHandler {
         
         let cell : ANoteTableViewCell = self.getCell(indexPath);
 
-        if(verbose){ print("ANoteTableViewHandler.tableView():     handling a cell tap of \(cell.tableIndex!)"); }
+        if(verbose){ print("ANoteTableViewHandler.tableView():  handling a cell tap of \(cell.tableIndex!)"); }
 
         //Launch the SubView
         cell.launchSubView();
@@ -102,7 +102,7 @@ class ANoteTableViewHandler : UICustomTableViewHandler {
     /********************************************************************************************************************************/
     func getCell(_ indexPath: IndexPath) -> ANoteTableViewCell {
         
-        if(verbose){ print("ANoteTableViewHandler.getCell():       returning cell \(indexPath.item)"); }
+        if(verbose){ print("ANoteTableViewHandler.getCell():    returning cell \(indexPath.item)"); }
         
         return aNoteTable.cellForRow(at: indexPath) as! ANoteTableViewCell!;
     }

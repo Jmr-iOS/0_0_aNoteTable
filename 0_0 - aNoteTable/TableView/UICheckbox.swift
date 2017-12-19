@@ -90,14 +90,21 @@ class UICheckbox: UIView {
     /********************************************************************************************************************************/
     /* @fcn       handleTap(recognizer:UITapGestureRecognizer)                                                                      */
     /* @details   the self->UITapGestureRecognizer is set to call this on a tap                                                     */
+    /* @todo      @objc removal where possible                                                                                      */
     /********************************************************************************************************************************/
     @objc func handleTap(_ recognizer:UITapGestureRecognizer) {
+        
+        if(verbose) { print("UICheckbox.handleTap():   handling tap response"); }
+        
+        //Get state
+        let prevState : Bool =  (self.checkBoxImg.image == checkedImage);           /* was previously selected?                     */
+        let newState  : Bool = !prevState;                                          /* inverted on selection                        */
         
         //Swap w/Fade
         let fadeAnim:CABasicAnimation = CABasicAnimation(keyPath: "contents");
         
-        fadeAnim.fromValue = (self.checkBoxImg.image == uncheckedImage) ? uncheckedImage:checkedImage;
-        fadeAnim.toValue   = (self.checkBoxImg.image == uncheckedImage) ? checkedImage:uncheckedImage;
+        fadeAnim.fromValue = (prevState) ? checkedImage:uncheckedImage;
+        fadeAnim.toValue   = (prevState) ? uncheckedImage:checkedImage;
         
         fadeAnim.duration = loadDelay_s;
         
@@ -105,12 +112,14 @@ class UICheckbox: UIView {
         
         
         //Update ImageView & State
-        state = (self.checkBoxImg.image == uncheckedImage) ? true : false;    //if it was unchecked, now it's checked, true!
+        state = (prevState) ? false : true;                                      /* if it was unchecked, now it's checked, true!    */
 
-        checkBoxImg.image = (self.checkBoxImg.image == uncheckedImage) ? checkedImage:uncheckedImage;
-        
+        checkBoxImg.image = (prevState) ? uncheckedImage:checkedImage;
+
         checkBoxImg.layer.add(fadeAnim, forKey: "contents");
 
+        //Update text
+        parentCell.updateSelection(selected: newState);
         
         return;
     }

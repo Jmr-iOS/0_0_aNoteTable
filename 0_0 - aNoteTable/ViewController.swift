@@ -9,7 +9,7 @@
  *  @last rev   12/19/17
  *
  *  @section    Current Opens
- *      Checkbox selection crosses out main text and changes color
+ *      Bug - When offscreen, checkbox selection crosses out main text and changes color works unexpectedlyß∑
  *      Add Data Struct or Org to Cell
  *      Able to select same cell twice
  *      ...
@@ -142,14 +142,7 @@ class ViewController: UIViewController {
                                width: view.frame.width,
                                height: lower_bar_height);
         view.addSubview(bottBar);
-        
-        print(yOffs);
-        print(tableFrame.height);
-        print(aNoteTable.frame.height);
-        print(bottBar.frame.origin.y);
-        print(" ");
-        print(view.frame.height);
-        
+
         
         /****************************************************************************************************************************/
         /*                                                      Handler                                                             */

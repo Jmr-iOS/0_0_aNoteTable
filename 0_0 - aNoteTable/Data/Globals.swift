@@ -46,7 +46,7 @@ let lower_bar_height : CGFloat = 50;
 class Globals {
     
     init() {
-        print("Globals initialized.");
+        print("Globals.init():                     Globals initialized.");
         return;
     }
 

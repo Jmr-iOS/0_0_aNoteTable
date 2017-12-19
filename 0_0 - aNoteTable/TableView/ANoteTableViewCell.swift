@@ -98,7 +98,7 @@ class ANoteTableViewCell: UICustomTableViewCell {
         
         let subjFieldWidth : CGFloat = UIScreen.main.bounds.width - cellOffs_Left_val - rightScreenChunk_Width - timeView_Width_val;
         
-        print("Grabbing \(indexPath.item)");
+        if(verbose) { print("ANoteTableViewCell.initialize():    Grabbing \(indexPath.item)"); }
         
         if(indexPath.item < 10) {
             self.mainText = aNoteTable.items[indexPath.item];
@@ -216,11 +216,11 @@ class ANoteTableViewCell: UICustomTableViewCell {
         
         //Slide in View
         UIView.animate(withDuration: 1.0, delay: 0.5, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
-                print("sliding view in!");
+                print("ANoteTableViewCell.launchSubView(): sliding view in!");
                 self.cellSubView.alpha = 1.0;
                 self.cellSubView.frame = CGRect(x: 10, y: 350, width: 360, height: 150);
         }, completion: { (finished: Bool) -> Void in
-                print("sliding view in completion!");
+                print("ANoteTableViewCell.launchSubView(): sliding view in completion!");
                 self.cellSubView.frame = CGRect(x: 10, y: 350, width: 360, height: 150);
         });
 
@@ -242,6 +242,43 @@ class ANoteTableViewCell: UICustomTableViewCell {
         return (tableIndex+1);
     }
 
+    
+    /********************************************************************************************************************************/
+    /** @fcn        updateSelection(selected : Bool)
+     *  @brief      update selected state of cell
+     *  @details    cross out main text and greyed when selected
+     *
+     *  @param      [in] (Bool) selected - if the cell is selected (check box checked off)
+     */
+    /********************************************************************************************************************************/
+    func updateSelection(selected : Bool) {
+        
+        if(selected) {
+            if(verbose) { print("ANoteTableViewCell.updateSelection():   Selected"); }
+            
+            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: self.subjectField.text!);
+            
+            attributeString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length));
+            
+            self.subjectField.attributedText = attributeString;
+            
+            self.subjectField.textColor = UIColor.gray;
+            
+        } else {
+            if(verbose) { print("ANoteTableViewCell.updateSelection():   Not Selected"); }
+            
+            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: self.subjectField.text!);
+            
+            attributeString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 0, range: NSMakeRange(0, attributeString.length));
+            
+            self.subjectField.attributedText = attributeString;
+            
+            self.subjectField.textColor = UIColor.black;
+        }
+        
+        return;
+    }
+    
     
     /********************************************************************************************************************************/
     /** @fcn        required init?(coder aDecoder: NSCoder)

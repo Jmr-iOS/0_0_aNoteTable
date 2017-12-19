@@ -116,10 +116,12 @@ class CellSubview : UIView {
         
         //@temp for debug validation
         self.backgroundColor = UIColor.red;
-        print("My Custom Cell SubView Init");
+        
+        if(verbose) { print("CellSubview.init():  My Custom Cell SubView Init"); }
  
         return;
     }
+    
     
     /********************************************************************************************************************************/
 	/**	@fcn		returnPress(_ sender: UIButton!)
@@ -130,7 +132,7 @@ class CellSubview : UIView {
 	/********************************************************************************************************************************/
     @objc func returnPress(_ sender: UIButton!) {
         
-        print("Return was pressed, dismissing view");
+        if(verbose) { print("CellSubview.returnPress():  Return was pressed, dismissing view"); }
         
         //Move Frame offscreen
         self.frame = CGRect(x: 0, y: UIScreen.main.bounds.height, width: self.frame.width, height: self.frame.height);
@@ -154,11 +156,11 @@ class CellSubview : UIView {
         
         //Slide in View
         UIView.animate(withDuration: 1.0, delay: 0.5, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
-            print("sliding view in!");
+            print("sliding view out");
             self.alpha = 1.0;
             self.frame = CGRect(x: 10, y: UIScreen.main.bounds.height, width: 360, height: 150);
         }, completion: { (finished: Bool) -> Void in
-            print("sliding view in completion!");
+            print("sliding view out completion");
             self.frame = CGRect(x: 10, y: UIScreen.main.bounds.height, width: 360, height: 150);
         });
         
