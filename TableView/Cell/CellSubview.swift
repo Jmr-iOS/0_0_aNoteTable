@@ -124,6 +124,7 @@ class CellSubview : UIView {
 	 *  @brief		return was pressed, return to main
      *
      *  @param      [in] (UIButton!) sender - button pressed
+     *  @note      @objc exposed to enabled handleTap() access, not sure why
      */
 	/********************************************************************************************************************************/
     @objc func returnPress(_ sender: UIButton!) {

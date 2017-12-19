@@ -10,7 +10,6 @@
  *
  *  @section    Current Opens
  *      dims to globals
- *      @objc removal where possible
  *      TableViewCell init
  *          1a - divider color lighter
  *          1b - time & icon over a bit

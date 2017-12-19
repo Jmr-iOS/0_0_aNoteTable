@@ -62,7 +62,7 @@ class UICheckbox: UIView {
     }
 
     
-    /*********************************************************************************************************************************/
+    /********************************************************************************************************************************/
     /* @fcn       addTapRecognizer()                                                                                                */
     /* @details   handle taps, img change and fade                                                                                  */
     /* @note      @objc exposed to enabled handleTap() access, not sure why                                                         */
@@ -87,6 +87,7 @@ class UICheckbox: UIView {
     /********************************************************************************************************************************/
     /* @fcn       handleTap(recognizer:UITapGestureRecognizer)                                                                      */
     /* @details   the self->UITapGestureRecognizer is set to call this on a tap                                                     */
+    /* @note      @objc exposed to enabled handleTap() access, not sure why                                                         */
     /********************************************************************************************************************************/
     @objc func handleTap(_ recognizer:UITapGestureRecognizer) {
         
