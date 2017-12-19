@@ -18,29 +18,38 @@ import UIKit
 
 class CellSubview : UIView {
     
-    var mainView : UIView!;
+    
+    var returnButton : UIButton!;                                   /* return button of the subview                                 */
+    var mainView     : UIView!;                                     /* main view of app                                             */
+    
     
     /********************************************************************************************************************************/
-	/**	@fcn		init()
+	/**	@fcn		init(mainView : UIView)
 	 *  @brief		x
+     *
+     *  @param      [in] (UIView) mainView - main view of app
      */
 	/********************************************************************************************************************************/
     init(mainView : UIView) {
         super.init(frame: UIScreen.main.bounds);
         
+        //Store
         self.mainView = mainView;
         
+        //Init Vars
         let windowHeight : CGFloat = 150;
         let windowWidth  : CGFloat = 360;
         
         let borderSize : CGFloat = 2;
         let borderColor : CGColor = UIColor(red:   140/255, green: 140/255, blue:  140/255, alpha: 1.0).cgColor; //Apple Border Color
-        
 
+        
+        //**************************************************************************************************************************//
+        //                                              INIT UI                                                                     //
+        //**************************************************************************************************************************//
         self.backgroundColor = UIColor.white;
         self.frame = CGRect(x: 0, y: 0, width: windowWidth, height: windowHeight);
         self.center = CGPoint(x: UIScreen.main.bounds.width/2, y: 375);
-
  
         //Generate upper border for the View
         let upperBorder : CALayer = CALayer();
@@ -69,12 +78,45 @@ class CellSubview : UIView {
         self.layer.addSublayer(rightBorder);
 
 
-        //for debug validation
+        //**************************************************************************************************************************//
+        //                                            INIT BUTTON                                                                   //
+        //**************************************************************************************************************************//
+        self.returnButton = UIButton(type: UIButtonType.roundedRect);
+ 
+        self.returnButton.translatesAutoresizingMaskIntoConstraints = true;
+        self.returnButton.setTitle("Test Button - Normal",      for: UIControlState());
+        self.returnButton.backgroundColor = UIColor.green;
+        self.returnButton.sizeToFit();
+        self.returnButton.center = CGPoint(x: self.mainView.center.x, y: 50);
+        self.returnButton.addTarget(self, action: #selector(self.returnPress(_:)), for:  .touchUpInside);
+        
+        //Add button
+        self.addSubview(self.returnButton);
+        
+        //@temp for debug validation
         self.backgroundColor = UIColor.red;
         print("My Custom Cell SubView Init");
  
         return;
     }
+    
+    /********************************************************************************************************************************/
+	/**	@fcn		returnPress(_ sender: UIButton!)
+	 *  @brief		x
+     *
+     *  @param      [in] (UIButton!) sender - button pressed
+     */
+	/********************************************************************************************************************************/
+    @objc func returnPress(_ sender: UIButton!) {
+        
+        print("Return was pressed");
+        
+        //Move Frame offscreen
+        self.frame = CGRect(x: 0, y: UIScreen.main.bounds.height, width: self.frame.width, height: self.frame.height);
+        
+        return;
+    }
  
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented"); }
 }
+

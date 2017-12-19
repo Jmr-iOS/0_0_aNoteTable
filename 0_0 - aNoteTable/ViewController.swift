@@ -9,6 +9,10 @@
  *  @last rev   12/18/17
  *
  *  @section    Current Opens
+ *      Add return button to subView
+ *      Add Data Struct or Org to Cell
+ *      Able to select same cell twice
+ *      ...
  *      Populate SubView
  *      Make SubView match aNote
  *      Make Parent View match aNote
