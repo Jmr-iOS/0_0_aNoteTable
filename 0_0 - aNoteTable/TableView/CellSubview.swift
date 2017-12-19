@@ -48,8 +48,8 @@ class CellSubview : UIView {
         //                                              INIT UI                                                                     //
         //**************************************************************************************************************************//
         self.backgroundColor = UIColor.white;
-        self.frame = CGRect(x: 0, y: 0, width: windowWidth, height: windowHeight);
         self.center = CGPoint(x: UIScreen.main.bounds.width/2, y: 375);
+        self.frame = CGRect(x: 0, y: UIScreen.main.bounds.height, width: windowWidth, height: windowHeight);    /* init offset      */
  
         //Generate upper border for the View
         let upperBorder : CALayer = CALayer();
@@ -84,7 +84,7 @@ class CellSubview : UIView {
         self.returnButton = UIButton(type: UIButtonType.roundedRect);
  
         self.returnButton.translatesAutoresizingMaskIntoConstraints = true;
-        self.returnButton.setTitle("Test Button - Normal",      for: UIControlState());
+        self.returnButton.setTitle("Return",      for: UIControlState());
         self.returnButton.backgroundColor = UIColor.green;
         self.returnButton.sizeToFit();
         self.returnButton.center = CGPoint(x: self.mainView.center.x, y: 50);
@@ -97,23 +97,27 @@ class CellSubview : UIView {
         self.backgroundColor = UIColor.red;
         print("My Custom Cell SubView Init");
  
+//<TEMP>
+        print("[0]\(UIScreen.main.bounds.height)");
+        print("[1]Cell Subview - X:\(self.frame.origin.x) Y:\(self.frame.origin.y) H:\(self.bounds.height) W:\(self.bounds.width)");
+//</TEMP>
         return;
     }
     
     /********************************************************************************************************************************/
 	/**	@fcn		returnPress(_ sender: UIButton!)
-	 *  @brief		x
+	 *  @brief		return was pressed, return to main
      *
      *  @param      [in] (UIButton!) sender - button pressed
      */
 	/********************************************************************************************************************************/
     @objc func returnPress(_ sender: UIButton!) {
         
-        print("Return was pressed");
+        print("Return was pressed, dismissing view");
         
         //Move Frame offscreen
         self.frame = CGRect(x: 0, y: UIScreen.main.bounds.height, width: self.frame.width, height: self.frame.height);
-        
+
         return;
     }
  

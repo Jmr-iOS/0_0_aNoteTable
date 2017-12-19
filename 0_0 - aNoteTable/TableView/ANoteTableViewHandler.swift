@@ -87,7 +87,7 @@ class ANoteTableViewHandler : UICustomTableViewHandler {
         
         let cell : ANoteTableViewCell = self.getCell(indexPath);
 
-        if(verbose){ print("ANoteTableViewHandler.tableView():     handling a cell tap of \(cell.tableIndex)"); }
+        if(verbose){ print("ANoteTableViewHandler.tableView():     handling a cell tap of \(cell.tableIndex!)"); }
 
         //Launch the SubView
         cell.launchSubView();

@@ -57,6 +57,10 @@ class ANoteTableViewCell: UICustomTableViewCell {
 
         self.cellSubView = CellSubview(mainView: self.mainView);
         
+        print("[2]Cell Subview - X:\(self.cellSubView.frame.origin.x) Y:\(self.cellSubView.frame.origin.y) H:\(self.cellSubView.bounds.height) W:\(self.cellSubView.bounds.width)");
+        
+        self.mainView.addSubview(self.cellSubView);
+        
         if(verbose){ print("aNoteTableViewCell.init():          cell was initialized"); }
     
         return;
@@ -209,10 +213,13 @@ class ANoteTableViewCell: UICustomTableViewCell {
     /********************************************************************************************************************************/
     /* @fcn       launchSubView()                                                                                                   */
     /* @details   launch the subview                                                                                                */
+    /* @pre       adds the view and refreshes (slides on)                                                                           */
+    /* @post      changes frame and refreshes                                                                                       */
     /********************************************************************************************************************************/
     func launchSubView() {
-        
-        self.mainView.addSubview(self.cellSubView);
+
+        //Set new frame onscreen
+        self.cellSubView.frame = CGRect(x: 0, y: 50, width: self.cellSubView.frame.width, height: self.cellSubView.frame.height);
         
         self.mainView.reloadInputViews();
         

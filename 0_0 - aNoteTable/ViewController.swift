@@ -9,7 +9,8 @@
  *  @last rev   12/18/17
  *
  *  @section    Current Opens
- *      Add return button to subView
+ *      Subview slides in
+ *      Return Slides out
  *      Add Data Struct or Org to Cell
  *      Able to select same cell twice
  *      ...
