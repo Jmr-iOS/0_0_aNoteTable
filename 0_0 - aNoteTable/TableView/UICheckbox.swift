@@ -112,30 +112,9 @@ class UICheckbox: UIView {
         checkBoxImg.layer.add(fadeAnim, forKey: "contents");
 
         
-        //Handle the Click
-        self.buttonClicked();
-        
         return;
     }
-    
 
-    /********************************************************************************************************************************/
-    /* @fcn       buttonClicked()                                                                                                   */
-    /* @details   called in self.handleTap(), when this checkBox is tapped!                                                         */
-    /********************************************************************************************************************************/
-    func buttonClicked() {
-        
-        if(verbose) { print("UICheckbox.buttonClicked():    entry"); }
-        
-        if(verbose) { print("//@todo   add a fade to the text-toggle! You'll need to cross fade to a NEW view of the text!!! see link belo"); }
-        if(verbose) { print("//@url    http://stackoverflow.com/questions/2426614/how-to-animate-the-textcolor-property-of-an-uilabel"); }
-        
-        parentCell.clickResponse();
-        
-        if(verbose) { print("\(parentCell.tableIndex) was clicked"); }
-        
-        return;
-    }
     
 //? override func animationDidStop (_ anim: CAAnimation, finished flag: Bool) { return; }
 //? override func animationDidStart(_ anim: CAAnimation) { return; }

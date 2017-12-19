@@ -18,14 +18,17 @@ import UIKit
 
 class CellSubview : UIView {
     
+    var mainView : UIView!;
     
     /********************************************************************************************************************************/
 	/**	@fcn		init()
 	 *  @brief		x
      */
 	/********************************************************************************************************************************/
-    init() {
+    init(mainView : UIView) {
         super.init(frame: UIScreen.main.bounds);
+        
+        self.mainView = mainView;
         
         let windowHeight : CGFloat = 150;
         let windowWidth  : CGFloat = 360;
@@ -68,7 +71,7 @@ class CellSubview : UIView {
 
         //for debug validation
         self.backgroundColor = UIColor.red;
-        print("My Custom Init");
+        print("My Custom Cell SubView Init");
  
         return;
     }

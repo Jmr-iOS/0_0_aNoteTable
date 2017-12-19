@@ -28,6 +28,10 @@ class ANoteTableViewCell: UICustomTableViewCell {
     var descripField : UILabel!;
     var bottField    : UILabel!;
 
+    //Locals
+    var mainView : UIView!;
+    var cellSubView : CellSubview!;
+    
     //Config
     let cell_fontName : String = cellFont_val;
 
@@ -37,6 +41,7 @@ class ANoteTableViewCell: UICustomTableViewCell {
      *  @brief      x
      *  @details    x
      *
+     *  @param
      *  @param      [in] (UITableViewCellStyle) style - x
      *  @param      [in] (String?) reuseIdentifier - x
      *
@@ -44,10 +49,14 @@ class ANoteTableViewCell: UICustomTableViewCell {
      *      make row border thinner & set to lighter color
      */
     /********************************************************************************************************************************/
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-    
+    init(mainView : UIView, style: UITableViewCellStyle, reuseIdentifier: String?) {
+        
         super.init(style:style, reuseIdentifier:reuseIdentifier);
     
+        self.mainView = mainView;
+
+        self.cellSubView = CellSubview(mainView: self.mainView);
+        
         if(verbose){ print("aNoteTableViewCell.init():          cell was initialized"); }
     
         return;
@@ -198,26 +207,14 @@ class ANoteTableViewCell: UICustomTableViewCell {
 
     
     /********************************************************************************************************************************/
-    /* @fcn       clickResponse()                                                                                                   */
-    /* @details   set the main text to the new color and state. Called in response to cell click (typ by checkbox)                  */
+    /* @fcn       launchSubView()                                                                                                   */
+    /* @details   launch the subview                                                                                                */
     /********************************************************************************************************************************/
-    func clickResponse() {
+    func launchSubView() {
         
-        //Color
-        subjectField.textColor = (self.checkBox.state) ? UIColor.gray : UIColor.black;
+        self.mainView.addSubview(self.cellSubView);
         
-
-        //Font & Strikethrough
-        let newFontState : Int     = (self.checkBox.state) ? 2 : 0;
-        
-        let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: self.subjectField.text!);
-        
-        attributeString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: newFontState, range: NSMakeRange(0, attributeString.length))
-        
-        subjectField.attributedText = attributeString;
-        
-        
-        if(verbose) { print("click. it's now \(self.checkBox.state)!"); }
+        self.mainView.reloadInputViews();
         
         return;
     }

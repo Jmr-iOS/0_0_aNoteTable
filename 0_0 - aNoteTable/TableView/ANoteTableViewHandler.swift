@@ -67,7 +67,7 @@ class ANoteTableViewHandler : UICustomTableViewHandler {
         var cell : ANoteTableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellId) as! ANoteTableViewCell?;
         
         if (cell == nil){
-            cell = ANoteTableViewCell(style: .default, reuseIdentifier:cellId);
+            cell = ANoteTableViewCell(mainView: self.mainView, style: .default, reuseIdentifier: cellId);
         }
 
         cell?.initialize(indexPath, aNoteTable: aNoteTable);
@@ -88,52 +88,13 @@ class ANoteTableViewHandler : UICustomTableViewHandler {
         let cell : ANoteTableViewCell = self.getCell(indexPath);
 
         if(verbose){ print("ANoteTableViewHandler.tableView():     handling a cell tap of \(cell.tableIndex)"); }
-        
-        /****************************************************************************************************************************/
-        /* scroll to the top or change the bar color                                                                                */
-        /****************************************************************************************************************************/
-        switch(indexPath.row) {
-        case (0):
-            print("    top selected. Scrolling to the bottom!");
-            tableView.scrollToRow(at: IndexPath(row: items.count-1, section: 0), at: UITableViewScrollPosition.bottom, animated: true);
-            break;
-        case (1):
-            print("    launching subview");
-            
-            var newSubView : CellSubview = CellSubview();
-            
-            self.mainView.addSubview(newSubView);
-            self.mainView.reloadInputViews();
-            
-            break;
-        case (items.count-5):
-            print("    swapped the seperator color to red");
-            tableView.separatorColor = UIColor.red;
-            break;
-        case (items.count-4):
-            print("    swapped the seperator color to blue");
-            tableView.separatorColor = UIColor.blue;
-            break;
-        case (items.count-3):
-            print("    scrolling to the top with a Rect and fade");
-            tableView.scrollRectToVisible(CGRect(x: 0,y: 0,width: 1,height: 1), animated:true);           //slow scroll to top
-            break;
-        case (items.count-2):
-            print("    scrolling to the top with a Rect and no fade");
-            tableView.scrollRectToVisible(CGRect(x: 0,y: 0,width: 1,height: 1), animated:false);          //immediate scroll to top
-            break;
-        case (items.count-1):
-            print("    scrolling to the top with scrollToRowAtIndexPath");
-            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: UITableViewScrollPosition.top, animated: true);
-            break;
-        default:
-            print("    no response");
-            break;
-        }
-        
+
+        //Launch the SubView
+        cell.launchSubView();
+
         return;
     }
-    
+
 
     /********************************************************************************************************************************/
     /* @fcn       getCell(indexPath: NSIndexPath) -> aNoteTableViewCell                                                             */
