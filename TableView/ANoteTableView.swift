@@ -16,7 +16,6 @@ import UIKit
 
 class ANoteTableView : UICustomTableView {
     
-    var rows : [aNoteDemoApp.Row];
     var items : [String]!;
     
     
@@ -36,9 +35,6 @@ class ANoteTableView : UICustomTableView {
         
         print("ANoteTableView.init():              Currently Configured to UITableViewCell usage");
 
-        //Store the table-values
-        rows = aNoteDemoApp().getRows();
-        
         
         /****************************************************************************************************************************/
         /*                                                  UITableView                                                             */
@@ -87,7 +83,7 @@ class ANoteTableView : UICustomTableView {
      *  @return     ([String]) items - items to se in tableview initialization
      */
     /********************************************************************************************************************************/
-    func getItems(rows :[aNoteDemoApp.Row]) -> [String]{
+    func getItems(rows :[Row]) -> [String]{
         
         var  items : [String] = [String]();
         

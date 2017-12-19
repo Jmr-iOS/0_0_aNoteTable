@@ -13,10 +13,21 @@
 /************************************************************************************************************************************/
 import UIKit
 
-var g : Globals = Globals();
+var g : Globals!;
+var rows : [Row] = [Row]();
 
 let verbose      : Bool = true;
 let numRows : Int = 10;                                         /* table contains 10 entries, screen displays 5 at a time           */
+
+//******************************************************************************************************************************//
+//                                                               PROTOTYPES                                                     //
+//******************************************************************************************************************************//
+struct Row {
+    var main : String!;                                     /* primary text to display                                          */
+    var body : String!;                                     /* sub text displayed below main and smaller                        */
+    var bott : String!;                                     /* text for time label                                              */
+    var time : Int!;                                        /* minutes of day since 12:00 am                                    */
+}
 
 
 //**********************************************************************************************************************************//
@@ -110,7 +121,49 @@ let lower_bar_height : CGFloat = 50;
 
 class Globals {
     
+
+    /********************************************************************************************************************************/
+    /** @fcn        init()
+     *  @brief      init globals
+     *  @details    initialize the table of rows
+     */
+    /********************************************************************************************************************************/
     init() {
+        
+        //**************************************************************************************************************************//
+        //                                                Initialize Rows of Table                                                  //
+        //  @targ   Nice and simple, make rows to match Images/Ref:aNoteRef.jpg                                                     //
+        //**************************************************************************************************************************//
+        for i in 0...(numRows-1) {
+            
+            var mainText : String;
+            var bodyText : String;
+            var bottText : String;
+            
+            
+            //Main Text
+            mainText = String(format: "Item #%i", (i+1));                               /* e.g "Item #1"                            */
+            
+            //Body Text
+            if(i == 0) {
+                bodyText = "Some text below that is short";
+            } else {
+                bodyText = "Some misc. text";
+            }
+            
+            if(i < 2) {
+                bottText = "Today \(i+2):00 PM";                                        /* e.g. "2:00 PM"                           */
+            } else {
+                bottText = "Today \(i+3):00 PM";                                        /* e.g. "3:00 PM"                           */
+            }
+            
+            //Time Val
+            let newTime : Int = ((i+3+12)*60);                      /* minutes since 12:00am today                                  */
+            
+            rows.append(Row(main: mainText, body: bodyText, bott: bottText, time: newTime));
+        }
+//</NEW>
+        
         if(verbose) { print("Globals.init():                     Globals initialized"); }
         return;
     }

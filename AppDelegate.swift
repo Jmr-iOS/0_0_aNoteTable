@@ -17,8 +17,10 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-
+    var window : UIWindow?;
+    var vc     : ViewController!;
+    
+    
     /********************************************************************************************************************************/
     /** @fcn        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
      *  @brief      x
@@ -34,15 +36,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /********************************************************************************************************************************/
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        //Globals
+        g = Globals();
+        
+        //ViewController
+        vc = ViewController();
+        vc.view.translatesAutoresizingMaskIntoConstraints = false;
+        
+        //Window init
         self.window = UIWindow.init(frame: UIScreen.main.bounds);
-        
         self.window?.backgroundColor = UIColor.white;
-        
-        let viewController:ViewController = ViewController();
-        
-        viewController.view.translatesAutoresizingMaskIntoConstraints = false;
-        
-        self.window?.rootViewController = viewController;
+        self.window?.rootViewController = vc;
         
         self.window?.makeKeyAndVisible();
         

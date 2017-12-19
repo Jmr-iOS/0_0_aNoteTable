@@ -76,8 +76,7 @@ class ANoteTableViewCell: UICustomTableViewCell {
         self.mainView.addSubview(self.cellSubView);
 
         //Get Current Cell's Info
-        let demoApp : aNoteDemoApp = aNoteDemoApp();
-        let currRow : aNoteDemoApp.Row = demoApp.getRows()[indexPath.item];
+        let currRow : Row = rows[indexPath.item];
         
         
         /****************************************************************************************************************************/

@@ -159,13 +159,6 @@ class ViewController: UIViewController {
         aNoteTable.delegate   = aNoteTableHandler;                                      /* Set both to handle clicks & provide data */
         aNoteTable.dataSource = aNoteTableHandler;        
         
-        //<temp>
-        let rows : [aNoteDemoApp.Row] = aNoteDemoApp().getRows();
-        for _ in rows {
-            //print(r.main);
-        }
-        //</temp>
-        
         print("ViewController.viewDidLoad():       viewDidLoad() complete");
         
         return;
@@ -187,9 +180,6 @@ class ViewController: UIViewController {
     func getANoteFrame(y : CGFloat, bottHeight : CGFloat) -> CGRect {
 
         var tableFrame : CGRect = self.view.frame;
-        
-        //Get Data
-        let rows : [aNoteDemoApp.Row] = aNoteDemoApp().getRows();
         
         tableFrame.origin.y = y;
 
