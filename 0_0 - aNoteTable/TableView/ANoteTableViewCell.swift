@@ -210,8 +210,6 @@ class ANoteTableViewCell: UICustomTableViewCell {
     /********************************************************************************************************************************/
     /* @fcn       launchSubView()                                                                                                   */
     /* @details   launch the subview                                                                                                */
-    /* @pre       adds the view and refreshes (slides on)                                                                           */
-    /* @post      changes frame and refreshes                                                                                       */
     /********************************************************************************************************************************/
     func launchSubView() {
 

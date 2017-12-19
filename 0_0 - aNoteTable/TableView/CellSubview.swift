@@ -97,10 +97,6 @@ class CellSubview : UIView {
         self.backgroundColor = UIColor.red;
         print("My Custom Cell SubView Init");
  
-//<TEMP>
-        print("[0]\(UIScreen.main.bounds.height)");
-        print("[1]Cell Subview - X:\(self.frame.origin.x) Y:\(self.frame.origin.y) H:\(self.bounds.height) W:\(self.bounds.width)");
-//</TEMP>
         return;
     }
     
@@ -118,9 +114,39 @@ class CellSubview : UIView {
         //Move Frame offscreen
         self.frame = CGRect(x: 0, y: UIScreen.main.bounds.height, width: self.frame.width, height: self.frame.height);
 
+        //Dismiss
+        self.dismissSubView();
+        
         return;
     }
  
+    
+    /********************************************************************************************************************************/
+    /* @fcn       dismissSubView()                                                                                                  */
+    /* @details   dismiss the subview                                                                                               */
+    /* @todo      dims to globals                                                                                                   */
+    /* @todo      globals to 'g'                                                                                                    */
+    /********************************************************************************************************************************/
+    func dismissSubView() {
+        
+        self.frame = CGRect(x: 10, y: 350, width: 360, height: 150);
+        
+        //Slide in View
+        UIView.animate(withDuration: 1.0, delay: 0.5, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
+            print("sliding view in!");
+            self.alpha = 1.0;
+            self.frame = CGRect(x: 10, y: UIScreen.main.bounds.height, width: 360, height: 150);
+        }, completion: { (finished: Bool) -> Void in
+            print("sliding view in completion!");
+            self.frame = CGRect(x: 10, y: UIScreen.main.bounds.height, width: 360, height: 150);
+        });
+        
+        self.mainView.reloadInputViews();
+        
+        return;
+    }
+    
+    
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented"); }
 }
 
