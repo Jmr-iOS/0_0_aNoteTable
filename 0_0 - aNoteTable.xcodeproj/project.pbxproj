@@ -56,11 +56,9 @@
 		D01F62B01C2A584F00C9622B /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				D041A2C21FE8C8D300D126EE /* Cell */,
 				D0694D841FC27DAE00602DF2 /* ANoteTableView.swift */,
-				D0694D821FC27DAE00602DF2 /* ANoteTableViewCell.swift */,
 				D0694D831FC27DAE00602DF2 /* ANoteTableViewHandler.swift */,
-				D0658EA41FE87C5E00B8D768 /* CellSubview.swift */,
-				D0694D811FC27DAE00602DF2 /* UICheckbox.swift */,
 			);
 			name = TableView;
 			sourceTree = "<group>";
@@ -92,6 +90,16 @@
 				D039B4BB1BF4D7950024005F /* ViewController.swift */,
 			);
 			path = "0_0 - aNoteTable";
+			sourceTree = "<group>";
+		};
+		D041A2C21FE8C8D300D126EE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D0694D821FC27DAE00602DF2 /* ANoteTableViewCell.swift */,
+				D0658EA41FE87C5E00B8D768 /* CellSubview.swift */,
+				D0694D811FC27DAE00602DF2 /* UICheckbox.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		D0694D741FC27D0E00602DF2 /* Data */ = {
