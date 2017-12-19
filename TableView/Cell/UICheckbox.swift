@@ -90,7 +90,6 @@ class UICheckbox: UIView {
     /********************************************************************************************************************************/
     /* @fcn       handleTap(recognizer:UITapGestureRecognizer)                                                                      */
     /* @details   the self->UITapGestureRecognizer is set to call this on a tap                                                     */
-    /* @todo      @objc removal where possible                                                                                      */
     /********************************************************************************************************************************/
     @objc func handleTap(_ recognizer:UITapGestureRecognizer) {
         

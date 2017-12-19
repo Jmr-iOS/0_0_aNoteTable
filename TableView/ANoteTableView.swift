@@ -14,7 +14,7 @@
 import UIKit
 
 
-class ANoteTableView : UICustomTableView {        //...
+class ANoteTableView : UICustomTableView {
     
     var rows : [aNoteDemoApp.Row];
     var items : [String]!;

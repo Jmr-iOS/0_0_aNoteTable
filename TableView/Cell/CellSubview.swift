@@ -147,8 +147,6 @@ class CellSubview : UIView {
     /********************************************************************************************************************************/
     /* @fcn       dismissSubView()                                                                                                  */
     /* @details   dismiss the subview                                                                                               */
-    /* @todo      dims to globals                                                                                                   */
-    /* @todo      globals to 'g'                                                                                                    */
     /********************************************************************************************************************************/
     func dismissSubView() {
         
@@ -156,11 +154,11 @@ class CellSubview : UIView {
         
         //Slide in View
         UIView.animate(withDuration: 1.0, delay: 0.5, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
-            print("sliding view out");
+            print("CellSubview.dismissSubView():   sliding view out");
             self.alpha = 1.0;
             self.frame = CGRect(x: 10, y: UIScreen.main.bounds.height, width: 360, height: 150);
         }, completion: { (finished: Bool) -> Void in
-            print("sliding view out completion");
+            print("CellSubview.dismissSubView():   sliding view out completion");
             self.frame = CGRect(x: 10, y: UIScreen.main.bounds.height, width: 360, height: 150);
         });
         

@@ -124,11 +124,6 @@ class ANoteTableViewCell: UICustomTableViewCell {
         
         /****************************************************************************************************************************/
         /*                                                  Description Text                                                        */
-        /* 1a - divider color lighter                                                                                               */
-        /* 1b - time & icon over a bit                                                                                              */
-        /* 2a - globals -> 'g'                                                                                                      */
-        /* 2b - all vars to globals w/clean names (seperate commit)                                                                 */
-        /* 3  - cell touchups, see if you can finalize all dims & colors                                                            */
         /****************************************************************************************************************************/
         let descrFieldWidth : CGFloat = UIScreen.main.bounds.width - cellOffs_Left_val - rightScreenChunk_Width;
         

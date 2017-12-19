@@ -1,6 +1,6 @@
 /************************************************************************************************************************************/
 /** @file       ViewController.swift
- *  @proj       0_0 - newNoteTable
+ *  @proj       0_0 - aNoteTable
  *  @brief      generation of aNote styled table of notes
  *  @details    x
  *
@@ -9,7 +9,15 @@
  *  @last rev   12/19/17
  *
  *  @section    Current Opens
- *      Bug - When offscreen, checkbox selection crosses out main text and changes color works unexpectedlyß∑
+ *      dims to globals
+ *      @objc removal where possible
+ *      TableViewCell init
+ *          1a - divider color lighter
+ *          1b - time & icon over a bit
+ *          2a - globals -> 'g'
+ *          2b - all vars to globals w/clean names (seperate commit)
+ *          3  - cell touchups, see if you can finalize all dims & colors
+ *      Bug - When offscreen, checkbox selection crosses out main text and changes color works unexpectedly
  *      Add Data Struct or Org to Cell
  *      Able to select same cell twice
  *      ...
