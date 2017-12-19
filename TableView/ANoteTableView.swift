@@ -60,7 +60,7 @@ class ANoteTableView : UICustomTableView {
         self.separatorInset = UIEdgeInsetsMake(0, 43, 0, 0);
 
         //Set the row height
-        self.rowHeight = (aNoteRowHeight_val);
+        self.rowHeight = (row_height);
         
         //Exit
         if(verbose){print("ANoteTableView.init():              initialized"); }

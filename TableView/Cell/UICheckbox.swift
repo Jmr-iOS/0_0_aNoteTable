@@ -28,9 +28,6 @@ class UICheckbox: UIView {
     var uncheckedImage  :UIImage = UIImage(named:"anote_unchecked")!;
     var checkedImage    :UIImage = UIImage(named:"anote_checked")!;
     
-    //threads
-    let loadDelay_s : Double = 0.070;
-    
     var loadThread : Timer!;
     var fadeThread : Timer!;
     
@@ -40,14 +37,14 @@ class UICheckbox: UIView {
     /********************************************************************************************************************************/
     init(view:UIView, parentCell: ANoteTableViewCell, xCoord:CGFloat, yCoord:CGFloat) {
 
-        super.init(frame:CGRect(x: 0, y: 0, width: cellOffs_Left_val, height: aNoteRowHeight_val));  //make it to the tap size you want
+        super.init(frame:CGRect(x: 0, y: 0, width: cell_xOffs, height: row_height));  //make it to the tap size you want
 
         //store
         self.parentCell = parentCell;
         
         //image init
         checkBoxImg       = UIImageView(image: uncheckedImage);
-        checkBoxImg.frame = CGRect(x: xCoord, y: yCoord, width: checkBoxDim_val, height: checkBoxDim_val);
+        checkBoxImg.frame = CGRect(x: xCoord, y: yCoord, width: check_dim, height: check_dim);
         
         //handle taps
         self.addTapRecognizer();
@@ -103,7 +100,7 @@ class UICheckbox: UIView {
         fadeAnim.fromValue = (prevState) ? checkedImage:uncheckedImage;
         fadeAnim.toValue   = (prevState) ? uncheckedImage:checkedImage;
         
-        fadeAnim.duration = loadDelay_s;
+        fadeAnim.duration = check_dur_s.magnitude;
         
         fadeAnim.delegate = self as? CAAnimationDelegate;
         
@@ -120,10 +117,6 @@ class UICheckbox: UIView {
         
         return;
     }
-
-    
-//? override func animationDidStop (_ anim: CAAnimation, finished flag: Bool) { return; }
-//? override func animationDidStart(_ anim: CAAnimation) { return; }
     
     required init?(coder aDecoder: NSCoder) { super.init(coder:aDecoder); }
 }

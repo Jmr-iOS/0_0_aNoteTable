@@ -9,7 +9,7 @@
  *  @last rev   12/19/17
  *
  *  @section    Current Opens
- *      dims to globals
+ *      squash aNoteDemoApp into Globals
  *      TableViewCell init
  *          1a - divider color lighter
  *          1b - time & icon over a bit
@@ -194,7 +194,7 @@ class ViewController: UIViewController {
         tableFrame.origin.y = y;
 
         let numRows   : CGFloat = CGFloat(rows.count);
-        let rowHeight : CGFloat = aNoteRowHeight_val;
+        let rowHeight : CGFloat = row_height;
         
         //Max Height
         let maxHeight   : CGFloat = (view.frame.height - y - bottHeight);

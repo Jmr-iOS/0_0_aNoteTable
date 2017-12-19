@@ -15,7 +15,7 @@ import Foundation
 
 class aNoteDemoApp : NSObject {
 
-    let N : Int = 10;                                           /* table contains 10 entries, screen displays 5 at a time           */
+
     var rows : [Row] = [Row]();
     
     //******************************************************************************************************************************//
@@ -42,7 +42,7 @@ class aNoteDemoApp : NSObject {
         super.init();
 
         //Nice and simple, make rows to match Images/Ref:aNoteRef.jpg
-        for i in 0...(N-1) {
+        for i in 0...(numRows-1) {
             
             var mainText : String;
             var bodyText : String;

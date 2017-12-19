@@ -39,37 +39,33 @@ class CellSubview : UIView {
         //Store
         self.mainView = mainView;
         self.parentCell = parentCell;
-        
-        let borderSize : CGFloat = 2;
-        let borderColor : CGColor = UIColor(red:   140/255, green: 140/255, blue:  140/255, alpha: 1.0).cgColor; //Apple Border Color
 
         
         //**************************************************************************************************************************//
         //                                              INIT UI                                                                     //
         //**************************************************************************************************************************//
         self.backgroundColor = UIColor.white;
-        self.center = CGPoint(x: UIScreen.main.bounds.width/2, y: 375);
         self.frame = g.getCSFrame(onscreen: false);
  
         //Generate upper border for the View
         let upperBorder : CALayer = CALayer();
-        upperBorder.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: borderSize);
-        upperBorder.backgroundColor = borderColor;
+        upperBorder.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: cs_borderSize);
+        upperBorder.backgroundColor = cs_borderColor;
  
         //Generate bottom border for the View
         let bottomBorder : CALayer = CALayer();
-        bottomBorder.frame = CGRect(x: 0, y: CGFloat(csHeight) - borderSize, width: self.frame.width, height: borderSize);
-        bottomBorder.backgroundColor = borderColor;
+        bottomBorder.frame = CGRect(x: 0, y: CGFloat(csHeight) - cs_borderSize, width: self.frame.width, height: cs_borderSize);
+        bottomBorder.backgroundColor = cs_borderColor;
  
         //Generate left border for the View
         let leftBorder : CALayer = CALayer();
-        leftBorder.frame = CGRect(x: 0,y: 0, width: borderSize, height: self.frame.height);
-        leftBorder.backgroundColor = borderColor;
+        leftBorder.frame = CGRect(x: 0,y: 0, width: cs_borderSize, height: self.frame.height);
+        leftBorder.backgroundColor = cs_borderColor;
  
         //Generate left border for the View
         let rightBorder : CALayer = CALayer();
-        rightBorder.frame = CGRect(x: self.frame.width-borderSize, y: 0, width: borderSize, height: self.frame.height);
-        rightBorder.backgroundColor = borderColor;
+        rightBorder.frame = CGRect(x: self.frame.width-cs_borderSize, y: 0, width: cs_borderSize, height: self.frame.height);
+        rightBorder.backgroundColor = cs_borderColor;
  
         //Add border
         self.layer.addSublayer(upperBorder);                    /* @note    it could be added to self.view.layer instead if desired */
@@ -85,7 +81,7 @@ class CellSubview : UIView {
         self.nameLabel.textColor = UIColor.black;        
         self.nameLabel.numberOfLines = 1;
 
-        self.nameLabel.numberOfLines = 0
+        self.nameLabel.numberOfLines = 0;
         self.nameLabel.sizeToFit();
         self.nameLabel.textAlignment = .center;
         self.nameLabel.center = CGPoint(x: UIScreen.main.bounds.width/2, y: 15);
@@ -104,7 +100,7 @@ class CellSubview : UIView {
         self.returnButton.setTitle("Return",      for: UIControlState());
         self.returnButton.backgroundColor = UIColor.green;
         self.returnButton.sizeToFit();
-        self.returnButton.center = CGPoint(x: self.mainView.center.x, y: 50);
+        self.returnButton.center = CGPoint(x: self.mainView.center.x, y: ret_yOffs);
         self.returnButton.addTarget(self, action: #selector(self.returnPress(_:)), for:  .touchUpInside);
         
         //Add button
@@ -150,7 +146,7 @@ class CellSubview : UIView {
         self.frame = g.getCSFrame(onscreen: true);
         
         //Slide in View
-        UIView.animate(withDuration: 1.0, delay: 0.5, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
+        UIView.animate(withDuration: launch_dur_s, delay: launch_del_s, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
             print("CellSubview.dismissSubView():   sliding view out");
             self.alpha = 1.0;
             self.frame = g.getCSFrame(onscreen: false);
