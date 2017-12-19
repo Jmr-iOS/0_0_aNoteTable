@@ -13,9 +13,6 @@
 /************************************************************************************************************************************/
 import UIKit
 
-let verbose      : Bool = false;
-let coloredViews : Bool = false;
-
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

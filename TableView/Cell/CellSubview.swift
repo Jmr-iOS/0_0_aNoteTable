@@ -40,10 +40,6 @@ class CellSubview : UIView {
         self.mainView = mainView;
         self.parentCell = parentCell;
         
-        //Init Vars
-        let windowHeight : CGFloat = 150;
-        let windowWidth  : CGFloat = 360;
-        
         let borderSize : CGFloat = 2;
         let borderColor : CGColor = UIColor(red:   140/255, green: 140/255, blue:  140/255, alpha: 1.0).cgColor; //Apple Border Color
 
@@ -53,7 +49,7 @@ class CellSubview : UIView {
         //**************************************************************************************************************************//
         self.backgroundColor = UIColor.white;
         self.center = CGPoint(x: UIScreen.main.bounds.width/2, y: 375);
-        self.frame = CGRect(x: 0, y: UIScreen.main.bounds.height, width: windowWidth, height: windowHeight);    /* init offset      */
+        self.frame = g.getCSFrame(onscreen: false);
  
         //Generate upper border for the View
         let upperBorder : CALayer = CALayer();
@@ -62,7 +58,7 @@ class CellSubview : UIView {
  
         //Generate bottom border for the View
         let bottomBorder : CALayer = CALayer();
-        bottomBorder.frame = CGRect(x: 0, y: windowHeight - borderSize, width: self.frame.width, height: borderSize);
+        bottomBorder.frame = CGRect(x: 0, y: CGFloat(csHeight) - borderSize, width: self.frame.width, height: borderSize);
         bottomBorder.backgroundColor = borderColor;
  
         //Generate left border for the View
@@ -76,7 +72,7 @@ class CellSubview : UIView {
         rightBorder.backgroundColor = borderColor;
  
         //Add border
-        self.layer.addSublayer(upperBorder);                    /* note - it could be added to self.view.layer instead if desired   */
+        self.layer.addSublayer(upperBorder);                    /* @note    it could be added to self.view.layer instead if desired */
         self.layer.addSublayer(bottomBorder);
         self.layer.addSublayer(leftBorder);
         self.layer.addSublayer(rightBorder);
@@ -117,7 +113,7 @@ class CellSubview : UIView {
         //@temp for debug validation
         self.backgroundColor = UIColor.red;
         
-        if(verbose) { print("CellSubview.init():  My Custom Cell SubView Init"); }
+        if(verbose) { print("CellSubview.init():                 My Custom Cell SubView Init"); }
  
         return;
     }
@@ -135,7 +131,7 @@ class CellSubview : UIView {
         if(verbose) { print("CellSubview.returnPress():  Return was pressed, dismissing view"); }
         
         //Move Frame offscreen
-        self.frame = CGRect(x: 0, y: UIScreen.main.bounds.height, width: self.frame.width, height: self.frame.height);
+        self.frame = g.getCSFrame(onscreen: false);
 
         //Dismiss
         self.dismissSubView();
@@ -143,23 +139,23 @@ class CellSubview : UIView {
         return;
     }
  
-    
+
     /********************************************************************************************************************************/
     /* @fcn       dismissSubView()                                                                                                  */
     /* @details   dismiss the subview                                                                                               */
     /********************************************************************************************************************************/
     func dismissSubView() {
         
-        self.frame = CGRect(x: 10, y: 350, width: 360, height: 150);
+        self.frame = g.getCSFrame(onscreen: true);
         
         //Slide in View
         UIView.animate(withDuration: 1.0, delay: 0.5, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
             print("CellSubview.dismissSubView():   sliding view out");
             self.alpha = 1.0;
-            self.frame = CGRect(x: 10, y: UIScreen.main.bounds.height, width: 360, height: 150);
+            self.frame = g.getCSFrame(onscreen: false);
         }, completion: { (finished: Bool) -> Void in
             print("CellSubview.dismissSubView():   sliding view out completion");
-            self.frame = CGRect(x: 10, y: UIScreen.main.bounds.height, width: 360, height: 150);
+            self.frame = g.getCSFrame(onscreen: false);
         });
         
         self.mainView.reloadInputViews();

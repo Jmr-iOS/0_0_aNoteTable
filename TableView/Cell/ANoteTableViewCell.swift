@@ -187,12 +187,6 @@ class ANoteTableViewCell: UICustomTableViewCell {
         timeLabel.textAlignment = NSTextAlignment.left;
         
         timeView.addSubview(timeLabel);
-
-        
-        //color it!
-        if(coloredViews){subjectField.backgroundColor = UIColor.red;}
-        if(coloredViews){descripField.backgroundColor = UIColor.gray;}
-        if(coloredViews){   bottField.backgroundColor = UIColor.yellow;}
         
         //add it
         self.addSubview(timeView);
@@ -207,16 +201,16 @@ class ANoteTableViewCell: UICustomTableViewCell {
     /********************************************************************************************************************************/
     func launchSubView() {
 
-         self.cellSubView.frame = CGRect(x: 10, y: UIScreen.main.bounds.height, width: 360, height: 150);
+        self.cellSubView.frame = g.getCSFrame(onscreen: false);
         
         //Slide in View
         UIView.animate(withDuration: 1.0, delay: 0.5, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
                 print("ANoteTableViewCell.launchSubView(): sliding view in!");
                 self.cellSubView.alpha = 1.0;
-                self.cellSubView.frame = CGRect(x: 10, y: 350, width: 360, height: 150);
+                self.cellSubView.frame = g.getCSFrame(onscreen: true);
         }, completion: { (finished: Bool) -> Void in
                 print("ANoteTableViewCell.launchSubView(): sliding view in completion!");
-                self.cellSubView.frame = CGRect(x: 10, y: 350, width: 360, height: 150);
+            self.cellSubView.frame = g.getCSFrame(onscreen: true);
         });
 
         self.mainView.reloadInputViews();

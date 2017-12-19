@@ -15,6 +15,7 @@ import UIKit
 
 var g : Globals = Globals();
 
+let verbose      : Bool = true;
 let cellFont_val : String = "Arial";                        /* todo: apply to all three and confirm                             */
 
 let aNoteRowHeight_val : CGFloat = 85;                      /* all vals emperically chosen to match                             */
@@ -42,11 +43,19 @@ let upper_bar_height : CGFloat = 64;
 let text_bar_height  : CGFloat = 40;
 let lower_bar_height : CGFloat = 50;
 
+//**********************************************************************************************************************************//
+//                                           Cell Subview (cs - 'Cell Subview')                                                     //
+//**********************************************************************************************************************************//
+let csXOffs  : Int = 10;
+let csYOffs  : Int = 350;
+let csWidth  : Int = 360;
+let csHeight : Int = 150;
+
 
 class Globals {
     
     init() {
-        print("Globals.init():                     Globals initialized");
+        if(verbose) { print("Globals.init():                     Globals initialized"); }
         return;
     }
 
@@ -56,5 +65,28 @@ class Globals {
     
     func bottYOffs() -> CGFloat {
         return descripYOffs() + descripHeight_val;
+    }
+
+
+    /********************************************************************************************************************************/
+    /** @fcn        getCSFrame(onscreen : Bool) -> CGRect
+     *  @brief      get cell subview's active location
+     *  @details    x
+     *
+     *  @param      [in] (Bool) onscreen - if subview is displayed onscreen
+     *
+     *  @return     (CGRect) frame to use for Cell Subview
+     */
+    /********************************************************************************************************************************/
+    func getCSFrame(onscreen : Bool) -> CGRect {
+        
+        var frame : CGRect = CGRect(x: csXOffs, y: Int(UIScreen.main.bounds.height), width: csWidth, height: csHeight);
+
+        //onscreen check
+        if(onscreen) {
+            frame = CGRect(x: frame.origin.x, y: CGFloat(csYOffs), width: frame.width, height: frame.height);
+        }
+      
+        return frame;
     }
 }

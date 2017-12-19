@@ -54,12 +54,9 @@ class UICheckbox: UIView {
         
         //uiview setup: me<-image then main<-main
         self.addSubview(checkBoxImg);
-        view.addSubview(self);
+        view.addSubview(self);       
         
-        if(coloredViews){self.backgroundColor = UIColor.blue;}
-        
-        
-        if(verbose){print("UICheckbox.init():                      complete");}
+        if(verbose){print("UICheckbox.init():                  complete");}
         
         return;
     }
