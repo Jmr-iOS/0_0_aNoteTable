@@ -25,32 +25,57 @@ class UICheckbox: UIView {
     var state       : Bool = false;
 
     //images
-    var uncheckedImage  :UIImage = UIImage(named:"anote_unchecked")!;
-    var checkedImage    :UIImage = UIImage(named:"anote_checked")!;
+    var uncheckedImage  :UIImage;
+    var checkedImage    :UIImage;
     
     var loadThread : Timer!;
     var fadeThread : Timer!;
     
-    /********************************************************************************************************************************/
-    /* @fcn       init(view:UIView, parentCell: ANoteTableViewCell, xCoord:CGFloat, yCoord:CGFloat)                                 */
-    /* @brief                                                                                                                       */
-    /********************************************************************************************************************************/
-    init(view:UIView, parentCell: ANoteTableViewCell, xCoord:CGFloat, yCoord:CGFloat) {
+    enum CellType {
+        case list                                                   /* standard list item                                           */
+        case todo                                                   /* item that is checked off on completion                       */
+    }
+    
 
-        super.init(frame:CGRect(x: 0, y: 0, width: cell_xOffs, height: row_height));  //make it to the tap size you want
+    /********************************************************************************************************************************/
+    /* @fcn       init(view: UIView, parentCell: ANoteTableViewCell, type: CellType, xCoord: CGFloat, yCoord: CGFloat)              */
+    /* @brief                                                                                                                       */
+    /*                                                                                                                              */
+    /*  @param      [in] (UIView) view - view box is added to                                                                       */
+    /*  @param      [in] (ANoteTableViewCell) parentCell - cell box is added to                                                     */
+    /*  @param      [in] (CellType) type - type of checkbox to display                                                              */
+    /*  @param      [in] (CGFloat) xCoord - x coordinates of box                                                                    */
+    /*  @param      [in] (CGFloat) yCoord - y coordinates of box                                                                    */
+    /*                                                                                                                              */
+    /********************************************************************************************************************************/
+    init(view: UIView, parentCell: ANoteTableViewCell, type: CellType, xCoord: CGFloat, yCoord: CGFloat) {
 
         //store
         self.parentCell = parentCell;
         
         //image init
+        switch(type) {
+            case .list:
+                uncheckedImage = UIImage(named:"list_box")!;
+                checkedImage   = UIImage(named:"list_box")!;
+                break;
+            case .todo:
+                uncheckedImage = UIImage(named:"anote_unchecked")!;
+                checkedImage   = UIImage(named:"anote_checked")!;
+                break;
+        }
+        
         checkBoxImg       = UIImageView(image: uncheckedImage);
         checkBoxImg.frame = CGRect(x: xCoord, y: yCoord, width: check_dim, height: check_dim);
+
+        //Super
+        super.init(frame:CGRect(x: 0, y: 0, width: cell_xOffs, height: row_height));  //make it to the tap size you want
         
         //handle taps
-        self.addTapRecognizer();
+        addTapRecognizer();
         
         //uiview setup: me<-image then main<-main
-        self.addSubview(checkBoxImg);
+        addSubview(checkBoxImg);
         view.addSubview(self);       
         
         if(verbose){print("UICheckbox.init():                  complete");}
@@ -64,7 +89,7 @@ class UICheckbox: UIView {
     /* @details   handle taps, img change and fade                                                                                  */
     /* @note      @objc exposed to enabled handleTap() access, not sure why                                                         */
     /********************************************************************************************************************************/
-    @objc func addTapRecognizer() {
+    func addTapRecognizer() {
         
         //Base Handle
         let tapRecognizer : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UICheckbox.handleTap(_:)));
@@ -118,6 +143,19 @@ class UICheckbox: UIView {
         return;
     }
     
-    required init?(coder aDecoder: NSCoder) { super.init(coder:aDecoder); }
+
+    /********************************************************************************************************************************/
+    /* @fcn       required init?(coder aDecoder: NSCoder)                                                                     		*/
+    /* @details   init from backup                                                    												*/
+    /********************************************************************************************************************************/
+    required init?(coder aDecoder: NSCoder) {
+        
+        uncheckedImage = UIImage();
+        checkedImage   = UIImage();
+        
+        super.init(coder:aDecoder);
+        
+        
+    }
 }
 

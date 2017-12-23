@@ -6,10 +6,11 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   12/19/17
+ *  @last rev   12/24/17
  *
  *  @section    Current Opens
  *      Bug - When offscreen, checkbox selection crosses out main text and changes color works unexpectedly
+ *		Decrease thickness of cross out & re-enable, in correct color. Like aNote!
  *      ...
  *      Populate SubView
  *      Make SubView match aNote

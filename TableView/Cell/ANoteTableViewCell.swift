@@ -82,8 +82,11 @@ class ANoteTableViewCell: UICustomTableViewCell {
         /****************************************************************************************************************************/
         /*                                                      Checkbox                                                            */
         /****************************************************************************************************************************/
+        let type : UICheckbox.CellType = (indexPath.row>0) ? .list : .todo;
+        
         checkBox = UICheckbox(view:       self,
                               parentCell: self,
+                              type:       type,
                               xCoord:     check_xOffs,
                               yCoord:     check_yOffs);
   
