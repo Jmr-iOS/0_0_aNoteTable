@@ -9,12 +9,14 @@
  *  @last rev   12/25/17
  *
  *  @section    Current Opens
- *      Search bar text changes to black on entry
  *      Search bar responds correctly to return key press (dismiss and handle response)
+ *      Draw icons by class (PolyDraw)
  *      Add upper text field
  *      Add upper label
  *      Add upper icon
  *      Add Five upper buttons with response
+ *      Add all icon options to search bar (todo, list, detail... all)
+ *      Move all of table operations to ANoteTable.swift
  *      ...
  *      Populate SubView
  *      Make SubView match aNote
@@ -130,7 +132,6 @@ class ViewController: UIViewController {
         /****************************************************************************************************************************/
         /*                                                     Text Bar                                                             */
         /****************************************************************************************************************************/
-        textBar.backgroundColor = UIColor.orange;
         textBar.frame = CGRect(x: 0, y: yOffs, width: view.frame.width, height:  text_bar_height);
         
         //Load Icon
@@ -143,11 +144,29 @@ class ViewController: UIViewController {
         textField.font = UIFont(name: ".SFUIText", size: 16);
         print("Font: \((textField.font?.fontName)!), size: \((textField.font?.pointSize)!)");
         textField.contentVerticalAlignment = UIControlContentVerticalAlignment.center;          /*          used width              */
-        textField.textColor = UIColor.gray;
-        textField.text = srch_dflt;
+        textField.placeholder = srch_dflt;
     
         //<todo>
         
+        //Upper Icons
+        let settingsButton : UIButton = UIButton(frame: CGRect(x: 194, y: 30, width: 25, height: 25));
+        settingsButton.translatesAutoresizingMaskIntoConstraints = true;
+        settingsButton.setBackgroundImage(UIImage(named:"Folder Settings"), for: UIControlState());
+        settingsButton.addTarget(self, action: #selector(self.settingsPressed(_:)), for:  .touchUpInside);
+        self.view.addSubview(settingsButton);
+
+        let searchButton : UIButton = UIButton(frame: CGRect(x: 194+25+10+10, y: 30-1, width: 25, height: 25));
+        searchButton.translatesAutoresizingMaskIntoConstraints = true;
+        searchButton.setBackgroundImage(UIImage(named:"Search Glass"), for: UIControlState());
+        searchButton.addTarget(self, action: #selector(self.searchPressed(_:)), for:  .touchUpInside);
+        self.view.addSubview(searchButton);
+        
+        let bookmarkButton : UIButton = UIButton(frame: CGRect(x: 194+25+10+25+10+20-1, y: 30-1, width: 25, height: 25));
+        bookmarkButton.translatesAutoresizingMaskIntoConstraints = true;
+        bookmarkButton.setBackgroundImage(UIImage(named:"Bookmark Tab"), for: UIControlState());
+        bookmarkButton.addTarget(self, action: #selector(self.bookmarkPressed(_:)), for:  .touchUpInside);
+        self.view.addSubview(bookmarkButton);
+                
         //Add components
         textBar.addSubview(textField);
         view.addSubview(textBar);
@@ -265,5 +284,42 @@ class ViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented");
     }
+    
+
+    /********************************************************************************************************************************/
+    /** @fcn        func settingsPressed(_: (UIButton?))
+     *  @brief      handle the settings button selection
+     *  @details    x
+     */
+    /********************************************************************************************************************************/
+    @objc func settingsPressed(_: (UIButton?)) {
+        print("settings was pressed");
+        return;
+    }
+    
+    
+    /********************************************************************************************************************************/
+    /** @fcn        func bookmarkPressed(_: (UIButton?))
+     *  @brief      handle the bookmark button selection
+     *  @details    x
+     */
+    /********************************************************************************************************************************/
+    @objc func bookmarkPressed(_: (UIButton?)) {
+        print("bookmark was pressed");
+        return;
+    }
+
+    
+    /********************************************************************************************************************************/
+    /** @fcn        func searchPressed(_: (UIButton?))
+     *  @brief      handle the search button selection
+     *  @details    x
+     */
+    /********************************************************************************************************************************/
+    @objc func searchPressed(_: (UIButton?)) {
+        print("search was pressed");
+        return;
+    }
+
 }
 
