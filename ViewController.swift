@@ -9,9 +9,7 @@
  *  @last rev   12/25/17
  *
  *  @section    Current Opens
- *      Search bar responds correctly to return key press (dismiss and handle response)
  *      Draw icons by class (PolyDraw)
- *      Add upper text field
  *      Add upper label
  *      Add upper icon
  *      Add Five upper buttons with response
@@ -60,7 +58,7 @@
 import UIKit
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     var upperBar  : UIView!;
     var textBar   : UIView!;
@@ -71,10 +69,11 @@ class ViewController: UIViewController {
     var aNoteTable        : ANoteTableView!;
     var aNoteTableHandler : ANoteTableViewHandler!;
     
-    static var items : [String] = ["0", " 1", "  2", "   3", "    4", "     5", "      6","       7", "        8", "          9"];
+    static var items : [String] = [String]();
     
     //options
     var cellBordersVisible:Bool = true;
+    
     
     /********************************************************************************************************************************/
     /** @fcn        init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
@@ -145,7 +144,8 @@ class ViewController: UIViewController {
         print("Font: \((textField.font?.fontName)!), size: \((textField.font?.pointSize)!)");
         textField.contentVerticalAlignment = UIControlContentVerticalAlignment.center;          /*          used width              */
         textField.placeholder = srch_dflt;
-    
+        textField.delegate = self;
+        
         //<todo>
         
         //Upper Icons
@@ -320,6 +320,17 @@ class ViewController: UIViewController {
         print("search was pressed");
         return;
     }
-
+    
+    
+    /********************************************************************************************************************************/
+    /** @fcn        textFieldShouldReturn(_ textField: UITextField) -> Bool
+     *  @brief      Dismiss the keyboard when the user taps the "Return" key
+     *  @details    x
+     */
+    /********************************************************************************************************************************/
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder();
+        return true;
+    }
 }
 

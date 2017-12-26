@@ -17,17 +17,17 @@ var g : Globals!;
 var rows : [Row] = [Row]();
 
 let verbose : Bool = true;
-var numRows : Int!;
+let numRows : Int = 15;
 
 
-//******************************************************************************************************************************//
-//                                                               PROTOTYPES                                                     //
-//******************************************************************************************************************************//
+//**********************************************************************************************************************************//
+//                                                               PROTOTYPES                                                         //
+//**********************************************************************************************************************************//
 struct Row {
-    var main : String!;                                     /* primary text to display                                          */
-    var body : String!;                                     /* sub text displayed below main and smaller                        */
-    var bott : String!;                                     /* text for time label                                              */
-    var time : Int!;                                        /* minutes of day since 12:00 am                                    */
+    var main : String!;                                         /* primary text to display                                          */
+    var body : String!;                                         /* sub text displayed below main and smaller                        */
+    var bott : String!;                                         /* text for time label                                              */
+    var time : Int!;                                            /* minutes of day since 12:00 am                                    */
 }
 
 
@@ -133,7 +133,12 @@ class Globals {
     /********************************************************************************************************************************/
     init() {
         
-        numRows = ViewController.items.count;
+        //@pre  items init
+        if(ViewController.items.count == 0) {
+            for _ in 0...(numRows-1) {
+                    ViewController.items.append("");
+            }
+        }
         
         //**************************************************************************************************************************//
         //                                                Initialize Rows of Table                                                  //
