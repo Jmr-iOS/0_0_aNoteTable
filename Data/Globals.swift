@@ -48,6 +48,8 @@ let csHeight : Int = 150;
 let cs_borderSize : CGFloat = 2;
 let cs_borderColor : CGColor = UIColor(red:   140/255, green: 140/255, blue:  140/255, alpha: 1.0).cgColor; //Apple Border Color
 
+//Search Bar
+let srch_dflt   : String = "2:00 Shopping";                     /* ('srch' - Upper Search Text Bar)                                 */
 
 //Checkbox
 let check_dim   : CGFloat = 20;

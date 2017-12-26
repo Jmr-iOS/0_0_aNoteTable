@@ -9,10 +9,17 @@
  *  @last rev   12/25/17
  *
  *  @section    Current Opens
+ *      Search bar text changes to black on entry
+ *      Search bar responds correctly to return key press (dismiss and handle response)
+ *      Add upper text field
+ *      Add upper label
+ *      Add upper icon
+ *      Add Five upper buttons with response
  *      ...
  *      Populate SubView
  *      Make SubView match aNote
  *      Make Parent View match aNote
+ *      Add cross-out time addition to crossed out cell
  *      ...
  *      Table Cell correct
  *      placement of upper icons (loc & size)
@@ -53,9 +60,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var upperBar : UIView!;
-    var textBar  : UIView!;
-    var bottBar  : UIView!;
+    var upperBar  : UIView!;
+    var textBar   : UIView!;
+    var textIcon  : UIImageView;
+    var textField : UITextField;
+    var bottBar   : UIView!;
     
     var aNoteTable        : ANoteTableView!;
     var aNoteTableHandler : ANoteTableViewHandler!;
@@ -64,6 +73,30 @@ class ViewController: UIViewController {
     
     //options
     var cellBordersVisible:Bool = true;
+    
+    /********************************************************************************************************************************/
+    /** @fcn        init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
+     *  @brief      x
+     *  @details    x
+     */
+    /********************************************************************************************************************************/
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        
+        //Init State
+        textBar = UIView();
+        textIcon  = UIImageView();
+        textField = UITextField();
+
+        //Super
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
+        
+        //@todo     init code
+        
+        print("ViewController.init():        Initialization complete");
+        
+        return;
+    }
+
     
     
     /********************************************************************************************************************************/
@@ -97,19 +130,26 @@ class ViewController: UIViewController {
         /****************************************************************************************************************************/
         /*                                                     Text Bar                                                             */
         /****************************************************************************************************************************/
-        textBar = UIView();
-        textBar.backgroundColor = UIColor.gray;
+        textBar.backgroundColor = UIColor.orange;
         textBar.frame = CGRect(x: 0, y: yOffs, width: view.frame.width, height:  text_bar_height);
-
+        
         //Load Icon
-        var textIcon : UIImageView;
-        textIcon  = UIImageView();
-        textIcon.frame = CGRect(x: 5, y: 5, width: 30, height: 30);
+        textIcon.frame = CGRect(x: 13, y: 5, width: 28, height: 28);
         textIcon.image = UIImage(named:"clock");
         textBar.addSubview(textIcon);
 
+        //Load Text Field
+        textField.frame = CGRect(x: 47, y: 2, width: 250, height: Int(text_bar_height-1));      /*@todo     emperically determine   */
+        textField.font = UIFont(name: ".SFUIText", size: 16);
+        print("Font: \((textField.font?.fontName)!), size: \((textField.font?.pointSize)!)");
+        textField.contentVerticalAlignment = UIControlContentVerticalAlignment.center;          /*          used width              */
+        textField.textColor = UIColor.gray;
+        textField.text = srch_dflt;
+    
         //<todo>
         
+        //Add components
+        textBar.addSubview(textField);
         view.addSubview(textBar);
        
         //Store offset
@@ -212,6 +252,18 @@ class ViewController: UIViewController {
     class func getItems() -> [String] {
         return items;
     }
-
+    
+    
+    /********************************************************************************************************************************/
+    /** @fcn        init?(coder aDecoder: NSCoder)
+     *  @brief      backup restore initialization
+     *  @details    x
+     *
+     *  @param      [in] (NSCoder) aDecoder - memory query device (backup access)
+     */
+    /********************************************************************************************************************************/
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented");
+    }
 }
 
