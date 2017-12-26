@@ -251,14 +251,16 @@ class ANoteTableViewCell: UICustomTableViewCell {
      */
     /********************************************************************************************************************************/
     func updateSelection(selected : Bool) {
-        
+
         if(selected) {
             if(verbose) { print("ANoteTableViewCell.updateSelection():   Selected"); }
             
             let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: self.subjectField.text!);
             
-            attributeString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length));
-            
+            attributeString.addAttribute(NSAttributedStringKey.strikethroughStyle,
+                                         value: NSUnderlineStyle.styleSingle.rawValue,
+                                         range: NSMakeRange(0, self.subjectField.text!.count));
+
             self.subjectField.attributedText = attributeString;
             
             self.subjectField.textColor = UIColor.gray;
