@@ -9,11 +9,7 @@
  *  @last rev   12/26/17
  *
  *  @section    Current Opens
- *      Add upper bar's background (color & texture)
- *      Draw icons by class (PolyDraw)
- *      Add Five upper buttons with response
- *      Add all icon options to search bar (todo, list, detail... all)
- *      Move all of table operations to ANoteTable.swift
+ *      Populate bottom bar
  *      ...
  *      Populate SubView
  *      Make SubView match aNote
@@ -49,6 +45,9 @@
  *      resolve Globals.swift (clean this up)
  *      Cell height changes when description text &/or time is added
  *      Works in both zoomed and standard (un-zoomed) views
+ *
+ *  @section    Ideas for Consideration
+ *      Extend to support all note display formats - Thumb, List, Detail, Diary, Photo, To-do, Calendar
  *
  *  @section    Legal Disclaimer
  *       All contents of this source file and/or any other Jaostech related source files are the explicit property of Jaostech
@@ -123,7 +122,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         /*                                                     Upper Bar                                                            */
         /****************************************************************************************************************************/
         upperBar.frame = CGRect(x: 0, y: yOffs, width: view.frame.width, height: upper_bar_height);
-        upperBar.backgroundColor = UIColor.blue;                    /* @todo    correct color & texture                             */
+        upperBar.backgroundColor = UIColor(patternImage: UIImage(named: "blue_bkgnd")!);                /* apply texture            */
         
         //Load Icon
         upperIcon.frame = CGRect(x: 10, y: 15, width: 50, height: 50);
@@ -160,15 +159,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textBar.addSubview(textIcon);
 
         //Load Text Field
-        textField.frame = CGRect(x: 47, y: 2, width: 250, height: Int(text_bar_height-1));      /*@todo     emperically determine   */
+        textField.frame = CGRect(x: 47, y: 2, width: 250, height: Int(text_bar_height-1));
         textField.font = UIFont(name: ".SFUIText", size: 16);
         print("Font: \((textField.font?.fontName)!), size: \((textField.font?.pointSize)!)");
-        textField.contentVerticalAlignment = UIControlContentVerticalAlignment.center;          /*          used width              */
+        textField.contentVerticalAlignment = UIControlContentVerticalAlignment.center;
         textField.placeholder = srch_dflt;
         textField.delegate = self;
         
-        //<todo>
+        //Load Text Field Buttons
+        let listButton : UIButton = UIButton(frame: CGRect(x: 223, y: 74, width: 25, height: 25));
+        listButton.translatesAutoresizingMaskIntoConstraints = true;
+        listButton.setBackgroundImage(UIImage(named:"List"), for: UIControlState());
+        listButton.addTarget(self, action: #selector(self.listPressed(_:)), for:  .touchUpInside);
         
+        let optionButton : UIButton = UIButton(frame: CGRect(x: 260, y: 74, width: 50, height: 25));
+        optionButton.translatesAutoresizingMaskIntoConstraints = true;
+        optionButton.setBackgroundImage(UIImage(named:"Option"), for: UIControlState());
+        optionButton.addTarget(self, action: #selector(self.optionPressed(_:)), for:  .touchUpInside);
+
         //Upper Icons
         let settingsButton : UIButton = UIButton(frame: CGRect(x: 194, y: 30, width: 25, height: 25));
         settingsButton.translatesAutoresizingMaskIntoConstraints = true;
@@ -191,6 +199,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //Add components
         textBar.addSubview(textField);
         view.addSubview(textBar);
+        self.view.addSubview(listButton);
+        self.view.addSubview(optionButton);
        
         //Store offset
         yOffs += text_bar_height;
@@ -339,6 +349,30 @@ class ViewController: UIViewController, UITextFieldDelegate {
     /********************************************************************************************************************************/
     @objc func searchPressed(_: (UIButton?)) {
         print("search was pressed");
+        return;
+    }
+    
+
+    /********************************************************************************************************************************/
+    /** @fcn        func listPressed(_: (UIButton?))
+     *  @brief      handle the search button selection
+     *  @details    x
+     */
+    /********************************************************************************************************************************/
+    @objc func listPressed(_: (UIButton?)) {
+        print("list was pressed");
+        return;
+    }
+    
+    
+    /********************************************************************************************************************************/
+    /** @fcn        func optionPressed(_: (UIButton?))
+     *  @brief      handle the search button selection
+     *  @details    x
+     */
+    /********************************************************************************************************************************/
+    @objc func optionPressed(_: (UIButton?)) {
+        print("option was pressed");
         return;
     }
     

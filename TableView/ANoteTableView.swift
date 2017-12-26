@@ -16,8 +16,8 @@ import UIKit
 
 class ANoteTableView : UICustomTableView {
     
+    //Data
     var items : [String]!;
-    
     
     /********************************************************************************************************************************/
     /** @fcn        init(frame: CGRect, style: UITableViewStyle, items: [String])
@@ -44,10 +44,7 @@ class ANoteTableView : UICustomTableView {
         
         self.register(ANoteTableViewCell.self, forCellReuseIdentifier: "cell");
         self.translatesAutoresizingMaskIntoConstraints = false;
-        
-        self.backgroundColor = UIColor.yellow;                          /* cleanliness                                              */
-        
-        
+                
         /****************************************************************************************************************************/
         /*                                              aNote cell-styles                                                           */
         /****************************************************************************************************************************/
