@@ -9,7 +9,8 @@
  *  @last rev   12/26/17
  *
  *  @section    Current Opens
- *      Populate bottom bar
+ *      lighter cell divider    (#e6e6e6)
+ *      search divider bar      (#bdbdbd)
  *      ...
  *      Populate SubView
  *      Make SubView match aNote
@@ -27,6 +28,7 @@
  *
  *  @section    Opens
  *      make it's aesthetic equal to aNote
+ *			Upper Status Bar has white text
  *          move number text a little upwards
  *          subview for each row (lists all contents and fields of aNote row subview)
  *          make cells match the example aNote screen
@@ -224,12 +226,28 @@ class ViewController: UIViewController, UITextFieldDelegate {
         /*                                                    Bottom Bar                                                            */
         /****************************************************************************************************************************/
         bottBar = UIView();
-        bottBar.backgroundColor = UIColor.gray;
+        bottBar.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.0);      /* #f9f9f9                              */
         bottBar.frame = CGRect(x: 0,
                                y: (view.frame.height - lower_bar_height),
                                width: view.frame.width,
                                height: lower_bar_height);
-        view.addSubview(bottBar);
+        
+        //Return Arrow
+        let returnArrow : UIButton = UIButton(frame: CGRect(x: 24, y: 533, width: 20, height: 20));
+        returnArrow.translatesAutoresizingMaskIntoConstraints = true;
+        returnArrow.setBackgroundImage(UIImage(named:"Bottom Arrow"), for: UIControlState());
+        returnArrow.addTarget(self, action: #selector(self.returnPressed(_:)), for:  .touchUpInside);
+        
+        //Plus Button
+        let plusButton : UIButton = UIButton(frame: CGRect(x: 265, y: 523, width: 40, height: 40));
+        plusButton.translatesAutoresizingMaskIntoConstraints = true;
+        plusButton.setBackgroundImage(UIImage(named:"Plus Button"), for: UIControlState());
+        plusButton.addTarget(self, action: #selector(self.plusPressed(_:)), for:  .touchUpInside);
+
+        //Add components
+        self.view.addSubview(bottBar);
+        self.view.addSubview(returnArrow);
+        self.view.addSubview(plusButton);
 
         
         /****************************************************************************************************************************/
@@ -373,6 +391,30 @@ class ViewController: UIViewController, UITextFieldDelegate {
     /********************************************************************************************************************************/
     @objc func optionPressed(_: (UIButton?)) {
         print("option was pressed");
+        return;
+    }
+    
+    
+    /********************************************************************************************************************************/
+    /** @fcn        returnPressed(_: (UIButton?))
+     *  @brief      handle the return button selection
+     *  @details    x
+     */
+    /********************************************************************************************************************************/
+    @objc func returnPressed(_: (UIButton?)) {
+        print("return was pressed");
+        return;
+    }
+    
+    
+    /********************************************************************************************************************************/
+    /** @fcn        plusPressed(_: (UIButton?))
+     *  @brief      handle the search button selection
+     *  @details    x
+     */
+    /********************************************************************************************************************************/
+    @objc func plusPressed(_: (UIButton?)) {
+        print("plus was pressed");
         return;
     }
     
