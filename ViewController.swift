@@ -9,8 +9,6 @@
  *  @last rev   12/25/17
  *
  *  @section    Current Opens
- *		Decrease thickness of cross out & re-enable, in correct color. Like aNote!
- *      Add a backup
  *      ...
  *      Populate SubView
  *      Make SubView match aNote
@@ -23,7 +21,7 @@
  *      font sizes matching
  *      font colors matching
  *      font locations matching
- *      remove cross-out of selected text in cell 
+ *      Add a backup
  *
  *  @section    Opens
  *      make it's aesthetic equal to aNote
