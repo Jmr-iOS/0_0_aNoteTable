@@ -6,12 +6,11 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   12/25/17
+ *  @last rev   12/26/17
  *
  *  @section    Current Opens
+ *      Add upper bar's background (color & texture)
  *      Draw icons by class (PolyDraw)
- *      Add upper label
- *      Add upper icon
  *      Add Five upper buttons with response
  *      Add all icon options to search bar (todo, list, detail... all)
  *      Move all of table operations to ANoteTable.swift
@@ -49,6 +48,7 @@
  *          *You're going to need to store var access by fcn call
  *      resolve Globals.swift (clean this up)
  *      Cell height changes when description text &/or time is added
+ *      Works in both zoomed and standard (un-zoomed) views
  *
  *  @section    Legal Disclaimer
  *       All contents of this source file and/or any other Jaostech related source files are the explicit property of Jaostech
@@ -61,9 +61,13 @@ import UIKit
 class ViewController: UIViewController, UITextFieldDelegate {
 
     var upperBar  : UIView!;
+    var upperIcon : UIImageView!;
+    var upperText : UITextView!;
+
     var textBar   : UIView!;
     var textIcon  : UIImageView;
     var textField : UITextField;
+
     var bottBar   : UIView!;
     
     var aNoteTable        : ANoteTableView!;
@@ -84,6 +88,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         
         //Init State
+        upperBar = UIView();
+        upperIcon = UIImageView();
+        upperText = UITextView();
         textBar = UIView();
         textIcon  = UIImageView();
         textField = UITextField();
@@ -115,15 +122,29 @@ class ViewController: UIViewController, UITextFieldDelegate {
         /****************************************************************************************************************************/
         /*                                                     Upper Bar                                                            */
         /****************************************************************************************************************************/
-        upperBar = UIView();
-        upperBar.backgroundColor = UIColor.blue;            //<todo!>
         upperBar.frame = CGRect(x: 0, y: yOffs, width: view.frame.width, height: upper_bar_height);
+        upperBar.backgroundColor = UIColor.blue;                    /* @todo    correct color & texture                             */
         
         //Load Icon
-        //<todo>
+        upperIcon.frame = CGRect(x: 10, y: 15, width: 50, height: 50);
+        upperIcon.image = UIImage(named:"Upper Icon");
         
+
+        //Load Text
+        upperText.frame = CGRect(x: 65, y: 23, width: 290, height: 300);
+        upperText.textAlignment = .left;
+        upperText.textColor = UIColor.white;
+        upperText.backgroundColor = nil;                                                        /* turn off bkgnd                   */
+        upperText.text = "Demo iOS Dir";
+        upperText.font = UIFont(name: ".SFUIDisplay-Medium", size: 19.0);
+        upperText.isEditable = false;                                                           /* view only, disablbe both         */
+        upperText.isSelectable = false;
+        
+        //Add views
         view.addSubview(upperBar);
-        
+        view.addSubview(upperIcon);
+        view.addSubview(upperText);
+
         //Store offset
         yOffs += upperBar.frame.height;
 
