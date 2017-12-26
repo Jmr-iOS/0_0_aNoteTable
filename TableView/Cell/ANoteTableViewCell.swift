@@ -22,14 +22,17 @@ class ANoteTableViewCell: UICustomTableViewCell {
     var tableIndex   : Int!;
     var mainText     : String!;
     let numLines     : Int = 2;
-    
+
+    //Main UI
     var checkBox     : UICheckbox!;
     var subjectField : UILabel!;
     var descripField : UILabel!;
     var bottField    : UILabel!;
     
-    //@todo     all these!
+    //Misc UI
     var timeView : UIView!;
+    var type     : UICheckbox.CellType!;
+    var bellIcon : UIImageView!;
 
     //Locals
     var mainView : UIView!;
@@ -86,11 +89,11 @@ class ANoteTableViewCell: UICustomTableViewCell {
         //Get Current Cell's Info
         let currRow : Row = rows[indexPath.item];
         
-        
+
         /****************************************************************************************************************************/
         /*                                                      Checkbox                                                            */
         /****************************************************************************************************************************/
-        let type : UICheckbox.CellType = (indexPath.row>0) ? .list : .todo;
+        type = (indexPath.row>0) ? .list : .todo;
         
         checkBox = UICheckbox(view:       self,
                               parentCell: self,
@@ -166,7 +169,6 @@ class ANoteTableViewCell: UICustomTableViewCell {
 
         
         //load bell icon
-        var bellIcon : UIImageView;
         bellIcon  = UIImageView();
         bellIcon.frame = CGRect(x: bell_xOffs, y: bell_yOffs, width: bell_width, height: bell_height);
         bellIcon.image = UIImage(named:"bell");
