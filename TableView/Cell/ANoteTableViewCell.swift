@@ -121,13 +121,13 @@ class ANoteTableViewCell: UICustomTableViewCell {
         
         subjectField = UILabel(frame:  CGRect(x:      mt_xOffs,
                                               y:      mt_yOffs,
-                                              width:  subjFieldWidth,                               /* '+1' not sure why            */
+                                              width:  subjFieldWidth,
                                               height: font.pointSize*CGFloat(self.numLines+1)));
         subjectField.font = font;
         subjectField.text = currRow.main;
         subjectField.textAlignment = NSTextAlignment.left;
-
-
+        subjectField.textColor = UIColor(red:0.31, green:0.31, blue:0.31, alpha:1.0);               /* #4e4e4e                      */
+        
         //text-wrap
         subjectField.numberOfLines = 0;                                         /* set to 0 for auto-wrap                           */
         subjectField.lineBreakMode = .byWordWrapping;

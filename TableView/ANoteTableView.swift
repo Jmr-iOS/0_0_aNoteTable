@@ -48,7 +48,7 @@ class ANoteTableView : UICustomTableView {
         /****************************************************************************************************************************/
         /*                                              aNote cell-styles                                                           */
         /****************************************************************************************************************************/
-        self.separatorColor = .gray;
+        self.separatorColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0);      /* #e6e6e6                                  */
         self.separatorStyle = .singleLine;
         self.separatorInset = UIEdgeInsetsMake(0, 43, 0, 0);
 

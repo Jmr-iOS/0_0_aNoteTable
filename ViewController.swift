@@ -9,8 +9,6 @@
  *  @last rev   12/26/17
  *
  *  @section    Current Opens
- *      lighter cell divider    (#e6e6e6)
- *      search divider bar      (#bdbdbd)
  *      ...
  *      Populate SubView
  *      Make SubView match aNote
@@ -49,6 +47,7 @@
  *      Works in both zoomed and standard (un-zoomed) views
  *
  *  @section    Ideas for Consideration
+ *      Shrink lower search bar border from 2px -> 1px
  *      Extend to support all note display formats - Thumb, List, Detail, Diary, Photo, To-do, Calendar
  *
  *  @section    Legal Disclaimer
@@ -64,6 +63,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var upperBar  : UIView!;
     var upperIcon : UIImageView!;
     var upperText : UITextView!;
+    var divBar    : UIView!;
 
     var textBar   : UIView!;
     var textIcon  : UIImageView;
@@ -186,24 +186,33 @@ class ViewController: UIViewController, UITextFieldDelegate {
         settingsButton.addTarget(self, action: #selector(self.settingsPressed(_:)), for:  .touchUpInside);
         self.view.addSubview(settingsButton);
 
-        let searchButton : UIButton = UIButton(frame: CGRect(x: 194+25+10+10, y: 30-1, width: 25, height: 25));
+        let searchButton : UIButton = UIButton(frame: CGRect(x: 239, y: 29, width: 25, height: 25));
         searchButton.translatesAutoresizingMaskIntoConstraints = true;
         searchButton.setBackgroundImage(UIImage(named:"Search Glass"), for: UIControlState());
         searchButton.addTarget(self, action: #selector(self.searchPressed(_:)), for:  .touchUpInside);
         self.view.addSubview(searchButton);
         
-        let bookmarkButton : UIButton = UIButton(frame: CGRect(x: 194+25+10+25+10+20-1, y: 30-1, width: 25, height: 25));
+        let bookmarkButton : UIButton = UIButton(frame: CGRect(x: 283, y: 29, width: 25, height: 25));
         bookmarkButton.translatesAutoresizingMaskIntoConstraints = true;
         bookmarkButton.setBackgroundImage(UIImage(named:"Bookmark Tab"), for: UIControlState());
         bookmarkButton.addTarget(self, action: #selector(self.bookmarkPressed(_:)), for:  .touchUpInside);
         self.view.addSubview(bookmarkButton);
-                
+        
+        //Divider Bar
+        divBar = UIView();
+        divBar.backgroundColor = UIColor(red:0.74, green:0.74, blue:0.74, alpha:1.0);   /* #bdbdbd                                  */
+        divBar.frame = CGRect(x: 0,
+                              y: (upperBar.frame.height+textBar.frame.height-1),
+                              width: self.view.frame.width,
+                              height: 1);
+        
         //Add components
         textBar.addSubview(textField);
         view.addSubview(textBar);
-        self.view.addSubview(listButton);
-        self.view.addSubview(optionButton);
-       
+        view.addSubview(listButton);
+        view.addSubview(optionButton);
+        view.addSubview(divBar);
+        
         //Store offset
         yOffs += text_bar_height;
 
