@@ -27,6 +27,9 @@ class ANoteTableViewCell: UICustomTableViewCell {
     var subjectField : UILabel!;
     var descripField : UILabel!;
     var bottField    : UILabel!;
+    
+    //@todo     all these!
+    var timeView : UIView!;
 
     //Locals
     var mainView : UIView!;
@@ -66,6 +69,11 @@ class ANoteTableViewCell: UICustomTableViewCell {
     /* @details   initialize the cell, after creation                                                                               */
     /********************************************************************************************************************************/
     func initialize(_ indexPath : IndexPath, aNoteTable : ANoteTableView) {
+
+        //@pre  check if already initialized
+        if(timeView != nil) {
+            return;                                                 /* don't re-initialize, called by Handler on scroll             */
+        }
         
         if(verbose){print("UITableViewCell.initialize():          adding: '\(aNoteTable.items[indexPath.item])'");}
 
@@ -171,7 +179,7 @@ class ANoteTableViewCell: UICustomTableViewCell {
         /****************************************************************************************************************************/
         /*                                                      Time Label                                                          */
         /****************************************************************************************************************************/
-        let timeView : UIView = UIView(frame: CGRect(x:      tv_xOffs,
+        timeView = UIView(frame: CGRect(x:      tv_xOffs,
                                                      y:      tv_yOffs,
                                                      width:  tv_width,
                                                      height: tv_height));

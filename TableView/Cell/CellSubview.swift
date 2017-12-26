@@ -117,7 +117,7 @@ class CellSubview : UIView {
         //@temp for debug validation
         self.backgroundColor = UIColor.red;
         
-        if(verbose) { print("CellSubview.init():                 My Custom Cell SubView Init"); }
+        if(verbose) { print("CellSubview.init():                 My Custom Cell #\(self.parentCell.getNumber()) SubView Init"); }
  
         return;
     }

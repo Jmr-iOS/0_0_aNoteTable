@@ -9,7 +9,6 @@
  *  @last rev   12/25/17
  *
  *  @section    Current Opens
- *      Bug - When offscreen, checkbox selection crosses out main text and changes color works unexpectedly
  *		Decrease thickness of cross out & re-enable, in correct color. Like aNote!
  *      Add a backup
  *      ...
