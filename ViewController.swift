@@ -6,11 +6,12 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   12/24/17
+ *  @last rev   12/25/17
  *
  *  @section    Current Opens
  *      Bug - When offscreen, checkbox selection crosses out main text and changes color works unexpectedly
  *		Decrease thickness of cross out & re-enable, in correct color. Like aNote!
+ *      Add a backup
  *      ...
  *      Populate SubView
  *      Make SubView match aNote
@@ -62,7 +63,7 @@ class ViewController: UIViewController {
     var aNoteTable        : ANoteTableView!;
     var aNoteTableHandler : ANoteTableViewHandler!;
     
-    var items : [String] = ["0", " 1", "  2", "   3", "    4", "     5", "      6","       7", "        8", "          9"];
+    static var items : [String] = ["0", " 1", "  2", "   3", "    4", "     5", "      6","       7", "        8", "          9"];
     
     //options
     var cellBordersVisible:Bool = true;
@@ -78,6 +79,7 @@ class ViewController: UIViewController {
         super.viewDidLoad();
 
         var yOffs : CGFloat = 0;                                        /* y-offset to place next ui item                           */
+        
         
         /****************************************************************************************************************************/
         /*                                                     Upper Bar                                                            */
@@ -146,7 +148,7 @@ class ViewController: UIViewController {
         /****************************************************************************************************************************/
         /*                                                      Handler                                                             */
         /****************************************************************************************************************************/
-        aNoteTableHandler = ANoteTableViewHandler(items: items, mainView: self.view, ANoteTable: aNoteTable);
+        aNoteTableHandler = ANoteTableViewHandler(items: ViewController.items, mainView: self.view, ANoteTable: aNoteTable);
         
         aNoteTable.delegate   = aNoteTableHandler;                                      /* Set both to handle clicks & provide data */
         aNoteTable.dataSource = aNoteTableHandler;        
@@ -201,6 +203,17 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning();
         return;
+    }
+    
+
+    /********************************************************************************************************************************/
+    /** @fcn        getItems() -> [String]
+     *  @brief      get items of table
+     *  @details    x
+     */
+    /********************************************************************************************************************************/
+    class func getItems() -> [String] {
+        return items;
     }
 
 }

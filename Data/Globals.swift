@@ -16,8 +16,9 @@ import UIKit
 var g : Globals!;
 var rows : [Row] = [Row]();
 
-let verbose      : Bool = true;
-let numRows : Int = 10;                                         /* table contains 10 entries, screen displays 5 at a time           */
+let verbose : Bool = true;
+var numRows : Int!;
+
 
 //******************************************************************************************************************************//
 //                                                               PROTOTYPES                                                     //
@@ -130,6 +131,8 @@ class Globals {
     /********************************************************************************************************************************/
     init() {
         
+        numRows = ViewController.items.count;
+        
         //**************************************************************************************************************************//
         //                                                Initialize Rows of Table                                                  //
         //  @targ   Nice and simple, make rows to match Images/Ref:aNoteRef.jpg                                                     //
@@ -199,3 +202,4 @@ class Globals {
         return frame;
     }
 }
+
