@@ -339,24 +339,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return items;
     }
     
-    
-    /********************************************************************************************************************************/
-    /** @fcn        init?(coder aDecoder: NSCoder)
-     *  @brief      backup restore initialization
-     *  @details    x
-     *
-     *  @param      [in] (NSCoder) aDecoder - memory query device (backup access)
-     */
-    /********************************************************************************************************************************/
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented");
-    }
-    
 
     /********************************************************************************************************************************/
     /** @fcn        func settingsPressed(_: (UIButton?))
      *  @brief      handle the settings button selection
      *  @details    x
+     *  @note       @objc exposed to enable assignment for button response, not sure why
      */
     /********************************************************************************************************************************/
     @objc func settingsPressed(_: (UIButton?)) {
@@ -369,6 +357,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     /** @fcn        func bookmarkPressed(_: (UIButton?))
      *  @brief      handle the bookmark button selection
      *  @details    x
+     *  @note       @objc exposed to enable assignment for button response, not sure why
      */
     /********************************************************************************************************************************/
     @objc func bookmarkPressed(_: (UIButton?)) {
@@ -381,6 +370,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     /** @fcn        func searchPressed(_: (UIButton?))
      *  @brief      handle the search button selection
      *  @details    x
+     *  @note       @objc exposed to enable assignment for button response, not sure why
      */
     /********************************************************************************************************************************/
     @objc func searchPressed(_: (UIButton?)) {
@@ -393,6 +383,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     /** @fcn        func listPressed(_: (UIButton?))
      *  @brief      handle the search button selection
      *  @details    x
+     *  @note       @objc exposed to enable assignment for button response, not sure why
      */
     /********************************************************************************************************************************/
     @objc func listPressed(_: (UIButton?)) {
@@ -405,6 +396,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     /** @fcn        func optionPressed(_: (UIButton?))
      *  @brief      handle the search button selection
      *  @details    x
+     *  @note       @objc exposed to enable assignment for button response, not sure why
      */
     /********************************************************************************************************************************/
     @objc func optionPressed(_: (UIButton?)) {
@@ -417,6 +409,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     /** @fcn        returnPressed(_: (UIButton?))
      *  @brief      handle the return button selection
      *  @details    x
+     *  @note       @objc exposed to enable assignment for button response, not sure why
      */
     /********************************************************************************************************************************/
     @objc func returnPressed(_: (UIButton?)) {
@@ -429,6 +422,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     /** @fcn        plusPressed(_: (UIButton?))
      *  @brief      handle the search button selection
      *  @details    x
+     *  @note       @objc exposed to enable assignment for button response, not sure why
      */
     /********************************************************************************************************************************/
     @objc func plusPressed(_: (UIButton?)) {
@@ -446,6 +440,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder();
         return true;
+    }
+    
+    
+    /********************************************************************************************************************************/
+    /** @fcn        init?(coder aDecoder: NSCoder)
+     *  @brief      backup restore initialization
+     *  @details    x
+     *
+     *  @param      [in] (NSCoder) aDecoder - memory query device (backup access)
+     */
+    /********************************************************************************************************************************/
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented");
     }
 }
 

@@ -21,6 +21,7 @@
 		D029344D1FE9BAD500DB4BD8 /* UICustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029344A1FE9BAD500DB4BD8 /* UICustomTableViewCell.swift */; };
 		D029344E1FE9BAD500DB4BD8 /* UICustomTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029344B1FE9BAD500DB4BD8 /* UICustomTableViewHandler.swift */; };
 		D03AEBD21FF1E5AB003611D2 /* DataBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03AEBD11FF1E5AB003611D2 /* DataBackup.swift */; };
+		D0F9524D1FF4612500568FD1 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F9524C1FF4612500568FD1 /* CellData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		D029344B1FE9BAD500DB4BD8 /* UICustomTableViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICustomTableViewHandler.swift; path = "../../../../../Ref/Libraries/Programmatic UI/UICustomTableViewHandler.swift"; sourceTree = "<group>"; };
 		D039B4B61BF4D7950024005F /* 0_0 - aNoteTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "0_0 - aNoteTable.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03AEBD11FF1E5AB003611D2 /* DataBackup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataBackup.swift; path = ../Data/DataBackup.swift; sourceTree = "<group>"; };
+		D0F9524C1FF4612500568FD1 /* CellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellData.swift; path = ../../TableView/Cell/CellData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				D02934311FE9BA2500DB4BD8 /* ANoteTableViewCell.swift */,
+				D0F9524C1FF4612500568FD1 /* CellData.swift */,
 				D02934321FE9BA2500DB4BD8 /* CellSubview.swift */,
 				D02934301FE9BA2500DB4BD8 /* UICheckbox.swift */,
 			);
@@ -205,6 +208,7 @@
 				D02934461FE9BA7F00DB4BD8 /* ViewController.swift in Sources */,
 				D029342D1FE9BA1200DB4BD8 /* ANoteTableView.swift in Sources */,
 				D02934351FE9BA2500DB4BD8 /* CellSubview.swift in Sources */,
+				D0F9524D1FF4612500568FD1 /* CellData.swift in Sources */,
 				D02934291FE9B9DB00DB4BD8 /* Globals.swift in Sources */,
 				D02934411FE9BA6900DB4BD8 /* Stdcomments.swift in Sources */,
 			);

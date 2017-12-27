@@ -87,7 +87,6 @@ class UICheckbox: UIView {
     /********************************************************************************************************************************/
     /* @fcn       addTapRecognizer()                                                                                                */
     /* @details   handle taps, img change and fade                                                                                  */
-    /* @note      @objc exposed to enabled handleTap() access, not sure why                                                         */
     /********************************************************************************************************************************/
     func addTapRecognizer() {
         

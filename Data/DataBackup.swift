@@ -7,7 +7,14 @@
  * 	@notes		x
  *
  * 	@section	Opens
- *          none listed
+ *          implemented backup & validated
+ *          changed to global use of 'verbose'
+ *          define a rows data to save and document or store
+ *          store VC automatically (M)
+ *
+ *  @section    Data Definition
+ *          UI    - none at present
+ *          Table - [Cell Data] (one per row, non-volatile cell data)
  *
  * 	@section	Legal Disclaimer
  * 			All contents of this source file and/or any other Jaostech related source files are the explicit property on Jaostech
@@ -19,19 +26,20 @@ import UIKit
 
 class DataBackup : NSObject, NSCoding {
 
-    //class data
+    //Class Data
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL         = DocumentsDirectory.appendingPathComponent("ANote_Ref_Sw_Bak3");
 
     static let verbose : Bool = false;                                      /* given a seperate backup declaration for verbosity    */
     
-    //system value FOR backup
+    //System value FOR backup
     static var vc : ViewController!;                                        /* for use and access to data during a backup store/load*/
 
-    //data values FOR or FROM backup (temp verbose title for clarity)
+    //Backup Data
     var someVal_0 : Int?;
     var someStr_0 : String?;
 
+    
 //MARK: Initialization
     /********************************************************************************************************************************/
     /** @fcn        init?(someVal_0 : Int?, someStr_0 : String?)
@@ -57,7 +65,7 @@ class DataBackup : NSObject, NSCoding {
 
 
 // MARK: NSCoding
-    //store
+    //Store
     /********************************************************************************************************************************/
     /** @fcn        encode()
      *  @brief      x
@@ -77,7 +85,7 @@ class DataBackup : NSObject, NSCoding {
     }
     
     
-    //retrieve
+    //Retrieve
     /********************************************************************************************************************************/
     /** @fcn        convenience init?()
      *  @brief      x
