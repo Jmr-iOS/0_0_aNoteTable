@@ -55,12 +55,12 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
-    var upperBar  : UIView!;
-    var upperIcon : UIImageView!;
-    var upperText : UITextView!;
-    var divBar    : UIView!;
+    var upperBar  : UIView;
+    var upperIcon : UIImageView;
+    var upperText : UITextView;
+    var divBar    : UIView;
 
-    var textBar   : UIView!;
+    var textBar   : UIView;
     var textIcon  : UIImageView;
     var textField : UITextField;
 
@@ -74,6 +74,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //options
     var cellBordersVisible:Bool = true;
     
+    var someVal_0 : Int = -1;
+    var someStr_0 : String = "newStr";
     
     /********************************************************************************************************************************/
     /** @fcn        init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
@@ -90,14 +92,28 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textBar = UIView();
         textIcon  = UIImageView();
         textField = UITextField();
-
+        divBar = UIView();
+        
         //Super
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
+
+        //Init DataBackup
+        DataBackup.storeViewController(self);
+
+        //Backup Retrieve
+        DataBackup.loadData();                                              /* load the backup if exists                            */
+
+        //Var Updates
+        print("ViewController.init():              pre -  \(self.someVal_0),\t\(self.someStr_0)");
+        self.someVal_0 = self.someVal_0 + 1;                                /* increment var                                        */
+        self.someStr_0 = self.someStr_0 + "\(self.someVal_0)";
+        print("ViewController.init():              post - \(self.someVal_0),\t\(self.someStr_0)");
         
-        //@todo     init code
-        
-        print("ViewController.init():        Initialization complete");
-        
+        //Store Updates
+        DataBackup.updateBackup();                                          /* store the update                                     */
+
+        print("ViewController.init():              Initialization complete");
+
         return;
     }
 
@@ -158,7 +174,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //Load Text Field
         textField.frame = CGRect(x: 47, y: 2, width: 250, height: Int(text_bar_height-1));
         textField.font = UIFont(name: ".SFUIText", size: 16);
-        print("Font: \((textField.font?.fontName)!), size: \((textField.font?.pointSize)!)");
         textField.contentVerticalAlignment = UIControlContentVerticalAlignment.center;
         textField.placeholder = srch_dflt;
         textField.delegate = self;
@@ -194,7 +209,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.view.addSubview(bookmarkButton);
         
         //Divider Bar
-        divBar = UIView();
         divBar.backgroundColor = UIColor(red:0.74, green:0.74, blue:0.74, alpha:1.0);   /* #bdbdbd                                  */
         divBar.frame = CGRect(x: 0,
                               y: (upperBar.frame.height+textBar.frame.height-1),
