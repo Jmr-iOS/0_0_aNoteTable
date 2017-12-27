@@ -6,49 +6,44 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   12/26/17
+ *  @last rev   12/27/17
  *
- *  @section    Current Opens
+ *  @section    Opens
+ *      Add a backup & put into use
+ *      resolve Globals.swift (clean this up)                                               ?
+ *      pass delegate                                                                       ?
+ *      pass datasource                                                                     ?
+ *      set a row's background                                                              ?
+ *      set a row's text                                                                    ?
+ *      make it's aesthetic equal to aNote                                                  ?
+ *            Upper Status Bar has white text                                               ?
+ *          move number text a little upwards                                               ?
+ *          subview for each row (lists all contents and fields of aNote row subview)       ?
+ *          make cells match the example aNote screen                                       ?
+ *              text sizing                                                                 ?
+ *              text layout                                                                 ?
+ *              number sizing                                                               ?
+ *      make the clickability to a larger area!!! add 50% in -x, +x, -y, +y!                ?
+ *      add a fade to the toggle of row text(s)!                                            ?
+ *      toggle cell content on time or tap (color, text, etc). Takes a bit of work... :)    ?
+ *      handle clicks! (e.g. UICheckBox.buttonClicked())                                    ?
+ *          *You're going to need to store var access by fcn call                           ?
+ *      ...
+ *      Make Parent View match aNote
+ *          x
+ *          y
+ *          z
  *      ...
  *      Populate SubView
  *      Make SubView match aNote
- *      Make Parent View match aNote
  *      Add cross-out time addition to crossed out cell
- *      ...
- *      Table Cell correct
- *      placement of upper icons (loc & size)
- *      upper bar color
- *      text bar to white with border
- *      font sizes matching
- *      font colors matching
- *      font locations matching
- *      Add a backup
- *
- *  @section    Opens
- *      make it's aesthetic equal to aNote
- *			Upper Status Bar has white text
- *          move number text a little upwards
- *          subview for each row (lists all contents and fields of aNote row subview)
- *          make cells match the example aNote screen
- *              text sizing
- *              text layout
- *              number sizing
- *      pass delegate
- *      pass datasource
- *      set a row's background
- *      set a row's text
- *      make the clickability to a larger area!!! add 50% in -x, +x, -y, +y!
- *      add a fade to the toggle of row text(s)!
- *      toggle cell content on time or tap (color, text, etc). Takes a bit of work... :)
- *      handle clicks! (e.g. UICheckBox.buttonClicked())
- *          *You're going to need to store var access by fcn call
- *      resolve Globals.swift (clean this up)
- *      Cell height changes when description text &/or time is added
- *      Works in both zoomed and standard (un-zoomed) views
+ *      cell height changes when description text &/or time is added
  *
  *  @section    Ideas for Consideration
- *      Shrink lower search bar border from 2px -> 1px
- *      Extend to support all note display formats - Thumb, List, Detail, Diary, Photo, To-do, Calendar
+ *      works in both zoomed and standard (un-zoomed) views
+ *      white text to upper status bar
+ *      shrink lower search bar border from 2px -> 1px
+ *      extend to support all note display formats - Thumb, List, Detail, Diary, Photo, To-do, Calendar
  *
  *  @section    Legal Disclaimer
  *       All contents of this source file and/or any other Jaostech related source files are the explicit property of Jaostech
