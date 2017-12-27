@@ -16,8 +16,6 @@ import UIKit
 
 class ANoteTableView : UICustomTableView {
     
-    //Data
-    var items : [String]!;
     
     /********************************************************************************************************************************/
     /** @fcn        init(frame: CGRect, style: UITableViewStyle, items: [String])
@@ -39,8 +37,7 @@ class ANoteTableView : UICustomTableView {
         /****************************************************************************************************************************/
         /*                                                  UITableView                                                             */
         /****************************************************************************************************************************/
-        super.init(frame: frame, style: style, items: getItems(rows: rows));
-        items = getItems(rows: rows);
+        super.init(frame: frame, style: style);
         
         self.register(ANoteTableViewCell.self, forCellReuseIdentifier: "cell");
         self.translatesAutoresizingMaskIntoConstraints = false;

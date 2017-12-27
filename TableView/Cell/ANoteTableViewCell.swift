@@ -18,6 +18,9 @@ import UIKit
 
 class ANoteTableViewCell: UICustomTableViewCell {
     
+    //Parent
+    var vc : ViewController!;
+    
     //State
     var tableIndex   : Int!;
     var mainText     : String!;
@@ -47,6 +50,7 @@ class ANoteTableViewCell: UICustomTableViewCell {
      *  @brief      x
      *  @details    x
      *
+     *  @param      [in] (ViewController) vc - x
      *  @param      [in] (UIView) mainView - x
      *  @param      [in] (UITableViewCellStyle) style - x
      *  @param      [in] (String?) reuseIdentifier - x
@@ -55,7 +59,9 @@ class ANoteTableViewCell: UICustomTableViewCell {
      *      make row border thinner & set to lighter color
      */
     /********************************************************************************************************************************/
-    init(mainView : UIView, style: UITableViewCellStyle, reuseIdentifier: String?) {
+    init(vc : ViewController, mainView : UIView, style: UITableViewCellStyle, reuseIdentifier: String?) {
+        
+        self.vc = vc;
         
         super.init(style:style, reuseIdentifier:reuseIdentifier);
     
@@ -78,7 +84,7 @@ class ANoteTableViewCell: UICustomTableViewCell {
             return;                                                 /* don't re-initialize, called by Handler on scroll             */
         }
         
-        if(verbose){print("UITableViewCell.initialize():          adding: '\(aNoteTable.items[indexPath.item])'");}
+        if(verbose){print("aNoteTableViewCell.initialize():    adding: '\(self.vc.rows[indexPath.item])'");}
 
         self.tableIndex = indexPath.item;
         
@@ -87,7 +93,7 @@ class ANoteTableViewCell: UICustomTableViewCell {
         self.mainView.addSubview(self.cellSubView);
 
         //Get Current Cell's Info
-        let currRow : Row = rows[indexPath.item];
+        let currRow : Row = self.vc.rows[indexPath.item];
         
 
         /****************************************************************************************************************************/
@@ -113,10 +119,6 @@ class ANoteTableViewCell: UICustomTableViewCell {
         
         if(verbose) { print("ANoteTableViewCell.initialize():    Grabbing \(indexPath.item)"); }
         
-        if(indexPath.item < numRows) {
-            self.mainText = aNoteTable.items[indexPath.item];
-        }
-
         let font : UIFont = UIFont(name: cell_fontName, size: mt_size)!;
         
         subjectField = UILabel(frame:  CGRect(x:      mt_xOffs,

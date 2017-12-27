@@ -52,7 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("AppDelegate.application():          Application launch complete");
         print(" ");
-        print(" ");
         
         return true;
     }

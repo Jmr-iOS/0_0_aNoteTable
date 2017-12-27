@@ -10,6 +10,9 @@
  *
  *  @section    Opens
  *      Add a backup & put into use
+ *          Struct Support
+ *          Class Support
+ *          Array Support
  *      resolve Globals.swift (clean this up)                                               ?
  *      pass delegate                                                                       ?
  *      pass datasource                                                                     ?
@@ -68,14 +71,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     var aNoteTable        : ANoteTableView!;
     var aNoteTableHandler : ANoteTableViewHandler!;
-    
-    static var items : [String] = [String]();
-    
+
     //options
     var cellBordersVisible:Bool = true;
     
     var someVal_0 : Int = -1;
     var someStr_0 : String = "newStr";
+    var rows : [Row];
     
     /********************************************************************************************************************************/
     /** @fcn        init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
@@ -94,6 +96,43 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField = UITextField();
         divBar = UIView();
         
+        //**************************************************************************************************************************//
+        //                                                Initialize Rows of Table                                                  //
+        //  @targ   Nice and simple, make rows to match Images/Ref:aNoteRef.jpg                                                     //
+        //**************************************************************************************************************************//
+        rows = [Row]();
+
+        for i in 0...(numRows-1) {
+            
+            var mainText : String;
+            var bodyText : String;
+            var bottText : String;
+            
+            
+            //Main Text
+            mainText = String(format: "Item #%i", (i+1));                               /* e.g "Item #1"                            */
+            
+            //Body Text
+            if(i == 0) {
+                bodyText = "Some text below that is short";
+            } else {
+                bodyText = "Some misc. text";
+            }
+            
+            if(i < 2) {
+                bottText = "Today \(i+2):00 PM";                                        /* e.g. "2:00 PM"                           */
+            } else {
+                bottText = "Today \(i+3):00 PM";                                        /* e.g. "3:00 PM"                           */
+            }
+            
+            //Time Val
+            let newTime : Int = ((i+3+12)*60);                      /* minutes since 12:00am today                                  */
+            
+            rows.append(Row(main: mainText, body: bodyText, bott: bottText, time: newTime));
+        }
+        
+        
+        
         //Super
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
 
@@ -104,10 +143,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         DataBackup.loadData();                                              /* load the backup if exists                            */
 
         //Var Updates
-        print("ViewController.init():              pre -  \(self.someVal_0),\t\(self.someStr_0)");
+//...   print("ViewController.init():              pre -  \(self.someVal_0),\t\(self.someStr_0)");
         self.someVal_0 = self.someVal_0 + 1;                                /* increment var                                        */
         self.someStr_0 = self.someStr_0 + "\(self.someVal_0)";
-        print("ViewController.init():              post - \(self.someVal_0),\t\(self.someStr_0)");
+//...   print("ViewController.init():              post - \(self.someVal_0),\t\(self.someStr_0)");
         
         //Store Updates
         DataBackup.updateBackup();                                          /* store the update                                     */
@@ -271,8 +310,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         /****************************************************************************************************************************/
         /*                                                      Handler                                                             */
         /****************************************************************************************************************************/
-        aNoteTableHandler = ANoteTableViewHandler(items: ViewController.items, mainView: self.view, ANoteTable: aNoteTable);
-        
+        aNoteTableHandler = ANoteTableViewHandler(vc: self, mainView: self.view, ANoteTable: aNoteTable);
+
         aNoteTable.delegate   = aNoteTableHandler;                                      /* Set both to handle clicks & provide data */
         aNoteTable.dataSource = aNoteTableHandler;        
         
@@ -326,17 +365,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning();
         return;
-    }
-    
-
-    /********************************************************************************************************************************/
-    /** @fcn        getItems() -> [String]
-     *  @brief      get items of table
-     *  @details    x
-     */
-    /********************************************************************************************************************************/
-    class func getItems() -> [String] {
-        return items;
     }
     
 

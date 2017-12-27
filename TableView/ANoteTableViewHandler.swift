@@ -16,10 +16,9 @@ import UIKit
 
 class ANoteTableViewHandler : UICustomTableViewHandler {
     
+    var vc         : ViewController!;
     var mainView   : UIView!;
     var aNoteTable : ANoteTableView!;
-    
-    var items : [String]!;
     
     let nearColor:UIColor = UIColor(red: 255/255, green:  60/255, blue:  60/255, alpha: 1);
     let farColor :UIColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1);
@@ -29,12 +28,11 @@ class ANoteTableViewHandler : UICustomTableViewHandler {
     /* @fcn       init()                                                                                                            */
     /* @details                                                                                                                     */
     /********************************************************************************************************************************/
-    init(items: [String], mainView : UIView, ANoteTable : ANoteTableView) {
+    init(vc : ViewController, mainView : UIView, ANoteTable : ANoteTableView) {
         
-        super.init(items: items, table: ANoteTable);
+        super.init(table: ANoteTable);
         
-        self.items = items;
-        
+        self.vc = vc;
         self.mainView = mainView;
         self.aNoteTable = ANoteTable;
         
@@ -50,9 +48,9 @@ class ANoteTableViewHandler : UICustomTableViewHandler {
     /********************************************************************************************************************************/
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        if(verbose){ print("ANoteTableViewHandler.tableView():  The table will now have \(items.count), cause I just said so..."); }
-        
-        return items.count;                                                     /* return how many rows you want printed....!       */
+        if(verbose){ print("ANoteTableViewHandler.tableView():  The table will now have \(self.vc.rows.count), cause I just said so..."); }
+
+        return self.vc.rows.count;
     }
 
     
@@ -67,7 +65,7 @@ class ANoteTableViewHandler : UICustomTableViewHandler {
         var cell : ANoteTableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellId) as! ANoteTableViewCell?;
         
         if (cell == nil){
-            cell = ANoteTableViewCell(mainView: self.mainView, style: .default, reuseIdentifier: cellId);
+            cell = ANoteTableViewCell(vc: self.vc, mainView: self.mainView, style: .default, reuseIdentifier: cellId);
         }
 
         cell?.initialize(indexPath, aNoteTable: aNoteTable);
