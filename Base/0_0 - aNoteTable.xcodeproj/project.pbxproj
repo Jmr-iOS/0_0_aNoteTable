@@ -23,6 +23,7 @@
 		D0F8FAC81FF54D9F008E4A12 /* UICheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F8FAC51FF54D9F008E4A12 /* UICheckbox.swift */; };
 		D0F8FAC91FF54D9F008E4A12 /* ANoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F8FAC61FF54D9F008E4A12 /* ANoteTableViewCell.swift */; };
 		D0F8FACA1FF54D9F008E4A12 /* CellSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F8FAC71FF54D9F008E4A12 /* CellSubview.swift */; };
+		D0F8FACC1FF56C7E008E4A12 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F8FACB1FF56C7E008E4A12 /* Row.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		D0F8FAC51FF54D9F008E4A12 /* UICheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICheckbox.swift; path = ../TableView/Cell/UICheckbox.swift; sourceTree = "<group>"; };
 		D0F8FAC61FF54D9F008E4A12 /* ANoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANoteTableViewCell.swift; path = ../TableView/Cell/ANoteTableViewCell.swift; sourceTree = "<group>"; };
 		D0F8FAC71FF54D9F008E4A12 /* CellSubview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellSubview.swift; path = ../TableView/Cell/CellSubview.swift; sourceTree = "<group>"; };
+		D0F8FACB1FF56C7E008E4A12 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Row.swift; path = ../Data/Row.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				D03AEBD11FF1E5AB003611D2 /* DataBackup.swift */,
 				D0F8FAC01FF54D83008E4A12 /* Blog.swift */,
+				D0F8FACB1FF56C7E008E4A12 /* Row.swift */,
 				D0F8FAC11FF54D83008E4A12 /* Person.swift */,
 				D02934271FE9B9DB00DB4BD8 /* Globals.swift */,
 			);
@@ -212,6 +215,7 @@
 				D03AEBD21FF1E5AB003611D2 /* DataBackup.swift in Sources */,
 				D02934461FE9BA7F00DB4BD8 /* ViewController.swift in Sources */,
 				D029342D1FE9BA1200DB4BD8 /* ANoteTableView.swift in Sources */,
+				D0F8FACC1FF56C7E008E4A12 /* Row.swift in Sources */,
 				D02934291FE9B9DB00DB4BD8 /* Globals.swift in Sources */,
 				D02934411FE9BA6900DB4BD8 /* Stdcomments.swift in Sources */,
 				D0F8FAC81FF54D9F008E4A12 /* UICheckbox.swift in Sources */,

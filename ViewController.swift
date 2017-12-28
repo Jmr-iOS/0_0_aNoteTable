@@ -58,6 +58,7 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
+    //UI
     var upperBar  : UIView;
     var upperIcon : UIImageView;
     var upperText : UITextView;
@@ -72,16 +73,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var aNoteTable        : ANoteTableView!;
     var aNoteTableHandler : ANoteTableViewHandler!;
 
-    //options
+    //Options
     var cellBordersVisible:Bool = true;
-    
-    var someVal_0 : Int;
-    var someStr_0 : String;
-    var someVals  : [Int];
-    var someBlog  : Blog;
-    var somePers  : Person;
-    
+
+    //Data
     var rows : [Row];
+
     
     /********************************************************************************************************************************/
     /** @fcn        init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
@@ -100,26 +97,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField = UITextField();
         divBar = UIView();
         
-        //Init Backups
-        someVal_0 = -1;
-        someStr_0 = "newStr";
-        someVals  = [-1, -1, -1];
-        someBlog  = Blog(blogName:"my blog");
-        somePers  = Person(firstName: "Justin", lastName: "Reina");
-
 
         //**************************************************************************************************************************//
         //                                                Initialize Rows of Table                                                  //
         //  @targ   Nice and simple, make rows to match Images/Ref:aNoteRef.jpg                                                     //
         //**************************************************************************************************************************//
-        rows = [Row]();
+        rows = [Row]();                                                                 /* init rows                                */
 
         for i in 0...(numRows-1) {
             
             var mainText : String;
             var bodyText : String;
             var bottText : String;
-            
             
             //Main Text
             mainText = String(format: "Item #%i", (i+1));                               /* e.g "Item #1"                            */
@@ -143,8 +132,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             rows.append(Row(main: mainText, body: bodyText, bott: bottText, time: newTime));
         }
         
-        
-        
         //Super
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil);
 
@@ -153,7 +140,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         //Backup Retrieve
         DataBackup.loadData();                                              /* load the backup if exists                            */
-
+        
+//<TEMP>
         //Var Updates
         self.printVars();
         self.updateVars();
@@ -161,24 +149,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         //Store Updates
         DataBackup.updateBackup();                                          /* store the update                                     */
-        
-        var me : Person;
-        let retrievedPerson : Person?;
-        let status : Bool;
-        
-        //Retrieve
-        retrievedPerson = Person.decode();
-        status = (retrievedPerson != nil);
-        
-        //Check if nil
-        if(retrievedPerson != nil) {
-            print("ViewController.init():              found");
-            me = retrievedPerson!;
-            print("ViewController.init():              1 - \(me.firstName) \(me.lastName) - \(status)");
-        } else {
-            print("ViewController.init():              not found, creating new");
-            me = Person(firstName: "Justin", lastName: "Reina");
-        }
+///</TEMP>
         
         print("ViewController.init():              Initialization complete");
 
@@ -421,11 +392,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         print("ViewController.bookmarkPressed():   bookmark was pressed");
         DataBackup.updateBackup();                                          /* store the update                                     */
         print("ViewController.bookmarkPressed():   bookmark response completed");
-        
-        print("ViewController.bookmarkPressed():   I found - \(somePers.firstName) \(somePers.lastName)");
 
-        somePers.firstName = somePers.firstName + "X";
-        DataBackup.updateBackup();
+        //@note     apply changes here for debug if desired
         
         return;
     }
@@ -440,9 +408,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     /********************************************************************************************************************************/
     @objc func searchPressed(_: (UIButton?)) {
         print("ViewController.searchPressed():     search was pressed");
+
+        //@note     apply secondary changes here for debug if desired
         
-        somePers = Person(firstName: "Justin", lastName: "Reina");
-        print("ViewController.searchPressed():     somePers reset");
+        print("ViewController.searchPressed():     exiting");
         
         return;
     }
@@ -519,19 +488,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     /********************************************************************************************************************************/
     func updateVars() {
-        
+/* @depr
         if(someVal_0 < 3) {
-            someVal_0 = someVal_0 + 1;                                      /* increment vars                                       */
+            someVal_0 = someVal_0 + 1;                                      / increment vars
             someStr_0 = someStr_0 + "\(someVal_0)";
             someVals[0] = someVals[0] + 1;
             someVals[1] = someVals[1] + 2;
             someVals[2] = someVals[2] + 3;
             someBlog.blogName  = someBlog.blogName + "!";
             somePers.firstName = somePers.firstName + ".";
-            
+            newRows[0].main = newRows[0].main! + "A";
+            newRows[1].main = newRows[1].main! + "B";
+            newRows[2].main = newRows[2].main! + "C";
             print("ViewController.updateVars():     vars incremented");
         } else {
-            someVal_0 = 0;                                                  /* reset vars                                           */
+            someVal_0 = 0;                                                  / reset vars
             someStr_0 = "A";
             someVals[0] = 0;
             someVals[1] = 0;
@@ -539,10 +510,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
             someBlog.blogName  = "B";
             somePers.firstName = "Justin";
             somePers.lastName  = "Reina";
-            
+            newRows[0].main = "D";
+            newRows[1].main = "D";
+            newRows[2].main = "D";
+
             print("ViewController.updateVars():     vars reset");
         }
-
+*/
         return;
     }
     
@@ -554,7 +528,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     /********************************************************************************************************************************/
     func printVars() {
+/*@depr
         print("ViewController.printVars():         pre  - \(someVal_0),\t\(someStr_0), \t[\(someVals[0]), \(someVals[1]), \(someVals[2])], \(someBlog.blogName), \(somePers.firstName)");
+        print("ViewController.printVars():         pre  - \(newRows[0].main!), \t\(newRows[1].main!), \t[\(newRows[2].main!)");
+ */
         return;
     }
     
@@ -571,26 +548,4 @@ class ViewController: UIViewController, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented");
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

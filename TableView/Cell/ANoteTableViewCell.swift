@@ -23,7 +23,6 @@ class ANoteTableViewCell: UICustomTableViewCell {
     
     //State
     var tableIndex   : Int!;
-    var mainText     : String!;
     let numLines     : Int = 2;
 
     //Main UI
@@ -213,6 +212,9 @@ class ANoteTableViewCell: UICustomTableViewCell {
     /********************************************************************************************************************************/
     func launchSubView() {
 
+        self.subjectField.text = self.subjectField.text! + "2";
+        self.vc.rows[tableIndex].main = self.subjectField.text;
+
         self.cellSubView.frame = g.getCSFrame(onscreen: false);
         
         //Slide in View
@@ -330,6 +332,12 @@ class ANoteTableViewCell: UICustomTableViewCell {
         let numberOfLines = ceil(Double(stringWidth/constrain.width))
         
         return Int(numberOfLines);
+    }
+    
+    
+    //@temp
+    func getMainText() -> String? {
+        return self.subjectField.text;
     }
 }
 

@@ -82,7 +82,7 @@ class ANoteTableView : UICustomTableView {
         var  items : [String] = [String]();
         
         for r in rows {
-            items.append(r.main);
+            items.append(r.main!);
         }
         
         return items;
