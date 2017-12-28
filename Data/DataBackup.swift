@@ -28,9 +28,9 @@ class DataBackup : NSObject, NSCoding {
 
     //Class Data
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveURL         = DocumentsDirectory.appendingPathComponent("ANote_Ref_Sw_Bak3");
+    static let ArchiveURL         = DocumentsDirectory.appendingPathComponent("ANote_Ref_Sw_Bak4a");
 
-    static let verbose : Bool = false;                                      /* given a seperate backup declaration for verbosity    */
+    static let verbose : Bool = true;                                       /* given a seperate backup declaration for verbosity    */
     
     //System value FOR backup
     static var vc : ViewController!;                                        /* for use and access to data during a backup store/load*/
@@ -39,6 +39,9 @@ class DataBackup : NSObject, NSCoding {
     var someVal_0 : Int?;
     var someStr_0 : String?;
     var someVals  : [Int]?;
+    var someBlog  : Blog?;
+    var somePers  : Person?;
+    
     var rows      : [Row]?;
 
     
@@ -54,19 +57,21 @@ class DataBackup : NSObject, NSCoding {
      *  @param      [in] ([String]?) someVals - test array
      */
     /********************************************************************************************************************************/
-    init?(someVal_0 : Int?, someStr_0 : String?, rows : [Row]?, someVals : [Int]?) {
+    init?(someVal_0 : Int?, someStr_0 : String?, rows : [Row]?, someVals : [Int]?, someBlog : Blog?, somePers : Person?) {
+        
+        if(DataBackup.verbose) { print("DataBackup.init?():                 initialization from backup begin (\(someVal_0!))"); }
+
         self.someVal_0 = someVal_0;
         self.someStr_0 = someStr_0;
         self.rows = rows;
-        self.someVals = someVals;
+        self.someVals  = someVals;
+        self.someBlog = someBlog;
+        self.somePers = somePers;
         
         //@todo         temp!
         for i in 0...(rows!.count-1) {
             print(" !!!! row[\(i)]:\(rows![i].main)");
         }
-        
-        
-        if(DataBackup.verbose) { print("DataBackup.init?():                 initialization from backup begin (\(someVal_0!))"); }
         
         super.init();
         
@@ -88,13 +93,17 @@ class DataBackup : NSObject, NSCoding {
     /********************************************************************************************************************************/
     func encode(with aCoder: NSCoder) {
 
+        if(DataBackup.verbose) { print("DataBackup.encodeWithCoder():       storage init"); }
+
         aCoder.encode(self.someVal_0, forKey:DataBackupKeys.someVal_0);
         aCoder.encode(self.someStr_0, forKey:DataBackupKeys.someStr_0);
-        aCoder.encode(self.rows![0].main, forKey:"rows_main");
-        aCoder.encode(self.someVals, forKey: "arrayInts");
+//!     aCoder.encode(self.rows![0].main, forKey:"rows_main");
+        aCoder.encode(self.someVals, forKey: DataBackupKeys.someArr);
+        aCoder.encode(self.someBlog, forKey: DataBackupKeys.someBlog);
+        Person.encode(person: self.somePers!);
         
         if(DataBackup.verbose) { print("DataBackup.encodeWithCoder():       storage complete"); }
-        
+
         return;
     }
     
@@ -112,7 +121,9 @@ class DataBackup : NSObject, NSCoding {
 
         let someVal_0Backup : Int?    = aDecoder.decodeObject(forKey: DataBackupKeys.someVal_0) as? Int;
         let someStr_0Backup : String? = aDecoder.decodeObject(forKey: DataBackupKeys.someStr_0) as? String;
-        let someValsBackup  : [Int]?  = aDecoder.decodeObject(forKey: "arrayInts") as? [Int];
+        let someValsBackup  : [Int]?  = aDecoder.decodeObject(forKey: DataBackupKeys.someArr) as? [Int];
+        let someBlogBackup  : Blog?   = aDecoder.decodeObject(forKey: DataBackupKeys.someBlog) as? Blog;
+        let somePersBackup  : Person? = Person.decode();
         
         if(DataBackup.verbose) { print("DataBackup.convience.init?():       retrieved \(someVal_0Backup!) for dummyData"); }
         
@@ -122,7 +133,7 @@ class DataBackup : NSObject, NSCoding {
             newRows.append(Row(main: "A\(i)", body: "B", bott: "C", time: 0));
         }
         
-        self.init(someVal_0: someVal_0Backup, someStr_0: someStr_0Backup, rows : newRows, someVals: someValsBackup);
+        self.init(someVal_0: someVal_0Backup, someStr_0: someStr_0Backup, rows : newRows, someVals: someValsBackup, someBlog : someBlogBackup, somePers: somePersBackup);
         
         if(DataBackup.verbose) { print("DataBackup.convience.init?():       initialization complete"); }
         
@@ -157,7 +168,10 @@ class DataBackup : NSObject, NSCoding {
         vc.someVal_0 = (retrievedData?.someVal_0)!;
         vc.someStr_0 = (retrievedData?.someStr_0)!;
         vc.someVals  = (retrievedData?.someVals)!;
-
+        vc.someBlog  = (retrievedData?.someBlog)!;
+        vc.somePers  = (retrievedData?.somePers)!;
+        
+        
         return;
     }
 
@@ -178,6 +192,8 @@ class DataBackup : NSObject, NSCoding {
         let currVal_0 : Int    = vc.someVal_0;                                              /* Grab State                           */
         let currStr_0 : String = vc.someStr_0;                                              /* Grab State                           */
         let currVals  : [Int]  = vc.someVals;                                               /* Grab State                           */
+        let currBlog  : Blog   = vc.someBlog;
+        let currPers  : Person = vc.somePers;
         
         //@todo     temp!
         var newRows : [Row] = [Row]();
@@ -185,13 +201,14 @@ class DataBackup : NSObject, NSCoding {
             newRows.append(Row(main: "A\(i)", body: "B", bott: "C", time: 0));
         }
 
-        let backup : DataBackup = DataBackup(someVal_0: currVal_0, someStr_0: currStr_0, rows: newRows, someVals: currVals)!;  /* Gen Backup            */
+        let backup : DataBackup = DataBackup(someVal_0: currVal_0, someStr_0: currStr_0, rows: newRows, someVals: currVals, someBlog: currBlog, somePers: currPers)!;  /* Gen Backup            */
 
         
         //**************************************************************************************************************************//
         //                                             STORE BACKUP                                                                 //
         //**************************************************************************************************************************//
-        let backupSaveStatus = NSKeyedArchiver.archiveRootObject(backup,      toFile: DataBackup.ArchiveURL.path);
+        let backupSaveStatus = NSKeyedArchiver.archiveRootObject(backup,      toFile: DataBackup.ArchiveURL.path);        
+        Person.encode(person: vc.somePers);
 
         if(verbose) { print("DataBackup.saveData():              name save status is '\(backupSaveStatus)' "); }
 
@@ -241,5 +258,7 @@ class DataBackup : NSObject, NSCoding {
 struct DataBackupKeys {
     static let someVal_0 : String = "someVal_0";
     static let someStr_0 : String = "someStr_0";
+    static let someArr   : String = "someArr";
+    static let someBlog  : String = "someBlog";
 }
 

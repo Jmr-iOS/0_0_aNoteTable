@@ -6,13 +6,13 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   12/27/17
+ *  @last rev   12/28/17
  *
  *  @section    Opens
  *      Add a backup & put into use
  *          Struct Support
- *          Class Support
- *          Array Support
+ *      [.]    Class Support
+ *      [.]    Array Support
  *      resolve Globals.swift (clean this up)                                               ?
  *      pass delegate                                                                       ?
  *      pass datasource                                                                     ?
@@ -75,9 +75,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //options
     var cellBordersVisible:Bool = true;
     
-    var someVal_0 : Int    = -1;
-    var someStr_0 : String = "newStr";
-    var someVals  : [Int]  = [-1, -1, -1];
+    var someVal_0 : Int;
+    var someStr_0 : String;
+    var someVals  : [Int];
+    var someBlog  : Blog;
+    var somePers  : Person;
     
     var rows : [Row];
     
@@ -98,6 +100,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField = UITextField();
         divBar = UIView();
         
+        //Init Backups
+        someVal_0 = -1;
+        someStr_0 = "newStr";
+        someVals  = [-1, -1, -1];
+        someBlog  = Blog(blogName:"my blog");
+        somePers  = Person(firstName: "Justin", lastName: "Reina");
+
+
         //**************************************************************************************************************************//
         //                                                Initialize Rows of Table                                                  //
         //  @targ   Nice and simple, make rows to match Images/Ref:aNoteRef.jpg                                                     //
@@ -145,17 +155,31 @@ class ViewController: UIViewController, UITextFieldDelegate {
         DataBackup.loadData();                                              /* load the backup if exists                            */
 
         //Var Updates
-        print("ViewController.init():              pre  - \(self.someVal_0),\t\(self.someStr_0), \t[\(self.someVals[0]), \(self.someVals[1]), \(self.someVals[2])]");
-        self.someVal_0 = self.someVal_0 + 1;                                /* increment var                                        */
-        self.someStr_0 = self.someStr_0 + "\(self.someVal_0)";
-        self.someVals[0] = self.someVals[0] + 1;
-        self.someVals[1] = self.someVals[1] + 2;
-        self.someVals[2] = self.someVals[2] + 3;
-        print("ViewController.init():              post - \(self.someVal_0),\t\(self.someStr_0), \t[\(self.someVals[0]), \(self.someVals[1]), \(self.someVals[2])]");
+        self.printVars();
+        self.updateVars();
+        self.printVars();
         
         //Store Updates
         DataBackup.updateBackup();                                          /* store the update                                     */
-
+        
+        var me : Person;
+        let retrievedPerson : Person?;
+        let status : Bool;
+        
+        //Retrieve
+        retrievedPerson = Person.decode();
+        status = (retrievedPerson != nil);
+        
+        //Check if nil
+        if(retrievedPerson != nil) {
+            print("ViewController.init():              found");
+            me = retrievedPerson!;
+            print("ViewController.init():              1 - \(me.firstName) \(me.lastName) - \(status)");
+        } else {
+            print("ViewController.init():              not found, creating new");
+            me = Person(firstName: "Justin", lastName: "Reina");
+        }
+        
         print("ViewController.init():              Initialization complete");
 
         return;
@@ -381,7 +405,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     /********************************************************************************************************************************/
     @objc func settingsPressed(_: (UIButton?)) {
-        print("settings was pressed");
+        print("ViewController.settingsPressed():   settings was pressed");
         return;
     }
     
@@ -394,7 +418,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     /********************************************************************************************************************************/
     @objc func bookmarkPressed(_: (UIButton?)) {
-        print("bookmark was pressed");
+        print("ViewController.bookmarkPressed():   bookmark was pressed");
+        DataBackup.updateBackup();                                          /* store the update                                     */
+        print("ViewController.bookmarkPressed():   bookmark response completed");
+        
+        print("ViewController.bookmarkPressed():   I found - \(somePers.firstName) \(somePers.lastName)");
+
+        somePers.firstName = somePers.firstName + "X";
+        DataBackup.updateBackup();
+        
         return;
     }
 
@@ -407,7 +439,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     /********************************************************************************************************************************/
     @objc func searchPressed(_: (UIButton?)) {
-        print("search was pressed");
+        print("ViewController.searchPressed():     search was pressed");
+        
+        somePers = Person(firstName: "Justin", lastName: "Reina");
+        print("ViewController.searchPressed():     somePers reset");
+        
         return;
     }
     
@@ -420,7 +456,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     /********************************************************************************************************************************/
     @objc func listPressed(_: (UIButton?)) {
-        print("list was pressed");
+        print("ViewController.listPressed():       list was pressed");
         return;
     }
     
@@ -433,7 +469,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     /********************************************************************************************************************************/
     @objc func optionPressed(_: (UIButton?)) {
-        print("option was pressed");
+        print("ViewController.optionPressed():     option was pressed");
         return;
     }
     
@@ -446,7 +482,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     /********************************************************************************************************************************/
     @objc func returnPressed(_: (UIButton?)) {
-        print("return was pressed");
+        print("ViewController.returnPressed():     return was pressed");
         return;
     }
     
@@ -459,7 +495,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     /********************************************************************************************************************************/
     @objc func plusPressed(_: (UIButton?)) {
-        print("plus was pressed");
+        print("ViewController.plusPressed():       plus was pressed");
         return;
     }
     
@@ -475,7 +511,54 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return true;
     }
     
+
+    /********************************************************************************************************************************/
+    /** @fcn        updateVars()
+     *  @brief      Update or reset all backup vars
+     *  @details    x
+     */
+    /********************************************************************************************************************************/
+    func updateVars() {
+        
+        if(someVal_0 < 3) {
+            someVal_0 = someVal_0 + 1;                                      /* increment vars                                       */
+            someStr_0 = someStr_0 + "\(someVal_0)";
+            someVals[0] = someVals[0] + 1;
+            someVals[1] = someVals[1] + 2;
+            someVals[2] = someVals[2] + 3;
+            someBlog.blogName  = someBlog.blogName + "!";
+            somePers.firstName = somePers.firstName + ".";
+            
+            print("ViewController.updateVars():     vars incremented");
+        } else {
+            someVal_0 = 0;                                                  /* reset vars                                           */
+            someStr_0 = "A";
+            someVals[0] = 0;
+            someVals[1] = 0;
+            someVals[2] = 0;
+            someBlog.blogName  = "B";
+            somePers.firstName = "Justin";
+            somePers.lastName  = "Reina";
+            
+            print("ViewController.updateVars():     vars reset");
+        }
+
+        return;
+    }
     
+    
+    /********************************************************************************************************************************/
+    /** @fcn        printVars()
+     *  @brief      printVars to console
+     *  @details    x
+     */
+    /********************************************************************************************************************************/
+    func printVars() {
+        print("ViewController.printVars():         pre  - \(someVal_0),\t\(someStr_0), \t[\(someVals[0]), \(someVals[1]), \(someVals[2])], \(someBlog.blogName), \(somePers.firstName)");
+        return;
+    }
+    
+
     /********************************************************************************************************************************/
     /** @fcn        init?(coder aDecoder: NSCoder)
      *  @brief      backup restore initialization
@@ -488,4 +571,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented");
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
