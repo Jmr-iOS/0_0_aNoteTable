@@ -6,15 +6,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../ViewController.swift"
-            timestampString = "536124261.351273"
+            timestampString = "536126053.599739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "init(nibName:bundle:)"
             landmarkType = "7">
          </BreakpointContent>

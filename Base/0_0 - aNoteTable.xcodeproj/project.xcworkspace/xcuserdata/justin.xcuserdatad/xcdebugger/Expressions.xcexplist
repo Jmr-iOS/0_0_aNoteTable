@@ -10,5 +10,22 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "static DataBackup.loadData():DataBackup.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "vc.someVals">
+            </PersistentString>
+            <PersistentString
+               value = "retrievedData?.someVals">
+            </PersistentString>
+            <PersistentString
+               value = "vc.someVal_0">
+            </PersistentString>
+            <PersistentString
+               value = "retrievedData?.someVal_0">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

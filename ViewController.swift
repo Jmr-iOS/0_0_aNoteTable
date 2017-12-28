@@ -75,8 +75,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //options
     var cellBordersVisible:Bool = true;
     
-    var someVal_0 : Int = -1;
+    var someVal_0 : Int    = -1;
     var someStr_0 : String = "newStr";
+    var someVals  : [Int]  = [-1, -1, -1];
+    
     var rows : [Row];
     
     /********************************************************************************************************************************/
@@ -143,10 +145,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         DataBackup.loadData();                                              /* load the backup if exists                            */
 
         //Var Updates
-//...   print("ViewController.init():              pre -  \(self.someVal_0),\t\(self.someStr_0)");
+        print("ViewController.init():              pre  - \(self.someVal_0),\t\(self.someStr_0), \t[\(self.someVals[0]), \(self.someVals[1]), \(self.someVals[2])]");
         self.someVal_0 = self.someVal_0 + 1;                                /* increment var                                        */
         self.someStr_0 = self.someStr_0 + "\(self.someVal_0)";
-//...   print("ViewController.init():              post - \(self.someVal_0),\t\(self.someStr_0)");
+        self.someVals[0] = self.someVals[0] + 1;
+        self.someVals[1] = self.someVals[1] + 2;
+        self.someVals[2] = self.someVals[2] + 3;
+        print("ViewController.init():              post - \(self.someVal_0),\t\(self.someStr_0), \t[\(self.someVals[0]), \(self.someVals[1]), \(self.someVals[2])]");
         
         //Store Updates
         DataBackup.updateBackup();                                          /* store the update                                     */

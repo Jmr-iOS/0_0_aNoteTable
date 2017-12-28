@@ -38,6 +38,7 @@ class DataBackup : NSObject, NSCoding {
     //Backup Data
     var someVal_0 : Int?;
     var someStr_0 : String?;
+    var someVals  : [Int]?;
     var rows      : [Row]?;
 
     
@@ -50,13 +51,14 @@ class DataBackup : NSObject, NSCoding {
      *  @param      [in] (Int?)    someVal_0 - x
      *  @param      [in] (String?) someStr_0 - x
      *  @param      [in] ([Row]?)  rows - rows of table
+     *  @param      [in] ([String]?) someVals - test array
      */
     /********************************************************************************************************************************/
-    init?(someVal_0 : Int?, someStr_0 : String?, rows : [Row]?) {
-        
+    init?(someVal_0 : Int?, someStr_0 : String?, rows : [Row]?, someVals : [Int]?) {
         self.someVal_0 = someVal_0;
         self.someStr_0 = someStr_0;
         self.rows = rows;
+        self.someVals = someVals;
         
         //@todo         temp!
         for i in 0...(rows!.count-1) {
@@ -89,6 +91,7 @@ class DataBackup : NSObject, NSCoding {
         aCoder.encode(self.someVal_0, forKey:DataBackupKeys.someVal_0);
         aCoder.encode(self.someStr_0, forKey:DataBackupKeys.someStr_0);
         aCoder.encode(self.rows![0].main, forKey:"rows_main");
+        aCoder.encode(self.someVals, forKey: "arrayInts");
         
         if(DataBackup.verbose) { print("DataBackup.encodeWithCoder():       storage complete"); }
         
@@ -109,6 +112,7 @@ class DataBackup : NSObject, NSCoding {
 
         let someVal_0Backup : Int?    = aDecoder.decodeObject(forKey: DataBackupKeys.someVal_0) as? Int;
         let someStr_0Backup : String? = aDecoder.decodeObject(forKey: DataBackupKeys.someStr_0) as? String;
+        let someValsBackup  : [Int]?  = aDecoder.decodeObject(forKey: "arrayInts") as? [Int];
         
         if(DataBackup.verbose) { print("DataBackup.convience.init?():       retrieved \(someVal_0Backup!) for dummyData"); }
         
@@ -118,7 +122,7 @@ class DataBackup : NSObject, NSCoding {
             newRows.append(Row(main: "A\(i)", body: "B", bott: "C", time: 0));
         }
         
-        self.init(someVal_0: someVal_0Backup, someStr_0: someStr_0Backup, rows : newRows);
+        self.init(someVal_0: someVal_0Backup, someStr_0: someStr_0Backup, rows : newRows, someVals: someValsBackup);
         
         if(DataBackup.verbose) { print("DataBackup.convience.init?():       initialization complete"); }
         
@@ -152,6 +156,7 @@ class DataBackup : NSObject, NSCoding {
         //Apply the loaded data to vc
         vc.someVal_0 = (retrievedData?.someVal_0)!;
         vc.someStr_0 = (retrievedData?.someStr_0)!;
+        vc.someVals  = (retrievedData?.someVals)!;
 
         return;
     }
@@ -172,14 +177,15 @@ class DataBackup : NSObject, NSCoding {
         //**************************************************************************************************************************//
         let currVal_0 : Int    = vc.someVal_0;                                              /* Grab State                           */
         let currStr_0 : String = vc.someStr_0;                                              /* Grab State                           */
-
+        let currVals  : [Int]  = vc.someVals;                                               /* Grab State                           */
+        
         //@todo     temp!
         var newRows : [Row] = [Row]();
         for i in 0...5 {
             newRows.append(Row(main: "A\(i)", body: "B", bott: "C", time: 0));
         }
 
-        let backup : DataBackup = DataBackup(someVal_0: currVal_0, someStr_0: currStr_0, rows: newRows)!;  /* Gen Backup            */
+        let backup : DataBackup = DataBackup(someVal_0: currVal_0, someStr_0: currStr_0, rows: newRows, someVals: currVals)!;  /* Gen Backup            */
 
         
         //**************************************************************************************************************************//
