@@ -212,9 +212,6 @@ class ANoteTableViewCell: UICustomTableViewCell {
     /********************************************************************************************************************************/
     func launchSubView() {
 
-        self.subjectField.text = self.subjectField.text! + "2";
-        self.vc.rows[tableIndex].main = self.subjectField.text;
-
         self.cellSubView.frame = g.getCSFrame(onscreen: false);
         
         //Slide in View

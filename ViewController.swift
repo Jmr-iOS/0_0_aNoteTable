@@ -9,15 +9,9 @@
  *  @last rev   12/28/17
  *
  *  @section    Opens
- *      Add a backup & put into use
- *          Struct Support
- *      [.]    Class Support
- *      [.]    Array Support
- *      resolve Globals.swift (clean this up)                                               ?
- *      pass delegate                                                                       ?
- *      pass datasource                                                                     ?
- *      set a row's background                                                              ?
- *      set a row's text                                                                    ?
+ *      Subview to full screen
+ *      Subview ui layout matches aNote
+ *      Add Features (tbl)
  *      make it's aesthetic equal to aNote                                                  ?
  *            Upper Status Bar has white text                                               ?
  *          move number text a little upwards                                               ?
@@ -33,9 +27,6 @@
  *          *You're going to need to store var access by fcn call                           ?
  *      ...
  *      Make Parent View match aNote
- *          x
- *          y
- *          z
  *      ...
  *      Populate SubView
  *      Make SubView match aNote

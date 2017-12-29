@@ -28,7 +28,10 @@ class CellSubview : UIView {
     
     //UI
     var returnButton : UIButton!;                                   /* return button of the subview                                 */
-
+    var mainButton : UIButton!;
+    var bodyButton : UIButton!;
+    var bottButton : UIButton!;
+    
     //Data
     var nameLabel    : UILabel!;
     
@@ -113,6 +116,51 @@ class CellSubview : UIView {
         
         //Add button
         self.addSubview(self.returnButton);
+
+        //**************************************************************************************************************************//
+        //                                            MAIN BUTTON                                                                   //
+        //**************************************************************************************************************************//
+        self.mainButton = UIButton(type: UIButtonType.roundedRect);
+        
+        self.mainButton.translatesAutoresizingMaskIntoConstraints = true;
+        self.mainButton.setTitle("Main",      for: UIControlState());
+        self.mainButton.backgroundColor = UIColor.green;
+        self.mainButton.sizeToFit();
+        self.mainButton.center = CGPoint(x: self.mainView.center.x-150, y: ret_yOffs-20);            //!
+        self.mainButton.addTarget(self, action: #selector(self.mainPress(_:)), for:  .touchUpInside);
+        
+        //Add button
+        self.addSubview(self.mainButton);
+        
+        //**************************************************************************************************************************//
+        //                                            BODY BUTTON                                                                   //
+        //**************************************************************************************************************************//
+        self.bodyButton = UIButton(type: UIButtonType.roundedRect);
+        
+        self.bodyButton.translatesAutoresizingMaskIntoConstraints = true;
+        self.bodyButton.setTitle("Body",      for: UIControlState());
+        self.bodyButton.backgroundColor = UIColor.green;
+        self.bodyButton.sizeToFit();
+        self.bodyButton.center = CGPoint(x: self.mainView.center.x-150, y: ret_yOffs+20);            //!
+        self.bodyButton.addTarget(self, action: #selector(self.bodyPress(_:)), for:  .touchUpInside);
+        
+        //Add button
+        self.addSubview(self.bodyButton);
+        
+        //**************************************************************************************************************************//
+        //                                            BOTT BUTTON                                                                   //
+        //**************************************************************************************************************************//
+        self.bottButton = UIButton(type: UIButtonType.roundedRect);
+        
+        self.bottButton.translatesAutoresizingMaskIntoConstraints = true;
+        self.bottButton.setTitle("Bott",      for: UIControlState());
+        self.bottButton.backgroundColor = UIColor.green;
+        self.bottButton.sizeToFit();
+        self.bottButton.center = CGPoint(x: self.mainView.center.x-150, y: ret_yOffs+60);            //!
+        self.bottButton.addTarget(self, action: #selector(self.bottPress(_:)), for:  .touchUpInside);
+        
+        //Add button
+        self.addSubview(self.bottButton);
         
         //@temp for debug validation
         self.backgroundColor = UIColor.red;
@@ -143,7 +191,64 @@ class CellSubview : UIView {
         
         return;
     }
- 
+    
+    
+    /********************************************************************************************************************************/
+    /** @fcn        mainPress(_ sender: UIButton!)
+     *  @brief        return was pressed, return to main
+     *
+     *  @param      [in] (UIButton!) sender - button pressed
+     *  @note      @objc exposed to enabled handleTap() access, not sure why
+     */
+    /********************************************************************************************************************************/
+    @objc func mainPress(_ sender: UIButton!) {
+        
+        if(verbose) { print("CellSubview.returnPress():  Main was pressed, dismissing view"); }
+
+        self.parentCell.subjectField.text = self.parentCell.subjectField.text! + "2";
+        self.parentCell.vc.rows[self.parentCell.tableIndex].main = self.parentCell.subjectField.text;
+        
+        return;
+    }
+    
+    
+    /********************************************************************************************************************************/
+    /** @fcn        bodyPress(_ sender: UIButton!)
+     *  @brief        return was pressed, return to main
+     *
+     *  @param      [in] (UIButton!) sender - button pressed
+     *  @note      @objc exposed to enabled handleTap() access, not sure why
+     */
+    /********************************************************************************************************************************/
+    @objc func bodyPress(_ sender: UIButton!) {
+        
+        if(verbose) { print("CellSubview.returnPress():  Body was pressed, dismissing view"); }
+        
+        self.parentCell.descripField.text = self.parentCell.descripField.text! + "3";
+        self.parentCell.vc.rows[self.parentCell.tableIndex].body = self.parentCell.descripField.text;
+        
+        return;
+    }
+    
+    
+    /********************************************************************************************************************************/
+    /** @fcn        bottPress(_ sender: UIButton!)
+     *  @brief        return was pressed, return to main
+     *
+     *  @param      [in] (UIButton!) sender - button pressed
+     *  @note      @objc exposed to enabled handleTap() access, not sure why
+     */
+    /********************************************************************************************************************************/
+    @objc func bottPress(_ sender: UIButton!) {
+        
+        if(verbose) { print("CellSubview.returnPress():  Bottom was pressed, dismissing view"); }
+        
+        self.parentCell.bottField.text = self.parentCell.bottField.text! + "3";
+        self.parentCell.vc.rows[self.parentCell.tableIndex].bott = self.parentCell.bottField.text;
+        
+        return;
+    }
+    
 
     /********************************************************************************************************************************/
     /* @fcn       dismissSubView()                                                                                                  */
