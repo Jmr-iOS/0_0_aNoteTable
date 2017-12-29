@@ -6,9 +6,16 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   12/28/17
+ *  @last rev   12/29/17
  *
  *  @section    Opens
+ *      handle clicks! (e.g. UICheckBox.buttonClicked())                                    ?
+ *          *You're going to need to store var access by fcn call                           ?
+ *      Fix lower bar in aNote
+ *      Change time field to a selectable DatePicker and put into full usage with it
+ *      Supports zoomed and normal phone configs, for multiple device types. Start a validation test vector for aNote demo
+ *      Cell SubView, full screen and date field!
+ *      ...
  *      Subview to full screen
  *      Subview ui layout matches aNote
  *      Add Features (tbl)
@@ -23,15 +30,13 @@
  *      make the clickability to a larger area!!! add 50% in -x, +x, -y, +y!                ?
  *      add a fade to the toggle of row text(s)!                                            ?
  *      toggle cell content on time or tap (color, text, etc). Takes a bit of work... :)    ?
- *      handle clicks! (e.g. UICheckBox.buttonClicked())                                    ?
- *          *You're going to need to store var access by fcn call                           ?
- *      ...
  *      Make Parent View match aNote
- *      ...
- *      Populate SubView
- *      Make SubView match aNote
- *      Add cross-out time addition to crossed out cell
+ *      Populate SubView, make match aNote
  *      cell height changes when description text &/or time is added
+ *
+ *  @section    Pending Opens
+ *      selectable upper bar color
+ *      Add cross-out time addition to crossed out cell
  *
  *  @section    Ideas for Consideration
  *      works in both zoomed and standard (un-zoomed) views
