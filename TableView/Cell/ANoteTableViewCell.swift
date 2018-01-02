@@ -16,7 +16,7 @@
 /************************************************************************************************************************************/
 import UIKit
 
-class ANoteTableViewCell: UICustomTableViewCell {
+class ANoteTableViewCell: UICustomTableViewCell, UICheckBoxDelegate {
     
     //Parent
     var vc : ViewController!;
@@ -102,6 +102,7 @@ class ANoteTableViewCell: UICustomTableViewCell {
         
         checkBox = UICheckbox(view:       self,
                               parentCell: self,
+                              delegate:   self,
                               type:       type,
                               xCoord:     check_xOffs,
                               yCoord:     check_yOffs);
@@ -331,19 +332,19 @@ class ANoteTableViewCell: UICustomTableViewCell {
     
     
     /********************************************************************************************************************************/
-    /** @fcn        checkResp(_ checked : Bool)
+    /** @fcn        checkBoxResp(_ checked : Bool)
      *  @brief      respond to selection of the check box in cell
      *  @details    x
      *
      *  @param      [in] (Bool) checked - box was checked off
      */
     /********************************************************************************************************************************/
-    func checkResp(_ checked : Bool) {
-        if(verbose) { print("ANoteTableViewCell.checkResp():     selection response complete for '\(checked)'"); }
+    func checkBoxResp(_ checked : Bool) {
+        /*if(verbose) {*/ print("ANoteTableViewCell.checkResp():     selection response complete for '\(checked)'");/* }*/
         return;
     }
-    
-    
+
+
     //@temp
     func getMainText() -> String? {
         return self.subjectField.text;

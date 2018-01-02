@@ -16,12 +16,18 @@
 /************************************************************************************************************************************/
 import UIKit
 
+//@todo     ...
+protocol UICheckBoxDelegate {
+    func checkBoxResp(_ checked : Bool);
+}
+
 
 class UICheckbox: UIView {
     
     //state
     var checkBoxImg : UIImageView!;
     var parentCell  : ANoteTableViewCell!;
+    var delegate    : UICheckBoxDelegate!;
     var state       : Bool = false;
 
     //images
@@ -48,10 +54,11 @@ class UICheckbox: UIView {
     /*  @param      [in] (CGFloat) yCoord - y coordinates of box                                                                    */
     /*                                                                                                                              */
     /********************************************************************************************************************************/
-    init(view: UIView, parentCell: ANoteTableViewCell, type: CellType, xCoord: CGFloat, yCoord: CGFloat) {
+    init(view: UIView, parentCell: ANoteTableViewCell, delegate: UICheckBoxDelegate, type: CellType, xCoord: CGFloat, yCoord: CGFloat) {
 
         //store
         self.parentCell = parentCell;
+        self.delegate   = delegate;
         
         //image init
         switch(type) {
@@ -140,7 +147,7 @@ class UICheckbox: UIView {
         parentCell.updateSelection(selected: newState);
         
         //Handle Parent Response
-        self.parentCell.checkResp(state)
+        delegate.checkBoxResp(newState);
         
         return;
     }
@@ -157,7 +164,7 @@ class UICheckbox: UIView {
         
         super.init(coder:aDecoder);
         
-        
+        return;
     }
 }
 

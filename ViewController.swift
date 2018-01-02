@@ -9,10 +9,9 @@
  *  @last rev   1/2/17
  *
  *  @section    Opens
- *      handle clicks! (e.g. UICheckBox.buttonClicked())                                    ?
- *          *You're going to need to store var access by fcn call                           ?
- *      Fix lower bar in aNote
- *      TimeField correction & implementation (Change time field to a selectable DatePicker and put into full usage with it)
+ *      TimeField selectable with response
+ *      TimeField represented & stored with DatePicker
+ *      TimeField modifiable & retained in backups
  *      Cell SubView, full screen and date field!
  *          Subview to full screen
  *          Subview ui layout matches aNote
