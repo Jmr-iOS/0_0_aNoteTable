@@ -75,8 +75,7 @@ class DataBackup : NSObject, NSCoding {
 
         if(DataBackup.verbose) { print("DataBackup.encodeWithCoder():       storage init"); }
 
-        let x : Bool = Row.RowClass.saveStocksArray(rowArray: self.rows!);
-
+        let _ : Bool = Row.RowClass.saveStocksArray(rowArray: self.rows!);
 
         if(DataBackup.verbose) { print("DataBackup.encodeWithCoder():       storage complete"); }
 

@@ -6,7 +6,7 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   12/29/17
+ *  @last rev   1/2/17
  *
  *  @section    Opens
  *      handle clicks! (e.g. UICheckBox.buttonClicked())                                    ?
@@ -37,9 +37,9 @@
  *  @section    Pending Opens
  *      selectable upper bar color
  *      Add cross-out time addition to crossed out cell
+ *      works in both zoomed and standard (un-zoomed) views
  *
  *  @section    Ideas for Consideration
- *      works in both zoomed and standard (un-zoomed) views
  *      white text to upper status bar
  *      shrink lower search bar border from 2px -> 1px
  *      extend to support all note display formats - Thumb, List, Detail, Diary, Photo, To-do, Calendar
