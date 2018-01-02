@@ -193,20 +193,34 @@ class ANoteTableViewCell: UICustomTableViewCell, UICheckBoxDelegate {
         
         let timeLabel : UILabel = UILabel(frame: CGRect(x: tl_xOffs, y: tl_yOffs, width: tl_width, height:  tl_height));
         
+        //Setup
         timeLabel.font  =   UIFont(name: cell_fontName, size: tl_size);
         timeLabel.text  =   "4:30 PM";
         timeLabel.textColor     = UIColor.white;
         timeLabel.textAlignment = NSTextAlignment.left;
+
+        //Add delegate
+        let tap = UITapGestureRecognizer(target: self, action: #selector(timeView_tapResponse));
+        timeView.addGestureRecognizer(tap);
         
+        //Add it to view
         timeView.addSubview(timeLabel);
-        
-        //add it
-        self.addSubview(timeView);
+        addSubview(timeView);
         
         return;
     }
 
+    
+    /********************************************************************************************************************************/
+    /* @fcn       timeView_tapResponse()                                                                                            */
+    /* @details   respond to selection of the time view                                                                             */
+    /********************************************************************************************************************************/
+    @objc func timeView_tapResponse() {
+        print("ANoteTableViewCell.tvResp():        tap response selected");
+        return;
+    }
 
+    
     /********************************************************************************************************************************/
     /* @fcn       launchSubView()                                                                                                   */
     /* @details   launch the subview                                                                                                */
@@ -340,7 +354,7 @@ class ANoteTableViewCell: UICustomTableViewCell, UICheckBoxDelegate {
      */
     /********************************************************************************************************************************/
     func checkBoxResp(_ checked : Bool) {
-        /*if(verbose) {*/ print("ANoteTableViewCell.checkResp():     selection response complete for '\(checked)'");/* }*/
+        if(verbose) { print("ANoteTableViewCell.checkResp():     selection response complete for '\(checked)'"); }
         return;
     }
 

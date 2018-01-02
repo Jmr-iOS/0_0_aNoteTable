@@ -9,7 +9,6 @@
  *  @last rev   1/2/17
  *
  *  @section    Opens
- *      TimeField selectable with response
  *      TimeField represented & stored with DatePicker
  *      TimeField modifiable & retained in backups
  *      Cell SubView, full screen and date field!
