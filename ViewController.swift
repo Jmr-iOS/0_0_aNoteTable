@@ -12,12 +12,12 @@
  *      handle clicks! (e.g. UICheckBox.buttonClicked())                                    ?
  *          *You're going to need to store var access by fcn call                           ?
  *      Fix lower bar in aNote
- *      Change time field to a selectable DatePicker and put into full usage with it
- *      Supports zoomed and normal phone configs, for multiple device types. Start a validation test vector for aNote demo
+ *      TimeField correction & implementation (Change time field to a selectable DatePicker and put into full usage with it)
  *      Cell SubView, full screen and date field!
+ *          Subview to full screen
+ *          Subview ui layout matches aNote
  *      ...
- *      Subview to full screen
- *      Subview ui layout matches aNote
+ *      ...
  *      Add Features (tbl)
  *      make it's aesthetic equal to aNote                                                  ?
  *            Upper Status Bar has white text                                               ?
@@ -37,7 +37,7 @@
  *  @section    Pending Opens
  *      selectable upper bar color
  *      Add cross-out time addition to crossed out cell
- *      works in both zoomed and standard (un-zoomed) views
+ *      works in both zoomed and standard views (Start a validation test vector for aNote demo)
  *
  *  @section    Ideas for Consideration
  *      white text to upper status bar

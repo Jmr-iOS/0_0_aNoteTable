@@ -83,7 +83,7 @@ class ANoteTableViewCell: UICustomTableViewCell {
             return;                                                 /* don't re-initialize, called by Handler on scroll             */
         }
         
-        if(verbose){print("aNoteTableViewCell.initialize():    adding: '\(self.vc.rows[indexPath.item])'");}
+        if(verbose){print("aNoteTableViewCell.initialize():    adding: '\(self.vc.rows[indexPath.item].main!)'");}
 
         self.tableIndex = indexPath.item;
         
@@ -116,7 +116,7 @@ class ANoteTableViewCell: UICustomTableViewCell {
         
         let subjFieldWidth : CGFloat = UIScreen.main.bounds.width - cell_xOffs - rChunk_width - tv_width;
         
-        if(verbose) { print("ANoteTableViewCell.initialize():    Grabbing \(indexPath.item)"); }
+        if(verbose) { print("ANoteTableViewCell.initialize():    grabbing \(indexPath.item)"); }
         
         let font : UIFont = UIFont(name: cell_fontName, size: mt_size)!;
         
@@ -254,7 +254,7 @@ class ANoteTableViewCell: UICustomTableViewCell {
     func updateSelection(selected : Bool) {
 
         if(selected) {
-            if(verbose) { print("ANoteTableViewCell.updateSelection():   Selected"); }
+            if(verbose) { print("ANoteTableViewCell.updateSel():     selected"); }
             
             let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: self.subjectField.text!);
             
@@ -267,7 +267,7 @@ class ANoteTableViewCell: UICustomTableViewCell {
             self.subjectField.textColor = UIColor.gray;
             
         } else {
-            if(verbose) { print("ANoteTableViewCell.updateSelection():   Not Selected"); }
+            if(verbose) { print("ANoteTableViewCell.updateSel():     not selected"); }
             
             let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: self.subjectField.text!);
             
@@ -319,8 +319,6 @@ class ANoteTableViewCell: UICustomTableViewCell {
         paragraphStyle.maximumLineHeight = labelHeight;
         paragraphStyle.lineBreakMode = .byWordWrapping;
         
-//!     let attributes  : [String: AnyObject] = [NSAttributedStringKey.font.rawValue: font, NSAttributedStringKey.paragraphStyle.rawValue: paragraphStyle];
-//!     let size        :  CGSize  = yourString.size(withAttributes: attributes);
         let size        :  CGSize  = CGSize(width: 1, height: 2);
         let stringWidth :  CGFloat = size.width;
 
@@ -329,6 +327,20 @@ class ANoteTableViewCell: UICustomTableViewCell {
         let numberOfLines = ceil(Double(stringWidth/constrain.width))
         
         return Int(numberOfLines);
+    }
+    
+    
+    /********************************************************************************************************************************/
+    /** @fcn        checkResp(_ checked : Bool)
+     *  @brief      respond to selection of the check box in cell
+     *  @details    x
+     *
+     *  @param      [in] (Bool) checked - box was checked off
+     */
+    /********************************************************************************************************************************/
+    func checkResp(_ checked : Bool) {
+        if(verbose) { print("ANoteTableViewCell.checkResp():     selection response complete for '\(checked)'"); }
+        return;
     }
     
     

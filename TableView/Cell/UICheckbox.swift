@@ -112,7 +112,7 @@ class UICheckbox: UIView {
     /********************************************************************************************************************************/
     @objc func handleTap(_ recognizer:UITapGestureRecognizer) {
         
-        if(verbose) { print("UICheckbox.handleTap():   handling tap response"); }
+        if(verbose) { print("UICheckbox.handleTap():             handling tap response"); }
         
         //Get state
         let prevState : Bool =  (self.checkBoxImg.image == checkedImage);           /* was previously selected?                     */
@@ -138,6 +138,9 @@ class UICheckbox: UIView {
 
         //Update text
         parentCell.updateSelection(selected: newState);
+        
+        //Handle Parent Response
+        self.parentCell.checkResp(state)
         
         return;
     }

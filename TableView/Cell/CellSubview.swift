@@ -165,7 +165,7 @@ class CellSubview : UIView {
         //@temp for debug validation
         self.backgroundColor = UIColor.red;
         
-        if(verbose) { print("CellSubview.init():                 My Custom Cell #\(self.parentCell.getNumber()) SubView Init"); }
+        if(verbose) { print("CellSubview.init():                 my custom cell #\(self.parentCell.getNumber()) subview init"); }
  
         return;
     }
@@ -181,7 +181,7 @@ class CellSubview : UIView {
 	/********************************************************************************************************************************/
     @objc func returnPress(_ sender: UIButton!) {
         
-        if(verbose) { print("CellSubview.returnPress():  Return was pressed, dismissing view"); }
+        if(verbose) { print("CellSubview.returnPress():  return was pressed, dismissing view"); }
         
         //Move Frame offscreen
         self.frame = g.getCSFrame(onscreen: false);
@@ -203,7 +203,7 @@ class CellSubview : UIView {
     /********************************************************************************************************************************/
     @objc func mainPress(_ sender: UIButton!) {
         
-        if(verbose) { print("CellSubview.returnPress():  Main was pressed, dismissing view"); }
+        if(verbose) { print("CellSubview.returnPress():  main was pressed, dismissing view"); }
 
         self.parentCell.subjectField.text = self.parentCell.subjectField.text! + "2";
         self.parentCell.vc.rows[self.parentCell.tableIndex].main = self.parentCell.subjectField.text;
@@ -222,7 +222,7 @@ class CellSubview : UIView {
     /********************************************************************************************************************************/
     @objc func bodyPress(_ sender: UIButton!) {
         
-        if(verbose) { print("CellSubview.returnPress():  Body was pressed, dismissing view"); }
+        if(verbose) { print("CellSubview.returnPress():  body was pressed, dismissing view"); }
         
         self.parentCell.descripField.text = self.parentCell.descripField.text! + "3";
         self.parentCell.vc.rows[self.parentCell.tableIndex].body = self.parentCell.descripField.text;
@@ -241,7 +241,7 @@ class CellSubview : UIView {
     /********************************************************************************************************************************/
     @objc func bottPress(_ sender: UIButton!) {
         
-        if(verbose) { print("CellSubview.returnPress():  Bottom was pressed, dismissing view"); }
+        if(verbose) { print("CellSubview.returnPress():  bottom was pressed, dismissing view"); }
         
         self.parentCell.bottField.text = self.parentCell.bottField.text! + "3";
         self.parentCell.vc.rows[self.parentCell.tableIndex].bott = self.parentCell.bottField.text;
