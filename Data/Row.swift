@@ -20,7 +20,7 @@ struct Row {
     var main : String?;                                         /* primary text to display                                          */
     var body : String?;                                         /* sub text displayed below main and smaller                        */
     var bott : String?;                                         /* text for time label                                              */
-    var time : Int?;                                            /* minutes of day since 12:00 am                                    */
+    var time : Date?;                                           /* time selection for cell                                          */
 }
 
 extension Row {

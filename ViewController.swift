@@ -6,7 +6,7 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   1/2/17
+ *  @last rev   1/7/17
  *
  *  @section    Opens
  *      TimeField represented & stored with DatePicker
@@ -15,27 +15,20 @@
  *          Subview to full screen
  *          Subview ui layout matches aNote
  *      ...
- *      ...
- *      Add Features (tbl)
- *      make it's aesthetic equal to aNote                                                  ?
- *            Upper Status Bar has white text                                               ?
- *          move number text a little upwards                                               ?
- *          subview for each row (lists all contents and fields of aNote row subview)       ?
- *          make cells match the example aNote screen                                       ?
- *              text sizing                                                                 ?
- *              text layout                                                                 ?
- *              number sizing                                                               ?
- *      make the clickability to a larger area!!! add 50% in -x, +x, -y, +y!                ?
- *      add a fade to the toggle of row text(s)!                                            ?
- *      toggle cell content on time or tap (color, text, etc). Takes a bit of work... :)    ?
- *      Make Parent View match aNote
  *      Populate SubView, make match aNote
+ *      Add Features (tbl)
+ *      make it's aesthetic equal to aNote
+ *      make the clickability to a larger area
+ *      add a fade to the toggle of row text(s)
+ *      toggle cell content on time or tap
+ *      Make Parent View match aNote
  *      cell height changes when description text &/or time is added
  *
  *  @section    Pending Opens
  *      selectable upper bar color
  *      Add cross-out time addition to crossed out cell
  *      works in both zoomed and standard views (Start a validation test vector for aNote demo)
+ *      Acquire and apply all backgrounds used in aNote, or generate your own as needed
  *
  *  @section    Ideas for Consideration
  *      white text to upper status bar
