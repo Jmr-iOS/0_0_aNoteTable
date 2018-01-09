@@ -6,7 +6,7 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   1/8/18
+ *  @last rev   1/9/18
  *
  *  @section    Opens
  *      TimeField represented & stored with DatePicker
@@ -84,12 +84,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField = UITextField();
         divBar = UIView();
         
-        print("H:\(UIScreen.main.bounds.height), W:\(UIScreen.main.bounds.width)");
+        
         //**************************************************************************************************************************//
         //                                                Initialize Rows of Table                                                  //
         //  @targ   Nice and simple, make rows to match Images/Ref:aNoteRef.jpg                                                     //
         //**************************************************************************************************************************//
-        rows = [Row]();                                                                 /* init rows                                */
+        rows = [Row]();                                                             /* init rows                                    */
 
         for i in 0...(numRows-1) {
             
@@ -98,7 +98,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             var bottText : String;
             
             //Main Text
-            mainText = String(format: "Item #%i", (i+1));                               /* e.g "Item #1"                            */
+            mainText = String(format: "Item #%i", (i+1));                           /* e.g "Item #1"                                */
             
             //Body Text
             if(i == 0) {

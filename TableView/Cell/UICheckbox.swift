@@ -37,11 +37,9 @@ class UICheckbox: UIView {
     var loadThread : Timer!;
     var fadeThread : Timer!;
     
-    enum CellType {
-        case list                                                   /* standard list item                                           */
-        case todo                                                   /* item that is checked off on completion                       */
-    }
-    
+    //Config
+    private let verbose : Bool;                                     /* for this class                                               */
+
 
     /********************************************************************************************************************************/
     /* @fcn       init(view: UIView, parentCell: ANoteTableViewCell, type: CellType, xCoord: CGFloat, yCoord: CGFloat)              */
@@ -56,11 +54,14 @@ class UICheckbox: UIView {
     /********************************************************************************************************************************/
     init(view: UIView, parentCell: ANoteTableViewCell, delegate: UICheckBoxDelegate, type: CellType, xCoord: CGFloat, yCoord: CGFloat) {
 
-        //store
+        //Store
         self.parentCell = parentCell;
         self.delegate   = delegate;
         
-        //image init
+        //Init Vars
+        verbose = false;
+        
+        //Init Image
         switch(type) {
             case .list:
                 uncheckedImage = UIImage(named:"list_box")!;
@@ -161,6 +162,7 @@ class UICheckbox: UIView {
         
         uncheckedImage = UIImage();
         checkedImage   = UIImage();
+        verbose        = false;
         
         super.init(coder:aDecoder);
         

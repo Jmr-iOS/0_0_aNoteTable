@@ -33,7 +33,10 @@ class CellSubview : UIView {
     var bottButton : UIButton!;
     
     //Data
-    var nameLabel    : UILabel!;
+    var nameLabel : UILabel!;
+    
+    //Config
+    private let verbose : Bool;                                     /* for this class                                               */
     
     
     /********************************************************************************************************************************/
@@ -45,6 +48,9 @@ class CellSubview : UIView {
      */
 	/********************************************************************************************************************************/
     init(mainView : UIView, parentCell : ANoteTableViewCell) {
+        
+        verbose = false;
+        
         super.init(frame: UIScreen.main.bounds);
         
         //Store

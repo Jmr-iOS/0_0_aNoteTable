@@ -33,7 +33,7 @@ class ANoteTableViewCell: UICustomTableViewCell, UICheckBoxDelegate {
     
     //Misc UI
     var timeView : UIView!;
-    var type     : UICheckbox.CellType!;
+    var type     : CellType!;
     var bellIcon : UIImageView!;
 
     //Locals
@@ -216,7 +216,7 @@ class ANoteTableViewCell: UICustomTableViewCell, UICheckBoxDelegate {
     /* @details   respond to selection of the time view                                                                             */
     /********************************************************************************************************************************/
     @objc func timeView_tapResponse() {
-        print("ANoteTableViewCell.tvResp():        tap response selected");
+        print("ANoteTableViewCell.tvResp():        tap response selected 1234");
         return;
     }
 
