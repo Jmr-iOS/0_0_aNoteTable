@@ -62,7 +62,7 @@ let descr_yOffs  : CGFloat = g.descripYOffs()-10;
 let descr_height : CGFloat = 20;
 
 //Main Text
-let mt_size : CGFloat = 16;                                     /* ('mt' - Main Text)                                               */
+let mt_size  : CGFloat = 16;                                    /* ('mt' - Main Text)                                               */
 let mt_xOffs : CGFloat = 46;
 let mt_yOffs : CGFloat = 2;
 

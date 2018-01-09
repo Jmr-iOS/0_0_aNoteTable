@@ -52,9 +52,9 @@ extension Row {
             guard let main = aDecoder.decodeObject(forKey: RowBackupKeys.main) as? String else { return nil; }
             guard let body = aDecoder.decodeObject(forKey: RowBackupKeys.body) as? String else { return nil; }
             guard let bott = aDecoder.decodeObject(forKey: RowBackupKeys.bott) as? String else { return nil; }
-            guard let time = aDecoder.decodeObject(forKey: RowBackupKeys.time) as? Date    else { return nil; }
+            guard let time = aDecoder.decodeObject(forKey: RowBackupKeys.time) as? Date   else { return nil; }
             
-            row = Row(main: main, body: body, bott: bott, time: time);
+            row = Row(main: main, body: body, bott: bott, time: time);          /* init new row from retrieved                      */
             
             super.init();
             
@@ -93,9 +93,9 @@ extension Row {
         static func encodeX(row: Row) {
             let rowClassObject = RowClass(row: row);
             
-            let x : Bool = NSKeyedArchiver.archiveRootObject(rowClassObject, toFile: RowClass.path());
+            let stat : Bool = NSKeyedArchiver.archiveRootObject(rowClassObject, toFile: RowClass.path());
             
-            print("-->I found that the encodeX save was \(x)");
+            print("-->I found that the encode save was \(stat)");
             
             return;
         }
@@ -122,8 +122,8 @@ extension Row {
         /****************************************************************************************************************************/
         static func saveStocksArray(rowArray: [Row]) -> Bool {
             let rowObjects = rowArray.map{RowClass(row: $0)}
-            let file = documentsDirectoryURL().appendingPathComponent("Rows").path          /* @todo        to helper               */
-            return NSKeyedArchiver.archiveRootObject(rowObjects, toFile: file)
+            let file = documentsDirectoryURL().appendingPathComponent("Rows").path;         /* @todo        to helper               */
+            return NSKeyedArchiver.archiveRootObject(rowObjects, toFile: file);
         }
         
         
@@ -134,8 +134,8 @@ extension Row {
          */
         /****************************************************************************************************************************/
         static func loadStocksArray() -> [Row]? {
-            let file = documentsDirectoryURL().appendingPathComponent("Rows").path          /* @todo        to helper               */
-            let result = NSKeyedUnarchiver.unarchiveObject(withFile: file)
+            let file = documentsDirectoryURL().appendingPathComponent("Rows").path;         /* @todo        to helper               */
+            let result = NSKeyedUnarchiver.unarchiveObject(withFile: file);                 /* @todo    string def to Globals       */
             return (result as? [RowClass])?.map{$0.row}
         }
 
@@ -167,7 +167,7 @@ extension Row {
             let documentsPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory,
                                                                     FileManager.SearchPathDomainMask.userDomainMask,
                                                                     true).first;
-            let path = documentsPath?.appendingFormat("/Row");
+            let path = documentsPath?.appendingFormat("/Row");                          /* @todo    string def to Globals           */
             
             return path!;
         }

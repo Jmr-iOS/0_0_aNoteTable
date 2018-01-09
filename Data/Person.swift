@@ -21,39 +21,39 @@ struct Person {
   static func decode() -> Person? {
     let personClassObject = NSKeyedUnarchiver.unarchiveObject(withFile: HelperClass.path()) as? HelperClass
 
-    return personClassObject?.person
+    return personClassObject?.person;
   }
 }
 
 extension Person {
     @objc(personHelperClass) class HelperClass: NSObject, NSCoding {
     
-    var person: Person?
+        var person: Person?;
     
     init(person: Person) {
-      self.person = person
-      super.init()
+        self.person = person;
+        super.init();
     }
     
     class func path() -> String {
-        let documentsPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first
-        let path = documentsPath?.appendingFormat("/Person")
-      return path!
+        let documentsPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first;
+        let path = documentsPath?.appendingFormat("/Person");
+        return path!;
     }
     
     required init?(coder aDecoder: NSCoder) {
-        guard let firstName = aDecoder.decodeObject(forKey: "firstName") as? String else { person = nil; super.init(); return nil }
-        guard let lastName = aDecoder.decodeObject(forKey: "lastName") as? String else { person = nil; super.init(); return nil }
+        guard let firstName = aDecoder.decodeObject(forKey: "firstName") as? String else { person = nil; super.init(); return nil; }
+        guard let lastName = aDecoder.decodeObject(forKey: "lastName") as? String else { person = nil; super.init(); return nil; }
       
-      person = Person(firstName: firstName, lastName: lastName)
-      
-      super.init()
+        person = Person(firstName: firstName, lastName: lastName);
+        
+        super.init();
     }
     
     
     func encode(with aCoder: NSCoder) {
-      aCoder.encode(person!.firstName, forKey: "firstName")
-      aCoder.encode(person!.lastName, forKey: "lastName")
+        aCoder.encode(person!.firstName, forKey: "firstName");
+        aCoder.encode(person!.lastName, forKey: "lastName");
     }
   }
 }

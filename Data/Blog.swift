@@ -3,7 +3,7 @@ import UIKit
 
 class Blog : NSObject, NSCoding {
     
-    var blogName: String
+    var blogName: String;
     
     // designated initializer
     //
@@ -13,9 +13,9 @@ class Blog : NSObject, NSCoding {
     // also : I would not override the init method of NSObject
 
     init(blogName: String) {
-        self.blogName = blogName
+        self.blogName = blogName;
         
-        super.init()        // call NSObject's init method
+        super.init();        // call NSObject's init method
     }
 
     func encode(with aCoder: NSCoder) {
@@ -23,7 +23,7 @@ class Blog : NSObject, NSCoding {
     }
 
     func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encode(blogName, forKey: "blogName")
+        aCoder.encode(blogName, forKey: "blogName");
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -31,13 +31,13 @@ class Blog : NSObject, NSCoding {
         guard let unarchivedBlogName = aDecoder.decodeObject(forKey: "blogName") as? String
             else {
                 // option 1 : return an default Blog
-                self.init(blogName: "unnamed")
-                return
+                self.init(blogName: "unnamed");
+                return;
                 
                 // option 2 : return nil, and handle the error at higher level
         }
         
         // convenience init must call the designated init
-        self.init(blogName: unarchivedBlogName)
+        self.init(blogName: unarchivedBlogName);
     }
 }
