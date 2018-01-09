@@ -96,7 +96,15 @@ class DataBackup : NSObject, NSCoding {
 
         let rowsBackup : [Row]?  = Row.RowClass.loadStocksArray();
         
-        if(DataBackup.verbose) { print("DataBackup.convience.init?():       retrieved \(rowsBackup![0].main!) for rows[0].main"); }
+        let respStr : String;
+        
+        if(rowsBackup!.count > 0) {
+            respStr = rowsBackup![0].main!;
+        } else {
+            respStr = "nil";
+        }
+        
+        if(DataBackup.verbose) { print("DataBackup.convience.init?():       retrieved \(respStr) for rows[0].main"); }
         
         self.init(rows: rowsBackup);
         

@@ -6,7 +6,7 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   1/7/17
+ *  @last rev   1/8/18
  *
  *  @section    Opens
  *      TimeField represented & stored with DatePicker
@@ -76,15 +76,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         
         //Init State
-        upperBar = UIView();
+        upperBar  = UIView();
         upperIcon = UIImageView();
         upperText = UITextView();
-        textBar = UIView();
+        textBar   = UIView();
         textIcon  = UIImageView();
         textField = UITextField();
         divBar = UIView();
         
-
+        print("H:\(UIScreen.main.bounds.height), W:\(UIScreen.main.bounds.width)");
         //**************************************************************************************************************************//
         //                                                Initialize Rows of Table                                                  //
         //  @targ   Nice and simple, make rows to match Images/Ref:aNoteRef.jpg                                                     //
@@ -108,13 +108,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
             
             if(i < 2) {
-                bottText = "Today \(i+2):00 PM";                                        /* e.g. "2:00 PM"                           */
+                bottText = "Today \(i+2):00 PM";                                    /* e.g. "2:00 PM"                               */
             } else {
-                bottText = "Today \(i+3):00 PM";                                        /* e.g. "3:00 PM"                           */
+                bottText = "Today \(i+3):00 PM";                                    /* e.g. "3:00 PM"                               */
             }
             
             //Time Val
-            let newTime : Int = ((i+3+12)*60);                      /* minutes since 12:00am today                                  */
+            let newTime : Date = Date(timeIntervalSinceNow: 0);
             
             rows.append(Row(main: mainText, body: bodyText, bott: bottText, time: newTime));
         }
@@ -126,19 +126,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
         DataBackup.storeViewController(self);
 
         //Backup Retrieve
-        DataBackup.loadData();                                              /* load the backup if exists                            */
+        DataBackup.loadData();                                                      /* load the backup if exists                    */
         
-//<TEMP>
         //Var Updates
         self.printVars();
         self.updateVars();
         self.printVars();
         
         //Store Updates
-        DataBackup.updateBackup();                                          /* store the update                                     */
-///</TEMP>
+        DataBackup.updateBackup();                                                  /* store the update                             */
         
-        print("ViewController.init():              Initialization complete");
+        print("ViewController.init():              initialization complete");
 
         return;
     }
@@ -190,6 +188,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         /****************************************************************************************************************************/
         /*                                                     Text Bar                                                             */
         /****************************************************************************************************************************/
+        let x_sett : CGFloat = (view.frame.width - 126);
+        let x_srch : CGFloat = (view.frame.width - 81);
+        let x_book : CGFloat = (view.frame.width - 37);
+        let x_list : CGFloat = (view.frame.width - 97);
+        let x_opt  : CGFloat = (view.frame.width - 60);
+        
         textBar.frame = CGRect(x: 0, y: yOffs, width: view.frame.width, height:  text_bar_height);
         
         //Load Icon
@@ -205,30 +209,30 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.delegate = self;
         
         //Load Text Field Buttons
-        let listButton : UIButton = UIButton(frame: CGRect(x: 223, y: 74, width: 25, height: 25));
+        let listButton : UIButton = UIButton(frame: CGRect(x: x_list, y: 74, width: 25, height: 25));
         listButton.translatesAutoresizingMaskIntoConstraints = true;
         listButton.setBackgroundImage(UIImage(named:"List"), for: UIControlState());
         listButton.addTarget(self, action: #selector(self.listPressed(_:)), for:  .touchUpInside);
         
-        let optionButton : UIButton = UIButton(frame: CGRect(x: 260, y: 74, width: 50, height: 25));
+        let optionButton : UIButton = UIButton(frame: CGRect(x: x_opt, y: 74, width: 50, height: 25));
         optionButton.translatesAutoresizingMaskIntoConstraints = true;
         optionButton.setBackgroundImage(UIImage(named:"Option"), for: UIControlState());
         optionButton.addTarget(self, action: #selector(self.optionPressed(_:)), for:  .touchUpInside);
 
         //Upper Icons
-        let settingsButton : UIButton = UIButton(frame: CGRect(x: 194, y: 30, width: 25, height: 25));
+        let settingsButton : UIButton = UIButton(frame: CGRect(x: x_sett, y: 30, width: 25, height: 25));
         settingsButton.translatesAutoresizingMaskIntoConstraints = true;
         settingsButton.setBackgroundImage(UIImage(named:"Folder Settings"), for: UIControlState());
         settingsButton.addTarget(self, action: #selector(self.settingsPressed(_:)), for:  .touchUpInside);
         self.view.addSubview(settingsButton);
 
-        let searchButton : UIButton = UIButton(frame: CGRect(x: 239, y: 29, width: 25, height: 25));
+        let searchButton : UIButton = UIButton(frame: CGRect(x: x_srch, y: 29, width: 25, height: 25));
         searchButton.translatesAutoresizingMaskIntoConstraints = true;
         searchButton.setBackgroundImage(UIImage(named:"Search Glass"), for: UIControlState());
         searchButton.addTarget(self, action: #selector(self.searchPressed(_:)), for:  .touchUpInside);
         self.view.addSubview(searchButton);
         
-        let bookmarkButton : UIButton = UIButton(frame: CGRect(x: 283, y: 29, width: 25, height: 25));
+        let bookmarkButton : UIButton = UIButton(frame: CGRect(x: x_book, y: 29, width: 25, height: 25));
         bookmarkButton.translatesAutoresizingMaskIntoConstraints = true;
         bookmarkButton.setBackgroundImage(UIImage(named:"Bookmark Tab"), for: UIControlState());
         bookmarkButton.addTarget(self, action: #selector(self.bookmarkPressed(_:)), for:  .touchUpInside);
@@ -264,26 +268,31 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         //Store offset
         yOffs += aNoteTable.frame.height;
-        
-        
+
+
         /****************************************************************************************************************************/
         /*                                                    Bottom Bar                                                            */
         /****************************************************************************************************************************/
+        let x_plus : CGFloat = (view.frame.width  - 55);
+        let y_bott : CGFloat = (view.frame.height - lower_bar_height);
+        let y_ret  : CGFloat = (view.frame.height - 35);
+        let y_plus : CGFloat = (view.frame.height - 45);
+        
         bottBar = UIView();
         bottBar.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.0);      /* #f9f9f9                              */
         bottBar.frame = CGRect(x: 0,
-                               y: (view.frame.height - lower_bar_height),
+                               y: y_bott,
                                width: view.frame.width,
                                height: lower_bar_height);
         
         //Return Arrow
-        let returnArrow : UIButton = UIButton(frame: CGRect(x: 24, y: 533, width: 20, height: 20));
+        let returnArrow : UIButton = UIButton(frame: CGRect(x: 24, y: y_ret, width: 20, height: 20));
         returnArrow.translatesAutoresizingMaskIntoConstraints = true;
         returnArrow.setBackgroundImage(UIImage(named:"Bottom Arrow"), for: UIControlState());
         returnArrow.addTarget(self, action: #selector(self.returnPressed(_:)), for:  .touchUpInside);
         
         //Plus Button
-        let plusButton : UIButton = UIButton(frame: CGRect(x: 265, y: 523, width: 40, height: 40));
+        let plusButton : UIButton = UIButton(frame: CGRect(x: x_plus, y: y_plus, width: 40, height: 40));
         plusButton.translatesAutoresizingMaskIntoConstraints = true;
         plusButton.setBackgroundImage(UIImage(named:"Plus Button"), for: UIControlState());
         plusButton.addTarget(self, action: #selector(self.plusPressed(_:)), for:  .touchUpInside);

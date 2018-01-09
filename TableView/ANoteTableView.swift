@@ -31,7 +31,7 @@ class ANoteTableView : UICustomTableView {
     /********************************************************************************************************************************/
     init(frame: CGRect, style: UITableViewStyle, i : Int) {
         
-        print("ANoteTableView.init():              Currently Configured to UITableViewCell usage");
+        print("ANoteTableView.init():              currently configured to UITableViewCell usage");
 
         
         /****************************************************************************************************************************/

@@ -184,9 +184,9 @@ class ANoteTableViewCell: UICustomTableViewCell, UICheckBoxDelegate {
         /*                                                      Time Label                                                          */
         /****************************************************************************************************************************/
         timeView = UIView(frame: CGRect(x:      tv_xOffs,
-                                                     y:      tv_yOffs,
-                                                     width:  tv_width,
-                                                     height: tv_height));
+                                        y:      tv_yOffs,
+                                        width:  tv_width,
+                                        height: tv_height));
         
         timeView.backgroundColor = nearColor_val;
         timeView.layer.cornerRadius = tv_corner;

@@ -52,7 +52,7 @@ extension Row {
             guard let main = aDecoder.decodeObject(forKey: RowBackupKeys.main) as? String else { return nil; }
             guard let body = aDecoder.decodeObject(forKey: RowBackupKeys.body) as? String else { return nil; }
             guard let bott = aDecoder.decodeObject(forKey: RowBackupKeys.bott) as? String else { return nil; }
-            guard let time = aDecoder.decodeObject(forKey: RowBackupKeys.time) as? Int    else { return nil; }
+            guard let time = aDecoder.decodeObject(forKey: RowBackupKeys.time) as? Date    else { return nil; }
             
             row = Row(main: main, body: body, bott: bott, time: time);
             

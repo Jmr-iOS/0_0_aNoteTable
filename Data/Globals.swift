@@ -44,7 +44,7 @@ let check_yOffs : CGFloat = 15;
 let check_dur_s : TimeInterval = TimeInterval(0.070);
 
 //Time View
-let tv_xOffs  : CGFloat = 258;                              /* ('tv' - Time View)                                                   */
+let tv_xOffs  : CGFloat = (UIScreen.main.bounds.width - 62);    /* ('tv' - Time View)                                               */
 let tv_yOffs  : CGFloat = 14;
 let tv_width  : CGFloat = 52;
 let tv_height : CGFloat = 18;
@@ -53,13 +53,13 @@ let tv_corner : CGFloat = 10;
 
 //Subject Text
 let subj_height : CGFloat = 25;
-let subj_xOffs    : CGFloat = 46;
+let subj_xOffs  : CGFloat = 46;
 let subj_yOffs  : CGFloat = 25;
 
 //Description Text
 let descr_xOffs  : CGFloat = cell_xOffs-10;
 let descr_yOffs  : CGFloat = g.descripYOffs()-10;
-let descr_height  : CGFloat = 20;
+let descr_height : CGFloat = 20;
 
 //Main Text
 let mt_size : CGFloat = 16;                                     /* ('mt' - Main Text)                                               */
@@ -119,7 +119,7 @@ class Globals {
     /********************************************************************************************************************************/
     init() {        
         //@todo     init globals
-        if(verbose) { print("Globals.init():                     Globals initialized"); }
+        if(verbose) { print("Globals.init():                     globals initialized"); }
         
         return;
     }
