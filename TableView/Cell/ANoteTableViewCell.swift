@@ -214,16 +214,20 @@ class ANoteTableViewCell: UICustomTableViewCell, UICheckBoxDelegate {
     /********************************************************************************************************************************/
     /* @fcn       timeView_tapResponse()                                                                                            */
     /* @details   respond to selection of the time view                                                                             */
+    /*                                                                                                                              */
     /* @section     Opens                                                                                                           */
     /*      generate slideup for custDate Selection                                                                                 */
     /*      generate response actions                                                                                               */
     /*      complete and store                                                                                                      */
+    /*                                                                                                                              */
     /********************************************************************************************************************************/
     @objc func timeView_tapResponse() {
-        print("ANoteTableViewCell.tvResp():        tap response selected 1234");
         
-        //
+        print("ANoteTableViewCell.tvResp():        tap response selected");
         
+        raiseTimePicker();
+        
+        //@todo
         
         //@goal present ANotePickerView, allowing for selection (upper bar of 'cancel', 'done' & 'date'
         
@@ -368,10 +372,21 @@ class ANoteTableViewCell: UICustomTableViewCell, UICheckBoxDelegate {
         return;
     }
 
+    
+    /********************************************************************************************************************************/
+    /** @fcn        raiseTimePicker()
+     *  @brief      raise a picker to select a time value
+     *  @details    x
+     */
+    /********************************************************************************************************************************/
+    func raiseTimePicker() {
+        
+        //Generate View to Slide Up (similar to aNote) -> Cancel<->"Name"<->Done, Table Below (row 1: date)
+        let x : ANoteTimeSelect = ANoteTimeSelect(vc);
+        x.show(vc);
 
-    //@temp
-    func getMainText() -> String? {
-        return self.subjectField.text;
+        if(true/*verbose*/) { print("ANoteTableViewCell.raiseTimePkr():  time selection picker was shown"); }
+        return;
     }
 }
 

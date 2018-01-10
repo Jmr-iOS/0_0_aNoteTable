@@ -3,14 +3,6 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "ViewController.getANoteFrame(y:bottHeight:):ViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "view.frame">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "static DataBackup.saveData():DataBackup.swift">
          <PersistentStrings>
             <PersistentString
@@ -19,10 +11,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "DataBackup.init(coder:):DataBackup.swift">
-      </ContextState>
-      <ContextState
-         contextName = "static DataBackup.loadData():DataBackup.swift">
+         contextName = "ViewController.getANoteFrame(y:bottHeight:):ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "view.frame">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "DataBackup.encode(with:):DataBackup.swift">
@@ -31,6 +25,28 @@
                value = "self.someRow.main">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DataBackup.init(coder:):DataBackup.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ANoteTableViewCell.raiseTimePicker():ANoteTableViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "vc.view">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ANoteTimeSelect.init(_:):ANoteTimeSelect.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "rowHeight">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static DataBackup.loadData():DataBackup.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

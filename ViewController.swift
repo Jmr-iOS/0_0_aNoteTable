@@ -11,6 +11,7 @@
  *  @section    Opens
  *      TimeField represented & stored with UIDatePicker (see ref)
  *      TimeField modifiable & retained in backups (gen selection slideup & action matching aNote)
+ *      Do not respond to cell taps when ANoteTimeSelect raised
  *      Cell SubView, full screen and date field!
  *          Subview to full screen
  *          Subview ui layout matches aNote
@@ -336,11 +337,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         tableFrame.origin.y = y;
 
         let numRows   : CGFloat = CGFloat(rows.count);
-        let rowHeight : CGFloat = row_height;
         
         //Max Height
         let maxHeight   : CGFloat = (view.frame.height - y - bottHeight);
-        let tableHeight : CGFloat = (numRows * rowHeight);
+        let tableHeight : CGFloat = (numRows * row_height);
 
         if(tableHeight < maxHeight) {
             tableFrame.size.height = tableHeight;
