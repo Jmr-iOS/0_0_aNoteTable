@@ -92,7 +92,7 @@ class ANoteTableViewCell: UICustomTableViewCell, UICheckBoxDelegate {
         self.mainView.addSubview(self.cellSubView);
 
         //Get Current Cell's Info
-        let currRow : Row = self.vc.rows[indexPath.item];
+        let currRow : ANoteRow = self.vc.rows[indexPath.item];
         
 
         /****************************************************************************************************************************/
@@ -383,9 +383,13 @@ class ANoteTableViewCell: UICustomTableViewCell, UICheckBoxDelegate {
         
         //Generate View to Slide Up (similar to aNote) -> Cancel<->"Name"<->Done, Table Below (row 1: date)
         let x : ANoteTimeSelect = ANoteTimeSelect(vc);
-        x.show(vc);
 
-        if(true/*verbose*/) { print("ANoteTableViewCell.raiseTimePkr():  time selection picker was shown"); }
+        if(viewOpen) {
+            x.show(vc);
+            if(true/*verbose*/) { print("ANoteTableViewCell.raiseTimePkr():  time selection picker was shown"); }
+        } else {
+            if(true/*verbose*/) { print("ANoteTableViewCell.raiseTimePkr():  view not open, aborting load"); }
+        }
         return;
     }
 }

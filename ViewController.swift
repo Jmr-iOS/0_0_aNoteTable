@@ -9,9 +9,9 @@
  *  @last rev   1/10/18
  *
  *  @section    Opens
- *      TimeField represented & stored with UIDatePicker (see ref)
- *      TimeField modifiable & retained in backups (gen selection slideup & action matching aNote)
  *      Do not respond to cell taps when ANoteTimeSelect raised
+ *      TimeField gen seletion (slideup & action matching aNote)
+ *          Row[0] - Title bar matches
  *      Cell SubView, full screen and date field!
  *          Subview to full screen
  *          Subview ui layout matches aNote
@@ -65,7 +65,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var cellBordersVisible:Bool = true;
 
     //Data
-    var rows : [Row];
+    var rows : [ANoteRow];
 
     
     /********************************************************************************************************************************/
@@ -90,7 +90,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //                                                Initialize Rows of Table                                                  //
         //  @targ   Nice and simple, make rows to match Images/Ref:aNoteRef.jpg                                                     //
         //**************************************************************************************************************************//
-        rows = [Row]();                                                             /* init rows                                    */
+        rows = [ANoteRow]();                                                        /* init rows                                    */
 
         for i in 0...(numRows-1) {
             
@@ -117,7 +117,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             //Time Val
             let newTime : Date = Date(timeIntervalSinceNow: 0);
             
-            rows.append(Row(main: mainText, body: bodyText, bott: bottText, time: newTime));
+            rows.append(ANoteRow(main: mainText, body: bodyText, bott: bottText, time: newTime));
         }
         
         //Super
@@ -311,6 +311,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         aNoteTable.delegate   = aNoteTableHandler;                                      /* Set both to handle clicks & provide data */
         aNoteTable.dataSource = aNoteTableHandler;        
+        
+        //Post
+        viewOpen = true;                                                                /* main view is free for use                */
         
         print("ViewController.viewDidLoad():       viewDidLoad() complete");
         

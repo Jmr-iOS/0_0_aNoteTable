@@ -36,7 +36,7 @@ class DataBackup : NSObject, NSCoding {
     static var vc : ViewController!;                                        /* for use and access to data during a backup store/load*/
 
     //Backup Data
-    var rows      : [Row]?;
+    var rows      : [ANoteRow]?;
 
     
 //MARK: Initialization
@@ -44,10 +44,10 @@ class DataBackup : NSObject, NSCoding {
     /** @fcn        init?()
      *  @brief      initialization from backup
      *  @details    used by convienence init
-     *  @param      [in] ([Row]?)  rows - rows of table
+     *  @param      [in] ([ANoteRow]?)  rows - rows of table
      */
     /********************************************************************************************************************************/
-    init?(rows : [Row]?) {
+    init?(rows : [ANoteRow]?) {
         
         if(DataBackup.verbose) { print("DataBackup.init?():                 initialization from backup begin"); }
 
@@ -75,7 +75,7 @@ class DataBackup : NSObject, NSCoding {
 
         if(DataBackup.verbose) { print("DataBackup.encodeWithCoder():       storage init"); }
 
-        let _ : Bool = Row.RowClass.saveStocksArray(rowArray: self.rows!);
+        let _ : Bool = ANoteRow.ANoteRowClass.saveStocksArray(rowArray: self.rows!);
 
         if(DataBackup.verbose) { print("DataBackup.encodeWithCoder():       storage complete"); }
 
@@ -94,17 +94,21 @@ class DataBackup : NSObject, NSCoding {
     /********************************************************************************************************************************/
     required convenience init?(coder aDecoder: NSCoder) {
 
-        let rowsBackup : [Row]?  = Row.RowClass.loadStocksArray();
+        let rowsBackup : [ANoteRow]?  = ANoteRow.ANoteRowClass.loadStocksArray();
         
-        let respStr : String;
+        var respStr : String;
         
-        if(rowsBackup!.count > 0) {
-            respStr = rowsBackup![0].main!;
+        if(rowsBackup != nil) {
+            if(rowsBackup!.count > 0) {
+                respStr = rowsBackup![0].main!;
+            } else {
+                respStr = "nil";
+            }
         } else {
-            respStr = "nil";
+            respStr = "empty";
         }
         
-        if(DataBackup.verbose) { print("DataBackup.convience.init?():       retrieved \(respStr) for rows[0].main"); }
+        if(DataBackup.verbose) { print("DataBackup.convience.init?():       retrieved '\(String(describing: respStr))' for rows[0].main"); }
         
         self.init(rows: rowsBackup);
         
@@ -130,15 +134,20 @@ class DataBackup : NSObject, NSCoding {
             print("DataBackup.loadData():             warning, vc not stored on call, aborting load");
             return;
         } else {
-            vc = DataBackup.vc!;                                /* grab vc                                                          */
+            vc = DataBackup.vc!;                                            /* grab vc                                              */
         }
         
         if(DataBackup.verbose) { print("DataBackup.loadData():              entering NSKeyedUnarchiver search"); }
         let retrievedData : DataBackup? = NSKeyedUnarchiver.unarchiveObject(withFile: DataBackup.ArchiveURL.path) as? DataBackup;
-        if(DataBackup.verbose) { print("DataBackup.loadData():              exiting NSKeyedUnarchiver search with '\(retrievedData!.hash)'"); }
+        if(DataBackup.verbose) { print("DataBackup.loadData():              exiting NSKeyedUnarchiver search with '\(retrievedData != nil)' status"); }
 
-        //Apply the loaded data to vc
-        vc.rows = (retrievedData?.rows)!;
+        //Grab archive
+        let retrievedRows : [ANoteRow]? = (retrievedData?.rows);
+
+        //Apply if found
+        if(retrievedRows != nil) {
+            vc.rows = retrievedRows!;
+        }
         
         return;
     }
@@ -158,7 +167,7 @@ class DataBackup : NSObject, NSCoding {
         //**************************************************************************************************************************//
         //                                          GEN BACKUP FOR STORAGE                                                          //
         //**************************************************************************************************************************//
-        let currRows  : [Row]  = vc.rows;
+        let currRows  : [ANoteRow]  = vc.rows;
         
         let backup : DataBackup = DataBackup(rows: currRows)!;
 

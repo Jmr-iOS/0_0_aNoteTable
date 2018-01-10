@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D02934291FE9B9DB00DB4BD8 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02934271FE9B9DB00DB4BD8 /* Globals.swift */; };
-		D029342D1FE9BA1200DB4BD8 /* ANoteTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029342B1FE9BA1200DB4BD8 /* ANoteTableView.swift */; };
-		D029342E1FE9BA1200DB4BD8 /* ANoteTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029342C1FE9BA1200DB4BD8 /* ANoteTableViewHandler.swift */; };
 		D029343F1FE9BA6900DB4BD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D029343B1FE9BA6800DB4BD8 /* Assets.xcassets */; };
 		D02934451FE9BA7F00DB4BD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02934431FE9BA7F00DB4BD8 /* AppDelegate.swift */; };
 		D02934461FE9BA7F00DB4BD8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02934441FE9BA7F00DB4BD8 /* ViewController.swift */; };
@@ -17,22 +15,23 @@
 		D029344D1FE9BAD500DB4BD8 /* UICustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029344A1FE9BAD500DB4BD8 /* UICustomTableViewCell.swift */; };
 		D029344E1FE9BAD500DB4BD8 /* UICustomTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029344B1FE9BAD500DB4BD8 /* UICustomTableViewHandler.swift */; };
 		D03AEBD21FF1E5AB003611D2 /* DataBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03AEBD11FF1E5AB003611D2 /* DataBackup.swift */; };
+		D06A09DD200736B000B4C831 /* ANoteTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06A09DA200736B000B4C831 /* ANoteTableViewHandler.swift */; };
+		D06A09DE200736B000B4C831 /* ANoteTimeSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06A09DB200736B000B4C831 /* ANoteTimeSelect.swift */; };
+		D06A09DF200736B000B4C831 /* ANoteTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06A09DC200736B000B4C831 /* ANoteTableView.swift */; };
+		D06A09E52007373D00B4C831 /* ANoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06A09E4200736D400B4C831 /* ANoteRow.swift */; };
+		D06A09E62007373D00B4C831 /* ANoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D06A09E3200736D400B4C831 /* ANoteTableViewCell.swift */; };
+		D091D93820090EC600BFBA67 /* UICheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01786662007B34800E69A77 /* UICheckbox.swift */; };
 		D095190D1FFC1ED1006E8F9A /* Stdcomments.swift in Sources */ = {isa = PBXBuildFile; fileRef = D095190C1FFC1ED1006E8F9A /* Stdcomments.swift */; };
 		D095190F1FFC1ED9006E8F9A /* NewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D095190E1FFC1ED9006E8F9A /* NewClass.swift */; };
 		D09519111FFC1EDE006E8F9A /* Empty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09519101FFC1EDE006E8F9A /* Empty.storyboard */; };
-		D0F56B2C20069985003DD327 /* ANoteTimeSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F56B2B20069985003DD327 /* ANoteTimeSelect.swift */; };
 		D0F8FAC21FF54D83008E4A12 /* Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F8FAC01FF54D83008E4A12 /* Blog.swift */; };
 		D0F8FAC31FF54D83008E4A12 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F8FAC11FF54D83008E4A12 /* Person.swift */; };
-		D0F8FAC81FF54D9F008E4A12 /* UICheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F8FAC51FF54D9F008E4A12 /* UICheckbox.swift */; };
-		D0F8FAC91FF54D9F008E4A12 /* ANoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F8FAC61FF54D9F008E4A12 /* ANoteTableViewCell.swift */; };
 		D0F8FACA1FF54D9F008E4A12 /* CellSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F8FAC71FF54D9F008E4A12 /* CellSubview.swift */; };
-		D0F8FACC1FF56C7E008E4A12 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F8FACB1FF56C7E008E4A12 /* Row.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D01786662007B34800E69A77 /* UICheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckbox.swift; sourceTree = "<group>"; };
 		D02934271FE9B9DB00DB4BD8 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Globals.swift; path = ../Data/Globals.swift; sourceTree = "<group>"; };
-		D029342B1FE9BA1200DB4BD8 /* ANoteTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANoteTableView.swift; path = ../TableView/ANoteTableView.swift; sourceTree = "<group>"; };
-		D029342C1FE9BA1200DB4BD8 /* ANoteTableViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANoteTableViewHandler.swift; path = ../TableView/ANoteTableViewHandler.swift; sourceTree = "<group>"; };
 		D029343B1FE9BA6800DB4BD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D029343E1FE9BA6900DB4BD8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D02934431FE9BA7F00DB4BD8 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,16 +41,17 @@
 		D029344B1FE9BAD500DB4BD8 /* UICustomTableViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICustomTableViewHandler.swift; path = "../../../../../Ref/Libraries/Programmatic UI/UICustomTableViewHandler.swift"; sourceTree = "<group>"; };
 		D039B4B61BF4D7950024005F /* 0_0 - aNoteTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "0_0 - aNoteTable.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03AEBD11FF1E5AB003611D2 /* DataBackup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataBackup.swift; path = ../Data/DataBackup.swift; sourceTree = "<group>"; };
+		D06A09DA200736B000B4C831 /* ANoteTableViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANoteTableViewHandler.swift; path = "../../../../../../Ref/Libraries/Programmatic UI/ANote/ANoteTableViewHandler.swift"; sourceTree = "<group>"; };
+		D06A09DB200736B000B4C831 /* ANoteTimeSelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANoteTimeSelect.swift; path = "../../../../../../Ref/Libraries/Programmatic UI/ANote/ANoteTimeSelect.swift"; sourceTree = "<group>"; };
+		D06A09DC200736B000B4C831 /* ANoteTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANoteTableView.swift; path = "../../../../../../Ref/Libraries/Programmatic UI/ANote/ANoteTableView.swift"; sourceTree = "<group>"; };
+		D06A09E3200736D400B4C831 /* ANoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANoteTableViewCell.swift; sourceTree = "<group>"; };
+		D06A09E4200736D400B4C831 /* ANoteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANoteRow.swift; sourceTree = "<group>"; };
 		D095190C1FFC1ED1006E8F9A /* Stdcomments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stdcomments.swift; path = ../../../../../Ref/iOS/Base/Stdcomments.swift; sourceTree = "<group>"; };
 		D095190E1FFC1ED9006E8F9A /* NewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewClass.swift; path = ../../../../../Ref/iOS/Base/NewClass.swift; sourceTree = "<group>"; };
 		D09519101FFC1EDE006E8F9A /* Empty.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Empty.storyboard; path = ../../../../../Ref/iOS/Base/Empty.storyboard; sourceTree = "<group>"; };
-		D0F56B2B20069985003DD327 /* ANoteTimeSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANoteTimeSelect.swift; sourceTree = "<group>"; };
 		D0F8FAC01FF54D83008E4A12 /* Blog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Blog.swift; path = ../Data/Blog.swift; sourceTree = "<group>"; };
 		D0F8FAC11FF54D83008E4A12 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = ../Data/Person.swift; sourceTree = "<group>"; };
-		D0F8FAC51FF54D9F008E4A12 /* UICheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICheckbox.swift; path = ../TableView/Cell/UICheckbox.swift; sourceTree = "<group>"; };
-		D0F8FAC61FF54D9F008E4A12 /* ANoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANoteTableViewCell.swift; path = ../TableView/Cell/ANoteTableViewCell.swift; sourceTree = "<group>"; };
 		D0F8FAC71FF54D9F008E4A12 /* CellSubview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellSubview.swift; path = ../TableView/Cell/CellSubview.swift; sourceTree = "<group>"; };
-		D0F8FACB1FF56C7E008E4A12 /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Row.swift; path = ../Data/Row.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +70,6 @@
 			children = (
 				D03AEBD11FF1E5AB003611D2 /* DataBackup.swift */,
 				D0F8FAC01FF54D83008E4A12 /* Blog.swift */,
-				D0F8FACB1FF56C7E008E4A12 /* Row.swift */,
 				D0F8FAC11FF54D83008E4A12 /* Person.swift */,
 				D02934271FE9B9DB00DB4BD8 /* Globals.swift */,
 			);
@@ -81,8 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				D0F8FAC41FF54D97008E4A12 /* Cell */,
-				D029342B1FE9BA1200DB4BD8 /* ANoteTableView.swift */,
-				D029342C1FE9BA1200DB4BD8 /* ANoteTableViewHandler.swift */,
 			);
 			name = TableView;
 			sourceTree = "<group>";
@@ -90,6 +87,8 @@
 		D02934361FE9BA3D00DB4BD8 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				D06A09D52007369F00B4C831 /* ANote */,
+				D01786662007B34800E69A77 /* UICheckbox.swift */,
 				D02934491FE9BAD500DB4BD8 /* UICustomTableView.swift */,
 				D029344A1FE9BAD500DB4BD8 /* UICustomTableViewCell.swift */,
 				D029344B1FE9BAD500DB4BD8 /* UICustomTableViewHandler.swift */,
@@ -130,13 +129,30 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D06A09D52007369F00B4C831 /* ANote */ = {
+			isa = PBXGroup;
+			children = (
+				D06A09E2200736CD00B4C831 /* Cell */,
+				D06A09DC200736B000B4C831 /* ANoteTableView.swift */,
+				D06A09DA200736B000B4C831 /* ANoteTableViewHandler.swift */,
+				D06A09DB200736B000B4C831 /* ANoteTimeSelect.swift */,
+			);
+			path = ANote;
+			sourceTree = "<group>";
+		};
+		D06A09E2200736CD00B4C831 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D06A09E4200736D400B4C831 /* ANoteRow.swift */,
+				D06A09E3200736D400B4C831 /* ANoteTableViewCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		D0F8FAC41FF54D97008E4A12 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				D0F8FAC61FF54D9F008E4A12 /* ANoteTableViewCell.swift */,
-				D0F56B2B20069985003DD327 /* ANoteTimeSelect.swift */,
 				D0F8FAC71FF54D9F008E4A12 /* CellSubview.swift */,
-				D0F8FAC51FF54D9F008E4A12 /* UICheckbox.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -215,22 +231,22 @@
 			files = (
 				D0F8FACA1FF54D9F008E4A12 /* CellSubview.swift in Sources */,
 				D0F8FAC31FF54D83008E4A12 /* Person.swift in Sources */,
-				D0F8FAC91FF54D9F008E4A12 /* ANoteTableViewCell.swift in Sources */,
 				D029344C1FE9BAD500DB4BD8 /* UICustomTableView.swift in Sources */,
 				D0F8FAC21FF54D83008E4A12 /* Blog.swift in Sources */,
 				D02934451FE9BA7F00DB4BD8 /* AppDelegate.swift in Sources */,
-				D0F56B2C20069985003DD327 /* ANoteTimeSelect.swift in Sources */,
+				D06A09DF200736B000B4C831 /* ANoteTableView.swift in Sources */,
+				D06A09E52007373D00B4C831 /* ANoteRow.swift in Sources */,
+				D06A09E62007373D00B4C831 /* ANoteTableViewCell.swift in Sources */,
+				D06A09DE200736B000B4C831 /* ANoteTimeSelect.swift in Sources */,
+				D06A09DD200736B000B4C831 /* ANoteTableViewHandler.swift in Sources */,
+				D091D93820090EC600BFBA67 /* UICheckbox.swift in Sources */,
 				D029344E1FE9BAD500DB4BD8 /* UICustomTableViewHandler.swift in Sources */,
-				D029342E1FE9BA1200DB4BD8 /* ANoteTableViewHandler.swift in Sources */,
 				D029344D1FE9BAD500DB4BD8 /* UICustomTableViewCell.swift in Sources */,
 				D03AEBD21FF1E5AB003611D2 /* DataBackup.swift in Sources */,
 				D02934461FE9BA7F00DB4BD8 /* ViewController.swift in Sources */,
-				D029342D1FE9BA1200DB4BD8 /* ANoteTableView.swift in Sources */,
 				D095190F1FFC1ED9006E8F9A /* NewClass.swift in Sources */,
-				D0F8FACC1FF56C7E008E4A12 /* Row.swift in Sources */,
 				D095190D1FFC1ED1006E8F9A /* Stdcomments.swift in Sources */,
 				D02934291FE9B9DB00DB4BD8 /* Globals.swift in Sources */,
-				D0F8FAC81FF54D9F008E4A12 /* UICheckbox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

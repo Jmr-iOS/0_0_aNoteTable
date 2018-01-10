@@ -27,7 +27,7 @@ class CellSubview : UIView {
     var parentCell   : ANoteTableViewCell!;
     
     //UI
-    var returnButton : UIButton!;                                   /* return button of the subview                                 */
+    var retButton  : UIButton!;                                     /* return button of the subview                                 */
     var mainButton : UIButton!;
     var bodyButton : UIButton!;
     var bottButton : UIButton!;
@@ -111,17 +111,17 @@ class CellSubview : UIView {
         //**************************************************************************************************************************//
         //                                            INIT BUTTON                                                                   //
         //**************************************************************************************************************************//
-        self.returnButton = UIButton(type: UIButtonType.roundedRect);
+        self.retButton = UIButton(type: UIButtonType.roundedRect);
  
-        self.returnButton.translatesAutoresizingMaskIntoConstraints = true;
-        self.returnButton.setTitle("Return",      for: UIControlState());
-        self.returnButton.backgroundColor = UIColor.green;
-        self.returnButton.sizeToFit();
-        self.returnButton.center = CGPoint(x: self.mainView.center.x, y: ret_yOffs);
-        self.returnButton.addTarget(self, action: #selector(self.returnPress(_:)), for:  .touchUpInside);
+        self.retButton.translatesAutoresizingMaskIntoConstraints = true;
+        self.retButton.setTitle("Return",      for: UIControlState());
+        self.retButton.backgroundColor = UIColor.green;
+        self.retButton.sizeToFit();
+        self.retButton.center = CGPoint(x: self.mainView.center.x, y: ret_yOffs);
+        self.retButton.addTarget(self, action: #selector(self.returnPress(_:)), for:  .touchUpInside);
         
         //Add button
-        self.addSubview(self.returnButton);
+        self.addSubview(self.retButton);
 
         //**************************************************************************************************************************//
         //                                            MAIN BUTTON                                                                   //

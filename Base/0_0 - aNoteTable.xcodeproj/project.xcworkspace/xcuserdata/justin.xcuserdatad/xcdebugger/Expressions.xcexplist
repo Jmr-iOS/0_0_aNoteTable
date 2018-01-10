@@ -48,5 +48,13 @@
       <ContextState
          contextName = "static DataBackup.loadData():DataBackup.swift">
       </ContextState>
+      <ContextState
+         contextName = "ANoteTimeSelect.loadPopup(_:dir:height:):ANoteTimeSelect.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewOpen">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>
