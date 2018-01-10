@@ -214,9 +214,19 @@ class ANoteTableViewCell: UICustomTableViewCell, UICheckBoxDelegate {
     /********************************************************************************************************************************/
     /* @fcn       timeView_tapResponse()                                                                                            */
     /* @details   respond to selection of the time view                                                                             */
+    /* @section     Opens                                                                                                           */
+    /*      generate slideup for custDate Selection                                                                                 */
+    /*      generate response actions                                                                                               */
+    /*      complete and store                                                                                                      */
     /********************************************************************************************************************************/
     @objc func timeView_tapResponse() {
         print("ANoteTableViewCell.tvResp():        tap response selected 1234");
+        
+        //
+        
+        
+        //@goal present ANotePickerView, allowing for selection (upper bar of 'cancel', 'done' & 'date'
+        
         return;
     }
 

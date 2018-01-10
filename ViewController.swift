@@ -6,11 +6,11 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   1/9/18
+ *  @last rev   1/10/18
  *
  *  @section    Opens
- *      TimeField represented & stored with DatePicker
- *      TimeField modifiable & retained in backups
+ *      TimeField represented & stored with UIDatePicker (see ref)
+ *      TimeField modifiable & retained in backups (gen selection slideup & action matching aNote)
  *      Cell SubView, full screen and date field!
  *          Subview to full screen
  *          Subview ui layout matches aNote

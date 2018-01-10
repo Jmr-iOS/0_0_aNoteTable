@@ -266,11 +266,11 @@ class CellSubview : UIView {
         
         //Slide in View
         UIView.animate(withDuration: launch_dur_s, delay: launch_del_s, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {
-            print("CellSubview.dismissSubView():   sliding view out");
+            print("CellSubview.dismissSubView():       sliding view out");
             self.alpha = 1.0;
             self.frame = g.getCSFrame(onscreen: false);
         }, completion: { (finished: Bool) -> Void in
-            print("CellSubview.dismissSubView():   sliding view out completion");
+            print("CellSubview.dismissSubView():       sliding view out completion");
             self.frame = g.getCSFrame(onscreen: false);
         });
         
