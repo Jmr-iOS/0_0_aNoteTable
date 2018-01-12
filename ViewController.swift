@@ -6,7 +6,7 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   1/10/18
+ *  @last rev   1/12/18
  *
  *  @section    Opens
  *      Do not respond to cell taps when ANoteTimeSelect raised
