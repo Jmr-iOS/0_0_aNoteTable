@@ -9,7 +9,6 @@
  *  @last rev   1/13/18
  *
  *  @section    Opens
- *      TimeSelect Dimensions match on unzoomed too
  *      row[1]
  *      row2[2]
  *      close TimeSelect & push
