@@ -24,9 +24,9 @@
 		D095190D1FFC1ED1006E8F9A /* Stdcomments.swift in Sources */ = {isa = PBXBuildFile; fileRef = D095190C1FFC1ED1006E8F9A /* Stdcomments.swift */; };
 		D095190F1FFC1ED9006E8F9A /* NewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D095190E1FFC1ED9006E8F9A /* NewClass.swift */; };
 		D09519111FFC1EDE006E8F9A /* Empty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09519101FFC1EDE006E8F9A /* Empty.storyboard */; };
+		D0C3928C200AD7D300B0EAA8 /* ANoteCellSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C3928B200AD7D300B0EAA8 /* ANoteCellSubview.swift */; };
 		D0F8FAC21FF54D83008E4A12 /* Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F8FAC01FF54D83008E4A12 /* Blog.swift */; };
 		D0F8FAC31FF54D83008E4A12 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F8FAC11FF54D83008E4A12 /* Person.swift */; };
-		D0F8FACA1FF54D9F008E4A12 /* CellSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F8FAC71FF54D9F008E4A12 /* CellSubview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,9 +49,9 @@
 		D095190C1FFC1ED1006E8F9A /* Stdcomments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stdcomments.swift; path = ../../../../../Ref/iOS/Base/Stdcomments.swift; sourceTree = "<group>"; };
 		D095190E1FFC1ED9006E8F9A /* NewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewClass.swift; path = ../../../../../Ref/iOS/Base/NewClass.swift; sourceTree = "<group>"; };
 		D09519101FFC1EDE006E8F9A /* Empty.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Empty.storyboard; path = ../../../../../Ref/iOS/Base/Empty.storyboard; sourceTree = "<group>"; };
+		D0C3928B200AD7D300B0EAA8 /* ANoteCellSubview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANoteCellSubview.swift; path = "../../../../../../Ref/Libraries/Programmatic UI/ANote/Cell/ANoteCellSubview.swift"; sourceTree = "<group>"; };
 		D0F8FAC01FF54D83008E4A12 /* Blog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Blog.swift; path = ../Data/Blog.swift; sourceTree = "<group>"; };
 		D0F8FAC11FF54D83008E4A12 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = ../Data/Person.swift; sourceTree = "<group>"; };
-		D0F8FAC71FF54D9F008E4A12 /* CellSubview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellSubview.swift; path = ../TableView/Cell/CellSubview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,14 +74,6 @@
 				D02934271FE9B9DB00DB4BD8 /* Globals.swift */,
 			);
 			name = Data;
-			sourceTree = "<group>";
-		};
-		D029342A1FE9B9E800DB4BD8 /* TableView */ = {
-			isa = PBXGroup;
-			children = (
-				D0F8FAC41FF54D97008E4A12 /* Cell */,
-			);
-			name = TableView;
 			sourceTree = "<group>";
 		};
 		D02934361FE9BA3D00DB4BD8 /* Lib */ = {
@@ -115,7 +107,6 @@
 				D029343A1FE9BA5600DB4BD8 /* Base */,
 				D02934361FE9BA3D00DB4BD8 /* Lib */,
 				D02934251FE9B9D100DB4BD8 /* Data */,
-				D029342A1FE9B9E800DB4BD8 /* TableView */,
 				D02934431FE9BA7F00DB4BD8 /* AppDelegate.swift */,
 				D02934441FE9BA7F00DB4BD8 /* ViewController.swift */,
 			);
@@ -143,18 +134,11 @@
 		D091D94F2009791500BFBA67 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				D0C3928B200AD7D300B0EAA8 /* ANoteCellSubview.swift */,
 				D091D9512009792000BFBA67 /* ANoteRow.swift */,
 				D091D9502009792000BFBA67 /* ANoteTableViewCell.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		D0F8FAC41FF54D97008E4A12 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				D0F8FAC71FF54D9F008E4A12 /* CellSubview.swift */,
-			);
-			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,12 +213,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0F8FACA1FF54D9F008E4A12 /* CellSubview.swift in Sources */,
 				D0F8FAC31FF54D83008E4A12 /* Person.swift in Sources */,
 				D029344C1FE9BAD500DB4BD8 /* UICustomTableView.swift in Sources */,
 				D0F8FAC21FF54D83008E4A12 /* Blog.swift in Sources */,
 				D091D9522009792000BFBA67 /* ANoteTableViewCell.swift in Sources */,
 				D02934451FE9BA7F00DB4BD8 /* AppDelegate.swift in Sources */,
+				D0C3928C200AD7D300B0EAA8 /* ANoteCellSubview.swift in Sources */,
 				D091D93A2009757A00BFBA67 /* UICheckbox.swift in Sources */,
 				D091D94D2009791100BFBA67 /* ANoteTimeSelect.swift in Sources */,
 				D029344E1FE9BAD500DB4BD8 /* UICustomTableViewHandler.swift in Sources */,

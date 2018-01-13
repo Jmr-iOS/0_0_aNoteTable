@@ -9,12 +9,7 @@
  *  @last rev   1/13/18
  *
  *  @section    Opens
- *      row[1]
- *      row2[2]
- *      close TimeSelect & push
- *      ...
- *      Font Extension
- *      Fcn Args Demo
+ *      commits cleanup
  *      ...
  *      TimeField gen seletion (slideup & action matching aNote)
  *          Row[0] - Title bar matches
