@@ -38,6 +38,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "ANoteTimeSelect.load_row3():ANoteTimeSelect.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIScreen.main.bounds.width">
+            </PersistentString>
+            <PersistentString
+               value = "valueLabel.frame.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ANoteTimeSelect.init(_:):ANoteTimeSelect.swift">
          <PersistentStrings>
             <PersistentString
