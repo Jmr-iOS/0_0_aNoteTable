@@ -9,9 +9,10 @@
  *  @last rev   1/13/18
  *
  *  @section    Opens
- *      Do not respond to cell taps when ANoteTimeSelect raised
- *      Bar length correct on cells
  *      TimeSelect Dimensions match on unzoomed too
+ *      row[1]
+ *      row2[2]
+ *      close TimeSelect & push
  *      ...
  *      Font Extension
  *      Fcn Args Demo
