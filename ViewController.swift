@@ -6,10 +6,16 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   1/12/18
+ *  @last rev   1/13/18
  *
  *  @section    Opens
  *      Do not respond to cell taps when ANoteTimeSelect raised
+ *      Bar length correct on cells
+ *      TimeSelect Dimensions match on unzoomed too
+ *      ...
+ *      Font Extension
+ *      Fcn Args Demo
+ *      ...
  *      TimeField gen seletion (slideup & action matching aNote)
  *          Row[0] - Title bar matches
  *      Cell SubView, full screen and date field!
