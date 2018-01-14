@@ -128,11 +128,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //Backup Retrieve
         DataBackup.loadData();                                                      /* load the backup if exists                    */
         
-        //Var Updates
-        self.printVars();
-        self.updateVars();
-        self.printVars();
-        
         //Store Updates
         DataBackup.updateBackup();                                                  /* store the update                             */
         
@@ -476,61 +471,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder();
         return true;
-    }
-    
-
-    /********************************************************************************************************************************/
-    /** @fcn        updateVars()
-     *  @brief      Update or reset all backup vars
-     *  @details    x
-     */
-    /********************************************************************************************************************************/
-    func updateVars() {
-/* @depr
-        if(someVal_0 < 3) {
-            someVal_0 = someVal_0 + 1;                                      / increment vars
-            someStr_0 = someStr_0 + "\(someVal_0)";
-            someVals[0] = someVals[0] + 1;
-            someVals[1] = someVals[1] + 2;
-            someVals[2] = someVals[2] + 3;
-            someBlog.blogName  = someBlog.blogName + "!";
-            somePers.firstName = somePers.firstName + ".";
-            newRows[0].main = newRows[0].main! + "A";
-            newRows[1].main = newRows[1].main! + "B";
-            newRows[2].main = newRows[2].main! + "C";
-            print("ViewController.updateVars():     vars incremented");
-        } else {
-            someVal_0 = 0;                                                  / reset vars
-            someStr_0 = "A";
-            someVals[0] = 0;
-            someVals[1] = 0;
-            someVals[2] = 0;
-            someBlog.blogName  = "B";
-            somePers.firstName = "Justin";
-            somePers.lastName  = "Reina";
-            newRows[0].main = "D";
-            newRows[1].main = "D";
-            newRows[2].main = "D";
-
-            print("ViewController.updateVars():     vars reset");
-        }
-*/
-        return;
-    }
-    
-    
-    /********************************************************************************************************************************/
-    /** @fcn        printVars()
-     *  @brief      printVars to console
-     *  @details    x
-     */
-    /********************************************************************************************************************************/
-    func printVars() {
-/*@depr
-        print("ViewController.printVars():         pre  - \(someVal_0),\t\(someStr_0), \t[\(someVals[0]), \(someVals[1]), \(someVals[2])], \(someBlog.blogName), \(somePers.firstName)");
-        print("ViewController.printVars():         pre  - \(newRows[0].main!), \t\(newRows[1].main!), \t[\(newRows[2].main!)");
- */
-        return;
     }
     
 
