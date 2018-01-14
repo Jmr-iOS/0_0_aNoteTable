@@ -6,13 +6,11 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   1/13/18
+ *  @last rev   1/14/18
  *
  *  @section    Opens
- *      commits cleanup
- *      ...
- *      TimeField gen seletion (slideup & action matching aNote)
- *          Row[0] - Title bar matches
+ *      TimeField gen selection (slideup & action matching aNote)
+ *          works & is stored to cell
  *      Cell SubView, full screen and date field!
  *          Subview to full screen
  *          Subview ui layout matches aNote
