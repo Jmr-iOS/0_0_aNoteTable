@@ -42,12 +42,7 @@ let row_height  : CGFloat = 85;                                 /* all vals empe
 
 
 //Cell Subview
-let csXOffs  : Int = 10;                                        /* ('cs' - Cell Subview)                                            */
-let csYOffs  : Int = 350;
-let csWidth  : Int = 360;
-let csHeight : Int = 150;
-let cs_borderSize : CGFloat = 2;
-let cs_borderColor : CGColor = UIColor(red:   140/255, green: 140/255, blue:  140/255, alpha: 1.0).cgColor; //Apple Border Color
+//<none>
 
 //Search Bar
 let srch_dflt   : String = "2:00 Shopping";                     /* ('srch' - Upper Search Text Bar)                                 */
@@ -106,12 +101,9 @@ let tl_width : CGFloat = tv_width;                                  /* ('tl' - T
 let tl_height : CGFloat = tv_height;
 let tl_size   : CGFloat = 9;
 
-//Return Button
-let ret_yOffs : CGFloat = 50;                                       /* ('ret - Return Button)                                       */
-
 //Launch Values
-let launch_dur_s : TimeInterval = TimeInterval(1.0);
-let launch_del_s : TimeInterval = TimeInterval(0.5);
+let launch_del_s = TimeInterval(0.10);
+let launch_dur_s = TimeInterval(0.25);
 
 //Misc. Colors
 let nearColor_val:UIColor = UIColor(red: 255/255, green:  60/255, blue:  60/255, alpha: 1);
@@ -148,28 +140,32 @@ class Globals {
     func bottYOffs() -> CGFloat {
         return descripYOffs() + descr_height;
     }
+}
 
 
-    /********************************************************************************************************************************/
-    /** @fcn        getCSFrame(onscreen : Bool) -> CGRect
-     *  @brief      get cell subview's active location
-     *  @details    x
-     *
-     *  @param      [in] (Bool) onscreen - if subview is displayed onscreen
-     *
-     *  @return     (CGRect) frame to use for Cell Subview
-     */
-    /********************************************************************************************************************************/
-    func getCSFrame(onscreen : Bool) -> CGRect {
-        
-        var frame : CGRect = CGRect(x: csXOffs, y: Int(UIScreen.main.bounds.height), width: csWidth, height: csHeight);
-
-        //onscreen check
-        if(onscreen) {
-            frame = CGRect(x: frame.origin.x, y: CGFloat(csYOffs), width: frame.width, height: frame.height);
-        }
-      
-        return frame;
+/************************************************************************************************************************************/
+/** @fcn        getCSFrame(onscreen : Bool) -> CGRect
+ *  @brief      get cell subview's active location
+ *  @details    offscreen starts to the right of screen
+ *
+ *  @param      [in] (Bool) onscreen - if subview is displayed onscreen
+ *
+ *  @return     (CGRect) frame to use for Cell Subview
+ */
+/************************************************************************************************************************************/
+func getCSFrame(onscreen : Bool) -> CGRect {
+    
+    //send requested location
+    if(onscreen) {
+        return CGRect(x: 0,                                             /* on                                                       */
+                      y: 0,
+                      width: UIScreen.main.bounds.width,
+                      height: UIScreen.main.bounds.height);
+    } else {
+        return CGRect(x: Int(UIScreen.main.bounds.width),               /* off                                                      */
+                      y: 0,
+                      width: Int(UIScreen.main.bounds.width),
+                      height: Int(UIScreen.main.bounds.height));
     }
 }
 
