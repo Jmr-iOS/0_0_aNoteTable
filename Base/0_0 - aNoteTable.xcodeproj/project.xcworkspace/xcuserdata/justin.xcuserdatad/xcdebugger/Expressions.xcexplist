@@ -22,10 +22,10 @@
          contextName = "ANoteTimeSelect.load_row3():ANoteTimeSelect.swift">
          <PersistentStrings>
             <PersistentString
-               value = "valueLabel.frame.width">
+               value = "UIScreen.main.bounds.width">
             </PersistentString>
             <PersistentString
-               value = "UIScreen.main.bounds.width">
+               value = "valueLabel.frame.width">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -37,6 +37,14 @@
          <PersistentStrings>
             <PersistentString
                value = "viewOpen">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ANoteTimeSelect.donePressed(_:):ANoteTimeSelect.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "picker.date">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
