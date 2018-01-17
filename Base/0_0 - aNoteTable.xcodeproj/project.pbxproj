@@ -15,9 +15,6 @@
 		D029344D1FE9BAD500DB4BD8 /* UICustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029344A1FE9BAD500DB4BD8 /* UICustomTableViewCell.swift */; };
 		D029344E1FE9BAD500DB4BD8 /* UICustomTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029344B1FE9BAD500DB4BD8 /* UICustomTableViewHandler.swift */; };
 		D03AEBD21FF1E5AB003611D2 /* DataBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03AEBD11FF1E5AB003611D2 /* DataBackup.swift */; };
-		D05AD44E200DA62F009A524C /* ANoteCellSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AD44B200DA62F009A524C /* ANoteCellSubview.swift */; };
-		D05AD44F200DA62F009A524C /* ANoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AD44C200DA62F009A524C /* ANoteTableViewCell.swift */; };
-		D05AD450200DA62F009A524C /* ANoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05AD44D200DA62F009A524C /* ANoteRow.swift */; };
 		D091D93A2009757A00BFBA67 /* UICheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091D9392009757A00BFBA67 /* UICheckbox.swift */; };
 		D091D94C2009791100BFBA67 /* ANoteTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091D9492009791100BFBA67 /* ANoteTableViewHandler.swift */; };
 		D091D94D2009791100BFBA67 /* ANoteTimeSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091D94A2009791100BFBA67 /* ANoteTimeSelect.swift */; };
@@ -27,6 +24,9 @@
 		D09519111FFC1EDE006E8F9A /* Empty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09519101FFC1EDE006E8F9A /* Empty.storyboard */; };
 		D0F8FAC21FF54D83008E4A12 /* Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F8FAC01FF54D83008E4A12 /* Blog.swift */; };
 		D0F8FAC31FF54D83008E4A12 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F8FAC11FF54D83008E4A12 /* Person.swift */; };
+		D0FF826520100F1F00A1D704 /* ANoteCellSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF826220100F1F00A1D704 /* ANoteCellSubview.swift */; };
+		D0FF826620100F1F00A1D704 /* ANoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF826320100F1F00A1D704 /* ANoteTableViewCell.swift */; };
+		D0FF826720100F1F00A1D704 /* ANoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FF826420100F1F00A1D704 /* ANoteRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,9 +40,6 @@
 		D029344B1FE9BAD500DB4BD8 /* UICustomTableViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICustomTableViewHandler.swift; path = "../../../../../Ref/Libraries/Programmatic UI/UICustomTableViewHandler.swift"; sourceTree = "<group>"; };
 		D039B4B61BF4D7950024005F /* 0_0 - aNoteTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "0_0 - aNoteTable.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03AEBD11FF1E5AB003611D2 /* DataBackup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataBackup.swift; path = ../Data/DataBackup.swift; sourceTree = "<group>"; };
-		D05AD44B200DA62F009A524C /* ANoteCellSubview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANoteCellSubview.swift; path = "../../../../../../Ref/Libraries/Programmatic UI/ANote/Cell/ANoteCellSubview.swift"; sourceTree = "<group>"; };
-		D05AD44C200DA62F009A524C /* ANoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANoteTableViewCell.swift; path = "../../../../../../Ref/Libraries/Programmatic UI/ANote/Cell/ANoteTableViewCell.swift"; sourceTree = "<group>"; };
-		D05AD44D200DA62F009A524C /* ANoteRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANoteRow.swift; path = "../../../../../../Ref/Libraries/Programmatic UI/ANote/Cell/ANoteRow.swift"; sourceTree = "<group>"; };
 		D091D9392009757A00BFBA67 /* UICheckbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICheckbox.swift; path = "../../../../../Ref/Libraries/Programmatic UI/UICheckbox.swift"; sourceTree = "<group>"; };
 		D091D9492009791100BFBA67 /* ANoteTableViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANoteTableViewHandler.swift; path = "../../../../../Ref/Libraries/Programmatic UI/ANote/ANoteTableViewHandler.swift"; sourceTree = "<group>"; };
 		D091D94A2009791100BFBA67 /* ANoteTimeSelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANoteTimeSelect.swift; path = "../../../../../Ref/Libraries/Programmatic UI/ANote/ANoteTimeSelect.swift"; sourceTree = "<group>"; };
@@ -52,6 +49,9 @@
 		D09519101FFC1EDE006E8F9A /* Empty.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Empty.storyboard; path = ../../../../../Ref/iOS/Base/Empty.storyboard; sourceTree = "<group>"; };
 		D0F8FAC01FF54D83008E4A12 /* Blog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Blog.swift; path = ../Data/Blog.swift; sourceTree = "<group>"; };
 		D0F8FAC11FF54D83008E4A12 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = ../Data/Person.swift; sourceTree = "<group>"; };
+		D0FF826220100F1F00A1D704 /* ANoteCellSubview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANoteCellSubview.swift; path = "../../../../../../Ref/Libraries/Programmatic UI/ANote/Cell/ANoteCellSubview.swift"; sourceTree = "<group>"; };
+		D0FF826320100F1F00A1D704 /* ANoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANoteTableViewCell.swift; path = "../../../../../../Ref/Libraries/Programmatic UI/ANote/Cell/ANoteTableViewCell.swift"; sourceTree = "<group>"; };
+		D0FF826420100F1F00A1D704 /* ANoteRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANoteRow.swift; path = "../../../../../../Ref/Libraries/Programmatic UI/ANote/Cell/ANoteRow.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,25 +120,25 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D05AD44A200DA627009A524C /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-				D05AD44B200DA62F009A524C /* ANoteCellSubview.swift */,
-				D05AD44D200DA62F009A524C /* ANoteRow.swift */,
-				D05AD44C200DA62F009A524C /* ANoteTableViewCell.swift */,
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		D091D93F200978D500BFBA67 /* ANote */ = {
 			isa = PBXGroup;
 			children = (
-				D05AD44A200DA627009A524C /* New Group */,
+				D0FF826120100F1400A1D704 /* Cell */,
 				D091D94B2009791100BFBA67 /* ANoteTableView.swift */,
 				D091D9492009791100BFBA67 /* ANoteTableViewHandler.swift */,
 				D091D94A2009791100BFBA67 /* ANoteTimeSelect.swift */,
 			);
 			name = ANote;
+			sourceTree = "<group>";
+		};
+		D0FF826120100F1400A1D704 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D0FF826220100F1F00A1D704 /* ANoteCellSubview.swift */,
+				D0FF826420100F1F00A1D704 /* ANoteRow.swift */,
+				D0FF826320100F1F00A1D704 /* ANoteTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,18 +217,18 @@
 				D029344C1FE9BAD500DB4BD8 /* UICustomTableView.swift in Sources */,
 				D0F8FAC21FF54D83008E4A12 /* Blog.swift in Sources */,
 				D02934451FE9BA7F00DB4BD8 /* AppDelegate.swift in Sources */,
-				D05AD44F200DA62F009A524C /* ANoteTableViewCell.swift in Sources */,
+				D0FF826620100F1F00A1D704 /* ANoteTableViewCell.swift in Sources */,
 				D091D93A2009757A00BFBA67 /* UICheckbox.swift in Sources */,
 				D091D94D2009791100BFBA67 /* ANoteTimeSelect.swift in Sources */,
 				D029344E1FE9BAD500DB4BD8 /* UICustomTableViewHandler.swift in Sources */,
 				D029344D1FE9BAD500DB4BD8 /* UICustomTableViewCell.swift in Sources */,
 				D091D94E2009791100BFBA67 /* ANoteTableView.swift in Sources */,
-				D05AD450200DA62F009A524C /* ANoteRow.swift in Sources */,
+				D0FF826720100F1F00A1D704 /* ANoteRow.swift in Sources */,
 				D091D94C2009791100BFBA67 /* ANoteTableViewHandler.swift in Sources */,
 				D03AEBD21FF1E5AB003611D2 /* DataBackup.swift in Sources */,
 				D02934461FE9BA7F00DB4BD8 /* ViewController.swift in Sources */,
 				D095190F1FFC1ED9006E8F9A /* NewClass.swift in Sources */,
-				D05AD44E200DA62F009A524C /* ANoteCellSubview.swift in Sources */,
+				D0FF826520100F1F00A1D704 /* ANoteCellSubview.swift in Sources */,
 				D095190D1FFC1ED1006E8F9A /* Stdcomments.swift in Sources */,
 				D02934291FE9B9DB00DB4BD8 /* Globals.swift in Sources */,
 			);
@@ -341,6 +341,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HRCQBX7PVQ;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jaostech.aNoteTable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -354,6 +355,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HRCQBX7PVQ;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jaostech.aNoteTable;
 				PRODUCT_NAME = "$(TARGET_NAME)";

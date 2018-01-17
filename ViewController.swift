@@ -6,9 +6,10 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   1/14/18
+ *  @last rev   1/17/18
  *
  *  @section    Opens
+ *      Remove button resets value of TimeField
  *      TimeField gen selection (slideup & action matching aNote)
  *          works & is stored to cell
  *      Cell SubView, full screen and date field!
