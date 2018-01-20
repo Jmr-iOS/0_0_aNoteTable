@@ -101,6 +101,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "ANoteTableViewCell.setTimeLabel(_:):ANoteTableViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "date!.timeIntervalSince(DateUtils.getToday()">
+            </PersistentString>
+            <PersistentString
+               value = "date!.timeIntervalSinceNow ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ANoteTimeSelect.init(_:):ANoteTimeSelect.swift">
          <PersistentStrings>
             <PersistentString
