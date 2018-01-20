@@ -90,34 +90,29 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //                                                Initialize Rows of Table                                                  //
         //  @targ   Nice and simple, make rows to match Images/Ref:aNoteRef.jpg                                                     //
         //**************************************************************************************************************************//
-        rows = [ANoteRow]();                                                        /* init rows                                    */
+        rows = [ANoteRow]();                                                            /* init rows                                */
 
+        //Gen each new row for table
         for i in 0...(numRows-1) {
             
             var mainText : String;
             var bodyText : String;
-            var bottText : String;
             
-            //Main Text
-            mainText = String(format: "Item #%i", (i+1));                           /* e.g "Item #1"                                */
+            //Main text
+            mainText = String(format: "Item #%i", (i+1));                               /* e.g "Item #1"                            */
             
-            //Body Text
+            //Body text
             if(i == 0) {
                 bodyText = "Some text below that is short";
             } else {
                 bodyText = "Some misc. text";
             }
             
-            if(i < 2) {
-                bottText = "Today \(i+2):00 PM";                                    /* e.g. "2:00 PM"                               */
-            } else {
-                bottText = "Today \(i+3):00 PM";                                    /* e.g. "3:00 PM"                               */
-            }
-            
-            //Time Val
-            let newTime : Date = Date(timeIntervalSinceNow: 0);
-            
-            rows.append(ANoteRow(main: mainText, body: bodyText, bott: bottText, time: newTime));
+            //Time val
+            let newTime : Date = Date(timeIntervalSinceNow: Double(i*10*60));       /* each offset by 10 min                        */
+
+            //Add new row
+            rows.append(ANoteRow(main: mainText, body: bodyText, time: newTime));
         }
         
         //Super
@@ -126,10 +121,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //Init DataBackup
         DataBackup.storeViewController(self);
 
-        //Backup Retrieve
-        DataBackup.loadData();                                                      /* load the backup if exists                    */
+        //Backup retrieve (after dev)
+        //DataBackup.loadData();                                                    /* load the backup if exists                    */
         
-        //Store Updates
+        //Store updates
         DataBackup.updateBackup();                                                  /* store the update                             */
         
         print("ViewController.init():              initialization complete");
