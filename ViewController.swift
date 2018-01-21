@@ -9,14 +9,11 @@
  *  @last rev   1/17/18
  *
  *  @section    Opens
- *      Remove button resets value of TimeField
- *      TimeField gen selection (slideup & action matching aNote)
- *          works & is stored to cell
  *      Cell SubView, full screen and date field!
- *          Subview to full screen
+ *          Truncate backgrounds to selected set
  *          Subview ui layout matches aNote
+ *          Populate SubView, make match aNote
  *      ...
- *      Populate SubView, make match aNote
  *      Add Features (tbl)
  *      make it's aesthetic equal to aNote
  *      make the clickability to a larger area
