@@ -6,9 +6,10 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   1/17/18
+ *  @last rev   1/21/18
  *
  *  @section    Opens
+ *      Assign a specific image to cell that is unique on boot
  *      Cell SubView, full screen and date field!
  *          Truncate backgrounds to selected set
  *          Subview ui layout matches aNote
