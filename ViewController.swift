@@ -9,11 +9,18 @@
  *  @last rev   1/21/18
  *
  *  @section    Opens
- *      Assign a specific image to cell that is unique on boot
+ *      (B) ANote table size supports landscape mode
  *      Cell SubView, full screen and date field!
- *          Truncate backgrounds to selected set
  *          Subview ui layout matches aNote
  *          Populate SubView, make match aNote
+ *              Top category bar
+ *              Top title bar
+ *              Top date bar
+ *              Top stars (same behavior)
+ *              Date placeholder (grey UIImageView toggles on tap)
+ *              Text field
+ *              bottom toolbar
+ *              all features, button responses, actions and behavior
  *      ...
  *      Add Features (tbl)
  *      make it's aesthetic equal to aNote
