@@ -6,11 +6,14 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   1/25/18
+ *  @last rev   1/26/18
  *
  *  @section    Opens
+ *      main view table extends 3/4 of a cell further if not full space to eliminate clipping
+ *          Try borders to cells first
+ *      Time value enabled for insertion and deletion (in ui and api)
  *      Gen upper bar
- *      Grab all backgrounds, store & use
+ *  [~] Grab all backgrounds, store & use
  *      ...
  *      (B) ANote table size supports landscape mode
  *      Cell SubView, full screen and date field!
