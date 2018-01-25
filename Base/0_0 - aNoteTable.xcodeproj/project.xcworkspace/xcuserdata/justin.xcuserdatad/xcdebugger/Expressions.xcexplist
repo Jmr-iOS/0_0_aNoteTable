@@ -16,16 +16,19 @@
             <PersistentString
                value = "view.frame">
             </PersistentString>
+            <PersistentString
+               value = "row_height">
+            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "ANoteTimeSelect.load_row3():ANoteTimeSelect.swift">
          <PersistentStrings>
             <PersistentString
-               value = "UIScreen.main.bounds.width">
+               value = "valueLabel.frame.width">
             </PersistentString>
             <PersistentString
-               value = "valueLabel.frame.width">
+               value = "UIScreen.main.bounds.width">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

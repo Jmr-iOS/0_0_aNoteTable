@@ -4,7 +4,7 @@
  *  @details    x
  *
  *  @section    Opens
- *      move all variables outside of class (one, at a time...
+ *      none listed
  *
  *  @section    Legal Disclaimer
  *       All contents of this source file and/or any other Jaostech related source files are the explicit property on Jaostech
@@ -15,7 +15,7 @@ import UIKit
 
 var g : Globals!;
 let verbose : Bool = true;
-let numRows : Int  = 15;
+let numRows : Int  = 4;
 
 
 //**********************************************************************************************************************************//
@@ -36,10 +36,26 @@ var viewOpen : Bool = false;                                    /* main view is 
 //**********************************************************************************************************************************//
 //                                                      Main View                                                                   //
 //**********************************************************************************************************************************//
-let cell_xOffs   : CGFloat = 55;
-let cellFont : String = "Arial";                                /* @todo    apply to all three and confirm                          */
-let row_height  : CGFloat = 85;                                 /* all vals emperically chosen to match                             */
+let cellXOffs  : CGFloat = 55;                                  /* all vals emperically chosen to match                             */
+let cellFont   : String = "Arial";
+let cellHeight : CGFloat = 85;
 
+//**********************************************************************************************************************************//
+//                                                      Colors                                                                      //
+//**********************************************************************************************************************************//
+//Main screen
+let bottBarColor  = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha:1);       /* #f8f8f8                                 */
+let tableBakColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha:1);       /* #fafafa                                 */
+let tableSepColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha:1);       /* #e6e6e6                                 */
+
+//Time colors
+let stdTimeColor  = UIColor(red: 255/255, green:  60/255, blue:  60/255, alpha: 1);      /* #ff3c3c                                 */
+let normTimeColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1);      /* #d2d2d2                                 */
+
+
+//**********************************************************************************************************************************//
+//                                                     Dimensions                                                                   //
+//**********************************************************************************************************************************//
 
 //Cell Subview
 //<none>
@@ -67,7 +83,7 @@ let subj_xOffs  : CGFloat = 46;
 let subj_yOffs  : CGFloat = 25;
 
 //Description Text
-let descr_xOffs  : CGFloat = cell_xOffs-10;
+let descr_xOffs  : CGFloat = cellXOffs-10;
 let descr_yOffs  : CGFloat = g.descripYOffs()-10;
 let descr_height : CGFloat = 20;
 
@@ -83,7 +99,7 @@ let descr_color : UIColor = UIColor.gray;
 //Bottom Text
 let bott_size   : CGFloat = 12;
 let bott_color  : UIColor = UIColor.gray;
-let bott_xOffs  : CGFloat = cell_xOffs+7;
+let bott_xOffs  : CGFloat = cellXOffs+7;
 let bott_yOffs  : CGFloat = g.bottYOffs()-10;
 let bott_width  : CGFloat = 12;
 let bott_height : CGFloat = 20;
@@ -105,18 +121,16 @@ let tl_size   : CGFloat = 9;
 let launch_del_s = TimeInterval(0.10);
 let launch_dur_s = TimeInterval(0.25);
 
-//Misc. Colors
-let nearColor_val:UIColor = UIColor(red: 255/255, green:  60/255, blue:  60/255, alpha: 1);
-let farColor_val :UIColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1);
-
 //Misc. Dimensions
 let upper_bar_height : CGFloat = 64;
 let text_bar_height  : CGFloat = 40;
 let lower_bar_height : CGFloat = 50;
 
 
-class Globals {
-    
+//**********************************************************************************************************************************//
+//                                                      GLOBALS CLASS                                                               //
+//**********************************************************************************************************************************//
+class Globals : NSObject {
 
     /********************************************************************************************************************************/
     /** @fcn        init()
@@ -124,21 +138,39 @@ class Globals {
      *  @details    initialize the table of rows
      */
     /********************************************************************************************************************************/
-    init() {        
+    override init() {        
         
+        //Init vars
         viewOpen = false;                                           /* not available till vc loading complete                       */
+        
+        //Super
+        super.init();
         
         if(verbose) { print("Globals.init():                     globals initialized"); }
         
         return;
     }
 
-    func descripYOffs() -> CGFloat {
-        return subj_yOffs + subj_height;
-    }
     
+    /********************************************************************************************************************************/
+    /** @fcn        descripYOffs() -> CGFloat
+     *  @brief      x
+     *  @details    x
+     */
+    /********************************************************************************************************************************/
+    func descripYOffs() -> CGFloat {
+        return (subj_yOffs + subj_height);
+    }
+
+    
+    /********************************************************************************************************************************/
+    /** @fcn        bottYOffs() -> CGFloat
+     *  @brief      x
+     *  @details    x
+     */
+    /********************************************************************************************************************************/
     func bottYOffs() -> CGFloat {
-        return descripYOffs() + descr_height;
+        return (descripYOffs() + descr_height);
     }
 }
 

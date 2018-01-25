@@ -6,7 +6,7 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   1/24/18
+ *  @last rev   1/25/18
  *
  *  @section    Opens
  *      Gen upper bar
@@ -151,7 +151,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad();
 
+        //Vars
         var yOffs : CGFloat = 0;                                        /* y-offset to place next ui item                           */
+        
+        //Init view
+        view.translatesAutoresizingMaskIntoConstraints = false;
         
         
         /****************************************************************************************************************************/
@@ -258,17 +262,29 @@ class ViewController: UIViewController, UITextFieldDelegate {
         /****************************************************************************************************************************/
         /*                                                      Table                                                               */
         /*  @open       replace items with aNoteDemoApp().getRows()                                                                 */
-        /*  @note       table supports >5 rows                                                                                      */
+        /*  @note       if table is made full-size then cell borders appear for full size and not wanted (1)                        */
         /****************************************************************************************************************************/
-        view.translatesAutoresizingMaskIntoConstraints = false;
         let tableFrame : CGRect = getANoteFrame(y: yOffs, bottHeight: lower_bar_height);
         aNoteTable = ANoteTableView(frame:tableFrame, style:UITableViewStyle.plain, i: 1);
+ 
+        //Init background to table (@note   1)
+        let vH = (UIScreen.main.bounds.height - yOffs - lower_bar_height);                      /* (H-yOffs-bottBar)                */
+        let vFrame = CGRect(x: 0, y: yOffs, width: UIScreen.main.bounds.width, height: vH);
+        let v = UIView(frame: vFrame);
+        v.backgroundColor = tableBakColor;
+        
+        print("cell height:  \(cellHeight)");
+        print("num cells:    \(numRows)");
+        print("table height: \(tableFrame.height)");
+        
+        //Add views
+        view.addSubview(v);
         view.addSubview(aNoteTable);
         
         //Store offset
         yOffs += aNoteTable.frame.height;
 
-
+        
         /****************************************************************************************************************************/
         /*                                                    Bottom Bar                                                            */
         /****************************************************************************************************************************/
@@ -278,7 +294,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let y_plus : CGFloat = (view.frame.height - 45);
         
         bottBar = UIView();
-        bottBar.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.0);      /* #f9f9f9                              */
+        bottBar.backgroundColor = bottBarColor;
         bottBar.frame = CGRect(x: 0,
                                y: y_bott,
                                width: view.frame.width,
@@ -341,10 +357,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         //Max Height
         let maxHeight   : CGFloat = (view.frame.height - y - bottHeight);
-        let tableHeight : CGFloat = (numRows * row_height);
+        let tableHeight : CGFloat = (numRows * cellHeight);
 
         if(tableHeight < maxHeight) {
-            tableFrame.size.height = tableHeight;
+            tableFrame.size.height = tableHeight;                                                                                     //[4!!!]
         } else {
             tableFrame.size.height = maxHeight;
         }
