@@ -6,9 +6,12 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   1/21/18
+ *  @last rev   1/24/18
  *
  *  @section    Opens
+ *      Gen upper bar
+ *      Grab all backgrounds, store & use
+ *      ...
  *      (B) ANote table size supports landscape mode
  *      Cell SubView, full screen and date field!
  *          Subview ui layout matches aNote
