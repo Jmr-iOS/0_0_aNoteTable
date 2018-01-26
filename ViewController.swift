@@ -10,7 +10,6 @@
  *
  *  @section    Opens
  *      main view table extends 3/4 of a cell further if not full space to eliminate clipping
- *          Try borders to cells first
  *      Time value enabled for insertion and deletion (in ui and api)
  *      Gen upper bar
  *  [~] Grab all backgrounds, store & use
@@ -264,24 +263,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         /****************************************************************************************************************************/
         /*                                                      Table                                                               */
-        /*  @open       replace items with aNoteDemoApp().getRows()                                                                 */
-        /*  @note       if table is made full-size then cell borders appear for full size and not wanted (1)                        */
         /****************************************************************************************************************************/
         let tableFrame : CGRect = getANoteFrame(y: yOffs, bottHeight: lower_bar_height);
-        aNoteTable = ANoteTableView(frame:tableFrame, style:UITableViewStyle.plain, i: 1);
+        aNoteTable = ANoteTableView(frame: tableFrame, style: UITableViewStyle.plain, yOffs: yOffs);
  
-        //Init background to table (@note   1)
-        let vH = (UIScreen.main.bounds.height - yOffs - lower_bar_height);                      /* (H-yOffs-bottBar)                */
-        let vFrame = CGRect(x: 0, y: yOffs, width: UIScreen.main.bounds.width, height: vH);
-        let v = UIView(frame: vFrame);
-        v.backgroundColor = tableBakColor;
-        
-        print("cell height:  \(cellHeight)");
-        print("num cells:    \(numRows)");
-        print("table height: \(tableFrame.height)");
-        
         //Add views
-        view.addSubview(v);
         view.addSubview(aNoteTable);
         
         //Store offset
