@@ -9,7 +9,6 @@
  *  @last rev   1/26/18
  *
  *  @section    Opens
- *      Time value enabled for insertion and deletion (in ui and api)
  *      Gen upper bar
  *  [~] Grab all backgrounds, store & use
  *      ...
@@ -118,7 +117,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
             
             //Time val
-            let newTime : Date = Date(timeIntervalSinceNow: Double(i*10*60));       /* each offset by 10 min                        */
+            let newTime : Date = Date(timeIntervalSinceNow: 0);                         /* set to now                               */
 
             //Add new row
             rows.append(ANoteRow(main: mainText, body: bodyText, time: newTime));

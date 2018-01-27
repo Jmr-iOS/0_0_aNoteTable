@@ -3,34 +3,15 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "static DataBackup.saveData():DataBackup.swift">
+         contextName = "ANoteTimeSelect.show(_:):ANoteTimeSelect.swift">
          <PersistentStrings>
             <PersistentString
-               value = "currRow.main">
+               value = "picker.date">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ViewController.getANoteFrame(y:bottHeight:):ViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "view.frame">
-            </PersistentString>
-            <PersistentString
-               value = "row_height">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ANoteTimeSelect.load_row3():ANoteTimeSelect.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "UIScreen.main.bounds.width">
-            </PersistentString>
-            <PersistentString
-               value = "valueLabel.frame.width">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "DataBackup.init(coder:):DataBackup.swift">
       </ContextState>
       <ContextState
          contextName = "ANoteTableViewCell.initialize(_:aNoteTable:):ANoteTableViewCell.swift">
@@ -50,52 +31,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "static DataBackup.loadData():DataBackup.swift">
-      </ContextState>
-      <ContextState
-         contextName = "ANoteTimeSelect.donePressed(_:):ANoteTimeSelect.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "picker.date">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "DataBackup.init(coder:):DataBackup.swift">
-      </ContextState>
-      <ContextState
-         contextName = "ANoteTimeSelect.loadPopup(_:dir:height:):ANoteTimeSelect.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "viewOpen">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in ANoteTimeSelect.loadPopup(_:dir:height:):ANoteTimeSelect.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "picker">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "DataBackup.encode(with:):DataBackup.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.someRow.main">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ANoteCellSubview.addPress(_:):ANoteCellSubview.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "parentCell.date">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "ANoteTableViewCell.timeView_tapResponse():ANoteTableViewCell.swift">
          <PersistentStrings>
             <PersistentString
@@ -104,32 +39,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ANoteCellSubview.updateBkgnd():ANoteCellSubview.swift">
+         contextName = "ANoteTableViewCell.raiseTimePicker():ANoteTableViewCell.swift">
          <PersistentStrings>
             <PersistentString
-               value = "rslts">
-            </PersistentString>
-            <PersistentString
-               value = "temp_i">
+               value = "vc.view">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ANoteTableViewCell.setDate(_:):ANoteTableViewCell.swift">
+         contextName = "ViewController.getANoteFrame(y:bottHeight:):ViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "vc.rows">
+               value = "view.frame">
             </PersistentString>
             <PersistentString
-               value = "tableIndex">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ANoteTimeSelect.show(_:):ANoteTimeSelect.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "picker.date">
+               value = "row_height">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -145,6 +69,84 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in ANoteTimeSelect.loadPopup(_:dir:height:):ANoteTimeSelect.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "picker">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ANoteTimeSelect.donePressed(_:):ANoteTimeSelect.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "picker.date">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ANoteTimeSelect.loadPopup(_:dir:height:):ANoteTimeSelect.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewOpen">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ANoteCellSubview.updateBkgnd():ANoteCellSubview.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "rslts">
+            </PersistentString>
+            <PersistentString
+               value = "temp_i">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ANoteCellSubview.setPress(_:):ANoteCellSubview.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "parentCell.date">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ANoteTimeSelect.load_row3():ANoteTimeSelect.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "valueLabel.frame.width">
+            </PersistentString>
+            <PersistentString
+               value = "UIScreen.main.bounds.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DataBackup.encode(with:):DataBackup.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.someRow.main">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static DataBackup.saveData():DataBackup.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "currRow.main">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ANoteCellSubview.addPress(_:):ANoteCellSubview.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "parentCell.date">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ANoteTimeSelect.init(_:):ANoteTimeSelect.swift">
          <PersistentStrings>
             <PersistentString
@@ -153,18 +155,24 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ANoteTableViewCell.raiseTimePicker():ANoteTableViewCell.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "vc.view">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "ANoteTimeSelect.load_row6():ANoteTimeSelect.swift">
          <PersistentStrings>
             <PersistentString
                value = "cell.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static DataBackup.loadData():DataBackup.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ANoteTableViewCell.setDate(_:):ANoteTableViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "vc.rows">
+            </PersistentString>
+            <PersistentString
+               value = "tableIndex">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
