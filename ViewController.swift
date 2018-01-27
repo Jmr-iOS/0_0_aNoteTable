@@ -12,7 +12,6 @@
  *      Gen upper bar
  *  [~] Grab all backgrounds, store & use
  *      ...
- *      (B) ANote table size supports landscape mode
  *      Cell SubView, full screen and date field!
  *          Subview ui layout matches aNote
  *          Populate SubView, make match aNote
@@ -42,6 +41,7 @@
  *  @section    Ideas for Consideration
  *      white text to upper status bar
  *      shrink lower search bar border from 2px -> 1px
+ *      supports all orientations
  *      extend to support all note display formats - Thumb, List, Detail, Diary, Photo, To-do, Calendar
  *
  *  @section    Legal Disclaimer
