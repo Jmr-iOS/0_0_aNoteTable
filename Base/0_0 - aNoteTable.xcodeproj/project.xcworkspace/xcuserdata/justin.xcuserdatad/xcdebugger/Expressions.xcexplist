@@ -25,10 +25,10 @@
          contextName = "ANoteTimeSelect.load_row3():ANoteTimeSelect.swift">
          <PersistentStrings>
             <PersistentString
-               value = "valueLabel.frame.width">
+               value = "UIScreen.main.bounds.width">
             </PersistentString>
             <PersistentString
-               value = "UIScreen.main.bounds.width">
+               value = "valueLabel.frame.width">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -88,6 +88,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "ANoteCellSubview.addPress(_:):ANoteCellSubview.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "parentCell.date">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ANoteTableViewCell.timeView_tapResponse():ANoteTableViewCell.swift">
          <PersistentStrings>
             <PersistentString
@@ -103,6 +111,17 @@
             </PersistentString>
             <PersistentString
                value = "temp_i">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ANoteTableViewCell.setDate(_:):ANoteTableViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "vc.rows">
+            </PersistentString>
+            <PersistentString
+               value = "tableIndex">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -138,6 +157,14 @@
          <PersistentStrings>
             <PersistentString
                value = "vc.view">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ANoteTimeSelect.load_row6():ANoteTimeSelect.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.frame">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

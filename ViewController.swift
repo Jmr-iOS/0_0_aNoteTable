@@ -9,7 +9,6 @@
  *  @last rev   1/26/18
  *
  *  @section    Opens
- *      main view table extends 3/4 of a cell further if not full space to eliminate clipping
  *      Time value enabled for insertion and deletion (in ui and api)
  *      Gen upper bar
  *  [~] Grab all backgrounds, store & use
