@@ -6,12 +6,13 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   1/26/18
+ *  @last rev   1/29/18
  *
  *  @section    Opens
  *      Gen upper bar
  *  [~] Grab all backgrounds, store & use
  *      ...
+ *      List as open to fade edges of button icons
  *      Cell SubView, full screen and date field!
  *          Subview ui layout matches aNote
  *          Populate SubView, make match aNote
