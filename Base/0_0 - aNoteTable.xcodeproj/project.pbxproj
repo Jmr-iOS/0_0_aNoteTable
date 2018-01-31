@@ -7,14 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D00C72F22017AA9E00019562 /* FontUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00C72F12017AA9E00019562 /* FontUtils.swift */; };
 		D02934291FE9B9DB00DB4BD8 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02934271FE9B9DB00DB4BD8 /* Globals.swift */; };
 		D029343F1FE9BA6900DB4BD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D029343B1FE9BA6800DB4BD8 /* Assets.xcassets */; };
 		D02934451FE9BA7F00DB4BD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02934431FE9BA7F00DB4BD8 /* AppDelegate.swift */; };
 		D02934461FE9BA7F00DB4BD8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02934441FE9BA7F00DB4BD8 /* ViewController.swift */; };
-		D029344C1FE9BAD500DB4BD8 /* UICustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02934491FE9BAD500DB4BD8 /* UICustomTableView.swift */; };
-		D029344D1FE9BAD500DB4BD8 /* UICustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029344A1FE9BAD500DB4BD8 /* UICustomTableViewCell.swift */; };
-		D029344E1FE9BAD500DB4BD8 /* UICustomTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029344B1FE9BAD500DB4BD8 /* UICustomTableViewHandler.swift */; };
 		D03AEBD21FF1E5AB003611D2 /* DataBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03AEBD11FF1E5AB003611D2 /* DataBackup.swift */; };
 		D0475BD1201F6C93005A1699 /* IMG_0695_final.png in Resources */ = {isa = PBXBuildFile; fileRef = D0475BC7201F6C92005A1699 /* IMG_0695_final.png */; };
 		D0475BD2201F6C93005A1699 /* IMG_0707_final.png in Resources */ = {isa = PBXBuildFile; fileRef = D0475BC8201F6C92005A1699 /* IMG_0707_final.png */; };
@@ -38,19 +34,20 @@
 		D095190D1FFC1ED1006E8F9A /* Stdcomments.swift in Sources */ = {isa = PBXBuildFile; fileRef = D095190C1FFC1ED1006E8F9A /* Stdcomments.swift */; };
 		D095190F1FFC1ED9006E8F9A /* NewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D095190E1FFC1ED9006E8F9A /* NewClass.swift */; };
 		D09519111FFC1EDE006E8F9A /* Empty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D09519101FFC1EDE006E8F9A /* Empty.storyboard */; };
-		D0F0B5B42013D7B70042A036 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F0B5B32013D7B70042A036 /* DateUtils.swift */; };
+		D0F14441202273430000DFAA /* UICustomTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F1443E202273430000DFAA /* UICustomTableViewHandler.swift */; };
+		D0F14442202273430000DFAA /* UICustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F1443F202273430000DFAA /* UICustomTableView.swift */; };
+		D0F14443202273430000DFAA /* UICustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F14440202273430000DFAA /* UICustomTableViewCell.swift */; };
+		D0F144472022734C0000DFAA /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F144442022734C0000DFAA /* DateUtils.swift */; };
+		D0F144482022734C0000DFAA /* FontUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F144452022734C0000DFAA /* FontUtils.swift */; };
+		D0F144492022734C0000DFAA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F144462022734C0000DFAA /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D00C72F12017AA9E00019562 /* FontUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FontUtils.swift; path = "../../../../../Ref/Libraries/Programmatic UI/FontUtils.swift"; sourceTree = "<group>"; };
 		D02934271FE9B9DB00DB4BD8 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Globals.swift; path = ../Data/Globals.swift; sourceTree = "<group>"; };
 		D029343B1FE9BA6800DB4BD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D029343E1FE9BA6900DB4BD8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D02934431FE9BA7F00DB4BD8 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		D02934441FE9BA7F00DB4BD8 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
-		D02934491FE9BAD500DB4BD8 /* UICustomTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICustomTableView.swift; path = "../../../../../Ref/Libraries/Programmatic UI/UICustomTableView.swift"; sourceTree = "<group>"; };
-		D029344A1FE9BAD500DB4BD8 /* UICustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICustomTableViewCell.swift; path = "../../../../../Ref/Libraries/Programmatic UI/UICustomTableViewCell.swift"; sourceTree = "<group>"; };
-		D029344B1FE9BAD500DB4BD8 /* UICustomTableViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICustomTableViewHandler.swift; path = "../../../../../Ref/Libraries/Programmatic UI/UICustomTableViewHandler.swift"; sourceTree = "<group>"; };
 		D039B4B61BF4D7950024005F /* 0_0 - aNoteTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "0_0 - aNoteTable.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03AEBD11FF1E5AB003611D2 /* DataBackup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataBackup.swift; path = ../Data/DataBackup.swift; sourceTree = "<group>"; };
 		D0475BC7201F6C92005A1699 /* IMG_0695_final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IMG_0695_final.png; path = ../../Doc/Images/Backgrounds/finals/IMG_0695_final.png; sourceTree = "<group>"; };
@@ -75,7 +72,12 @@
 		D095190C1FFC1ED1006E8F9A /* Stdcomments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stdcomments.swift; path = ../../../../../Ref/iOS/Base/Stdcomments.swift; sourceTree = "<group>"; };
 		D095190E1FFC1ED9006E8F9A /* NewClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewClass.swift; path = ../../../../../Ref/iOS/Base/NewClass.swift; sourceTree = "<group>"; };
 		D09519101FFC1EDE006E8F9A /* Empty.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Empty.storyboard; path = ../../../../../Ref/iOS/Base/Empty.storyboard; sourceTree = "<group>"; };
-		D0F0B5B32013D7B70042A036 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateUtils.swift; path = "../../../../../Ref/Libraries/Programmatic UI/DateUtils.swift"; sourceTree = "<group>"; };
+		D0F1443E202273430000DFAA /* UICustomTableViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICustomTableViewHandler.swift; path = "../../../../../Ref/Libraries/Programmatic UI/UICustomTable/UICustomTableViewHandler.swift"; sourceTree = "<group>"; };
+		D0F1443F202273430000DFAA /* UICustomTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICustomTableView.swift; path = "../../../../../Ref/Libraries/Programmatic UI/UICustomTable/UICustomTableView.swift"; sourceTree = "<group>"; };
+		D0F14440202273430000DFAA /* UICustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICustomTableViewCell.swift; path = "../../../../../Ref/Libraries/Programmatic UI/UICustomTable/UICustomTableViewCell.swift"; sourceTree = "<group>"; };
+		D0F144442022734C0000DFAA /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateUtils.swift; path = "../../../../../../Ref/Libraries/Programmatic UI/Utils/DateUtils.swift"; sourceTree = "<group>"; };
+		D0F144452022734C0000DFAA /* FontUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FontUtils.swift; path = "../../../../../../Ref/Libraries/Programmatic UI/Utils/FontUtils.swift"; sourceTree = "<group>"; };
+		D0F144462022734C0000DFAA /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = "../../../../../../Ref/Libraries/Programmatic UI/Utils/Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,13 +103,10 @@
 		D02934361FE9BA3D00DB4BD8 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				D0F144342022703E0000DFAA /* UICustomTable */,
+				D0F14430202270270000DFAA /* Utils */,
 				D091D93F200978D500BFBA67 /* ANote */,
-				D00C72F12017AA9E00019562 /* FontUtils.swift */,
-				D0F0B5B32013D7B70042A036 /* DateUtils.swift */,
 				D091D9392009757A00BFBA67 /* UICheckbox.swift */,
-				D02934491FE9BAD500DB4BD8 /* UICustomTableView.swift */,
-				D029344A1FE9BAD500DB4BD8 /* UICustomTableViewCell.swift */,
-				D029344B1FE9BAD500DB4BD8 /* UICustomTableViewHandler.swift */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -164,6 +163,26 @@
 				D091D94A2009791100BFBA67 /* ANoteTimeSelect.swift */,
 			);
 			name = ANote;
+			sourceTree = "<group>";
+		};
+		D0F14430202270270000DFAA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D0F144442022734C0000DFAA /* DateUtils.swift */,
+				D0F144452022734C0000DFAA /* FontUtils.swift */,
+				D0F144462022734C0000DFAA /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		D0F144342022703E0000DFAA /* UICustomTable */ = {
+			isa = PBXGroup;
+			children = (
+				D0F1443F202273430000DFAA /* UICustomTableView.swift */,
+				D0F14440202273430000DFAA /* UICustomTableViewCell.swift */,
+				D0F1443E202273430000DFAA /* UICustomTableViewHandler.swift */,
+			);
+			name = UICustomTable;
 			sourceTree = "<group>";
 		};
 		D0FE64EF20142C1D00D9B568 /* Images */ = {
@@ -269,22 +288,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D029344C1FE9BAD500DB4BD8 /* UICustomTableView.swift in Sources */,
-				D00C72F22017AA9E00019562 /* FontUtils.swift in Sources */,
-				D0F0B5B42013D7B70042A036 /* DateUtils.swift in Sources */,
 				D02934451FE9BA7F00DB4BD8 /* AppDelegate.swift in Sources */,
 				D091D93A2009757A00BFBA67 /* UICheckbox.swift in Sources */,
 				D091D94D2009791100BFBA67 /* ANoteTimeSelect.swift in Sources */,
 				D04B42E520192DA20081AA43 /* ANoteRow.swift in Sources */,
-				D029344E1FE9BAD500DB4BD8 /* UICustomTableViewHandler.swift in Sources */,
 				D04B42E420192DA20081AA43 /* ANoteTableViewCell.swift in Sources */,
-				D029344D1FE9BAD500DB4BD8 /* UICustomTableViewCell.swift in Sources */,
 				D091D94E2009791100BFBA67 /* ANoteTableView.swift in Sources */,
+				D0F14441202273430000DFAA /* UICustomTableViewHandler.swift in Sources */,
+				D0F144492022734C0000DFAA /* Utils.swift in Sources */,
 				D091D94C2009791100BFBA67 /* ANoteTableViewHandler.swift in Sources */,
 				D03AEBD21FF1E5AB003611D2 /* DataBackup.swift in Sources */,
 				D04B42E320192DA20081AA43 /* ANoteCellSubview.swift in Sources */,
 				D02934461FE9BA7F00DB4BD8 /* ViewController.swift in Sources */,
 				D095190F1FFC1ED9006E8F9A /* NewClass.swift in Sources */,
+				D0F14443202273430000DFAA /* UICustomTableViewCell.swift in Sources */,
+				D0F14442202273430000DFAA /* UICustomTableView.swift in Sources */,
+				D0F144482022734C0000DFAA /* FontUtils.swift in Sources */,
+				D0F144472022734C0000DFAA /* DateUtils.swift in Sources */,
 				D095190D1FFC1ED1006E8F9A /* Stdcomments.swift in Sources */,
 				D02934291FE9B9DB00DB4BD8 /* Globals.swift in Sources */,
 			);

@@ -6,13 +6,11 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   1/29/18
+ *  @last rev   1/31/18
  *
  *  @section    Opens
  *      Gen upper bar
- *  [~] Grab all backgrounds, store & use
  *      ...
- *      List as open to fade edges of button icons
  *      Cell SubView, full screen and date field!
  *          Subview ui layout matches aNote
  *          Populate SubView, make match aNote
@@ -34,6 +32,8 @@
  *      cell height changes when description text &/or time is added
  *
  *  @section    Pending Opens
+ *  [~] Grab all backgrounds, store & use
+ *      fade edges of button icons - CellSubview
  *      selectable upper bar color
  *      Add cross-out time addition to crossed out cell
  *      works in both zoomed and standard views (Start a validation test vector for aNote demo)

@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../ViewController.swift"
-            timestampString = "538981004.583576"
+            timestampString = "539130440.868848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "358"
-            endingLineNumber = "358"
+            startingLineNumber = "397"
+            endingLineNumber = "397"
             landmarkName = "ViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../../Ref/Libraries/Programmatic UI/ANote/Cell/ANoteTableViewCell.swift"
-            timestampString = "538706817.316371"
+            timestampString = "539128676.971061"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "101"
@@ -138,13 +138,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../../../Ref/Libraries/Programmatic UI/ANote/Cell/ANoteCellSubview.swift"
-            timestampString = "538981004.583707"
+            timestampString = "539126835.954276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "609"
             endingLineNumber = "609"
-            landmarkName = "addDevToolbar(_:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
