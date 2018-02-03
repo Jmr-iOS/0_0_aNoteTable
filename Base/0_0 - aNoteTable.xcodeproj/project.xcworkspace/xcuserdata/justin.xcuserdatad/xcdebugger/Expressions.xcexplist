@@ -6,6 +6,9 @@
          contextName = "ANoteCellSubview.init(mainView:parentCell:):ANoteCellSubview.swift">
          <PersistentStrings>
             <PersistentString
+               value = "dateStamp.bounds.height">
+            </PersistentString>
+            <PersistentString
                value = "bkgnds">
             </PersistentString>
          </PersistentStrings>

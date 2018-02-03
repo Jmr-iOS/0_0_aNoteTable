@@ -21,6 +21,10 @@
 		D037732B20262A7800A928CA /* PathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D037732620262A7800A928CA /* PathUtils.swift */; };
 		D037733020262B9300A928CA /* star_on.png in Resources */ = {isa = PBXBuildFile; fileRef = D037732E20262B9300A928CA /* star_on.png */; };
 		D037733120262B9300A928CA /* star_off.png in Resources */ = {isa = PBXBuildFile; fileRef = D037732F20262B9300A928CA /* star_off.png */; };
+		D03773332026321500A928CA /* UIDateStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03773322026321400A928CA /* UIDateStamp.swift */; };
+		D03773372026484B00A928CA /* datestamp_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = D03773352026484B00A928CA /* datestamp_sel.png */; };
+		D03773382026484B00A928CA /* datestamp_nosel.png in Resources */ = {isa = PBXBuildFile; fileRef = D03773362026484B00A928CA /* datestamp_nosel.png */; };
+		D037733A2026533400A928CA /* UIKitExtens.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03773392026533400A928CA /* UIKitExtens.swift */; };
 		D03AEBD21FF1E5AB003611D2 /* DataBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03AEBD11FF1E5AB003611D2 /* DataBackup.swift */; };
 		D04B42E320192DA20081AA43 /* ANoteCellSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04B42E020192DA20081AA43 /* ANoteCellSubview.swift */; };
 		D04B42E420192DA20081AA43 /* ANoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04B42E120192DA20081AA43 /* ANoteTableViewCell.swift */; };
@@ -71,6 +75,10 @@
 		D037732620262A7800A928CA /* PathUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PathUtils.swift; path = "../../../../../Ref/Libraries/Programmatic UI/Utils/PathUtils.swift"; sourceTree = "<group>"; };
 		D037732E20262B9300A928CA /* star_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star_on.png; path = ../Doc/Images/Stars/star_on.png; sourceTree = "<group>"; };
 		D037732F20262B9300A928CA /* star_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star_off.png; path = ../Doc/Images/Stars/star_off.png; sourceTree = "<group>"; };
+		D03773322026321400A928CA /* UIDateStamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIDateStamp.swift; path = "../../../../../Ref/Libraries/Programmatic UI/ANote/Cell/UIDateStamp.swift"; sourceTree = "<group>"; };
+		D03773352026484B00A928CA /* datestamp_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = datestamp_sel.png; path = "../Doc/Images/Date Stamp/datestamp_sel.png"; sourceTree = "<group>"; };
+		D03773362026484B00A928CA /* datestamp_nosel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = datestamp_nosel.png; path = "../Doc/Images/Date Stamp/datestamp_nosel.png"; sourceTree = "<group>"; };
+		D03773392026533400A928CA /* UIKitExtens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIKitExtens.swift; path = "../../../../../Ref/Libraries/Programmatic UI/UIKitExtens.swift"; sourceTree = "<group>"; };
 		D039B4B61BF4D7950024005F /* 0_0 - aNoteTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "0_0 - aNoteTable.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03AEBD11FF1E5AB003611D2 /* DataBackup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataBackup.swift; path = ../Data/DataBackup.swift; sourceTree = "<group>"; };
 		D04B42E020192DA20081AA43 /* ANoteCellSubview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ANoteCellSubview.swift; path = "../../../../../Ref/Libraries/Programmatic UI/ANote/Cell/ANoteCellSubview.swift"; sourceTree = "<group>"; };
@@ -133,6 +141,7 @@
 				D037731920262A0600A928CA /* Utils */,
 				D0F144342022703E0000DFAA /* UICustomTable */,
 				D091D9392009757A00BFBA67 /* UICheckbox.swift */,
+				D03773392026533400A928CA /* UIKitExtens.swift */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -189,6 +198,15 @@
 			name = Star;
 			sourceTree = "<group>";
 		};
+		D03773342026484100A928CA /* DateStamp */ = {
+			isa = PBXGroup;
+			children = (
+				D03773362026484B00A928CA /* datestamp_nosel.png */,
+				D03773352026484B00A928CA /* datestamp_sel.png */,
+			);
+			name = DateStamp;
+			sourceTree = "<group>";
+		};
 		D039B4AD1BF4D7950024005F = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +232,7 @@
 				D04B42E020192DA20081AA43 /* ANoteCellSubview.swift */,
 				D04B42E220192DA20081AA43 /* ANoteRow.swift */,
 				D04B42E120192DA20081AA43 /* ANoteTableViewCell.swift */,
+				D03773322026321400A928CA /* UIDateStamp.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -264,6 +283,7 @@
 		D0DB8A072025597800F60B12 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D03773342026484100A928CA /* DateStamp */,
 				D037732D20262B5400A928CA /* Star */,
 				D037730A202628AC00A928CA /* Bookmark */,
 				D0C78F082022B35700419372 /* Subview */,
@@ -359,6 +379,8 @@
 				D0DB89FB2025437300F60B12 /* cellSubview_c.png in Resources */,
 				D09519111FFC1EDE006E8F9A /* Empty.storyboard in Resources */,
 				D0C78F102022B3A800419372 /* subview_back.png in Resources */,
+				D03773372026484B00A928CA /* datestamp_sel.png in Resources */,
+				D03773382026484B00A928CA /* datestamp_nosel.png in Resources */,
 				D0DB8A032025437300F60B12 /* cellSubview_g.png in Resources */,
 				D0DB8A042025437300F60B12 /* cellsubview_ref.PNG in Resources */,
 				D037733120262B9300A928CA /* star_off.png in Resources */,
@@ -385,6 +407,7 @@
 				D037732920262A7800A928CA /* DateUtils.swift in Sources */,
 				D091D94D2009791100BFBA67 /* ANoteTimeSelect.swift in Sources */,
 				D04B42E520192DA20081AA43 /* ANoteRow.swift in Sources */,
+				D037733A2026533400A928CA /* UIKitExtens.swift in Sources */,
 				D04B42E420192DA20081AA43 /* ANoteTableViewCell.swift in Sources */,
 				D091D94E2009791100BFBA67 /* ANoteTableView.swift in Sources */,
 				D0F14441202273430000DFAA /* UICustomTableViewHandler.swift in Sources */,
@@ -399,6 +422,7 @@
 				D095190D1FFC1ED1006E8F9A /* Stdcomments.swift in Sources */,
 				D02934291FE9B9DB00DB4BD8 /* Globals.swift in Sources */,
 				D037732720262A7800A928CA /* ViewUtils.swift in Sources */,
+				D03773332026321500A928CA /* UIDateStamp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
