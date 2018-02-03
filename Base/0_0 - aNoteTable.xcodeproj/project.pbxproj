@@ -47,6 +47,8 @@
 		D0DB8A042025437300F60B12 /* cellsubview_ref.PNG in Resources */ = {isa = PBXBuildFile; fileRef = D0DB89F62025437300F60B12 /* cellsubview_ref.PNG */; };
 		D0DB8A052025437300F60B12 /* cellSubview_b.png in Resources */ = {isa = PBXBuildFile; fileRef = D0DB89F72025437300F60B12 /* cellSubview_b.png */; };
 		D0DB8A062025437300F60B12 /* cellSubview_l.png in Resources */ = {isa = PBXBuildFile; fileRef = D0DB89F82025437300F60B12 /* cellSubview_l.png */; };
+		D0DB8A0B20255FFB00F60B12 /* star_off.png in Resources */ = {isa = PBXBuildFile; fileRef = D0DB8A0920255FFB00F60B12 /* star_off.png */; };
+		D0DB8A0C20255FFB00F60B12 /* star_on.png in Resources */ = {isa = PBXBuildFile; fileRef = D0DB8A0A20255FFB00F60B12 /* star_on.png */; };
 		D0F14441202273430000DFAA /* UICustomTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F1443E202273430000DFAA /* UICustomTableViewHandler.swift */; };
 		D0F14442202273430000DFAA /* UICustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F1443F202273430000DFAA /* UICustomTableView.swift */; };
 		D0F14443202273430000DFAA /* UICustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F14440202273430000DFAA /* UICustomTableViewCell.swift */; };
@@ -95,6 +97,8 @@
 		D0DB89F62025437300F60B12 /* cellsubview_ref.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cellsubview_ref.PNG; path = ../Doc/Images/Backgrounds/finals/tempUse/cellsubview_ref.PNG; sourceTree = "<group>"; };
 		D0DB89F72025437300F60B12 /* cellSubview_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cellSubview_b.png; path = ../Doc/Images/Backgrounds/finals/tempUse/cellSubview_b.png; sourceTree = "<group>"; };
 		D0DB89F82025437300F60B12 /* cellSubview_l.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cellSubview_l.png; path = ../Doc/Images/Backgrounds/finals/tempUse/cellSubview_l.png; sourceTree = "<group>"; };
+		D0DB8A0920255FFB00F60B12 /* star_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star_off.png; path = ../../Doc/Compare/CellSubview/Stars/star_off.png; sourceTree = "<group>"; };
+		D0DB8A0A20255FFB00F60B12 /* star_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star_on.png; path = ../../Doc/Compare/CellSubview/Stars/star_on.png; sourceTree = "<group>"; };
 		D0F1443E202273430000DFAA /* UICustomTableViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICustomTableViewHandler.swift; path = "../../../../../Ref/Libraries/Programmatic UI/UICustomTable/UICustomTableViewHandler.swift"; sourceTree = "<group>"; };
 		D0F1443F202273430000DFAA /* UICustomTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICustomTableView.swift; path = "../../../../../Ref/Libraries/Programmatic UI/UICustomTable/UICustomTableView.swift"; sourceTree = "<group>"; };
 		D0F14440202273430000DFAA /* UICustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICustomTableViewCell.swift; path = "../../../../../Ref/Libraries/Programmatic UI/UICustomTable/UICustomTableViewCell.swift"; sourceTree = "<group>"; };
@@ -134,7 +138,7 @@
 		D029343A1FE9BA5600DB4BD8 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				D0DB89EA2025435100F60B12 /* Subview Backgrounds */,
+				D0DB8A072025597800F60B12 /* Images */,
 				D0DB89CB20251C3900F60B12 /* Icons */,
 				D039B4B71BF4D7950024005F /* Products */,
 				D029343B1FE9BA6800DB4BD8 /* Assets.xcassets */,
@@ -195,7 +199,6 @@
 				D0C78F0A2022B3A800419372 /* subview_send.png */,
 			);
 			name = Subview;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		D0DB89A52024F7D900F60B12 /* Utils */ = {
@@ -213,8 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				D0DB89E320253C4200F60B12 /* Folder Icon */,
-				D0DB89CC20251C4E00F60B12 /* Bookmark */,
-				D0C78F082022B35700419372 /* Subview */,
 			);
 			path = Icons;
 			sourceTree = "<group>";
@@ -226,6 +227,7 @@
 				D0DB89DE20252B2600F60B12 /* bookmark_unselected.png */,
 			);
 			name = Bookmark;
+			path = Icons;
 			sourceTree = "<group>";
 		};
 		D0DB89E320253C4200F60B12 /* Folder Icon */ = {
@@ -255,6 +257,26 @@
 				D0DB89F62025437300F60B12 /* cellsubview_ref.PNG */,
 			);
 			name = "Subview Backgrounds";
+			sourceTree = "<group>";
+		};
+		D0DB8A072025597800F60B12 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D0DB8A0820255FEB00F60B12 /* Star */,
+				D0C78F082022B35700419372 /* Subview */,
+				D0DB89EA2025435100F60B12 /* Subview Backgrounds */,
+				D0DB89CC20251C4E00F60B12 /* Bookmark */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		D0DB8A0820255FEB00F60B12 /* Star */ = {
+			isa = PBXGroup;
+			children = (
+				D0DB8A0920255FFB00F60B12 /* star_off.png */,
+				D0DB8A0A20255FFB00F60B12 /* star_on.png */,
+			);
+			path = Star;
 			sourceTree = "<group>";
 		};
 		D0F144342022703E0000DFAA /* UICustomTable */ = {
@@ -338,8 +360,10 @@
 				D0DB8A002025437300F60B12 /* cellSubview_e.png in Resources */,
 				D0C78F0E2022B3A800419372 /* subview_send.png in Resources */,
 				D0DB89FA2025437300F60B12 /* cellSubview_a.png in Resources */,
+				D0DB8A0B20255FFB00F60B12 /* star_off.png in Resources */,
 				D0DB89E020252B2600F60B12 /* bookmark_unselected.png in Resources */,
 				D0DB89FB2025437300F60B12 /* cellSubview_c.png in Resources */,
+				D0DB8A0C20255FFB00F60B12 /* star_on.png in Resources */,
 				D09519111FFC1EDE006E8F9A /* Empty.storyboard in Resources */,
 				D0C78F102022B3A800419372 /* subview_back.png in Resources */,
 				D0DB8A032025437300F60B12 /* cellSubview_g.png in Resources */,
