@@ -13,5 +13,16 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "UIImageView.sizeToImage():UIKitExtens.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.center">
+            </PersistentString>
+            <PersistentString
+               value = "image?.size">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>
