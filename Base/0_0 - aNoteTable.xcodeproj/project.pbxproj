@@ -129,9 +129,9 @@
 		D02934361FE9BA3D00DB4BD8 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				D091D93F200978D500BFBA67 /* ANote */,
 				D037731920262A0600A928CA /* Utils */,
 				D0F144342022703E0000DFAA /* UICustomTable */,
-				D091D93F200978D500BFBA67 /* ANote */,
 				D091D9392009757A00BFBA67 /* UICheckbox.swift */,
 			);
 			name = Lib;
