@@ -472,8 +472,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     /********************************************************************************************************************************/
     @objc func plusPressed(_: (UIButton?)) {
         
-        //aNoteTable.myCustomCells[0].textLabel?.text = "ABC";                      /* works, direct label refresh                  */
-        
         doAlertControllerDemo();
         
         print("ViewController.plusPressed():       plus was pressed");
@@ -493,12 +491,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         passwordPrompt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) -> Void in
             // Now do whatever you want with inputTextField (remember to unwrap the optional)
-            
+
+            //Grab
             let entryStr : String = (inputTextField?.text)! ;
             
-            self.aNoteTable.myCustomCells[self.index].textLabel?.text = entryStr;
+            //Store
+            self.rows[self.index].main = entryStr;
             
             self.index = (self.index+1)%5;
+            
+            self.aNoteTable.updateCellTitles();
             
             print("BOOM! I received '\(entryStr)'");
         }));
@@ -521,12 +523,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         return;
     }
-    
-    
-    
-    
-    
-    
+
+
     /********************************************************************************************************************************/
     /** @fcn        textFieldShouldReturn(_ textField: UITextField) -> Bool
      *  @brief      Dismiss the keyboard when the user taps the "Return" key
