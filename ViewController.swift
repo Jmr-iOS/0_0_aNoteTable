@@ -479,12 +479,59 @@ class ViewController: UIViewController, UITextFieldDelegate {
     /********************************************************************************************************************************/
     @objc func plusPressed(_: (UIButton?)) {
         
-        aNoteTable.myCustomCells[0].textLabel?.text = "ABC";                        /* works, direct label refresh                  */
-
+        //aNoteTable.myCustomCells[0].textLabel?.text = "ABC";                      /* works, direct label refresh                  */
+        
+        doAlertControllerDemo();
+        
         print("ViewController.plusPressed():       plus was pressed");
         
         return;
     }
+    
+    
+    
+    var index : Int = 0;
+    
+    @objc func doAlertControllerDemo() {
+        
+        var inputTextField: UITextField?;
+        
+        let passwordPrompt = UIAlertController(title: "Enter Password", message: "You have selected to enter your passwod.", preferredStyle: UIAlertControllerStyle.alert);
+        
+        passwordPrompt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+            // Now do whatever you want with inputTextField (remember to unwrap the optional)
+            
+            let entryStr : String = (inputTextField?.text)! ;
+            
+            self.aNoteTable.myCustomCells[self.index].textLabel?.text = entryStr;
+            
+            self.index = (self.index+1)%5;
+            
+            print("BOOM! I received '\(entryStr)'");
+        }));
+        
+        
+        passwordPrompt.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+            print("done");
+        }));
+        
+        
+        passwordPrompt.addTextField(configurationHandler: {(textField: UITextField!) in
+            textField.placeholder = "Password"
+            textField.isSecureTextEntry = false       /* true here for pswd entry */
+            inputTextField = textField
+        });
+        
+        
+        self.present(passwordPrompt, animated: true, completion: nil);
+        
+        
+        return;
+    }
+    
+    
+    
+    
     
     
     /********************************************************************************************************************************/
