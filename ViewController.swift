@@ -266,7 +266,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         /****************************************************************************************************************************/
         let tableFrame : CGRect = getANoteFrame(y: yOffs, bottHeight: lower_bar_height);
 //!!!   aNoteTable = ANoteTableView(frame: tableFrame, style: UITableViewStyle.plain, yOffs: yOffs);
-        aNoteTable = ANoteTableView(frame: tableFrame, style: UITableViewStyle.plain);
+        aNoteTable = ANoteTableView(vc: self, frame: tableFrame, style: UITableViewStyle.plain);
         
         //Add views
         view.addSubview(aNoteTable);
@@ -381,14 +381,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     /********************************************************************************************************************************/
     @objc func settingsPressed(_: (UIButton?)) {
         
-        //refresh table
-        aNoteTable.reloadRows(at: [IndexPath(row:0, section:0)], with: .none);
-        aNoteTable.reloadRows(at: [IndexPath(row:1, section:0)], with: .none);
-        aNoteTable.reloadRows(at: [IndexPath(row:2, section:0)], with: .none);
-        aNoteTable.reloadRows(at: [IndexPath(row:3, section:0)], with: .none);
-//!!!   aNoteTable.reloadRows(at: [IndexPath(row:4, section:0)], with: .none);
-        
-        aNoteTable.reloadData();
+        aNoteTable.refreshTable();
         
         print("ViewController.settingsPressed():   settings was pressed");
         return;
