@@ -6,11 +6,12 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   2/3/18
+ *  @last rev   2/4/18
  *
  *  @section    Opens
- *      Gen upper bar
+ *      Perform & record test vectors (expected results, observed results)
  *      ...
+ *      Gen upper bar
  *      Cell SubView, full screen and date field!
  *          Subview ui layout matches aNote
  *          Populate SubView, make match aNote
@@ -377,6 +378,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     /********************************************************************************************************************************/
     @objc func settingsPressed(_: (UIButton?)) {
+        
+        //refresh table
+        aNoteTable.reloadRows(at: [IndexPath(row:0, section:0)], with: .none);
+        aNoteTable.reloadRows(at: [IndexPath(row:1, section:0)], with: .none);
+        aNoteTable.reloadRows(at: [IndexPath(row:2, section:0)], with: .none);
+        aNoteTable.reloadRows(at: [IndexPath(row:3, section:0)], with: .none);
+        aNoteTable.reloadRows(at: [IndexPath(row:4, section:0)], with: .none);
+        
+        aNoteTable.reloadData();
+        
         print("ViewController.settingsPressed():   settings was pressed");
         return;
     }
