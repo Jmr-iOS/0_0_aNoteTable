@@ -265,8 +265,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         /*                                                      Table                                                               */
         /****************************************************************************************************************************/
         let tableFrame : CGRect = getANoteFrame(y: yOffs, bottHeight: lower_bar_height);
-        aNoteTable = ANoteTableView(frame: tableFrame, style: UITableViewStyle.plain, yOffs: yOffs);
- 
+//!!!   aNoteTable = ANoteTableView(frame: tableFrame, style: UITableViewStyle.plain, yOffs: yOffs);
+        aNoteTable = ANoteTableView(frame: tableFrame, style: UITableViewStyle.plain);
+        
         //Add views
         view.addSubview(aNoteTable);
         
@@ -310,8 +311,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         /****************************************************************************************************************************/
         /*                                                      Handler                                                             */
         /****************************************************************************************************************************/
-        aNoteTableHandler = ANoteTableViewHandler(vc: self, mainView: self.view, ANoteTable: aNoteTable);
-
+//!!!   aNoteTableHandler = ANoteTableViewHandler(vc: self, mainView: self.view, ANoteTable: aNoteTable);
+        aNoteTableHandler = ANoteTableViewHandler(table : aNoteTable);                                                                //<DBG>
+        
         aNoteTable.delegate   = aNoteTableHandler;                                      /* Set both to handle clicks & provide data */
         aNoteTable.dataSource = aNoteTableHandler;        
         
@@ -384,7 +386,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         aNoteTable.reloadRows(at: [IndexPath(row:1, section:0)], with: .none);
         aNoteTable.reloadRows(at: [IndexPath(row:2, section:0)], with: .none);
         aNoteTable.reloadRows(at: [IndexPath(row:3, section:0)], with: .none);
-        aNoteTable.reloadRows(at: [IndexPath(row:4, section:0)], with: .none);
+//!!!   aNoteTable.reloadRows(at: [IndexPath(row:4, section:0)], with: .none);
         
         aNoteTable.reloadData();
         
@@ -476,7 +478,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     /********************************************************************************************************************************/
     @objc func plusPressed(_: (UIButton?)) {
+        
+        aNoteTable.myCustomCells[0].textLabel?.text = "ABC";                        /* works, direct label refresh                  */
+
         print("ViewController.plusPressed():       plus was pressed");
+        
         return;
     }
     
