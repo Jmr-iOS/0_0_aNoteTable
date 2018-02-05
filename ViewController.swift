@@ -9,6 +9,7 @@
  *  @last rev   2/5/18
  *
  *  @section    Opens
+ *      Fix ATracker background (white bott bar)
  *      Perform & record test vectors (expected results, observed results)
  *      ...
  *      Gen upper bar

@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "NewTableViewCell.init(vc:aNoteTable:index:style:reuseIdentifier:):NewTableViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.aNoteTable.myCustomCells2[0].frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "NewTableViewCell.setName(_:):NewTableViewCell.swift">
          <PersistentStrings>
             <PersistentString
@@ -11,10 +19,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "NewTableViewCell.init(vc:aNoteTable:index:style:reuseIdentifier:):NewTableViewCell.swift">
+         contextName = "ANoteCellSubview.infoPress(_:):ANoteCellSubview.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.aNoteTable.myCustomCells2[0].frame">
+               value = "bkgnds.count">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -35,18 +43,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ViewController.bookmarkPressed(_:):ViewController.swift">
+         contextName = "NewTableViewCell.init(vc:mainView:index:style:reuseIdentifier:):NewTableViewCell.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.aNoteTable.myCustomCells2[0].frame">
+               value = "vc.view">
+            </PersistentString>
+            <PersistentString
+               value = "vc.aNoteTable">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "NewTableViewCell.initialize():NewTableViewCell.swift">
+         contextName = "ViewController.bookmarkPressed(_:):ViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "vc.aNoteTable">
+               value = "self.aNoteTable.myCustomCells2[0].frame">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -67,11 +78,8 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "NewTableViewCell.init(vc:mainView:index:style:reuseIdentifier:):NewTableViewCell.swift">
+         contextName = "NewTableViewCell.initialize():NewTableViewCell.swift">
          <PersistentStrings>
-            <PersistentString
-               value = "vc.view">
-            </PersistentString>
             <PersistentString
                value = "vc.aNoteTable">
             </PersistentString>
