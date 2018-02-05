@@ -247,10 +247,10 @@
 		D091D93F200978D500BFBA67 /* ANote */ = {
 			isa = PBXGroup;
 			children = (
+				D04B42DF20192D750081AA43 /* Cell */,
 				D091D6AE2028017100B384F4 /* NewTableViewCell.swift */,
 				D091D68320276E0C00B384F4 /* ANoteTableView.swift */,
 				D091D68220276E0C00B384F4 /* ANoteTableViewHandler.swift */,
-				D04B42DF20192D750081AA43 /* Cell */,
 				D091D94A2009791100BFBA67 /* ANoteTimeSelect.swift */,
 			);
 			name = ANote;

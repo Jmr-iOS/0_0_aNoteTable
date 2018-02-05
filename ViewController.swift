@@ -264,8 +264,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         /****************************************************************************************************************************/
         /*                                                      Table                                                               */
         /****************************************************************************************************************************/
-        let tableFrame : CGRect = getANoteFrame(y: yOffs, bottHeight: lower_bar_height);
-        aNoteTable = ANoteTableView(frame: tableFrame, style: UITableViewStyle.plain, vc:self, yOffs: -1);
+        let tableFrame : CGRect = getANoteFrame(y: yOffs, bottHeight: lower_bar_height);                                   
+        aNoteTable = ANoteTableView(frame: tableFrame, style: UITableViewStyle.plain, vc:self, yOffs: yOffs);              
         
         //Add views
         view.addSubview(aNoteTable);
@@ -340,7 +340,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         var tableFrame : CGRect = self.view.frame;
         
-        tableFrame.origin.y = y;
+        tableFrame.origin.y = y;  
 
         let numRows   : CGFloat = CGFloat(rows.count);
         
