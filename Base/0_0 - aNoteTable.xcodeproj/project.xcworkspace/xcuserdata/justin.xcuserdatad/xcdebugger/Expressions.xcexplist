@@ -3,10 +3,13 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "NewTableViewCell.init(vc:index:style:reuseIdentifier:):NewTableViewCell.swift">
+         contextName = "ANoteTableViewHandler.tableView(_:cellForRowAt:):ANoteTableViewHandler.swift">
          <PersistentStrings>
             <PersistentString
-               value = " vc.aNoteTable">
+               value = "table.myCustomCells2">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath.item">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -15,6 +18,22 @@
          <PersistentStrings>
             <PersistentString
                value = "myCustomCells">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ANoteTableViewHandler.tableView(_:didSelectRowAt:):ANoteTableViewHandler.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.item">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewTableViewCell.init(vc:index:style:reuseIdentifier:):NewTableViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = " vc.aNoteTable">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

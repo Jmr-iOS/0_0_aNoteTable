@@ -266,7 +266,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         /****************************************************************************************************************************/
         let tableFrame : CGRect = getANoteFrame(y: yOffs, bottHeight: lower_bar_height);
 //!!!   aNoteTable = ANoteTableView(frame: tableFrame, style: UITableViewStyle.plain, yOffs: yOffs);
-        aNoteTable = ANoteTableView(vc: self, frame: tableFrame, style: UITableViewStyle.plain);
+        aNoteTable = ANoteTableView(frame: tableFrame, style: UITableViewStyle.plain, vc:self, yOffs: -1);
         
         //Add views
         view.addSubview(aNoteTable);

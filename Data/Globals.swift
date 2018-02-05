@@ -13,8 +13,8 @@
 /************************************************************************************************************************************/
 import UIKit
 
-var g : Globals!;
-let verbose : Bool = true;
+var g : Globals!;                                               /* global constructor acces                                         */
+let verbose : Bool = true;                                      /* global verbosity                                                 */
 let numRows : Int  = 4;
 
 
