@@ -52,6 +52,9 @@ let tableSepColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha:1
 let stdTimeColor  = UIColor(red: 255/255, green:  60/255, blue:  60/255, alpha: 1);      /* #ff3c3c                                 */
 let normTimeColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1);      /* #d2d2d2                                 */
 
+//Cell colors
+let cellSubjColor = UIColor(red:0.31, green:0.31, blue:0.31, alpha:1.0);                 /* #4e4e4e                                 */
+
 
 //**********************************************************************************************************************************//
 //                                                     Dimensions                                                                   //

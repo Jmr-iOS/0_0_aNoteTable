@@ -3,13 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "ANoteTableViewHandler.tableView(_:cellForRowAt:):ANoteTableViewHandler.swift">
+         contextName = "NewTableViewCell.setName(_:):NewTableViewCell.swift">
          <PersistentStrings>
             <PersistentString
-               value = "table.myCustomCells2">
-            </PersistentString>
-            <PersistentString
-               value = "indexPath.item">
+               value = "subjectField.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -18,6 +15,17 @@
          <PersistentStrings>
             <PersistentString
                value = "myCustomCells">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ANoteTableViewHandler.tableView(_:cellForRowAt:):ANoteTableViewHandler.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "table.myCustomCells2">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath.item">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -56,6 +64,14 @@
             </PersistentString>
             <PersistentString
                value = "image?.size">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ANoteTableView.refreshTable():ANoteTableView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "rows[i].main">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

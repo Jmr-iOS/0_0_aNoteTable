@@ -265,7 +265,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         /*                                                      Table                                                               */
         /****************************************************************************************************************************/
         let tableFrame : CGRect = getANoteFrame(y: yOffs, bottHeight: lower_bar_height);
-//!!!   aNoteTable = ANoteTableView(frame: tableFrame, style: UITableViewStyle.plain, yOffs: yOffs);
         aNoteTable = ANoteTableView(frame: tableFrame, style: UITableViewStyle.plain, vc:self, yOffs: -1);
         
         //Add views
@@ -311,8 +310,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         /****************************************************************************************************************************/
         /*                                                      Handler                                                             */
         /****************************************************************************************************************************/
-//!!!   aNoteTableHandler = ANoteTableViewHandler(vc: self, mainView: self.view, ANoteTable: aNoteTable);
-        aNoteTableHandler = ANoteTableViewHandler(table : aNoteTable);                                                                //<DBG>
+        aNoteTableHandler = ANoteTableViewHandler(table : aNoteTable);
         
         aNoteTable.delegate   = aNoteTableHandler;                                      /* Set both to handle clicks & provide data */
         aNoteTable.dataSource = aNoteTableHandler;        
