@@ -3,6 +3,22 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "NewTableViewCell.init(vc:index:style:reuseIdentifier:):NewTableViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = " vc.aNoteTable">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ANoteTableView.init(vc:frame:style:):ANoteTableView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "myCustomCells">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ANoteCellSubview.init(mainView:parentCell:):ANoteCellSubview.swift">
          <PersistentStrings>
             <PersistentString
@@ -21,6 +37,17 @@
             </PersistentString>
             <PersistentString
                value = "image?.size">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewTableViewCell.init(vc:mainView:index:style:reuseIdentifier:):NewTableViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "vc.view">
+            </PersistentString>
+            <PersistentString
+               value = "vc.aNoteTable">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
