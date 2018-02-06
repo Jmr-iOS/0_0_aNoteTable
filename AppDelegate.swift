@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         vc.view.translatesAutoresizingMaskIntoConstraints = false;
         
         //Window init
-        self.window = UIWindow.init(frame: UIScreen.main.bounds);
+        self.window = UIWindow.init(frame: bS);
         self.window?.backgroundColor = UIColor.white;
         self.window?.rootViewController = vc;
         

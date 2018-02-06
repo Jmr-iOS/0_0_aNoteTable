@@ -61,6 +61,7 @@ let cellMainColor = UIColor(red:0.31, green:0.31, blue:0.31, alpha:1.0);        
 //**********************************************************************************************************************************//
 
 //Screen
+let bS : CGRect  = UIScreen.main.bounds;
 let wS : CGFloat = UIScreen.main.bounds.width;
 let hS : CGFloat = UIScreen.main.bounds.height;
 
@@ -74,7 +75,7 @@ let check_yOffs : CGFloat = 15;
 let check_dur_s : TimeInterval = TimeInterval(0.070);
 
 //Time View
-let tv_xOffs  : CGFloat = (UIScreen.main.bounds.width - 62);    /* ('tv' - Time View)                                               */
+let tv_xOffs  : CGFloat = (wS - 62);                            /* ('tv' - Time View)                                               */
 let tv_yOffs  : CGFloat = 14;
 let tv_width  : CGFloat = 52;
 let tv_height : CGFloat = 18;
@@ -193,15 +194,9 @@ func getCSFrame(onscreen : Bool) -> CGRect {
     
     //send requested location
     if(onscreen) {
-        return CGRect(x: 0,                                             /* on                                                       */
-                      y: 0,
-                      width: UIScreen.main.bounds.width,
-                      height: UIScreen.main.bounds.height);
+        return CGRect(x: 0, y: 0, width: wS, height: hS);                       /* on                                               */
     } else {
-        return CGRect(x: Int(UIScreen.main.bounds.width),               /* off                                                      */
-                      y: 0,
-                      width: Int(UIScreen.main.bounds.width),
-                      height: Int(UIScreen.main.bounds.height));
+        return CGRect(x: Int(wS), y: 0, width: Int(wS), height: Int(hS));       /* off                                              */
     }
 }
 
