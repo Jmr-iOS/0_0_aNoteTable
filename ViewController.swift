@@ -178,7 +178,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         upperText.textColor = UIColor.white;
         upperText.backgroundColor = nil;                                                        /* turn off bkgnd                   */
         upperText.text = "Demo iOS Dir";
-        upperText.font = UIFont(name: ".SFUIDisplay-Medium", size: 19.0);
+        upperText.font = fontB;
         upperText.isEditable = false;                                                           /* view only, disablbe both         */
         upperText.isSelectable = false;
         
@@ -209,7 +209,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         //Load Text Field
         textField.frame = CGRect(x: 47, y: 2, width: 250, height: Int(text_bar_height-1));
-        textField.font = UIFont(name: ".SFUIText", size: 16);
+        textField.font = fontA;
         textField.contentVerticalAlignment = UIControlContentVerticalAlignment.center;
         textField.placeholder = srch_dflt;
         textField.delegate = self;

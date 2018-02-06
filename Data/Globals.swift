@@ -40,6 +40,7 @@ let cellXOffs  : CGFloat = 55;                                  /* all vals empe
 let cellFont   : String = "Arial";
 let cellHeight : CGFloat = 85;
 
+
 //**********************************************************************************************************************************//
 //                                                      Colors                                                                      //
 //**********************************************************************************************************************************//
@@ -54,6 +55,23 @@ let normTimeColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 
 
 //Cell colors
 let cellMainColor = UIColor(red:0.31, green:0.31, blue:0.31, alpha:1.0);                 /* #4e4e4e                                 */
+
+
+//**********************************************************************************************************************************//
+//                                                       Fonts                                                                      //
+//**********************************************************************************************************************************//
+let mainFont = UIFont(name: ".SFUIText", size: 15.25)!;
+let stdFont  = mainFont.withSize(18);
+let fontA    = mainFont.withSize(16);
+let fontB    = UIFont(name: ".SFUIDisplay-Medium", size: 19.0)!;
+let fontC    = UIFont(name: cellFont, size: body_size)!;
+let fontD    = fontC.withSize(12);
+let fontE    = fontC.withSize(mt_size);
+let fontF    = UIFont(name: "HelveticaNeue-Medium", size: 26)!; //?
+let fontG    = fontF.withSize(12);
+let fontH    = UIFont(name: ".SFUIText-Medium", size: 18)!;
+let fontI    = mainFont.withSize(17);
+let fontJ    = fontH.withSize(17);
 
 
 //**********************************************************************************************************************************//
