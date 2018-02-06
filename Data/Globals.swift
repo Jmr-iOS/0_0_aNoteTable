@@ -53,15 +53,16 @@ let stdTimeColor  = UIColor(red: 255/255, green:  60/255, blue:  60/255, alpha: 
 let normTimeColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1);      /* #d2d2d2                                 */
 
 //Cell colors
-let cellSubjColor = UIColor(red:0.31, green:0.31, blue:0.31, alpha:1.0);                 /* #4e4e4e                                 */
+let cellMainColor = UIColor(red:0.31, green:0.31, blue:0.31, alpha:1.0);                 /* #4e4e4e                                 */
 
 
 //**********************************************************************************************************************************//
 //                                                     Dimensions                                                                   //
 //**********************************************************************************************************************************//
 
-//Cell Subview
-//<none>
+//Screen
+let wS : CGFloat = UIScreen.main.bounds.width;
+let hS : CGFloat = UIScreen.main.bounds.height;
 
 //Search Bar
 let srch_dflt   : String = "2:00 Shopping";                     /* ('srch' - Upper Search Text Bar)                                 */
@@ -80,24 +81,24 @@ let tv_height : CGFloat = 18;
 let tv_corner : CGFloat = 10;
 
 
-//Subject Text
-let subj_height : CGFloat = 25;
-let subj_xOffs  : CGFloat = 46;
-let subj_yOffs  : CGFloat = 25;
+//Main Text
+let main_height : CGFloat = 25;
+let main_xOffs  : CGFloat = 46;
+let main_yOffs  : CGFloat = 25;
 
 //Description Text
-let descr_xOffs  : CGFloat = cellXOffs-10;
-let descr_yOffs  : CGFloat = g.descripYOffs()-10;
-let descr_height : CGFloat = 20;
+let body_xOffs  : CGFloat = cellXOffs-10;
+let body_yOffs  : CGFloat = g.bodyYOffs()-10;
+let body_height : CGFloat = 20;
 
 //Main Text
 let mt_size  : CGFloat = 16;                                    /* ('mt' - Main Text)                                               */
 let mt_xOffs : CGFloat = 46;
 let mt_yOffs : CGFloat = 2;
 
-//Description Text
-let descr_size  : CGFloat = 12;
-let descr_color : UIColor = UIColor.gray;
+//Body Text
+let body_size  : CGFloat = 12;
+let body_color : UIColor = UIColor.gray;
 
 //Bottom Text
 let bott_size   : CGFloat = 12;
@@ -156,13 +157,13 @@ class Globals : NSObject {
 
     
     /********************************************************************************************************************************/
-    /** @fcn        descripYOffs() -> CGFloat
+    /** @fcn        bodyYOffs() -> CGFloat
      *  @brief      x
      *  @details    x
      */
     /********************************************************************************************************************************/
-    func descripYOffs() -> CGFloat {
-        return (subj_yOffs + subj_height);
+    func bodyYOffs() -> CGFloat {
+        return (main_yOffs + main_height);
     }
 
     
@@ -173,7 +174,7 @@ class Globals : NSObject {
      */
     /********************************************************************************************************************************/
     func bottYOffs() -> CGFloat {
-        return (descripYOffs() + descr_height);
+        return (bodyYOffs() + body_height);
     }
 }
 
