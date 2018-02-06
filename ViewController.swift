@@ -6,7 +6,7 @@
  *
  *  @author     Justin Reina, Firmware Engineer, Jaostech
  *  @created    11/19/17
- *  @last rev   2/5/18
+ *  @last rev   2/6/18
  *
  *  @section    Opens
  *      Fix ATracker background (white bott bar)
