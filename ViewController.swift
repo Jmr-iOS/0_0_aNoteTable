@@ -9,7 +9,6 @@
  *  @last rev   2/6/18
  *
  *  @section    Opens
- *      Fix ATracker background (white bott bar)
  *      Perform & record test vectors (expected results, observed results)
  *      ...
  *      Gen upper bar
@@ -34,7 +33,7 @@
  *      cell height changes when description text &/or time is added
  *
  *  @section    Pending Opens
- *  [~] Grab all backgrounds, store & use
+ *      Cell Subview selects text color based on specific selected background
  *      fade edges of button icons - CellSubview
  *      selectable upper bar color
  *      Add cross-out time addition to crossed out cell
@@ -77,6 +76,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     //Data
     var rows : [ANoteRow];
+
+    //Dev
+    var alertIndex : Int = 0;
 
     
     /********************************************************************************************************************************/
@@ -379,10 +381,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     /********************************************************************************************************************************/
     @objc func settingsPressed(_: (UIButton?)) {
-        
         aNoteTable.refreshTable();
-        
-        print("ViewController.settingsPressed():   settings was pressed");
+        if(verbose) { print("ViewController.settingsPressed():   settings was pressed"); }
         return;
     }
     
@@ -395,12 +395,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     /********************************************************************************************************************************/
     @objc func bookmarkPressed(_: (UIButton?)) {
-        print("ViewController.bookmarkPressed():   bookmark was pressed");
+        if(verbose) { print("ViewController.bookmarkPressed():   bookmark was pressed"); }
         DataBackup.updateBackup();                                          /* store the update                                     */
-        print("ViewController.bookmarkPressed():   bookmark response completed");
-
-        //@note     apply changes here for debug if desired
-        
+        if(verbose) { print("ViewController.bookmarkPressed():   bookmark response completed"); }
         return;
     }
 
@@ -413,12 +410,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     /********************************************************************************************************************************/
     @objc func searchPressed(_: (UIButton?)) {
-        print("ViewController.searchPressed():     search was pressed");
-
-        //@note     apply secondary changes here for debug if desired
-        
-        print("ViewController.searchPressed():     exiting");
-        
+        if(verbose) { print("ViewController.searchPressed():     search was pressed"); }
+        if(verbose) { print("ViewController.searchPressed():     exiting"); }
         return;
     }
     
@@ -431,7 +424,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     /********************************************************************************************************************************/
     @objc func listPressed(_: (UIButton?)) {
-        print("ViewController.listPressed():       list was pressed");
+        if(verbose) { print("ViewController.listPressed():       list was pressed"); }
         return;
     }
     
@@ -444,7 +437,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     /********************************************************************************************************************************/
     @objc func optionPressed(_: (UIButton?)) {
-        print("ViewController.optionPressed():     option was pressed");
+        if(verbose) { print("ViewController.optionPressed():     option was pressed"); }
         return;
     }
     
@@ -457,7 +450,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     /********************************************************************************************************************************/
     @objc func returnPressed(_: (UIButton?)) {
-        print("ViewController.returnPressed():     return was pressed");
+        if(verbose) { print("ViewController.returnPressed():     return was pressed"); }
         return;
     }
     
@@ -470,18 +463,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
      */
     /********************************************************************************************************************************/
     @objc func plusPressed(_: (UIButton?)) {
-        
         doAlertControllerDemo();
-        
-        print("ViewController.plusPressed():       plus was pressed");
-        
+        if(verbose) { print("ViewController.plusPressed():       plus was pressed"); }
         return;
     }
-    
-    
-    
-    var index : Int = 0;
-    
+
+
+    /********************************************************************************************************************************/
+    /** @fcn        doAlertControllerDemo()
+     *  @brief      handle response to manually editing table (dev debug)
+     *  @details    x
+     */
+    /********************************************************************************************************************************/
     @objc func doAlertControllerDemo() {
         
         var inputTextField: UITextField?;
@@ -495,28 +488,28 @@ class ViewController: UIViewController, UITextFieldDelegate {
             let entryStr : String = (inputTextField?.text)! ;
             
             //Store
-            self.rows[self.index].main = entryStr;
+            self.rows[self.alertIndex].main = entryStr;
             
-            self.index = (self.index+1)%5;
+            self.alertIndex = (self.alertIndex+1)%5;
             
             self.aNoteTable.updateCellTitles();
+
+            if(verbose) { print("ViewController.alertResp():         BOOM! I received '\(entryStr)'"); }
+        }));
+        
             
-            print("BOOM! I received '\(entryStr)'");
-        }));
-        
-        
         passwordPrompt.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { (action) -> Void in
-            print("done");
+            if(verbose) { print("done"); }
         }));
         
-        
+            
         passwordPrompt.addTextField(configurationHandler: {(textField: UITextField!) in
-            textField.placeholder = "Password"
-            textField.isSecureTextEntry = false       /* true here for pswd entry */
-            inputTextField = textField
+            textField.placeholder = "Password";
+            textField.isSecureTextEntry = false;                    /* true here for pswd entry                                     */
+            inputTextField = textField;
         });
         
-        
+
         self.present(passwordPrompt, animated: true, completion: nil);
         
         
